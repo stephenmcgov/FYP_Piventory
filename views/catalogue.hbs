@@ -1,0 +1,53 @@
+<style>
+body{
+  background-image: url("images/bg_catalogue.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-size:cover;
+  
+}
+</style>
+
+<br>
+<div class="container" style="text-align:center" id="catalogueSearch">
+	<p style="font-size:18px"><u>Search Type</u></p><br>
+	<div class="row">
+		<div class="col-lg-4">
+		<!-- Search by Store -->
+		<span style="font-size:15px">By Store:</span>
+			<form class="form-inline" method='post' id='storeSearch'>
+      			<select style="width:100%;" class="selectpicker" data-style="btn-info" name="selectpicker">
+       			<optgroup id="storeSearchList" label="Select Store"></optgroup>
+      			</select>
+      			<input type='submit' id='searchsubmission' value='Search'>
+  			</form> 
+		</div>
+		<div class="col-lg-4">
+		<!-- Search by Category -->
+		<span style="font-size:15px">By Category:</span>
+			<form class="form-inline" method='post' id='categorySearch'>
+				<select style="width:100%;" class="selectpicker" data-style="btn-info" name="selectpicker">
+				<optgroup id="categorySearchList" label="Select Category"></optgroup>
+				</select>
+				<input style="width:100%;" type='submit' id='searchsubmission' value='Search'>
+			</form>
+		</div>
+		<div class="col-lg-4">
+		<!-- Search by Name -->
+		<span style="font-size:15px">By Name:</span>
+			<form class="form-inline" method='post' autocomplete="off" id='nameSearch'><div class="autocomplete">
+				<input type='text' id='inputName' name='inputName' placeholder='Search by Name'>   
+				<input type='submit' id='searchsubmission' value='Search'>
+ 			</form>
+		</div>
+	</div>
+</div>
+
+<div id="productContainer" class='container'>
+<br/>
+        <div id="feedProducts">
+            <br/>
+            <br/>
+        </div>
+</div>

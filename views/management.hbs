@@ -1,0 +1,725 @@
+<style>
+body{
+  background-image: url("images/bg_desk.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom; 
+  background-size:cover;
+}
+</style>
+
+<br>
+<div class="container" id="management_menu">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="container" align="center">
+			<button class="btn btn-success" id="show_newProductMenu" onclick="showNewProductMenu()">v New Product Form</button>
+			<button class="btn btn-success" id="hide_newProductMenu" onclick="hideNewProductMenu()">^ New Product Form</button>
+			</div><br>
+		</div>
+		<div class="col-sm-3">
+			<div class="container" align="center">
+			<button class="btn btn-success" id="show_updateProductMenu" onclick="showUpdateProductMenu()">v Edit Product Form</button>
+			<button class="btn btn-success" id="hide_updateProductMenu" onclick="hideUpdateProductMenu()">^ Edit Product Form</button>
+			</div><br>
+		</div>
+		<div class="col-sm-3">
+			<div class="container" align="center">
+			<button class="btn btn-success" id="show_prevEOD" onclick="showPrevEOD()">v Previous EODs</button>
+			<button class="btn btn-success" id="hide_prevEOD" onclick="hidePrevEOD()">^ Previous EODs</button>
+			</div><br>
+		</div>
+		<div class="col-sm-3">
+			<div class="container" align="center">
+			<button class="btn btn-success" id="show_accountManagement" onclick="showAccountManagement()">v Account Management</button>
+			<button class="btn btn-success" id="hide_accountManagement" onclick="hideAccountManagement()">^ Account Management</button>
+			<!--<button  id = "registerButton" class="btn btn-success" >Register Staff</button>-->
+			</div><br>
+		</div>
+		
+	</div>
+</div><br>
+
+	<!--List Reports -->
+	<div class="container" id="previousReports">
+		<h2>Previous EOD Reports</h2><br>
+		<form class="form-horizontal" role="form" name="eodSearchForm" id="eodSearchForm" method="post">
+		<div class="row">
+			<div class="col-sm-3">
+				<label for="store" class="control-label">Store</label>	
+				<select class="selectpicker" id="storeReportList" data-style="btn-info" name="selectpicker" onchange="fillStoreReportField()" onclick="fillStoreReportField()">
+					<optgroup label="Select Store">
+					
+					</optgroup>
+				</select> 
+				<br><input type="text" class="form-control input-lg" name="storeReportName" id="storeReportName" placeholder="Use List ^">	
+			</div>
+			<div class="col-sm-3">
+				<label for="month" class="control-label">Month</label>	
+				<select class="selectpicker" id="prevEODMonthList" data-style="btn-info" name="selectpicker" onchange="fillEODMonth()" onclick="fillEODMonth()">
+					<optgroup label="Select Month">
+						<option value="January">January</option>
+						<option value="February">February</option>
+						<option value="March">March</option>
+						<option value="April">April</option>
+						<option value="May">May</option>
+						<option value="June">June</option>
+						<option value="July">July</option>
+						<option value="August">August</option>
+						<option value="September">September</option>
+						<option value="October">October</option>
+						<option value="November">November</option>
+						<option value="December">December</option>
+					</optgroup>
+				</select> 
+				<br><input type="text" class="form-control input-lg" name="prevEODMonth" id="prevEODMonth" placeholder="Use List ^">	
+			</div>
+			<div class="col-sm-3">
+				<label for="year" class="control-label">Year</label>	
+				<select class="selectpicker" id="prevEODYearList" data-style="btn-info" name="selectpicker" onchange="fillEODYear()" onclick="fillEODYear()">
+					<optgroup label="Select Year">
+					
+					</optgroup>
+				</select> 
+				<br><input type="text" class="form-control input-lg" name="prevEODYear" id="prevEODYear" placeholder="Use List ^">	
+			</div>
+			<div class="col-sm-3">
+				<br><br><input style="width:100%" type='submit' id='searchReportSubmit' value='Search'>
+			</div>	
+		</div>
+		</form>
+		<br>
+		<div class="container" id="feedreports">
+	
+		</div>	
+		<button type='button'  class="btn btn-success btn-md" id='exportReports' onclick='genBatchSalesExcel()'>Print Sales Reports</button>
+	</div>
+
+<!--ADD PRODUCT FORM-->
+<div class='container' id="productMenu">
+	<br>            
+	<div id="addNewProduct">
+        <h2>Enter New Product</h2>
+        <form role="form" runat="server" id="product-form" method="post" enctype="multipart/form-data" action="/addProduct">
+        <div class="row">
+				<div class="col-sm-6">
+					<label for="name" class="control-label">Product Name</label>
+					<input type="text" class="form-control input-lg required" required="required" name="name" id="name" placeholder="Upload Image To Fill (Names Must Match)">
+				</div>
+				
+				<div class="col-sm-6">
+					<label for="productImage" class="control-label">Upload Image: </label>
+					<input type="file" name="productImage" onchange="readURL(this);" required="required" id="uploadInput">
+					<br><img id="preview" src="#" alt="No Image Selected!"><br><br>
+				</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-sm-1">
+				<label for="price" class="control-label">Single Price</label>
+				<div class="checkbox"><input name="singlePrice" id="singlePrice" type="checkbox" onchange="controlForm()"></div>
+			</div>
+			<div class="col-sm-1">
+				<label for="price" class="control-label">Multiple Prices</label>
+				<div class="checkbox"><input name="multiPrice" id="multiPrice" type="checkbox" onchange="controlForm()"></div>
+			</div>
+			<div class="col-sm-1">
+				<br><label for="onSale" class="control-label">On Sale</label>
+				<div class="checkbox"><input name="onSale" id="onSale" type="checkbox" onchange="controlForm()"></div>
+			</div>
+			
+			<div class="col-sm-3">
+				<label for="category" class="control-label">Category</label>		
+				<select class="selectpicker" id="categoryList" data-style="btn-info" name="selectpicker" onchange="fillCategoryField()">
+       				<optgroup label="Select Category">
+			
+               			</optgroup>
+    				</select> 
+				<input type="text" class="form-control input-lg required" required="required" name="category" id="category" placeholder="Enter New Category">			
+			</div>
+			<div class="col-sm-6">
+			<label for="description" class="control-label">Description</label>
+                	<input type="text" class="form-control input-lg required" name="description" id="description" placeholder="None Provided">
+			</div>
+			
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-sm-3" style="display:none" name="inputSinglePrice" id="inputSinglePrice">
+				<label for="price" class="control-label">Price:</label>
+                <input type="text" class="form-control input-lg" name="price" id="price" value="0">
+			</div>
+			<div class="col-sm-3" style="display:none" name="inputSalePrice" id="inputSalePrice">
+				<label for="salePrice" class="control-label">Sale Price:</label>
+                <input type="text" class="form-control input-lg" name="salePrice" id="salePrice" value="0">
+			</div>
+			<div class="col-sm-6" style="display:none">
+
+			</div>
+		</div>
+		<br>
+		<label id="priceLabel" class="control-label" style="display:none">Normal Prices:</label>
+		<div class="row">
+			<div class="col-sm-1" style="display:none" name="inputPriceS" id="inputPriceS">
+				<label for="price" class="control-label">S:</label>
+                <input type="text" class="form-control input-lg" name="priceS" id="priceS" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputPriceM" id="inputPriceM">	
+				<label for="price" class="control-label">M:</label>
+                <input type="text" class="form-control input-lg" name="priceM" id="priceM" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputPriceL" id="inputPriceL">	
+				<label for="price" class="control-label">L:</label>			
+                <input type="text" class="form-control input-lg" name="priceL" id="priceL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputPriceXL" id="inputPriceXL">	
+				<label for="price" class="control-label">XL:</label>
+                <input type="text" class="form-control input-lg" name="priceXL" id="priceXL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputPrice2XL" id="inputPrice2XL">		
+				<label for="price" class="control-label">2XL:</label>
+                <input type="text" class="form-control input-lg" name="price2XL" id="price2XL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputPrice3XL" id="inputPrice3XL">			
+				<label for="price" class="control-label">3XL:</label>
+                <input type="text" class="form-control input-lg" name="price3XL" id="price3XL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputPrice4XL" id="inputPrice4XL">			
+				<label for="price" class="control-label">4XL:</label>
+                <input type="text" class="form-control input-lg" name="price4XL" id="price4XL" value="0">
+			</div>
+			<div class="col-sm-5">
+				
+			</div>
+		</div>
+		<br>
+		<label id="salePriceLabel" class="control-label" style="display:none">Sale Prices:</label>
+		<div class="row">
+			<div class="col-sm-1" style="display:none" name="inputSalePriceS" id="inputSalePriceS">
+				<label for="salePrice" class="control-label">S:</label>
+                <input type="text" class="form-control input-lg" name="salePriceS" id="salePriceS" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputSalePriceM" id="inputSalePriceM">	
+				<label for="salePrice" class="control-label">M:</label>
+                <input type="text" class="form-control input-lg" name="salePriceM" id="salePriceM" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputSalePriceL" id="inputSalePriceL">	
+				<label for="salePrice" class="control-label">L:</label>			
+                <input type="text" class="form-control input-lg" name="salePriceL" id="salePriceL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputSalePriceXL" id="inputSalePriceXL">	
+				<label for="salePrice" class="control-label">XL:</label>
+                <input type="text" class="form-control input-lg" name="salePriceXL" id="salePriceXL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputSalePrice2XL" id="inputSalePrice2XL">		
+				<label for="salePrice" class="control-label">2XL:</label>
+                <input type="text" class="form-control input-lg" name="salePrice2XL" id="salePrice2XL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputSalePrice3XL" id="inputSalePrice3XL">			
+				<label for="salePrice" class="control-label">3XL:</label>
+                <input type="text" class="form-control input-lg" name="salePrice3XL" id="salePrice3XL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputSalePrice4XL" id="inputSalePrice4XL">			
+				<label for="salePrice" class="control-label">4XL:</label>
+                <input type="text" class="form-control input-lg" name="salePrice4XL" id="salePrice4XL" value="0">
+			</div>
+			<div class="col-sm-5">
+				
+			</div>
+		</div>
+		<br>
+			<div class="row">	
+				<div class="col-sm-2">
+					<!--<label for="store" class="control-label">Store</label>		
+					<select class="selectpicker" id="storeList" data-style="btn-info" name="selectpicker" onchange="fillStoreField()">
+						<optgroup label="Select Store">
+				
+							</optgroup>
+						</select> 
+					<input type="text" class="form-control input-lg required" required="required" name="storeName" id="storeName" placeholder="Use List ^">	-->
+					
+					<label for="inStore" class="control-label">In Store</label><br>
+					<div class="checkbox"><input name="inWarehouse" id="inWarehouse" type="checkbox" onchange="controlForm()">Warehouse</div>	
+					<div class="checkbox"><input name="inCork" id="inCork" type="checkbox" onchange="controlForm()">Cork</div>
+					<div class="checkbox"><input name="inKala" id="inKala" type="checkbox" onchange="controlForm()">Kala</div>
+					<div class="checkbox"><input name="inGalway" id="inGalway" type="checkbox" onchange="controlForm()">Galway</div>				
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="itemDetails" class="control-label">Extra Details</label><br>
+					<div class="checkbox"><input name="hasSizes" id="hasSizes" type="checkbox" onchange="controlForm()">Multiple Sizes</div>
+					<div class="checkbox"><input name="hasColors" id="hasColors" type="checkbox" onchange="controlForm()">Multiple Colors</div>	
+				</div>
+			
+				<!--//if(inStoreX==true)->if(hasSize==true)->showStoreSizePanel()*
+				//*popStoreList() w/checkbox values
+				//show sizeRange and input price per size* and count
+				//*set masterPrice(0) or applyPrice(X) to all
+				//if masterPrice>0 show results in search result
+				//show total count per store() (add each size)-->
+				<div class="col-sm-2">
+					<label for="countWarehouse" class="control-label">Total Warehouse</label>
+					<input type="text" class="form-control input-lg required" required="required" name="countWarehouse" id="countWarehouse" onchange="updateTotals()" onclick="updateTotals()" value="0">
+				</div>	
+				<div class="col-sm-2">
+					<label for="countCork" class="control-label">Total Cork</label>
+					<input type="text" class="form-control input-lg required" required="required" name="countCork" id="countCork" onchange="updateTotals()" onclick="updateTotals()" value="0">
+				</div>	
+				<div class="col-sm-2">
+					<label for="countKala" class="control-label">Total Kala</label>
+					<input type="text" class="form-control input-lg required" required="required" name="countKala" id="countKala" onchange="updateTotals()" onclick="updateTotals()" value="0">
+				</div>		
+				<div class="col-sm-2">	
+					<label for="countGalway" class="control-label">Total Galway</label>
+					<input type="text" class="form-control input-lg required" required="required" name="countGalway" id="countGalway" onchange="updateTotals()" onclick="updateTotals()" value="0">
+				</div>
+			</div>
+		<br>
+
+		<div class="row" id="masterSizeList">
+			<div class="col-sm-3" id="showWarehouseSizes" style="display:none">
+				<label for="storeSizesWarehouse" class="control-label">Warehouse Sizes</label><br>
+				<input type="text" name="warehouseSizeS" id="warehouseSizeS" value="0" onchange='updateTotals()'><label for="warehouseSizeS">:S</label><br>
+				<input type="text" name="warehouseSizeM" id="warehouseSizeM" value="0" onchange='updateTotals()'><label for="warehouseSizeM">:M</label><br>
+				<input type="text" name="warehouseSizeL" id="warehouseSizeL" value="0" onchange='updateTotals()'><label for="warehouseSizeL">:L</label><br>
+				<input type="text" name="warehouseSizeXL" id="warehouseSizeXL" value="0" onchange='updateTotals()'><label for="warehouseSizeXL">:XL</label><br>
+				<input type="text" name="warehouseSize2XL" id="warehouseSize2XL" value="0" onchange='updateTotals()'><label for="warehouseSize2XL">:2XL</label><br>
+				<input type="text" name="warehouseSize3XL" id="warehouseSize3XL" value="0" onchange='updateTotals()'><label for="warehouseSize3XL">:3XL</label><br>
+				<input type="text" name="warehouseSize4XL" id="warehouseSize4XL" value="0" onchange='updateTotals()'><label for="warehouseSize4XL">:4XL</label><br>
+			</div>
+			<div class="col-sm-3" id="showCorkSizes" style="display:none">
+				<label for="storeSizesCork" class="control-label">Cork Sizes</label><br>
+				<input type="text" name="corkSizeS" id="corkSizeS" value="0" onchange='updateTotals()'><label for="corkSizeS">:S</label><br>
+				<input type="text" name="corkSizeM" id="corkSizeM" value="0" onchange='updateTotals()'><label for="corkSizeM">:M</label><br>
+				<input type="text" name="corkSizeL" id="corkSizeL" value="0" onchange='updateTotals()'><label for="corkSizeL">:L</label><br>
+				<input type="text" name="corkSizeXL" id="corkSizeXL" value="0" onchange='updateTotals()'><label for="corkSizeXL">:XL</label><br>
+				<input type="text" name="corkSize2XL" id="corkSize2XL" value="0" onchange='updateTotals()'><label for="corkSize2XL">:2XL</label><br>
+				<input type="text" name="corkSize3XL" id="corkSize3XL" value="0" onchange='updateTotals()'><label for="corkSize3XL">:3XL</label><br>
+				<input type="text" name="corkSize4XL" id="corkSize4XL" value="0" onchange='updateTotals()'><label for="corkSize4XL">:4XL</label><br>
+			</div>
+			<div class="col-sm-3" id="showKalaSizes" style="display:none">
+				<label for="storeSizesKala" class="control-label">Kala Sizes</label><br>
+				<input type="text" name="kalaSizeS" id="kalaSizeS" value="0" onchange='updateTotals()'><label for="kalaSizeS">:S</label><br>
+				<input type="text" name="kalaSizeM" id="kalaSizeM" value="0" onchange='updateTotals()'><label for="kalaSizeM">:M</label><br>
+				<input type="text" name="kalaSizeL" id="kalaSizeL" value="0" onchange='updateTotals()'><label for="kalaSizeL">:L</label><br>
+				<input type="text" name="kalaSizeXL" id="kalaSizeXL" value="0" onchange='updateTotals()'><label for="kalaSizeXL">:XL</label><br>
+				<input type="text" name="kalaSize2XL" id="kalaSize2XL" value="0" onchange='updateTotals()'><label for="kalaSize2XL">:2XL</label><br>
+				<input type="text" name="kalaSize3XL" id="kalaSize3XL" value="0" onchange='updateTotals()'><label for="kalaSize3XL">:3XL</label><br>
+				<input type="text" name="kalaSize4XL" id="kalaSize4XL" value="0" onchange='updateTotals()'><label for="kalaSize4XL">:4XL</label><br>
+			</div>
+			<div class="col-sm-3" id="showGalwaySizes" style="display:none">
+				<label for="storeSizesGalway" class="control-label">Galway Sizes</label><br>
+				<input type="text" name="galwaySizeS" id="galwaySizeS" value="0" onchange='updateTotals()'><label for="galwaySizeS">:S</label><br>
+				<input type="text" name="galwaySizeM" id="galwaySizeM" value="0" onchange='updateTotals()'><label for="galwaySizeM">:M</label><br>
+				<input type="text" name="galwaySizeL" id="galwaySizeL" value="0" onchange='updateTotals()'><label for="galwaySizeL">:L</label><br>
+				<input type="text" name="galwaySizeXL" id="galwaySizeXL" value="0" onchange='updateTotals()'><label for="galwaySizeXL">:XL</label><br>
+				<input type="text" name="galwaySize2XL" id="galwaySize2XL" value="0" onchange='updateTotals()'><label for="galwaySize2XL">:2XL</label><br>
+				<input type="text" name="galwaySize3XL" id="galwaySize3XL" value="0" onchange='updateTotals()'><label for="galwaySize3XL">:3XL</label><br>
+				<input type="text" name="galwaySize4XL" id="galwaySize4XL" value="0" onchange='updateTotals()'><label for="galwaySize4XL">:4XL</label><br>
+			</div>
+		</div>
+		<br>
+		<div class="row" id="subStyle" style="display: none">
+			<br>
+			<div class="col-sm-2">
+				<p>Sub-Style Code:</p><input type="text" class="form-control input-lg" name="color" id="color" placeholder="N/A">
+			</div>
+			<br>
+			<div class="col-sm-2">
+				<p>Sub-Style Total:</p><input type="text" class="form-control input-lg" name="colorTotal" id="colorTotal" placeholder="0">
+			</div>
+			<div class="col-sm-2" id="showSubWarehouse" style="display:none">
+					<p>Warehouse</p>
+					<input type="text" class="form-control input-lg required" name="subCountWarehouse" id="subCountWarehouse" value="0" onchange='updateTotals()'>
+			</div>
+			<div class="col-sm-2" id="showSubCork" style="display:none">
+					<p>Cork</p>
+					<input type="text" class="form-control input-lg required" name="subCountCork" id="subCountCork" value="0" onchange='updateTotals()'>
+			</div>	
+			<div class="col-sm-2" id="showSubKala" style="display:none">
+				<p>Kala</p>
+				<input type="text" class="form-control input-lg required" name="subCountKala" id="subCountKala" value="0" onchange='updateTotals()'>
+			</div>		
+			<div class="col-sm-2" id="showSubGalway" style="display:none">	
+				<p>Galway</p>
+				<input type="text" class="form-control input-lg required" name="subCountGalway" id="subCountGalway" value="0" onchange='updateTotals()'>
+			</div>
+		</div>
+		<br>
+		<div class="row" id="addSubStyle" style="display: none">
+			<div class="col-sm-6">
+			<p>Please Enter Number of Sub-Styles: (10 Maximum)</p>	
+				<input type="text" style="width:50px" name="numSubStyles" id="numSubStyles" value="0"><button type="button" onclick="addForm()">Generate Table</button>
+			</div>
+			
+			<div class="col-sm-6">
+			
+			</div>
+		</div>
+		<br>
+		<div class="container" id="subStyleMenu">
+		
+		</div>
+		<br>
+			
+		
+		<br>Upload Product: <input type="submit" id="submission" value="Enter Product"><br>        
+        </form>
+	</div>
+</div>
+<!--OLD BACKEND MULTI-SEARCH-->
+<div class="container" id="updateProducts">
+<h2>Edit Product</h2>
+	<div class="container" id="backendSearch">
+		<div class="row">
+			<div class="col-lg-12">			
+				<form class="form-inline" method='post' autocomplete="off" id='nameSearchB'><div class="autocomplete">
+				<input type='text' id='inputName' name='inputName' placeholder='Enter Product Name'>   
+				<input type='submit' id='searchsubmission' value='Search'>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+
+	<!--ADD STORE FORM-->
+	<!--<form class="form-horizontal" role="form" id="newStoreForm" action="/addStore">
+					<div class="col-sm-3">
+						<label for="newStoreName" class="control-label">Store Name</label>
+					</div>
+					<div class="col-sm-9">
+						<input type="text" class="form-control input-lg required" required="required" name="newStoreName" id="newStoreName" placeholder="Enter Store">
+						<button type="submit" class="btn btn-default btn-lg" id="createStore">Add Store</button>
+			</div>
+	</form>-->
+	
+	<!--EDIT PRODUCT FORM-->
+	<div class="container">          
+	<div id="editProduct">       
+        <form role="form" runat="server" id="editProductForm" method="post" action="/updateProduct">
+        
+		<label for="name" class="control-label">Product Name</label>
+		<input type="text" class="form-control input-lg required" required="required" name="editName" id="editName" placeholder="Input Search To Fill ^"><br>
+				
+		<div class="row" align="center">
+			<div class="col-sm-12">
+				<label for="editProductImage" class="control-label">Product Image: </label><br>
+				<br><img id="editCurrentPreview" src="#" alt="No Product Selected!"><br>
+			</div>
+			<!--<div class="col-sm-6">
+				<label for="editNewProductImage" class="control-label">New Product Image: </label><br>
+				<input type="file" name="editProductImage" onchange="readNewURL(this);" required="required" id="editUploadInput"><br>
+				<br><img id="editPreview" src="#" alt="No New Image Uploaded!"><br>
+			</div>-->
+		</div>		
+		<br>
+		<div class="row">
+			<div class="col-sm-1">
+				<label for="price" class="control-label">Single Price</label>
+				<div class="checkbox"><input name="editSinglePrice" id="editSinglePrice" type="checkbox" onchange="controlEditForm()"></div>
+			</div>
+			<div class="col-sm-1">
+				<label for="price" class="control-label">Multiple Prices</label>
+				<div class="checkbox"><input name="editMultiPrice" id="editMultiPrice" type="checkbox" onchange="controlEditForm()"></div>
+			</div>
+			<div class="col-sm-1">
+				<br><label for="editOnSale" class="control-label">On Sale</label>
+				<div class="checkbox"><input name="editOnSale" id="editOnSale" type="checkbox" onchange="controlEditForm()"></div>
+			</div>
+			<div class="col-sm-3">
+				<label for="category" class="control-label">Category</label>		
+				<select class="selectpicker" id="categoryEditList" data-style="btn-info" name="selectpicker" onclick="fillCategoryEditField()">
+       				<optgroup label="Select Category">
+			
+               			</optgroup>
+    				</select> 
+				<input type="text" class="form-control input-lg required" required="required" name="editCategory" id="editCategory" placeholder="">			
+			</div>
+			<div class="col-sm-6">
+			<label for="description" class="control-label">Description</label>
+                	<input type="text" class="form-control input-lg required" name="editDescription" id="editDescription" placeholder="None Provided">
+			</div>
+			
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-sm-3" style="display:none" name="inputEditSinglePrice" id="inputEditSinglePrice">
+				<label for="price" class="control-label">Set Single Price</label>
+                <input type="text" class="form-control input-lg" name="editPrice" id="editPrice" value="0">
+			</div>
+			<div class="col-sm-3" style="display:none" name="inputEditSalePrice" id="inputEditSalePrice">
+				<label for="editSalePrice" class="control-label">Sale Price:</label>
+                <input type="text" class="form-control input-lg" name="editSalePrice" id="editSalePrice" value="0">
+			</div>
+			<div class="col-sm-6" style="display:none">
+
+			</div>
+		</div>
+		<br>
+		<label id="editPriceLabel" class="control-label" style="display:none">Normal Prices:</label>
+		<div class="row">
+			<div class="col-sm-1" style="display:none" name="inputEditPriceS" id="inputEditPriceS">
+				<label for="price" class="control-label">S:</label>
+                <input type="text" class="form-control input-lg" name="editPriceS" id="editPriceS" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditPriceM" id="inputEditPriceM">	
+				<label for="price" class="control-label">M:</label>
+                <input type="text" class="form-control input-lg" name="editPriceM" id="editPriceM" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditPriceL" id="inputEditPriceL">	
+				<label for="price" class="control-label">L:</label>			
+                <input type="text" class="form-control input-lg" name="editPriceL" id="editPriceL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditPriceXL" id="inputEditPriceXL">	
+				<label for="price" class="control-label">XL:</label>
+                <input type="text" class="form-control input-lg" name="editPriceXL" id="editPriceXL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditPrice2XL" id="inputEditPrice2XL">		
+				<label for="price" class="control-label">2XL:</label>
+                <input type="text" class="form-control input-lg" name="editPrice2XL" id="editPrice2XL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditPrice3XL" id="inputEditPrice3XL">			
+				<label for="price" class="control-label">3XL:</label>
+                <input type="text" class="form-control input-lg" name="editPrice3XL" id="editPrice3XL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditPrice4XL" id="inputEditPrice4XL">			
+				<label for="price" class="control-label">4XL:</label>
+                <input type="text" class="form-control input-lg" name="editPrice4XL" id="editPrice4XL" value="0">
+			</div>
+			<div class="col-sm-5">
+				
+			</div>
+		</div>
+		<br>
+		<label id="editSalePriceLabel" class="control-label" style="display:none">Sale Prices:</label>
+		<div class="row">
+			<div class="col-sm-1" style="display:none" name="inputEditSalePriceS" id="inputEditSalePriceS">
+				<label for="price" class="control-label">S:</label>
+                <input type="text" class="form-control input-lg" name="editSalePriceS" id="editSalePriceS" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditSalePriceM" id="inputEditSalePriceM">	
+				<label for="price" class="control-label">M:</label>
+                <input type="text" class="form-control input-lg" name="editSalePriceM" id="editSalePriceM" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditSalePriceL" id="inputEditSalePriceL">	
+				<label for="price" class="control-label">L:</label>			
+                <input type="text" class="form-control input-lg" name="editSalePriceL" id="editSalePriceL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditSalePriceXL" id="inputEditSalePriceXL">	
+				<label for="price" class="control-label">XL:</label>
+                <input type="text" class="form-control input-lg" name="editSalePriceXL" id="editSalePriceXL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditSalePrice2XL" id="inputEditSalePrice2XL">		
+				<label for="price" class="control-label">2XL:</label>
+                <input type="text" class="form-control input-lg" name="editSalePrice2XL" id="editSalePrice2XL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditSalePrice3XL" id="inputEditSalePrice3XL">			
+				<label for="price" class="control-label">3XL:</label>
+                <input type="text" class="form-control input-lg" name="editSalePrice3XL" id="editSalePrice3XL" value="0">
+			</div>
+			<div class="col-sm-1" style="display:none" name="inputEditSalePrice4XL" id="inputEditSalePrice4XL">			
+				<label for="price" class="control-label">4XL:</label>
+                <input type="text" class="form-control input-lg" name="editSalePrice4XL" id="editSalePrice4XL" value="0">
+			</div>
+			<div class="col-sm-5">
+				
+			</div>
+		</div>
+		<br>
+			<div class="row">	
+				<div class="col-sm-2">
+					<!--<label for="store" class="control-label">Store</label>		
+					<select class="selectpicker" id="storeEditList" data-style="btn-info" name="selectpicker" onchange="fillStoreEditField()">
+						<optgroup label="Select Store">
+				
+							</optgroup>
+						</select> 
+					<input type="text" class="form-control input-lg required" required="required" name="storeEditName" id="storeEditName" placeholder="Use List ^">	-->
+					
+					<label for="inStoreEdit" class="control-label">In Store</label><br>
+					<div class="checkbox"><input name="inWarehouseEdit" id="inWarehouseEdit" type="checkbox" onchange="controlEditForm()">Warehouse</div>
+					<div class="checkbox"><input name="inCorkEdit" id="inCorkEdit" type="checkbox" onchange="controlEditForm()">Cork</div>
+					<div class="checkbox"><input name="inKalaEdit" id="inKalaEdit" type="checkbox" onchange="controlEditForm()">Kala</div>
+					<div class="checkbox"><input name="inGalwayEdit" id="inGalwayEdit" type="checkbox" onchange="controlEditForm()">Galway</div>			
+				</div>
+				
+				<div class="col-sm-2">
+					<label for="itemDetails" class="control-label">Extra Details</label><br>
+					<div class="checkbox"><input name="hasSizesEdit" id="hasSizesEdit" type="checkbox" onchange="controlEditForm()">Multiple Sizes</div>
+					<div class="checkbox"><input name="hasColorsEdit" id="hasColorsEdit" type="checkbox" onchange="controlEditForm()">Multiple Colors</div>	
+				</div>
+			
+				<!--//if(inStoreX==true)->if(hasSize==true)->showStoreSizePanel()*
+				//*popStoreList() w/checkbox values
+				//show sizeRange and input price per size* and count
+				//*set masterPrice(0) or applyPrice(X) to all
+				//if masterPrice>0 show results in search result
+				//show total count per store() (add each size)-->
+				<div class="col-sm-2">
+					<label for="editCountWarehouse" class="control-label">Total Warehouse</label>
+					<input type="text" class="form-control input-lg required" required="required" name="editCountWarehouse" id="editCountWarehouse" onchange="updateEditTotals()" onclick="updateEditTotals()" value="0">
+				</div>	
+				<div class="col-sm-2">
+					<label for="editCountCork" class="control-label">Total Cork</label>
+					<input type="text" class="form-control input-lg required" required="required" name="editCountCork" id="editCountCork" onchange="updateEditTotals()" onclick="updateEditTotals()" value="0">
+				</div>	
+				<div class="col-sm-2">
+					<label for="editCountKala" class="control-label">Total Kala</label>
+					<input type="text" class="form-control input-lg required" required="required" name="editCountKala" id="editCountKala" onchange="updateEditTotals()" onclick="updateEditTotals()" value="0">
+				</div>		
+				<div class="col-sm-2">	
+					<label for="editCountGalway" class="control-label">Total Galway</label>
+					<input type="text" class="form-control input-lg required" required="required" name="editCountGalway" id="editCountGalway" onchange="updateEditTotals()" onclick="updateEditTotals()" value="0">
+				</div>
+			</div>
+		<br>
+
+		<div class="row" id="masterSizeEditList">
+			<div class="col-sm-3" id="editShowWarehouseSizes" style="display: none">
+				<label for="editSizesWarehouse" class="control-label">Warehouse Sizes</label><br>
+				<input type="text" name="editWarehouseSizeS" id="editWarehouseSizeS" value="0" onchange='updateEditTotals()'><label for="editWarehouseSizeS">:S</label><br>
+				<input type="text" name="editWarehouseSizeM" id="editWarehouseSizeM" value="0" onchange='updateEditTotals()'><label for="editWarehouseSizeM">:M</label><br>
+				<input type="text" name="editWarehouseSizeL" id="editWarehouseSizeL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSizeL">:L</label><br>
+				<input type="text" name="editWarehouseSizeXL" id="editWarehouseSizeXL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSizeXL">:XL</label><br>
+				<input type="text" name="editWarehouseSize2XL" id="editWarehouseSize2XL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSize2XL">:2XL</label><br>
+				<input type="text" name="editWarehouseSize3XL" id="editWarehouseSize3XL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSize3XL">:3XL</label><br>
+				<input type="text" name="editWarehouseSize4XL" id="editWarehouseSize4XL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSize4XL">:4XL</label><br>
+			</div>
+			<div class="col-sm-3" id="editShowCorkSizes" style="display: none">
+				<label for="editSizesCork" class="control-label">Cork Sizes</label><br>
+				<input type="text" name="editCorkSizeS" id="editCorkSizeS" value="0" onchange='updateEditTotals()'><label for="editCorkSizeS">:S</label><br>
+				<input type="text" name="editCorkSizeM" id="editCorkSizeM" value="0" onchange='updateEditTotals()'><label for="editCorkSizeM">:M</label><br>
+				<input type="text" name="editCorkSizeL" id="editCorkSizeL" value="0" onchange='updateEditTotals()'><label for="editCorkSizeL">:L</label><br>
+				<input type="text" name="editCorkSizeXL" id="editCorkSizeXL" value="0" onchange='updateEditTotals()'><label for="editCorkSizeXL">:XL</label><br>
+				<input type="text" name="editCorkSize2XL" id="editCorkSize2XL" value="0" onchange='updateEditTotals()'><label for="editCorkSize2XL">:2XL</label><br>
+				<input type="text" name="editCorkSize3XL" id="editCorkSize3XL" value="0" onchange='updateEditTotals()'><label for="editCorkSize3XL">:3XL</label><br>
+				<input type="text" name="editCorkSize4XL" id="editCorkSize4XL" value="0" onchange='updateEditTotals()'><label for="editCorkSize4XL">:4XL</label><br>
+			</div>
+			<div class="col-sm-3" id="editShowKalaSizes" style="display: none">
+				<label for="editSizesKala" class="control-label">Kala Sizes</label><br>
+				<input type="text" name="editKalaSizeS" id="editKalaSizeS" value="0" onchange='updateEditTotals()'><label for="editKalaSizeS">:S</label><br>
+				<input type="text" name="editKalaSizeM" id="editKalaSizeM" value="0" onchange='updateEditTotals()'><label for="editKalaSizeM">:M</label><br>
+				<input type="text" name="editKalaSizeL" id="editKalaSizeL" value="0" onchange='updateEditTotals()'><label for="editKalaSizeL">:L</label><br>
+				<input type="text" name="editKalaSizeXL" id="editKalaSizeXL" value="0" onchange='updateEditTotals()'><label for="editKalaSizeXL">:XL</label><br>
+				<input type="text" name="editKalaSize2XL" id="editKalaSize2XL" value="0" onchange='updateEditTotals()'><label for="editKalaSize2XL">:2XL</label><br>
+				<input type="text" name="editKalaSize3XL" id="editKalaSize3XL" value="0" onchange='updateEditTotals()'><label for="editKalaSize3XL">:3XL</label><br>
+				<input type="text" name="editKalaSize4XL" id="editKalaSize4XL" value="0" onchange='updateEditTotals()'><label for="editKalaSize4XL">:4XL</label><br>
+			</div>
+			<div class="col-sm-3" id="editShowGalwaySizes" style="display: none">
+				<label for="editSizesGalway" class="control-label">Galway Sizes</label><br>
+				<input type="text" name="editGalwaySizeS" id="editGalwaySizeS" value="0" onchange='updateEditTotals()'><label for="editGalwaySizeS">:S</label><br>
+				<input type="text" name="editGalwaySizeM" id="editGalwaySizeM" value="0" onchange='updateEditTotals()'><label for="editGalwaySizeM">:M</label><br>
+				<input type="text" name="editGalwaySizeL" id="editGalwaySizeL" value="0" onchange='updateEditTotals()'><label for="editGalwaySizeL">:L</label><br>
+				<input type="text" name="editGalwaySizeXL" id="editGalwaySizeXL" value="0" onchange='updateEditTotals()'><label for="editGalwaySizeXL">:XL</label><br>
+				<input type="text" name="editGalwaySize2XL" id="editGalwaySize2XL" value="0" onchange='updateEditTotals()'><label for="editGalwaySize2XL">:2XL</label><br>
+				<input type="text" name="editGalwaySize3XL" id="editGalwaySize3XL" value="0" onchange='updateEditTotals()'><label for="editGalwaySize3XL">:3XL</label><br>
+				<input type="text" name="editGalwaySize4XL" id="editGalwaySize4XL" value="0" onchange='updateEditTotals()'><label for="editGalwaySize4XL">:4XL</label><br>
+			</div>
+		</div>
+		<br>
+		<div class="row" id="editSubStyle" style="display: none">
+			<br>
+			<div class="col-sm-3">
+				<p>Sub-Style Code:</p><input type="text" class="form-control input-lg" name="editColor" id="editColor" placeholder="N/A">
+			</div>
+			<br>
+			<div class="col-sm-3">
+				<p>Sub-Style Total:</p><input type="text" class="form-control input-lg" name="editColorTotal" id="editColorTotal" placeholder="0">
+			</div>
+			<div class="col-sm-2" id="editShowSubWarehouse" style="display:none">
+					<p>Cork</p>
+					<input type="text" class="form-control input-lg required" name="editSubCountCork" id="editSubCountWarehouse" value="0" onchange='updateEditTotals()'>
+			</div>
+			<div class="col-sm-2" id="editShowSubCork" style="display:none">
+					<p>Cork</p>
+					<input type="text" class="form-control input-lg required" name="editSubCountCork" id="editSubCountCork" value="0" onchange='updateEditTotals()'>
+			</div>	
+			<div class="col-sm-2" id="editShowSubKala" style="display:none">
+				<p>Kala</p>
+				<input type="text" class="form-control input-lg required" name="editSubCountKala" id="editSubCountKala" value="0" onchange='updateEditTotals()'>
+			</div>		
+			<div class="col-sm-2" id="editShowSubGalway" style="display:none">	
+				<p>Galway</p>
+				<input type="text" class="form-control input-lg required" name="editSubCountGalway" id="editSubCountGalway" value="0" onchange='updateEditTotals()'>
+			</div>
+		</div>
+		<br>
+		<div class="row" id="editAddSubStyle" style="display: none">
+			<div class="col-sm-6">
+			<p>Please Enter Number of Sub-Styles: (10 Maximum)</p>	
+				<input type="text" style="width:50px" name="editNumSubStyles" id="editNumSubStyles" value="0"><button type="button" onclick="addEditForm()">Generate Table</button>
+			</div>
+			
+			<div class="col-sm-6">
+			
+			</div>
+		</div>
+		<br>
+		<div class="container" id="editSubStyleMenu" style="display: none">
+		
+		</div>
+		<br>
+			
+		
+		<br><input type="submit" id="submission" value="Update Product"><br>        
+        </form>
+		<div id="deleteHTML">
+		
+		</div>
+	</div>		
+	</div>
+	
+
+	</div>
+	
+	<!---Staff Management--->
+<div class="container" id="accountManagement" align="center">
+<div class="col-md-8 col-md-offset-2">
+    <h2>Register new account</h2>
+	<br><br><br>
+    <form class="form-horizontal" role="form" id="reg-form">
+       <div class="form-group mt">
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <label for="inputUsername" class="control-label">Username</label>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control input-lg required" required="required" id="inputUsername" placeholder="Enter New Username">
+                </div>
+            </div>
+        </div>
+		<br>
+        
+            <div class="col-sm-12">
+                <div class="col-sm-3">
+                    <label for="inputPassword" class="control-label">Password</label>
+                </div>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control input-lg required" required="required" id="inputPassword" placeholder="Enter New Password">
+                </div>
+            </div>
+			<br><br><br>
+			<div class="row">
+				<div class="col-sm-4">
+					<label for="inputRole" class="control-label">Grant User Admin Access</label>
+					<div class="checkbox"><input name="inputRole" id="inputRole" type="checkbox"></div>
+				</div>
+				<br><br>
+				<div class="col-sm-8">
+					<div class="form-group">
+						<div class="row col-sm-offset-2 col-sm-10 mt">
+							<button type="submit" class="btn btn-default btn-lg" id="createAccount" style="width:100%">Create Account</button>
+						</div>
+					</div>
+				</div>	
+			</div>	
+        </form>
+</div>
+</div>
+
+</div>
+<br>
+
+            
+  

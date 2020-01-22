@@ -1,0 +1,260 @@
+<style>
+body{
+  background-image: url("images/bg_reports.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-size:cover;
+}
+</style>
+
+<br>
+	<div class="container" id="reports_menu">
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="container" align="center">
+			<button class="btn btn-success" id="show_eod" onclick="showEOD()">v End of Day Form</button>
+			<button class="btn btn-success" id="hide_eod" onclick="hideEOD()">^ End of Day Form</button>
+			</div><br>
+		</div>
+		<div class="col-sm-4">
+			<div class="container" align="center">
+			<button class="btn btn-success" id="show_deliveryReport" onclick="showDeliveryReport()">v Delivery Form</button>
+			<button class="btn btn-success" id="hide_deliveryReport" onclick="hideDeliveryReport()">^ Delivery Form</button>
+			</div><br>
+		</div>
+		<div class="col-sm-4">
+			<div class="container" align="center">
+			<button class="btn btn-success" id="show_stockCountReport" onclick="showStockCountReport()">v Stock Count Form</button>
+			<button class="btn btn-success" id="hide_stockCountReport" onclick="hideStockCountReport()">^ Stock Count Form</button>
+			</div><br>
+		</div>
+	</div>
+	</div>
+	<br>
+	
+	<!-- Enter New EOD Report -->
+	<div class="container" id="eod_report">
+		<h2>End of Day Report</h2><br>
+		<form class="form-horizontal" role="form" id="eod_form" runat="server" method="post" action="/addReport">
+		   <div class="form-group mt">
+				<div class="row">
+					<div class="col-sm-4">
+						<label for="store" class="control-label">Store</label>	
+						<select class="selectpicker" id="storeList" data-style="btn-info" name="selectpicker" onchange="fillStoreField()" onclick="fillStoreField()">
+							<optgroup label="Select Store">
+					
+							</optgroup>
+						</select> 
+						<br><input type="text" class="form-control input-lg required" required="required" name="storeName" id="storeName" placeholder="Use List ^">	
+					</div>
+					<div class="col-sm-4">
+						<p>Staff Name:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputStaffName" id="inputStaffName" placeholder="Staff Name">
+					</div>
+					<!--<div class="col-sm-4">
+						<p>Shift Length:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputShiftLength" id="inputShiftLength" placeholder="Shift Length (Hours:Minutes)">
+					</div>-->
+					<div class="col-sm-2">
+						<p>Shift Start:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputShiftStart" id="inputShiftStart" placeholder="Enter Time (Hr:Min)">
+					</div>
+					<div class="col-sm-2">
+						<p>Shift End:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputShiftEnd" id="inputShiftEnd" placeholder="Enter Time (Hr:Min)">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<br>
+						<p>Start Float:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputBOD_Float" id="inputBOD_Float" placeholder="Start Float">
+					</div>
+					<div class="col-sm-2">
+						<br>
+						<p>Cash Amount:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputEOD_Cash" id="inputEOD_Cash" placeholder="Cash Amount">
+					</div>
+					<div class="col-sm-2">
+						<br>
+						<p>Other Amount:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputEOD_Other" id="inputEOD_Other" placeholder="Other Amount">
+					</div>
+					<div class="col-sm-2">
+						<br>
+						<p>Card Amount:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputEOD_Card" id="inputEOD_Card" placeholder="Card Amount">
+					</div>
+					<div class="col-sm-2">
+						<br>
+						<p>Expenses:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputEOD_Expenses" id="inputEOD_Expenses" placeholder="Expenses">
+					</div>
+					<div class="col-sm-2">
+						<br>
+						<p>End Float:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputEOD_Float" id="inputEOD_Float" placeholder="End Float">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<br>
+						<button type="button" id="finaliseEOD_form" class="btn btn-success btn-md" onclick="showEOD_report()">Generate Report</button>
+					</div>	
+				</div>
+				<br>
+				<div class="row" >
+					<div class="col-sm-3">
+						<br>
+						<p>Cash Total:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputCashTotal" id="inputCashTotal">
+					</div>
+					<div class="col-sm-3">
+						<br>
+						<p>Full Total:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputTotal" id="inputTotal">
+					</div>
+					<div class="col-sm-3">
+						<br>
+						<p>Float Difference:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputfloatDiff" id="inputfloatDiff">
+					</div>
+					<div class="col-sm-3">
+						<br>
+						<p>Current Date:</p>
+						<input type="text" class="form-control input-lg required" required="required" name="inputCurr_Date" id="inputCurr_Date">
+					</div>
+				</div>
+				<div class="container" align='center' id="eod_draft">
+					<br><br><br>
+					<p>No Report Generated!</p>
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	<!-- Enter Delivery Report -->
+	<div class="container" id="deliveryReports">
+		<h2>Delivery Report</h2><br>
+		<div class="row">
+			<div class="col-sm-6">
+				<p>From:</p>
+				<input type="text" required="required" name="fromStore" id="fromStore" placeholder="">
+			</div>	
+			<div class="col-sm-6">	
+				<p>To:</p>
+				<input type="text" required="required" name="toStore" id="toStore" placeholder="">
+			</div>	
+		</div>		
+		<br>
+		<div id="deliveryProductFields" name="deliveryProductFields">
+			<div class="row" >
+				<div class="col-sm-6">
+				<div class="autocomplete">
+					<br><p>Product Name:</p><input type='text'  name='deliveryProductName' id='deliveryProductName'><br>
+				</div>
+				</div>	
+				<div class="col-sm-6">
+					<br><p>Sub Code:</p><input type='text' name='deliveryProductCode' id='deliveryProductCode'><br>
+				</div>	
+			</div>	
+					<br><p>Sizes:</p>
+			<div class="row" >	
+				<div class="col-sm-1">
+					<br><p>S: </p><input style="width:50px" type='text' id='deliveryProductS' value="0" onchange="updateDeliveryTotal()"><br>
+				</div>
+				<div class="col-sm-1">
+					<br><p>M: </p><input style="width:50px" type='text' id='deliveryProductM' value="0" onchange="updateDeliveryTotal()"><br>
+				</div>
+				<div class="col-sm-1">
+					<br><p>L: </p><input style="width:50px" type='text' id='deliveryProductL' value="0" onchange="updateDeliveryTotal()"><br>
+				</div>
+				<div class="col-sm-1">	
+					<br><p>XL: </p><input style="width:50px" type='text' id='deliveryProductXL' value="0" onchange="updateDeliveryTotal()"><br>
+				</div>
+				<div class="col-sm-1">	
+					<br><p>2XL: </p><input style="width:50px" type='text' id='deliveryProduct2XL' value="0" onchange="updateDeliveryTotal()"><br>
+				</div>	
+				<div class="col-sm-1">
+					<br><p>3XL: </p><input style="width:50px" type='text' id='deliveryProduct3XL' value="0" onchange="updateDeliveryTotal()"><br>
+				</div>
+				<div class="col-sm-1">	
+					<br><p>4XL: </p><input style="width:50px" type='text' id='deliveryProduct4XL' value="0" onchange="updateDeliveryTotal()"><br>
+				</div>
+				<div class="col-sm-1">
+				</div>
+				<div class="col-sm-4">	
+					<br><p>Total: </p><input style="width:50px" type='text' value="0" id='deliveryProductTotal'><br>
+				</div>
+				
+			</div>	
+		</div>
+		<br><button  class="btn btn-success btn-md" id="addDeliveryProduct" name="addDeliveryProduct" onclick="addDeliveryProduct()">Add Product</button>
+		
+		<br><br><br>
+		<h2 id="deliverySummaryBanner" style="display:none">Delivery Summary</h2>
+		<div id="deliverySummary" name="deliverySummary">
+		
+		</div>
+		<br><button  class="btn btn-success btn-md" style="display:none" id="printDeliveryReport" name="printDeliveryReport" onclick="genDeliveryExcel()">Print Delivery</button>
+		<br><br>
+	</div>	
+	
+	<!-- Enter Stock Count Report -->
+	<div class="container" id="stockCountReports">
+		<h2>Stock Count Report</h2><br>
+		<label for="countstore" class="control-label">Store</label>		
+			<select class="selectpicker" id="storeCountList" data-style="btn-info" name="selectpicker" onchange="fillStoreCountField()" onclick="fillStoreCountField()">
+       			<optgroup label="Select Store">
+			
+           		</optgroup>
+    		</select><br>
+		<input type="text" name="storeCountName" id="storeCountName" placeholder="Use List ^">		
+		<br>
+		<div id="stockCountFields" name="stockCountFields">
+			<div class="autocomplete">
+			<br><p>Product Name:</p><input type='text'  name='stockCountProductName' id='stockCountProductName'><br></div>	
+			<br><p>Sub Code:</p><input type='text' name='stockCountProductCode' id='stockCountProductCode'><br>		
+			<br><p>Sizes:</p>
+			<div class="row" >	
+				<div class="col-sm-1">
+					<br><p>S: </p><input style="width:50px" type='text' id='stockCountProductS' value="0" onchange="updateStockCountTotal()"><br>
+				</div>
+				<div class="col-sm-1">
+					<br><p>M: </p><input style="width:50px" type='text' id='stockCountProductM' value="0" onchange="updateStockCountTotal()"><br>
+				</div>
+				<div class="col-sm-1">
+					<br><p>L: </p><input style="width:50px" type='text' id='stockCountProductL' value="0" onchange="updateStockCountTotal()"><br>
+				</div>
+				<div class="col-sm-1">	
+					<br><p>XL: </p><input style="width:50px" type='text' id='stockCountProductXL' value="0" onchange="updateStockCountTotal()"><br>
+				</div>
+				<div class="col-sm-1">	
+					<br><p>2XL: </p><input style="width:50px" type='text' id='stockCountProduct2XL' value="0" onchange="updateStockCountTotal()"><br>
+				</div>	
+				<div class="col-sm-1">
+					<br><p>3XL: </p><input style="width:50px" type='text' id='stockCountProduct3XL' value="0" onchange="updateStockCountTotal()"><br>
+				</div>
+				<div class="col-sm-1">	
+					<br><p>4XL: </p><input style="width:50px" type='text' id='stockCountProduct4XL' value="0" onchange="updateStockCountTotal()"><br>
+				</div>
+				<div class="col-sm-1">
+				</div>
+				<div class="col-sm-4">	
+					<br><p>Total: </p><input style="width:50px" type='text' value="0" id='stockCountProductTotal'><br>
+				</div>	
+			</div>	
+		</div>
+		<br><button  class="btn btn-success btn-md" id="addStockCountProduct" name="addStockCountProduct" onclick="addStockCountProduct()">Add Product</button>
+		
+		<br><br><br>
+		<h2 id="stockCountSummaryBanner" style="display:none">Stock Count Summary</h2>
+		<div id="stockCountSummary" name="stockCountSummary">
+		
+		</div>
+		<br><button class="btn btn-success btn-md" style="display:none" id="printStockCountReport" name="printStockCountReport" onclick="genStockCountExcel()">Print Stock Count</button>
+		<br><br>
+	</div>
+<br><br>
