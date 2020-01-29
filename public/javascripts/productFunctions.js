@@ -1992,7 +1992,7 @@ $(document).ready(
 						//create button for Product DELETE route
 						products += "<form method='post' action='/deleteProduct' name='deleteForm' id='deleteForm'>";
                         products += "<br><input type='text' name='deleteName' id='deleteName' value='" + data[i].name + "' style='display:none' readonly><br><input type='submit' id='deleteButton' value='DELETE PRODUCT'></form><br>";
-						
+						document.getElementById("editProduct").style.display = "block";
 						//controlEditForm();
 					}
 					
