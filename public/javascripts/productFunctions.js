@@ -1,3 +1,4 @@
+ /*eslint-env jquery*/
 var styleIndex = 0;
 
 $(document).ready(
@@ -12,12 +13,13 @@ $(document).ready(
                 data: {
                     'name': event.target.deleteName.value
                 },
-                success: function(token){
+                success: function(){
                     $(location).attr('href', '/management' );
                     // Redirect to a login page
                 },
                 error: function(errMsg) {
-                    console.log("delete error");
+                    console.log("deletion error");
+                    console.log(errMsg);
 					console.log(event.target.deleteName.value);
                 }
             });
@@ -39,7 +41,6 @@ $(document).ready(
                 success: function (data) {
 
                     var products = "";
-					var manageProducts = ""; 
 
                     for (var i = 0; i < data.length; i++) {
 						products += "<div class='productCard'>";
@@ -316,7 +317,7 @@ $(document).ready(
 						}	
                        
 					    products += "<p>" + data[i].description + "</p>";
-						products += "</div></div>"
+						products += "</div></div>";
                     }
                     //pass the products variable to the feedproducts div id in catalogue
                     $("#feedProducts").html(products);
@@ -465,7 +466,7 @@ $(document).ready(
 						}	
 						
                         products += "<p>" + data[i].description + "</p>";
-						products += "</div></div>"
+						products += "</div></div>";
                     }
                     //pass the products variable to the feedproducts div id in catalogue
                     $("#feedProducts").html(products);
@@ -2173,6 +2174,14 @@ function addEditForm()
 
 function controlEditForm()
 {
+	var i=0;
+	var currStyle=0;
+
+	var editShowSubCork = '';
+	var editShowSubKala = '';
+	var editShowSubGalway = '';
+	var editShowSubWarehouse = '';
+
 	if($('#editSinglePrice').value!="on")
 	{
 		document.getElementById("editPrice").value = 0;
@@ -2333,62 +2342,62 @@ function controlEditForm()
 	{
 		document.getElementById("editAddSubStyle").style.display =  "block";
 		
-			for(var i=1; i<styleIndex+1; i++)
-			{
-				currStyle=i;
-				//var subStyle = document.getElementById("subStyle").id + currStyle;
-				var editShowCorkSizes = document.getElementById("editShowCorkSizes").id + currStyle;
-				var editShowKalaSizes = document.getElementById("editShowKalaSizes").id + currStyle;
-				var editShowGalwaySizes = document.getElementById("editShowGalwaySizes").id + currStyle;
-				var editShowWarehouseSizes = document.getElementById("editShowWarehouseSizes").id + currStyle;
-				//var subStyle = document.getElementById("editSubStyle").id + currStyle;
-				//var addSubStyle = document.getElementById("editAddSubStyle").id + currStyle;
+		for(i=1; i<styleIndex+1; i++)
+		{
+			currStyle=i;
+			//var subStyle = document.getElementById("subStyle").id + currStyle;
+			var editShowCorkSizes = document.getElementById("editShowCorkSizes").id + currStyle;
+			var editShowKalaSizes = document.getElementById("editShowKalaSizes").id + currStyle;
+			var editShowGalwaySizes = document.getElementById("editShowGalwaySizes").id + currStyle;
+			var editShowWarehouseSizes = document.getElementById("editShowWarehouseSizes").id + currStyle;
+			//var subStyle = document.getElementById("editSubStyle").id + currStyle;
+			//var addSubStyle = document.getElementById("editAddSubStyle").id + currStyle;
 				
-				//document.getElementById(addSubStyle).style.display =  "block";
-				if($('#hasSizesEdit').prop('checked')==true)
-				{
-					if($('#inWarehouseEdit').prop('checked')==true)
+			//document.getElementById(addSubStyle).style.display =  "block";
+			if($('#hasSizesEdit').prop('checked')==true)
+			{
+				if($('#inWarehouseEdit').prop('checked')==true)
 					document.getElementById(editShowWarehouseSizes).style.display =  "block";
 				
-					else if($('#inWarehouseEdit').prop('checked')==false)
+				else if($('#inWarehouseEdit').prop('checked')==false)
 					document.getElementById(editShowWarehouseSizes).style.display =  "none";
 						
-					if($('#inCorkEdit').prop('checked')==true)
+				if($('#inCorkEdit').prop('checked')==true)
 					document.getElementById(editShowCorkSizes).style.display =  "block";
 				
-					else if($('#inCorkEdit').prop('checked')==false)
+				else if($('#inCorkEdit').prop('checked')==false)
 					document.getElementById(editShowCorkSizes).style.display =  "none";
 						
-					if($('#inKalaEdit').prop('checked')==true)
+				if($('#inKalaEdit').prop('checked')==true)
 					document.getElementById(editShowKalaSizes).style.display =  "block";
 				
-					else if($('#inKalaEdit').prop('checked')==false)
+				else if($('#inKalaEdit').prop('checked')==false)
 					document.getElementById(editShowKalaSizes).style.display =  "none";
 				
-					if($('#inGalwayEdit').prop('checked')==true)
+				if($('#inGalwayEdit').prop('checked')==true)
 					document.getElementById(editShowGalwaySizes).style.display =  "block";
 				
-					else if($('#inGalwayEdit').prop('checked')==false)
+				else if($('#inGalwayEdit').prop('checked')==false)
 					document.getElementById(editShowGalwaySizes).style.display =  "none";
-				}
-				
-				else if($('#hasSizesEdit').prop('checked')==false)
-				{
-					document.getElementById(editShowWarehouseSizes).style.display =  "none";
-					document.getElementById(editShowCorkSizes).style.display =  "none";
-					document.getElementById(editShowKalaSizes).style.display =  "none";
-					document.getElementById(editShowGalwaySizes).style.display =  "none";
-				}
 			}
-			
-			/*if(styleIndex>0)
-			for(var i=1; i<styleIndex+1; i++)	
+				
+			else if($('#hasSizesEdit').prop('checked')==false)
 			{
-				currStyle = i;
-				//var editAddSubStyle = document.getElementById("editAddSubStyle").id + currStyle;
-				//console.log(addSubStyle);
-				//document.getElementById(editAddSubStyle).style.display =  "none";
-			}*/
+				document.getElementById(editShowWarehouseSizes).style.display =  "none";
+				document.getElementById(editShowCorkSizes).style.display =  "none";
+				document.getElementById(editShowKalaSizes).style.display =  "none";
+				document.getElementById(editShowGalwaySizes).style.display =  "none";
+			}
+		}
+			
+		/*if(styleIndex>0)
+		for(var i=1; i<styleIndex+1; i++)	
+		{
+			currStyle = i;
+			//var editAddSubStyle = document.getElementById("editAddSubStyle").id + currStyle;
+			//console.log(addSubStyle);
+			//document.getElementById(editAddSubStyle).style.display =  "none";
+		}*/
 	}
 
 	if($('#hasColorsEdit').prop('checked')==false)
@@ -2402,43 +2411,42 @@ function controlEditForm()
 	
 	if($('#hasSizesEdit').prop('checked')==true)
 	{
-		for(var i=1; i<styleIndex+1; i++)
+		for(i=1; i<styleIndex+1; i++)
 		{
-				currStyle=i;
-				//var subStyle = document.getElementById("subStyle").id + currStyle;
-				var editShowSubCork = document.getElementById("editShowSubCork").id + currStyle;
-				var editShowSubKala = document.getElementById("editShowSubKala").id + currStyle;
-				var editShowSubGalway = document.getElementById("editShowSubGalway").id + currStyle;
-				var editShowSubWarehouse = document.getElementById("editShowSubWarehouse").id + currStyle;
-				//var subStyle = document.getElementById("subStyle").id + currStyle;
-				//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
+			currStyle=i;
+			//var subStyle = document.getElementById("subStyle").id + currStyle;
+			editShowSubCork = document.getElementById("editShowSubCork").id + currStyle;
+			editShowSubKala = document.getElementById("editShowSubKala").id + currStyle;
+			editShowSubGalway = document.getElementById("editShowSubGalway").id + currStyle;
+			editShowSubWarehouse = document.getElementById("editShowSubWarehouse").id + currStyle;
+			//var subStyle = document.getElementById("subStyle").id + currStyle;
+			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
 			
-				//document.getElementById(addSubStyle).style.display =  "block";
+			//document.getElementById(addSubStyle).style.display =  "block";
 					
-					if($('#inWarehouseEdit').prop('checked')==true)
-					document.getElementById(editShowSubWarehouse).style.display =  "block";
+			if($('#inWarehouseEdit').prop('checked')==true)
+				document.getElementById(editShowSubWarehouse).style.display =  "block";
 				
-					else if($('#inWarehouseEdit').prop('checked')==false)
-					document.getElementById(editShowSubWarehouse).style.display =  "none";
+			else if($('#inWarehouseEdit').prop('checked')==false)
+				document.getElementById(editShowSubWarehouse).style.display =  "none";
 				
-					if($('#inCorkEdit').prop('checked')==true)
-					document.getElementById(editShowSubCork).style.display =  "block";
+			if($('#inCorkEdit').prop('checked')==true)
+				document.getElementById(editShowSubCork).style.display =  "block";
 				
-					else if($('#inCorkEdit').prop('checked')==false)
-					document.getElementById(editShowSubCork).style.display =  "none";
+			else if($('#inCorkEdit').prop('checked')==false)
+				document.getElementById(editShowSubCork).style.display =  "none";
 						
-					if($('#inKalaEdit').prop('checked')==true)
-					document.getElementById(editShowSubKala).style.display =  "block";
+			if($('#inKalaEdit').prop('checked')==true)
+				document.getElementById(editShowSubKala).style.display =  "block";
 				
-					else if($('#inKalaEdit').prop('checked')==false)
-					document.getElementById(editShowSubKala).style.display =  "none";
+			else if($('#inKalaEdit').prop('checked')==false)
+				document.getElementById(editShowSubKala).style.display =  "none";
 				
-					if($('#inGalwayEdit').prop('checked')==true)
-					document.getElementById(editShowSubGalway).style.display =  "block";
+			if($('#inGalwayEdit').prop('checked')==true)
+				document.getElementById(editShowSubGalway).style.display =  "block";
 				
-					else if($('#inGalwayEdit').prop('checked')==false)
-					document.getElementById(editShowSubGalway).style.display =  "none";
-				
+			else if($('#inGalwayEdit').prop('checked')==false)
+				document.getElementById(editShowSubGalway).style.display =  "none";	
 		}
 	}
 	
@@ -2449,7 +2457,7 @@ function controlEditForm()
 		document.getElementById("editShowKalaSizes").style.display =  "none";
 		document.getElementById("editShowGalwaySizes").style.display =  "none";
 		
-		for(var i=1; i<styleIndex+1; i++)
+		for(i=1; i<styleIndex+1; i++)
 		{
 			currStyle=i;
 			
@@ -2478,42 +2486,42 @@ function controlEditForm()
 			}
 		}
 		
-		for(var i=1; i<styleIndex+1; i++)
+		for(i=1; i<styleIndex+1; i++)
 		{
-				currStyle=i;
-				//var subStyle = document.getElementById("subStyle").id + currStyle;
-				var editShowSubWarehouse = document.getElementById("editShowSubWarehouse").id + currStyle;
-				var editShowSubCork = document.getElementById("editShowSubCork").id + currStyle;
-				var editShowSubKala = document.getElementById("editShowSubKala").id + currStyle;
-				var editShowSubGalway = document.getElementById("editShowSubGalway").id + currStyle;
-				//var subStyle = document.getElementById("subStyle").id + currStyle;
-				//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
+			currStyle=i;
+			//var subStyle = document.getElementById("subStyle").id + currStyle;
+			editShowSubWarehouse = document.getElementById("editShowSubWarehouse").id + currStyle;
+			editShowSubCork = document.getElementById("editShowSubCork").id + currStyle;
+			editShowSubKala = document.getElementById("editShowSubKala").id + currStyle;
+			editShowSubGalway = document.getElementById("editShowSubGalway").id + currStyle;
+			//var subStyle = document.getElementById("subStyle").id + currStyle;
+			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
 				
-				//document.getElementById(addSubStyle).style.display =  "block";
+			//document.getElementById(addSubStyle).style.display =  "block";
 					
-					if($('#inWarehouseEdit').prop('checked')==true)
-					document.getElementById(editShowSubWarehouse).style.display =  "block";
+			if($('#inWarehouseEdit').prop('checked')==true)
+				document.getElementById(editShowSubWarehouse).style.display =  "block";
 				
-					else if($('#inWarehouseEdit').prop('checked')==false)
-					document.getElementById(editShowSubWarehouse).style.display =  "none";
+			else if($('#inWarehouseEdit').prop('checked')==false)
+				document.getElementById(editShowSubWarehouse).style.display =  "none";
 				
-					if($('#inCorkEdit').prop('checked')==true)
-					document.getElementById(editShowSubCork).style.display =  "block";
+			if($('#inCorkEdit').prop('checked')==true)
+				document.getElementById(editShowSubCork).style.display =  "block";
 				
-					else if($('#inCorkEdit').prop('checked')==false)
-					document.getElementById(editShowSubCork).style.display =  "none";
+			else if($('#inCorkEdit').prop('checked')==false)
+				document.getElementById(editShowSubCork).style.display =  "none";
 						
-					if($('#inKalaEdit').prop('checked')==true)
-					document.getElementById(editShowSubKala).style.display =  "block";
+			if($('#inKalaEdit').prop('checked')==true)
+				document.getElementById(editShowSubKala).style.display =  "block";
 				
-					else if($('#inKalaEdit').prop('checked')==false)
-					document.getElementById(editShowSubKala).style.display =  "none";
+			else if($('#inKalaEdit').prop('checked')==false)
+				document.getElementById(editShowSubKala).style.display =  "none";
 				
-					if($('#inGalwayEdit').prop('checked')==true)
-					document.getElementById(editShowSubGalway).style.display =  "block";
+			if($('#inGalwayEdit').prop('checked')==true)
+				document.getElementById(editShowSubGalway).style.display =  "block";
 				
-					else if($('#inGalwayEdit').prop('checked')==false)
-					document.getElementById(editShowSubGalway).style.display =  "none";
+			else if($('#inGalwayEdit').prop('checked')==false)
+				document.getElementById(editShowSubGalway).style.display =  "none";
 				
 		}
 	}
@@ -2521,43 +2529,43 @@ function controlEditForm()
 	if(($('#hasSizesEdit').prop('checked')==true) && ($('#hasColorsEdit').prop('checked')==false))
 	{	
 		if($('#inWarehouseEdit').prop('checked')==true)
-		document.getElementById("editShowWarehouseSizes").style.display =  "block";
+			document.getElementById("editShowWarehouseSizes").style.display =  "block";
 	
 		else if($('#inWarehouseEdit').prop('checked')==false)
-		document.getElementById("editShowWarehouseSizes").style.display =  "none";
+			document.getElementById("editShowWarehouseSizes").style.display =  "none";
 		
 		if($('#inCorkEdit').prop('checked')==true)
-		document.getElementById("editShowCorkSizes").style.display =  "block";
+			document.getElementById("editShowCorkSizes").style.display =  "block";
 	
 		else if($('#inCorkEdit').prop('checked')==false)
-		document.getElementById("editShowCorkSizes").style.display =  "none";
+			document.getElementById("editShowCorkSizes").style.display =  "none";
 			
 		if($('#inKalaEdit').prop('checked')==true)
-		document.getElementById("editShowKalaSizes").style.display =  "block";
+			document.getElementById("editShowKalaSizes").style.display =  "block";
 	
 		else if($('#inKalaEdit').prop('checked')==false)
-		document.getElementById("editShowKalaSizes").style.display =  "none";
+			document.getElementById("editShowKalaSizes").style.display =  "none";
 	
 		if($('#inGalwayEdit').prop('checked')==true)
-		document.getElementById("editShowGalwaySizes").style.display =  "block";
+			document.getElementById("editShowGalwaySizes").style.display =  "block";
 	
 		else if($('#inGalwayEdit').prop('checked')==false)
-		document.getElementById("editShowGalwaySizes").style.display =  "none";
+			document.getElementById("editShowGalwaySizes").style.display =  "none";
 	}
 	
 	if(($('#hasSizesEdit').prop('checked')==false) && ($('#hasColorsEdit').prop('checked')==false))
 	{
 		if($('#inWarehouseEdit').prop('checked')==false)
-		document.getElementById("editCountWarehouse").value = 0;
+			document.getElementById("editCountWarehouse").value = 0;
 	
 		if($('#inCorkEdit').prop('checked')==false)
-		document.getElementById("editCountCork").value = 0;
+			document.getElementById("editCountCork").value = 0;
 		
 		if($('#inKalaEdit').prop('checked')==false)
-		document.getElementById("editCountKala").value = 0;
+			document.getElementById("editCountKala").value = 0;
 	
 		if($('#inGalwayEdit').prop('checked')==false)
-		document.getElementById("editCountGalway").value = 0;
+			document.getElementById("editCountGalway").value = 0;
 	}
 	
 	updateEditTotals();
@@ -2565,6 +2573,60 @@ function controlEditForm()
 
 function updateEditTotals()
 {
+	var i=0;
+	var currStyle=0;
+
+	var editWarehouseTotal = 0;
+	var editCorkTotal = 0;
+	var editKalaTotal = 0;
+	var editGalwayTotal = 0;
+
+	var editCountWarehouseSizeS = 0;
+	var editCountWarehouseSizeM = 0;
+	var editCountWarehouseSizeL = 0;
+	var editCountWarehouseSizeXL = 0;
+	var editCountWarehouseSize2XL = 0;
+	var editCountWarehouseSize3XL = 0;
+	var editCountWarehouseSize4XL = 0;
+	var editWarehouseSizeTotal = 0;
+
+	var editCountCorkSizeS = 0;
+	var editCountCorkSizeM = 0;
+	var editCountCorkSizeL = 0;
+	var editCountCorkSizeXL = 0;
+	var editCountCorkSize2XL = 0;
+	var editCountCorkSize3XL = 0;
+	var editCountCorkSize4XL = 0;
+	var editCorkSizeTotal = 0;
+
+	var editCountKalaSizeS = 0;
+	var editCountKalaSizeM = 0;
+	var editCountKalaSizeL = 0;
+	var editCountKalaSizeXL = 0;
+	var editCountKalaSize2XL = 0;
+	var editCountKalaSize3XL = 0;
+	var editCountKalaSize4XL = 0;
+	var editKalaSizeTotal = 0;
+
+	var editCountGalwaySizeS = 0;
+	var editCountGalwaySizeM = 0;
+	var editCountGalwaySizeL = 0;
+	var editCountGalwaySizeXL = 0;
+	var editCountGalwaySize2XL = 0;
+	var editCountGalwaySize3XL = 0;
+	var editCountGalwaySize4XL = 0;
+	var editGalwaySizeTotal = 0;
+
+	var editSubCountWarehouse = 0;
+	var editSubCountCork = 0;
+	var editSubCountKala = 0;
+	var editSubCountGalway = 0;
+
+	var editTempTotalCork = 0;
+	var editTempTotalKala = 0;
+	var editTempTotalGalway = 0;
+	var editTempTotalWarehouse = 0;
+
 	if($('#hasSizesEdit').prop('checked')==true&&$('#hasColorsEdit').prop('checked')==true)
 	{
 		document.getElementById("editCountWarehouse").value = 0;
@@ -2572,13 +2634,13 @@ function updateEditTotals()
 		document.getElementById("editCountKala").value = 0;
 		document.getElementById("editCountGalway").value = 0;
 			
-		for(var i=1;i<styleIndex+1;i++)
+		for(i=1;i<styleIndex+1;i++)
 		{
 			currStyle = i;
-			var editWarehouseTotal = 0;
-			var editCorkTotal = 0;
-			var editKalaTotal = 0;
-			var editGalwayTotal = 0;
+			editWarehouseTotal = 0;
+			editCorkTotal = 0;
+			editKalaTotal = 0;
+			editGalwayTotal = 0;
 			
 			var editWarehouseSizeS = document.getElementById("editWarehouseSizeS").id + currStyle; 
 			var editWarehouseSizeM = document.getElementById("editWarehouseSizeM").id + currStyle; 
@@ -2587,14 +2649,14 @@ function updateEditTotals()
 			var editWarehouseSize2XL = document.getElementById("editWarehouseSize2XL").id + currStyle; 
 			var editWarehouseSize3XL = document.getElementById("editWarehouseSize3XL").id + currStyle; 
 			var editWarehouseSize4XL = document.getElementById("editWarehouseSize4XL").id + currStyle; 
-			var editCountWarehouseSizeS = parseInt(document.getElementById(editWarehouseSizeS).value);
-			var editCountWarehouseSizeM = parseInt(document.getElementById(editWarehouseSizeM).value);
-			var editCountWarehouseSizeL = parseInt(document.getElementById(editWarehouseSizeL).value);
-			var editCountWarehouseSizeXL = parseInt(document.getElementById(editWarehouseSizeXL).value);
-			var editCountWarehouseSize2XL = parseInt(document.getElementById(editWarehouseSize2XL).value);
-			var editCountWarehouseSize3XL = parseInt(document.getElementById(editWarehouseSize3XL).value);
-			var editCountWarehouseSize4XL = parseInt(document.getElementById(editWarehouseSize4XL).value);
-			var editWarehouseSizeTotal = parseInt(editCountWarehouseSizeS) + parseInt(editCountWarehouseSizeM) + parseInt(editCountWarehouseSizeL) + parseInt(editCountWarehouseSizeXL) + parseInt(editCountWarehouseSize2XL) + parseInt(editCountWarehouseSize3XL) + parseInt(editCountWarehouseSize4XL);
+			editCountWarehouseSizeS = parseInt(document.getElementById(editWarehouseSizeS).value);
+			editCountWarehouseSizeM = parseInt(document.getElementById(editWarehouseSizeM).value);
+			editCountWarehouseSizeL = parseInt(document.getElementById(editWarehouseSizeL).value);
+			editCountWarehouseSizeXL = parseInt(document.getElementById(editWarehouseSizeXL).value);
+			editCountWarehouseSize2XL = parseInt(document.getElementById(editWarehouseSize2XL).value);
+			editCountWarehouseSize3XL = parseInt(document.getElementById(editWarehouseSize3XL).value);
+			editCountWarehouseSize4XL = parseInt(document.getElementById(editWarehouseSize4XL).value);
+			editWarehouseSizeTotal = parseInt(editCountWarehouseSizeS) + parseInt(editCountWarehouseSizeM) + parseInt(editCountWarehouseSizeL) + parseInt(editCountWarehouseSizeXL) + parseInt(editCountWarehouseSize2XL) + parseInt(editCountWarehouseSize3XL) + parseInt(editCountWarehouseSize4XL);
 			editSubCountWarehouse = document.getElementById("editSubCountWarehouse").id + currStyle;
 			
 			if($('#inWarehouseEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
@@ -2614,14 +2676,14 @@ function updateEditTotals()
 			var editCorkSize2XL = document.getElementById("editCorkSize2XL").id + currStyle; 
 			var editCorkSize3XL = document.getElementById("editCorkSize3XL").id + currStyle; 
 			var editCorkSize4XL = document.getElementById("editCorkSize4XL").id + currStyle; 
-			var editCountCorkSizeS = parseInt(document.getElementById(editCorkSizeS).value);
-			var editCountCorkSizeM = parseInt(document.getElementById(editCorkSizeM).value);
-			var editCountCorkSizeL = parseInt(document.getElementById(editCorkSizeL).value);
-			var editCountCorkSizeXL = parseInt(document.getElementById(editCorkSizeXL).value);
-			var editCountCorkSize2XL = parseInt(document.getElementById(editCorkSize2XL).value);
-			var editCountCorkSize3XL = parseInt(document.getElementById(editCorkSize3XL).value);
-			var editCountCorkSize4XL = parseInt(document.getElementById(editCorkSize4XL).value);
-			var editCorkSizeTotal = parseInt(editCountCorkSizeS) + parseInt(editCountCorkSizeM) + parseInt(editCountCorkSizeL) + parseInt(editCountCorkSizeXL) + parseInt(editCountCorkSize2XL) + parseInt(editCountCorkSize3XL) + parseInt(editCountCorkSize4XL);
+			editCountCorkSizeS = parseInt(document.getElementById(editCorkSizeS).value);
+			editCountCorkSizeM = parseInt(document.getElementById(editCorkSizeM).value);
+			editCountCorkSizeL = parseInt(document.getElementById(editCorkSizeL).value);
+			editCountCorkSizeXL = parseInt(document.getElementById(editCorkSizeXL).value);
+			editCountCorkSize2XL = parseInt(document.getElementById(editCorkSize2XL).value);
+			editCountCorkSize3XL = parseInt(document.getElementById(editCorkSize3XL).value);
+			editCountCorkSize4XL = parseInt(document.getElementById(editCorkSize4XL).value);
+			editCorkSizeTotal = parseInt(editCountCorkSizeS) + parseInt(editCountCorkSizeM) + parseInt(editCountCorkSizeL) + parseInt(editCountCorkSizeXL) + parseInt(editCountCorkSize2XL) + parseInt(editCountCorkSize3XL) + parseInt(editCountCorkSize4XL);
 			editSubCountCork = document.getElementById("editSubCountCork").id + currStyle;
 			
 			if($('#inCorkEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
@@ -2641,15 +2703,14 @@ function updateEditTotals()
 			var editKalaSize2XL = document.getElementById("editKalaSize2XL").id + currStyle; 
 			var editKalaSize3XL = document.getElementById("editKalaSize3XL").id + currStyle; 
 			var editKalaSize4XL = document.getElementById("editKalaSize4XL").id + currStyle; 
-			var editCounteditKalaSizeS = parseInt(document.getElementById(editKalaSizeS).value);
-			var editCounteditKalaSizeM = parseInt(document.getElementById(editKalaSizeM).value);
-			var editCounteditKalaSizeL = parseInt(document.getElementById(editKalaSizeL).value);
-			var editCounteditKalaSizeXL = parseInt(document.getElementById(editKalaSizeXL).value);
-			var editCounteditKalaSize2XL = parseInt(document.getElementById(editKalaSize2XL).value);
-			var editCounteditKalaSize3XL = parseInt(document.getElementById(editKalaSize3XL).value);
-			var editCounteditKalaSize4XL = parseInt(document.getElementById(editKalaSize4XL).value);
-			var editKalaSizeTotal = editCounteditKalaSizeS + editCounteditKalaSizeM + editCounteditKalaSizeL + editCounteditKalaSizeXL + editCounteditKalaSize2XL + editCounteditKalaSize3XL + editCounteditKalaSize4XL;
-			
+			editCountKalaSizeS = parseInt(document.getElementById(editKalaSizeS).value);
+			editCountKalaSizeM = parseInt(document.getElementById(editKalaSizeM).value);
+			editCountKalaSizeL = parseInt(document.getElementById(editKalaSizeL).value);
+			editCountKalaSizeXL = parseInt(document.getElementById(editKalaSizeXL).value);
+			editCountKalaSize2XL = parseInt(document.getElementById(editKalaSize2XL).value);
+			editCountKalaSize3XL = parseInt(document.getElementById(editKalaSize3XL).value);
+			editCountKalaSize4XL = parseInt(document.getElementById(editKalaSize4XL).value);
+			editKalaSizeTotal = editCountKalaSizeS + editCountKalaSizeM + editCountKalaSizeL + editCountKalaSizeXL + editCountKalaSize2XL + editCountKalaSize3XL + editCountKalaSize4XL;
 			editSubCountKala = document.getElementById("editSubCountKala").id + currStyle;
 			
 			if($('#inKalaEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
@@ -2669,15 +2730,14 @@ function updateEditTotals()
 			var editGalwaySize2XL = document.getElementById("editGalwaySize2XL").id + currStyle; 
 			var editGalwaySize3XL = document.getElementById("editGalwaySize3XL").id + currStyle; 
 			var editGalwaySize4XL = document.getElementById("editGalwaySize4XL").id + currStyle; 
-			var editCounteditGalwaySizeS = parseInt(document.getElementById(editGalwaySizeS).value);
-			var editCounteditGalwaySizeM = parseInt(document.getElementById(editGalwaySizeM).value);
-			var editCounteditGalwaySizeL = parseInt(document.getElementById(editGalwaySizeL).value);
-			var editCounteditGalwaySizeXL = parseInt(document.getElementById(editGalwaySizeXL).value);
-			var editCounteditGalwaySize2XL = parseInt(document.getElementById(editGalwaySize2XL).value);
-			var editCounteditGalwaySize3XL = parseInt(document.getElementById(editGalwaySize3XL).value);
-			var editCounteditGalwaySize4XL = parseInt(document.getElementById(editGalwaySize4XL).value);
-			var editGalwaySizeTotal = parseInt(document.getElementById(editGalwaySizeS).value) + parseInt(document.getElementById(editGalwaySizeM).value) + parseInt(editCounteditGalwaySizeL) + parseInt(editCounteditGalwaySizeXL) + parseInt(editCounteditGalwaySize2XL) + parseInt(editCounteditGalwaySize3XL) + parseInt(editCounteditGalwaySize4XL);
-			
+			editCountGalwaySizeS = parseInt(document.getElementById(editGalwaySizeS).value);
+			editCountGalwaySizeM = parseInt(document.getElementById(editGalwaySizeM).value);
+			editCountGalwaySizeL = parseInt(document.getElementById(editGalwaySizeL).value);
+			editCountGalwaySizeXL = parseInt(document.getElementById(editGalwaySizeXL).value);
+			editCountGalwaySize2XL = parseInt(document.getElementById(editGalwaySize2XL).value);
+			editCountGalwaySize3XL = parseInt(document.getElementById(editGalwaySize3XL).value);
+			editCountGalwaySize4XL = parseInt(document.getElementById(editGalwaySize4XL).value);
+			editGalwaySizeTotal = editCountGalwaySizeS + editCountGalwaySizeM + editCountGalwaySizeL + editCountGalwaySizeXL + editCountGalwaySize2XL + editCountGalwaySize3XL + editCountGalwaySize4XL;
 			editSubCountGalway = document.getElementById("editSubCountGalway").id + currStyle;
 			
 			if($('#inGalwayEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
@@ -2697,137 +2757,136 @@ function updateEditTotals()
 	}
 	
 	if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==true)
-		{
-			var editSubCountTotal = 0;
-			var editTempTotalCork = 0;
-			var editTempTotalKala = 0;
-			var editTempTotalGalway = 0;
-			var editTempTotalWarehouse = 0;
+	{
+		editTempTotalCork = 0;
+		editTempTotalKala = 0;
+		editTempTotalGalway = 0;
+		editTempTotalWarehouse = 0;
 			
-			for(var i=1;i<styleIndex+1;i++)
+		for(i=1;i<styleIndex+1;i++)
+		{
+			currStyle = i;
+				
+			editColorTotal = document.getElementById("editColorTotal").id + currStyle;
+			editCorkTotal = 0;
+			editKalaTotal = 0;
+			editGalwayTotal = 0;
+			editWarehouseTotal = 0;
+				
+			if($('#inWarehouseEdit').prop('checked')==true)
+			{						
+				editSubCountWarehouse = document.getElementById("editSubCountWarehouse").id + currStyle;	
+				editWarehouseTotal = parseInt(document.getElementById(editSubCountWarehouse).value) + editWarehouseTotal;
+				editTempTotalWarehouse = editTempTotalWarehouse + parseInt(document.getElementById(editSubCountWarehouse).value);
+			}	
+				
+			if($('#inCorkEdit').prop('checked')==true)
+			{						
+				editSubCountCork = document.getElementById("editSubCountCork").id + currStyle;	
+				editCorkTotal = parseInt(document.getElementById(editSubCountCork).value) + editCorkTotal;
+				editTempTotalCork = editTempTotalCork + parseInt(document.getElementById(editSubCountCork).value);
+			}	
+				
+			if($('#inKalaEdit').prop('checked')==true)
 			{
-				currStyle = i;
-				
-				editColorTotal = document.getElementById("editColorTotal").id + currStyle;
-				editCorkTotal = 0;
-				editKalaTotal = 0;
-				editGalwayTotal = 0;
-				editWarehouseTotal = 0;
-				
-				if($('#inWarehouseEdit').prop('checked')==true)
-				{						
-					editSubCountWarehouse = document.getElementById("editSubCountWarehouse").id + currStyle;	
-					editWarehouseTotal = parseInt(document.getElementById(editSubCountWarehouse).value) + editWarehouseTotal;
-					editTempTotalWarehouse = editTempTotalWarehouse + parseInt(document.getElementById(editSubCountWarehouse).value);
-				}	
-				
-				if($('#inCorkEdit').prop('checked')==true)
-				{						
-					editSubCountCork = document.getElementById("editSubCountCork").id + currStyle;	
-					editCorkTotal = parseInt(document.getElementById(editSubCountCork).value) + editCorkTotal;
-					editTempTotalCork = editTempTotalCork + parseInt(document.getElementById(editSubCountCork).value);
-				}	
-				
-				if($('#inKalaEdit').prop('checked')==true)
-				{
-					editSubCountKala = document.getElementById("editSubCountKala").id + currStyle;	
-					editKalaTotal = parseInt(document.getElementById(editSubCountKala).value) + editKalaTotal;
-					editTempTotalKala = editTempTotalKala + parseInt(document.getElementById(editSubCountKala).value);
-				}
-				
-				if($('#inGalwayEdit').prop('checked')==true)
-				{
-					editSubCountGalway = document.getElementById("editSubCountGalway").id + currStyle;	
-					editGalwayTotal = parseInt(document.getElementById(editSubCountGalway).value) + editGalwayTotal;
-					editTempTotalGalway = editTempTotalGalway + parseInt(document.getElementById(editSubCountGalway).value);
-				}
-				
-				document.getElementById("editCountWarehouse").value = editTempTotalWarehouse;
-				document.getElementById("editCountCork").value = editTempTotalCork;
-				document.getElementById("editCountKala").value = editTempTotalKala;
-				document.getElementById("editCountGalway").value = editTempTotalGalway;
-				document.getElementById(editColorTotal).value = editWarehouseTotal + editCorkTotal + editKalaTotal + editGalwayTotal;
+				editSubCountKala = document.getElementById("editSubCountKala").id + currStyle;	
+				editKalaTotal = parseInt(document.getElementById(editSubCountKala).value) + editKalaTotal;
+				editTempTotalKala = editTempTotalKala + parseInt(document.getElementById(editSubCountKala).value);
 			}
+				
+			if($('#inGalwayEdit').prop('checked')==true)
+			{
+				editSubCountGalway = document.getElementById("editSubCountGalway").id + currStyle;	
+				editGalwayTotal = parseInt(document.getElementById(editSubCountGalway).value) + editGalwayTotal;
+				editTempTotalGalway = editTempTotalGalway + parseInt(document.getElementById(editSubCountGalway).value);
+			}
+				
+			document.getElementById("editCountWarehouse").value = editTempTotalWarehouse;
+			document.getElementById("editCountCork").value = editTempTotalCork;
+			document.getElementById("editCountKala").value = editTempTotalKala;
+			document.getElementById("editCountGalway").value = editTempTotalGalway;
+			document.getElementById(editColorTotal).value = editWarehouseTotal + editCorkTotal + editKalaTotal + editGalwayTotal;
 		}
+	}
 		
 	if($('#hasSizesEdit').prop('checked')==true&&$('#hasColorsEdit').prop('checked')==false)
 	{		
-			var editWarehouseTotal = 0;
-			var editCorkTotal = 0;
-			var editKalaTotal = 0;
-			var editGalwayTotal = 0;
+		editWarehouseTotal = 0;
+		editCorkTotal = 0;
+		editKalaTotal = 0;
+		editGalwayTotal = 0;
 			
-			var editCountWarehouseSizeS = parseInt(document.getElementById("editWarehouseSizeS").value);
-			var editCountWarehouseSizeM = parseInt(document.getElementById("editWarehouseSizeM").value);
-			var editCountWarehouseSizeL = parseInt(document.getElementById("editWarehouseSizeL").value);
-			var editCountWarehouseSizeXL = parseInt(document.getElementById("editWarehouseSizeXL").value);
-			var editCountWarehouseSize2XL = parseInt(document.getElementById("editWarehouseSize2XL").value);
-			var editCountWarehouseSize3XL = parseInt(document.getElementById("editWarehouseSize3XL").value);
-			var editCountWarehouseSize4XL = parseInt(document.getElementById("editWarehouseSize4XL").value);
-			var editWarehouseSizeTotal = parseInt(editCountWarehouseSizeS) + parseInt(editCountWarehouseSizeM) + parseInt(editCountWarehouseSizeL) + parseInt(editCountWarehouseSizeXL) + parseInt(editCountWarehouseSize2XL) + parseInt(editCountWarehouseSize3XL) + parseInt(editCountWarehouseSize4XL);
+		editCountWarehouseSizeS = parseInt(document.getElementById("editWarehouseSizeS").value);
+		editCountWarehouseSizeM = parseInt(document.getElementById("editWarehouseSizeM").value);
+		editCountWarehouseSizeL = parseInt(document.getElementById("editWarehouseSizeL").value);
+		editCountWarehouseSizeXL = parseInt(document.getElementById("editWarehouseSizeXL").value);
+		editCountWarehouseSize2XL = parseInt(document.getElementById("editWarehouseSize2XL").value);
+		editCountWarehouseSize3XL = parseInt(document.getElementById("editWarehouseSize3XL").value);
+		editCountWarehouseSize4XL = parseInt(document.getElementById("editWarehouseSize4XL").value);
+		editWarehouseSizeTotal = parseInt(editCountWarehouseSizeS) + parseInt(editCountWarehouseSizeM) + parseInt(editCountWarehouseSizeL) + parseInt(editCountWarehouseSizeXL) + parseInt(editCountWarehouseSize2XL) + parseInt(editCountWarehouseSize3XL) + parseInt(editCountWarehouseSize4XL);
 			
-			if($('#inWarehouseEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
-			{
-				editWarehouseTotal = parseInt(editWarehouseSizeTotal);
-				document.getElementById("editCountWarehouse").value = editWarehouseTotal;
-			}
+		if($('#inWarehouseEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
+		{
+			editWarehouseTotal = parseInt(editWarehouseSizeTotal);
+			document.getElementById("editCountWarehouse").value = editWarehouseTotal;
+		}
 			
-			else if($('#inWarehouseEdit').prop('checked')==false)
-				document.getElementById("editCountWarehouse").value = 0;
+		else if($('#inWarehouseEdit').prop('checked')==false)
+			document.getElementById("editCountWarehouse").value = 0;
 			
-			var editCountCorkSizeS = parseInt(document.getElementById("editCorkSizeS").value);
-			var editCountCorkSizeM = parseInt(document.getElementById("editCorkSizeM").value);
-			var editCountCorkSizeL = parseInt(document.getElementById("editCorkSizeL").value);
-			var editCountCorkSizeXL = parseInt(document.getElementById("editCorkSizeXL").value);
-			var editCountCorkSize2XL = parseInt(document.getElementById("editCorkSize2XL").value);
-			var editCountCorkSize3XL = parseInt(document.getElementById("editCorkSize3XL").value);
-			var editCountCorkSize4XL = parseInt(document.getElementById("editCorkSize4XL").value);
-			var editCorkSizeTotal = parseInt(editCountCorkSizeS) + parseInt(editCountCorkSizeM) + parseInt(editCountCorkSizeL) + parseInt(editCountCorkSizeXL) + parseInt(editCountCorkSize2XL) + parseInt(editCountCorkSize3XL) + parseInt(editCountCorkSize4XL);
+		editCountCorkSizeS = parseInt(document.getElementById("editCorkSizeS").value);
+		editCountCorkSizeM = parseInt(document.getElementById("editCorkSizeM").value);
+		editCountCorkSizeL = parseInt(document.getElementById("editCorkSizeL").value);
+		editCountCorkSizeXL = parseInt(document.getElementById("editCorkSizeXL").value);
+		editCountCorkSize2XL = parseInt(document.getElementById("editCorkSize2XL").value);
+		editCountCorkSize3XL = parseInt(document.getElementById("editCorkSize3XL").value);
+		editCountCorkSize4XL = parseInt(document.getElementById("editCorkSize4XL").value);
+		editCorkSizeTotal = parseInt(editCountCorkSizeS) + parseInt(editCountCorkSizeM) + parseInt(editCountCorkSizeL) + parseInt(editCountCorkSizeXL) + parseInt(editCountCorkSize2XL) + parseInt(editCountCorkSize3XL) + parseInt(editCountCorkSize4XL);
 			
-			if($('#inCorkEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
-			{
-				editCorkTotal = parseInt(editCorkSizeTotal);
-				document.getElementById("editCountCork").value = editCorkTotal;
-			}
+		if($('#inCorkEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
+		{
+			editCorkTotal = parseInt(editCorkSizeTotal);
+			document.getElementById("editCountCork").value = editCorkTotal;
+		}
 			
-			else if($('#inCorkEdit').prop('checked')==false)
-				document.getElementById("editCountCork").value = 0;
+		else if($('#inCorkEdit').prop('checked')==false)
+			document.getElementById("editCountCork").value = 0;
 			
-			var editCountKalaSizeS = parseInt(document.getElementById("editKalaSizeS").value);
-			var editCountKalaSizeM = parseInt(document.getElementById("editKalaSizeM").value);
-			var editCountKalaSizeL = parseInt(document.getElementById("editKalaSizeL").value);
-			var editCountKalaSizeXL = parseInt(document.getElementById("editKalaSizeXL").value);
-			var editCountKalaSize2XL = parseInt(document.getElementById("editKalaSize2XL").value);
-			var editCountKalaSize3XL = parseInt(document.getElementById("editKalaSize3XL").value);
-			var editCountKalaSize4XL = parseInt(document.getElementById("editKalaSize4XL").value);
-			var editKalaSizeTotal = parseInt(editCountKalaSizeS) + parseInt(editCountKalaSizeM) + parseInt(editCountKalaSizeL) + parseInt(editCountKalaSizeXL) + parseInt(editCountKalaSize2XL) + parseInt(editCountKalaSize3XL) + parseInt(editCountKalaSize4XL);
+		editCountKalaSizeS = parseInt(document.getElementById("editKalaSizeS").value);
+		editCountKalaSizeM = parseInt(document.getElementById("editKalaSizeM").value);
+		editCountKalaSizeL = parseInt(document.getElementById("editKalaSizeL").value);
+		editCountKalaSizeXL = parseInt(document.getElementById("editKalaSizeXL").value);
+		editCountKalaSize2XL = parseInt(document.getElementById("editKalaSize2XL").value);
+		editCountKalaSize3XL = parseInt(document.getElementById("editKalaSize3XL").value);
+		editCountKalaSize4XL = parseInt(document.getElementById("editKalaSize4XL").value);
+		editKalaSizeTotal = parseInt(editCountKalaSizeS) + parseInt(editCountKalaSizeM) + parseInt(editCountKalaSizeL) + parseInt(editCountKalaSizeXL) + parseInt(editCountKalaSize2XL) + parseInt(editCountKalaSize3XL) + parseInt(editCountKalaSize4XL);
 			
-			if($('#inKalaEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
-			{
-				editKalaTotal = parseInt(editKalaSizeTotal);
-				document.getElementById("editCountKala").value = editKalaTotal;
-			}
+		if($('#inKalaEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
+		{
+			editKalaTotal = parseInt(editKalaSizeTotal);
+			document.getElementById("editCountKala").value = editKalaTotal;
+		}
 			
-			else if($('#inKalaEdit').prop('checked')==false)
-				document.getElementById("editCountKala").value = 0;
+		else if($('#inKalaEdit').prop('checked')==false)
+			document.getElementById("editCountKala").value = 0;
 			
-			var editCountGalwaySizeS = parseInt(document.getElementById("editGalwaySizeS").value);
-			var editCountGalwaySizeM = parseInt(document.getElementById("editGalwaySizeM").value);
-			var editCountGalwaySizeL = parseInt(document.getElementById("editGalwaySizeL").value);
-			var editCountGalwaySizeXL = parseInt(document.getElementById("editGalwaySizeXL").value);
-			var editCountGalwaySize2XL = parseInt(document.getElementById("editGalwaySize2XL").value);
-			var editCountGalwaySize3XL = parseInt(document.getElementById("editGalwaySize3XL").value);
-			var editCountGalwaySize4XL = parseInt(document.getElementById("editGalwaySize4XL").value);
-			var editGalwaySizeTotal = parseInt(editCountGalwaySizeS) + parseInt(editCountGalwaySizeM) + parseInt(editCountGalwaySizeL) + parseInt(editCountGalwaySizeXL) + parseInt(editCountGalwaySize2XL) + parseInt(editCountGalwaySize3XL) + parseInt(editCountGalwaySize4XL);
+		editCountGalwaySizeS = parseInt(document.getElementById("editGalwaySizeS").value);
+		editCountGalwaySizeM = parseInt(document.getElementById("editGalwaySizeM").value);
+		editCountGalwaySizeL = parseInt(document.getElementById("editGalwaySizeL").value);
+		editCountGalwaySizeXL = parseInt(document.getElementById("editGalwaySizeXL").value);
+		editCountGalwaySize2XL = parseInt(document.getElementById("editGalwaySize2XL").value);
+		editCountGalwaySize3XL = parseInt(document.getElementById("editGalwaySize3XL").value);
+		editCountGalwaySize4XL = parseInt(document.getElementById("editGalwaySize4XL").value);
+		editGalwaySizeTotal = parseInt(editCountGalwaySizeS) + parseInt(editCountGalwaySizeM) + parseInt(editCountGalwaySizeL) + parseInt(editCountGalwaySizeXL) + parseInt(editCountGalwaySize2XL) + parseInt(editCountGalwaySize3XL) + parseInt(editCountGalwaySize4XL);
 			
-			if($('#inGalwayEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
-			{
-				editGalwayTotal = parseInt(editGalwaySizeTotal);
-				document.getElementById("editCountGalway").value = editGalwayTotal;
-			}
+		if($('#inGalwayEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
+		{
+			editGalwayTotal = parseInt(editGalwaySizeTotal);
+			document.getElementById("editCountGalway").value = editGalwayTotal;
+		}
 			
-			else if($('#inGalwayEdit').prop('checked')==false)
-				document.getElementById("editCountGalway").value = 0;
+		else if($('#inGalwayEdit').prop('checked')==false)
+			document.getElementById("editCountGalway").value = 0;
 			
 	}
 	
