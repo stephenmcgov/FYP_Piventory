@@ -1,95 +1,113 @@
+/*eslint-env jquery*/
 var deliveryHTML = "";
 var deliveryExcelHTML = "";
 
 var stockCountHTML = "";
 var stockCountExcelHTML = "";
+
+var ReportTitle = "";
+var thisDate = "";
+var uID = "";
+var i = 0;
+
 //show reports list on shopfront page
 //going to replace this with search reports function
+//CHECK BRACKETS HERE
 $(document).ready(
     //call API @routes/index.js
-    function getreports() {
-		$("#eodSearchForm").submit(function (event) {
+    function getreports() 
+    {
+		$("#eodSearchForm").submit(function (event) 
+		{
             event.preventDefault();
-            $.ajax({
+            $.ajax(
+            {
                 type: 'GET',
                 url: '/getReports',
                 dataType: 'json',
-                success: function (data) {
+                success: function (data) 
+                {
 					var reports = "";
 					
 					//if all fields blank
-					if(event.target.storeReportName.value==""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value==""){
-                    for (var i = 0; i < data.length; i++) {
-						uID = data[i].Curr_Date + " : " + data[i].storeName;
-						uID = uID.replace("T"," at ");
-						uID = uID.replace(".000Z"," ");
-						
-						thisDate = data[i].Curr_Date;
-						thisDate = thisDate.replace("T"," at ");
-						thisDate = thisDate.replace(".000Z"," ");
-						
-						reports += "<button class='btn-success'>";
-						reports += uID+"</button>";
-						
-						reports += "<div class='panel'><br>";
-                        reports += "<p>Store: " + data[i].storeName + "</p>";
-						reports += "<p>Date: " + thisDate + "</p>";
-						reports += "<p>Staff: " + data[i].staffName + "</p>";
-						reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-						reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-						reports += "<br>";
-                        reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-                        reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-						reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-						reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-						reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-						reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-						reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-						reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-						reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-						
-						reports += "</div><br>"
-					}}
+					if(event.target.storeReportName.value==""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value=="")
+					{
+						for (i = 0; i < data.length; i++) 
+						{
+							uID = data[i].Curr_Date + " : " + data[i].storeName;
+							uID = uID.replace("T"," at ");
+							uID = uID.replace(".000Z"," ");
+							
+							thisDate = data[i].Curr_Date;
+							thisDate = thisDate.replace("T"," at ");
+							thisDate = thisDate.replace(".000Z"," ");
+							
+							reports += "<button class='btn-success'>";
+							reports += uID+"</button>";
+							
+							reports += "<div class='panel'><br>";
+							reports += "<p>Store: " + data[i].storeName + "</p>";
+							reports += "<p>Date: " + thisDate + "</p>";
+							reports += "<p>Staff: " + data[i].staffName + "</p>";
+							reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
+							reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
+							reports += "<br>";
+							reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
+							reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
+							reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
+							reports += "<p>Other: " + data[i].EOD_Other + "</p>";
+							reports += "<p>Expenses: " + data[i].Expenses + "</p>";
+							reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
+							reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
+							reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
+							reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
+							
+							reports += "</div><br>"
+						}
+					}
 					
 					//if only store
-					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value==""){
-                    for (var i = 0; i < data.length; i++) {
-						if(event.target.storeReportName.value==data[i].storeName)
+					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value=="")
+					{
+						for (i = 0; i < data.length; i++) 
 						{
-						uID = data[i].Curr_Date + " : " + data[i].storeName;
-						uID = uID.replace("T"," at ");
-						uID = uID.replace(".000Z"," ");
-						
-						thisDate = data[i].Curr_Date;
-						thisDate = thisDate.replace("T"," at ");
-						thisDate = thisDate.replace(".000Z"," ");
-						
-						reports += "<button class='btn-success'>";
-						reports += uID+"</button>";
-						
-						reports += "<div class='panel'><br>";
-                        reports += "<p>Store: " + data[i].storeName + "</p>";
-						reports += "<p>Date: " + thisDate + "</p>";
-						reports += "<p>Staff: " + data[i].staffName + "</p>";
-						reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-						reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-						reports += "<br>";
-                        reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-                        reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-						reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-						reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-						reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-						reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-						reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-						reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-						reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-						
-						reports += "</div><br>"
+							if(event.target.storeReportName.value==data[i].storeName)
+							{
+							uID = data[i].Curr_Date + " : " + data[i].storeName;
+							uID = uID.replace("T"," at ");
+							uID = uID.replace(".000Z"," ");
+							
+							thisDate = data[i].Curr_Date;
+							thisDate = thisDate.replace("T"," at ");
+							thisDate = thisDate.replace(".000Z"," ");
+							
+							reports += "<button class='btn-success'>";
+							reports += uID+"</button>";
+							
+							reports += "<div class='panel'><br>";
+							reports += "<p>Store: " + data[i].storeName + "</p>";
+							reports += "<p>Date: " + thisDate + "</p>";
+							reports += "<p>Staff: " + data[i].staffName + "</p>";
+							reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
+							reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
+							reports += "<br>";
+							reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
+							reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
+							reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
+							reports += "<p>Other: " + data[i].EOD_Other + "</p>";
+							reports += "<p>Expenses: " + data[i].Expenses + "</p>";
+							reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
+							reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
+							reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
+							reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
+							
+							reports += "</div><br>"
 						}
-					}}
+					}
 					
 					//if only month
-					if(event.target.storeReportName.value==""&&event.target.prevEODMonth.value!=""&&event.target.prevEODYear.value==""){
+					if(event.target.storeReportName.value==""&&event.target.prevEODMonth.value!=""&&event.target.prevEODYear.value=="")
+					{
 						var parseMonth = "";
 						
 						if(event.target.prevEODMonth.value=="January")
@@ -117,82 +135,85 @@ $(document).ready(
 						if(event.target.prevEODMonth.value=="December")
 							parseMonth="12";
 						
-					for (var i = 0; i < data.length; i++) {
-						if(parseMonth==data[i].Curr_Date.substring(5,7))
+						for (i = 0; i < data.length; i++) 
 						{
-						uID = data[i].Curr_Date + " : " + data[i].storeName;
-						uID = uID.replace("T"," at ");
-						uID = uID.replace(".000Z"," ");
-						
-						thisDate = data[i].Curr_Date;
-						thisDate = thisDate.replace("T"," at ");
-						thisDate = thisDate.replace(".000Z"," ");
-						
-						reports += "<button class='btn-success'>";
-						reports += uID+"</button>";
-						
-						reports += "<div class='panel'><br>";
-                        reports += "<p>Store: " + data[i].storeName + "</p>";
-						reports += "<p>Date: " + thisDate + "</p>";
-						reports += "<p>Staff: " + data[i].staffName + "</p>";
-						reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-						reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-						reports += "<br>";
-                        reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-                        reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-						reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-						reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-						reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-						reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-						reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-						reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-						reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-						
-						reports += "</div><br>"
+							if(parseMonth==data[i].Curr_Date.substring(5,7))
+							{
+								uID = data[i].Curr_Date + " : " + data[i].storeName;
+								uID = uID.replace("T"," at ");
+								uID = uID.replace(".000Z"," ");
+								
+								thisDate = data[i].Curr_Date;
+								thisDate = thisDate.replace("T"," at ");
+								thisDate = thisDate.replace(".000Z"," ");
+								
+								reports += "<button class='btn-success'>";
+								reports += uID+"</button>";
+								
+								reports += "<div class='panel'><br>";
+								reports += "<p>Store: " + data[i].storeName + "</p>";
+								reports += "<p>Date: " + thisDate + "</p>";
+								reports += "<p>Staff: " + data[i].staffName + "</p>";
+								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
+								reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
+								reports += "<br>";
+								reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
+								reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
+								reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
+								reports += "<p>Other: " + data[i].EOD_Other + "</p>";
+								reports += "<p>Expenses: " + data[i].Expenses + "</p>";
+								reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
+								reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
+								reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
+								reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
+								reports += "</div><br>"
+							}
 						}
-					}}
+					}
 					
 					//if only year
-					if(event.target.storeReportName.value==""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value!=""){
-						for (var i = 0; i < data.length; i++) {
-						if(event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
+					if(event.target.storeReportName.value==""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value!="")
+					{
+						for (i = 0; i < data.length; i++) 
 						{
-						uID = data[i].Curr_Date + " : " + data[i].storeName;
-						uID = uID.replace("T"," at ");
-						uID = uID.replace(".000Z"," ");
-						
-						thisDate = data[i].Curr_Date;
-						thisDate = thisDate.replace("T"," at ");
-						thisDate = thisDate.replace(".000Z"," ");
-						
-						reports += "<button class='btn-success'>";
-						reports += uID+"</button>";
-						
-						reports += "<div class='panel'><br>";
-                        reports += "<p>Store: " + data[i].storeName + "</p>";
-						reports += "<p>Date: " + thisDate + "</p>";
-						reports += "<p>Staff: " + data[i].staffName + "</p>";
-						reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-						reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-						reports += "<br>";
-                        reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-                        reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-						reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-						reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-						reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-						reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-						reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-						reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-						reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-						
-						reports += "</div><br>"
-						}
+							if(event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
+							{
+								uID = data[i].Curr_Date + " : " + data[i].storeName;
+								uID = uID.replace("T"," at ");
+								uID = uID.replace(".000Z"," ");
+								
+								thisDate = data[i].Curr_Date;
+								thisDate = thisDate.replace("T"," at ");
+								thisDate = thisDate.replace(".000Z"," ");
+								
+								reports += "<button class='btn-success'>";
+								reports += uID+"</button>";
+								
+								reports += "<div class='panel'><br>";
+								reports += "<p>Store: " + data[i].storeName + "</p>";
+								reports += "<p>Date: " + thisDate + "</p>";
+								reports += "<p>Staff: " + data[i].staffName + "</p>";
+								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
+								reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
+								reports += "<br>";
+								reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
+								reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
+								reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
+								reports += "<p>Other: " + data[i].EOD_Other + "</p>";
+								reports += "<p>Expenses: " + data[i].Expenses + "</p>";
+								reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
+								reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
+								reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
+								reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
+								
+								reports += "</div><br>"
+							}
 						}
 					}
 					
 					//if store + month
-					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value!=""&&event.target.prevEODYear.value==""){
-						
+					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value!=""&&event.target.prevEODYear.value=="")
+					{	
 						if(event.target.prevEODMonth.value=="January")
 							parseMonth="01";
 						if(event.target.prevEODMonth.value=="February")
@@ -218,77 +239,80 @@ $(document).ready(
 						if(event.target.prevEODMonth.value=="December")
 							parseMonth="12";
 						
-						for (var i = 0; i < data.length; i++) {
-						if(event.target.storeReportName.value==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7))
+						for (i = 0; i < data.length; i++) 
 						{
-						uID = data[i].Curr_Date + " : " + data[i].storeName;
-						uID = uID.replace("T"," at ");
-						uID = uID.replace(".000Z"," ");
-						
-						thisDate = data[i].Curr_Date;
-						thisDate = thisDate.replace("T"," at ");
-						thisDate = thisDate.replace(".000Z"," ");
-						
-						reports += "<button class='btn-success'>";
-						reports += uID+"</button>";
-						
-						reports += "<div class='panel'><br>";
-                        reports += "<p>Store: " + data[i].storeName + "</p>";
-						reports += "<p>Date: " + thisDate + "</p>";
-						reports += "<p>Staff: " + data[i].staffName + "</p>";
-						reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-						reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-						reports += "<br>";
-                        reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-                        reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-						reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-						reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-						reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-						reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-						reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-						reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-						reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-						
-						reports += "</div><br>"
-						}
+							if(event.target.storeReportName.value==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7))
+							{
+								uID = data[i].Curr_Date + " : " + data[i].storeName;
+								uID = uID.replace("T"," at ");
+								uID = uID.replace(".000Z"," ");
+								
+								thisDate = data[i].Curr_Date;
+								thisDate = thisDate.replace("T"," at ");
+								thisDate = thisDate.replace(".000Z"," ");
+								
+								reports += "<button class='btn-success'>";
+								reports += uID+"</button>";
+								
+								reports += "<div class='panel'><br>";
+								reports += "<p>Store: " + data[i].storeName + "</p>";
+								reports += "<p>Date: " + thisDate + "</p>";
+								reports += "<p>Staff: " + data[i].staffName + "</p>";
+								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
+								reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
+								reports += "<br>";
+								reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
+								reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
+								reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
+								reports += "<p>Other: " + data[i].EOD_Other + "</p>";
+								reports += "<p>Expenses: " + data[i].Expenses + "</p>";
+								reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
+								reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
+								reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
+								reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
+								
+								reports += "</div><br>"
+							}
 						}
 					}
 					
 					//if store + year
-					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value!=""){
-						for (var i = 0; i < data.length; i++) {
-						if(event.target.storeReportName.value==data[i].storeName&&event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
+					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value!="")
+					{
+						for (i = 0; i < data.length; i++) 
 						{
-						uID = data[i].Curr_Date + " : " + data[i].storeName;
-						uID = uID.replace("T"," at ");
-						uID = uID.replace(".000Z"," ");
-						
-						thisDate = data[i].Curr_Date;
-						thisDate = thisDate.replace("T"," at ");
-						thisDate = thisDate.replace(".000Z"," ");
-						
-						reports += "<button class='btn-success'>";
-						reports += uID+"</button>";
-						
-						reports += "<div class='panel'><br>";
-                        reports += "<p>Store: " + data[i].storeName + "</p>";
-						reports += "<p>Date: " + thisDate + "</p>";
-						reports += "<p>Staff: " + data[i].staffName + "</p>";
-						reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-						reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-						reports += "<br>";
-                        reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-                        reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-						reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-						reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-						reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-						reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-						reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-						reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-						reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-						
-						reports += "</div><br>"
-						}
+							if(event.target.storeReportName.value==data[i].storeName&&event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
+							{
+								uID = data[i].Curr_Date + " : " + data[i].storeName;
+								uID = uID.replace("T"," at ");
+								uID = uID.replace(".000Z"," ");
+								
+								thisDate = data[i].Curr_Date;
+								thisDate = thisDate.replace("T"," at ");
+								thisDate = thisDate.replace(".000Z"," ");
+								
+								reports += "<button class='btn-success'>";
+								reports += uID+"</button>";
+								
+								reports += "<div class='panel'><br>";
+								reports += "<p>Store: " + data[i].storeName + "</p>";
+								reports += "<p>Date: " + thisDate + "</p>";
+								reports += "<p>Staff: " + data[i].staffName + "</p>";
+								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
+								reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
+								reports += "<br>";
+								reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
+								reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
+								reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
+								reports += "<p>Other: " + data[i].EOD_Other + "</p>";
+								reports += "<p>Expenses: " + data[i].Expenses + "</p>";
+								reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
+								reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
+								reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
+								reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
+								
+								reports += "</div><br>"
+							}
 						}
 					}
 					
@@ -320,44 +344,46 @@ $(document).ready(
 						if(event.target.prevEODMonth.value=="December")
 							parseMonth="12";
 						
-						for (var i = 0; i < data.length; i++) {
-						if(parseMonth==data[i].Curr_Date.substring(5,7)&&event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
+						for (i = 0; i < data.length; i++) 
 						{
-						uID = data[i].Curr_Date + " : " + data[i].storeName;
-						uID = uID.replace("T"," at ");
-						uID = uID.replace(".000Z"," ");
-						
-						thisDate = data[i].Curr_Date;
-						thisDate = thisDate.replace("T"," at ");
-						thisDate = thisDate.replace(".000Z"," ");
-						
-						reports += "<button class='btn-success'>";
-						reports += uID+"</button>";
-						
-						reports += "<div class='panel'><br>";
-                        reports += "<p>Store: " + data[i].storeName + "</p>";
-						reports += "<p>Date: " + thisDate + "</p>";
-						reports += "<p>Staff: " + data[i].staffName + "</p>";
-						reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-						reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-						reports += "<br>";
-                        reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-                        reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-						reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-						reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-						reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-						reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-						reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-						reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-						reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-						
-						reports += "</div><br>"
-						}
+							if(parseMonth==data[i].Curr_Date.substring(5,7)&&event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
+							{
+								uID = data[i].Curr_Date + " : " + data[i].storeName;
+								uID = uID.replace("T"," at ");
+								uID = uID.replace(".000Z"," ");
+								
+								thisDate = data[i].Curr_Date;
+								thisDate = thisDate.replace("T"," at ");
+								thisDate = thisDate.replace(".000Z"," ");
+								
+								reports += "<button class='btn-success'>";
+								reports += uID+"</button>";
+								
+								reports += "<div class='panel'><br>";
+								reports += "<p>Store: " + data[i].storeName + "</p>";
+								reports += "<p>Date: " + thisDate + "</p>";
+								reports += "<p>Staff: " + data[i].staffName + "</p>";
+								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
+								reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
+								reports += "<br>";
+								reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
+								reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
+								reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
+								reports += "<p>Other: " + data[i].EOD_Other + "</p>";
+								reports += "<p>Expenses: " + data[i].Expenses + "</p>";
+								reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
+								reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
+								reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
+								reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
+								
+								reports += "</div><br>"
+							}
 						}
 					}
 					
 					//if all fields filled
-					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value!=""&&event.target.prevEODYear.value!=""){
+					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value!=""&&event.target.prevEODYear.value!="")
+					{
 						if(event.target.prevEODMonth.value=="January")
 							parseMonth="01";
 						if(event.target.prevEODMonth.value=="February")
@@ -383,45 +409,47 @@ $(document).ready(
 						if(event.target.prevEODMonth.value=="December")
 							parseMonth="12";
 						
-						for (var i = 0; i < data.length; i++) {
-						if(event.target.storeReportName.value==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7)&&event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
+						for (i = 0; i < data.length; i++) 
 						{
-						uID = data[i].Curr_Date + " : " + data[i].storeName;
-						uID = uID.replace("T"," at ");
-						uID = uID.replace(".000Z"," ");
-						
-						thisDate = data[i].Curr_Date;
-						thisDate = thisDate.replace("T"," at ");
-						thisDate = thisDate.replace(".000Z"," ");
-						
-						reports += "<button class='btn-success'>";
-						reports += uID+"</button>";
-						
-						reports += "<div class='panel'><br>";
-                        reports += "<p>Store: " + data[i].storeName + "</p>";
-						reports += "<p>Date: " + thisDate + "</p>";
-						reports += "<p>Staff: " + data[i].staffName + "</p>";
-						reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-						reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-						reports += "<br>";
-                        reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-                        reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-						reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-						reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-						reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-						reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-						reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-						reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-						reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-						
-						reports += "</div><br>"
-						}
+							if(event.target.storeReportName.value==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7)&&event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
+							{
+								uID = data[i].Curr_Date + " : " + data[i].storeName;
+								uID = uID.replace("T"," at ");
+								uID = uID.replace(".000Z"," ");
+								
+								thisDate = data[i].Curr_Date;
+								thisDate = thisDate.replace("T"," at ");
+								thisDate = thisDate.replace(".000Z"," ");
+								
+								reports += "<button class='btn-success'>";
+								reports += uID+"</button>";
+								
+								reports += "<div class='panel'><br>";
+								reports += "<p>Store: " + data[i].storeName + "</p>";
+								reports += "<p>Date: " + thisDate + "</p>";
+								reports += "<p>Staff: " + data[i].staffName + "</p>";
+								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
+								reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
+								reports += "<br>";
+								reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
+								reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
+								reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
+								reports += "<p>Other: " + data[i].EOD_Other + "</p>";
+								reports += "<p>Expenses: " + data[i].Expenses + "</p>";
+								reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
+								reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
+								reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
+								reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
+								
+								reports += "</div><br>"
+							}
 						}
 					}
 					
 					$("#feedreports").html(reports);
 				}
-			});
+			}
+		});
 	});
 });
 
@@ -450,35 +478,36 @@ function showEOD_report()
 	var dateString = date + "-" +(month + 1) + "-" + year;
 	
 	var EODreport = "";
-				EODreport += "<br>";EODreport += "<br>";EODreport += "<br>";
-				EODreport += "<h2>EOD Report for: " + storeName + " on " + dateString + " at " + timeStamp + "</h2><br>";
-				EODreport += "<p>Staff: " + staffName + "</p>";
-				EODreport += "<p>Shift Start: " + shiftStart + "</p>";
-				EODreport += "<p>Shift End: " + shiftEnd + "</p>";
-				EODreport += "<p>Cash Amount: " + cashAmount + "</p>";
-				EODreport += "<p>Other Amount: " + otherAmount + "</p>";
-				EODreport += "<p>Expenses: " + expensesAmount + "</p>";
-				EODreport += "<br>";
-                EODreport += "<p>Cash Total: " + EODcash_total + "</p>";
-                EODreport += "<p>Card Total: " + cardAmount + "</p>";
-				EODreport += "<p>Total Amount: " + EODtotal + "</p>";
-				EODreport += "<br>";
-				EODreport += "<p>Float Start: " + BODfloat + "</p>";
-                EODreport += "<p>Float End: " + EODfloat + "</p>";
-				EODreport += "<p>Float Error: " + floatDiff + "</p>";
-				EODreport += "<br>";
-                EODreport += "<button type='submit' class='btn btn-success btn-md' id='submitReportButton'>Submit Report</button>";
-				EODreport += "<br><br>";
+	EODreport += "<br>";EODreport += "<br>";EODreport += "<br>";
+	EODreport += "<h2>EOD Report for: " + storeName + " on " + dateString + " at " + timeStamp + "</h2><br>";
+	EODreport += "<p>Staff: " + staffName + "</p>";
+	EODreport += "<p>Shift Start: " + shiftStart + "</p>";
+	EODreport += "<p>Shift End: " + shiftEnd + "</p>";
+	EODreport += "<p>Cash Amount: " + cashAmount + "</p>";
+	EODreport += "<p>Other Amount: " + otherAmount + "</p>";
+	EODreport += "<p>Expenses: " + expensesAmount + "</p>";
+	EODreport += "<br>";
+    EODreport += "<p>Cash Total: " + EODcash_total + "</p>";
+    EODreport += "<p>Card Total: " + EODcard_total + "</p>";
+	EODreport += "<p>Total Amount: " + EODtotal + "</p>";
+	EODreport += "<br>";
+	EODreport += "<p>Float Start: " + BODfloat + "</p>";
+    EODreport += "<p>Float End: " + EODfloat + "</p>";
+	EODreport += "<p>Float Error: " + floatDiff + "</p>";
+	EODreport += "<br>";
+    EODreport += "<button type='submit' class='btn btn-success btn-md' id='submitReportButton'>Submit Report</button>";
+	EODreport += "<br><br>";
 				
-            //pass the reports variable to the feedreports div id in shopFront
-            $("#eod_draft").html(EODreport);
-			document.getElementById("inputCurr_Date").value = currentDate;
-			document.getElementById("inputfloatDiff").value = floatDiff;
-			document.getElementById("inputCashTotal").value = EODcash_total;
-			document.getElementById("inputTotal").value = EODtotal;
+    //pass the reports variable to the feedreports div id in shopFront
+    $("#eod_draft").html(EODreport);
+	document.getElementById("inputCurr_Date").value = currentDate;
+	document.getElementById("inputfloatDiff").value = floatDiff;
+	document.getElementById("inputCashTotal").value = EODcash_total;
+	document.getElementById("inputTotal").value = EODtotal;
 }
 
-function genBatchSalesExcel() {
+function genBatchSalesExcel() 
+{
 	var store = document.getElementById("storeReportName").value;
 	var month = document.getElementById("prevEODMonth").value
 	var year = document.getElementById("prevEODYear").value;	
@@ -509,292 +538,307 @@ function genBatchSalesExcel() {
 	if(month=="December")
 		parseMonth="12";
 	
-        $.ajax({
-            type: 'GET',
-            url: '/getReports/',
-            success: function (data) {
-
-    console.log("exporting");
-    var CSV = '';    
-    //Set Report title in first row or line
-    ReportTitle = "Batch Sales Reports";
+    $.ajax({
+        type: 'GET',
+        url: '/getReports/',
+        success: function (data) 
+        {
+			console.log("exporting");
+			var CSV = '';    
+			//Set Report title in first row or line
+			ReportTitle = "Batch Sales Reports";
+			CSV += ReportTitle + '\r\n\n';
 	
-    CSV += ReportTitle + '\r\n\n';
+			//init rows
+			var row = "";
 	
-	//init rows
-	var row = "";
-	
-	row += '"' + "DATE" + '",';
-	row += '"' + "STORE" + '",';
-	row += '"' + "STAFF NAME" + '",';
-	row += '"' + "SHIFT START" + '",';
-	row += '"' + "SHIFT END" + '",';
-	row += '"' + "START FLOAT" + '",';
-	row += '"' + "CASH SALES" + '",';
-	row += '"' + "OTHER SALES" + '",';
-	row += '"' + "CARD SALES" + '",';
-	row += '"' + "EXPENSES" + '",';
-	row += '"' + "CASH TOTAL" + '",';
-	row += '"' + "TOTAL" + '",';
-	row += '"' + "END FLOAT" + '",';
-	row += '"' + "FLOAT ERROR" + '",';
-	
-	CSV += row + '\r\n';
-	
-	//if all fields blank
-	if(store==""&&month==""&&year==""){
-		for (var i = 0; i < data.length; i++)
-		{
-			row = "";
+			row += '"' + "DATE" + '",';
+			row += '"' + "STORE" + '",';
+			row += '"' + "STAFF NAME" + '",';
+			row += '"' + "SHIFT START" + '",';
+			row += '"' + "SHIFT END" + '",';
+			row += '"' + "START FLOAT" + '",';
+			row += '"' + "CASH SALES" + '",';
+			row += '"' + "OTHER SALES" + '",';
+			row += '"' + "CARD SALES" + '",';
+			row += '"' + "EXPENSES" + '",';
+			row += '"' + "CASH TOTAL" + '",';
+			row += '"' + "TOTAL" + '",';
+			row += '"' + "END FLOAT" + '",';
+			row += '"' + "FLOAT ERROR" + '",';
+			
+			CSV += row + '\r\n';
+			
+			//if all fields blank
+			if(store==""&&month==""&&year=="")
+			{
+				for (i = 0; i < data.length; i++)
+				{
+					row = "";
         
-        row += '"' + data[i].Curr_Date + '",';
-		row += '"' + data[i].storeName + '",';
-		row += '"' + data[i].staffName + '",';
-		row += '"' + data[i].shiftStart + '",';
-		row += '"' + data[i].shiftEnd + '",';
-		row += '"' + data[i].BOD_Float + '",';
-		row += '"' + data[i].EOD_Cash + '",';
-		row += '"' + data[i].EOD_Other + '",';
-		row += '"' + data[i].EOD_Card + '",';
-		row += '"' + data[i].Expenses + '",';
-		row += '"' + data[i].EOD_CashTotal + '",';
-		row += '"' + data[i].EOD_Total + '",';
-		row += '"' + data[i].EOD_Float + '",';
-		row += '"' + data[i].floatDiff + '",';
-        
-        //add a line break after each row
-        CSV += row + '\r\n';
-		}
-	}
+					row += '"' + data[i].Curr_Date + '",';
+					row += '"' + data[i].storeName + '",';
+					row += '"' + data[i].staffName + '",';
+					row += '"' + data[i].shiftStart + '",';
+					row += '"' + data[i].shiftEnd + '",';
+					row += '"' + data[i].BOD_Float + '",';
+					row += '"' + data[i].EOD_Cash + '",';
+					row += '"' + data[i].EOD_Other + '",';
+					row += '"' + data[i].EOD_Card + '",';
+					row += '"' + data[i].Expenses + '",';
+					row += '"' + data[i].EOD_CashTotal + '",';
+					row += '"' + data[i].EOD_Total + '",';
+					row += '"' + data[i].EOD_Float + '",';
+					row += '"' + data[i].floatDiff + '",';
 
-	//if only store
-	if(store!=""&&month==""&&year==""){
-		for (var i = 0; i < data.length; i++){
-		if(store==data[i].storeName)
-		{
-			row = "";
-        
-        row += '"' + data[i].Curr_Date + '",';
-		row += '"' + data[i].storeName + '",';
-		row += '"' + data[i].staffName + '",';
-		row += '"' + data[i].shiftStart + '",';
-		row += '"' + data[i].shiftEnd + '",';
-		row += '"' + data[i].BOD_Float + '",';
-		row += '"' + data[i].EOD_Cash + '",';
-		row += '"' + data[i].EOD_Other + '",';
-		row += '"' + data[i].EOD_Card + '",';
-		row += '"' + data[i].Expenses + '",';
-		row += '"' + data[i].EOD_CashTotal + '",';
-		row += '"' + data[i].EOD_Total + '",';
-		row += '"' + data[i].EOD_Float + '",';
-		row += '"' + data[i].floatDiff + '",';
-        
-        //add a line break after each row
-        CSV += row + '\r\n';
-		}
-		}
-	}
+					//add a line break after each row
+					CSV += row + '\r\n';
+				}
+			}
 
-	//if only month
-	if(store==""&&month!=""&&year==""){
-		for (var i = 0; i < data.length; i++){
-		if(parseMonth==data[i].Curr_Date.substring(5,7))
-		{
-			row = "";
-        
-        row += '"' + data[i].Curr_Date + '",';
-		row += '"' + data[i].storeName + '",';
-		row += '"' + data[i].staffName + '",';
-		row += '"' + data[i].shiftStart + '",';
-		row += '"' + data[i].shiftEnd + '",';
-		row += '"' + data[i].BOD_Float + '",';
-		row += '"' + data[i].EOD_Cash + '",';
-		row += '"' + data[i].EOD_Other + '",';
-		row += '"' + data[i].EOD_Card + '",';
-		row += '"' + data[i].Expenses + '",';
-		row += '"' + data[i].EOD_CashTotal + '",';
-		row += '"' + data[i].EOD_Total + '",';
-		row += '"' + data[i].EOD_Float + '",';
-		row += '"' + data[i].floatDiff + '",';
-        
-        //add a line break after each row
-        CSV += row + '\r\n';
-		}
-		}
-	}
+			//if only store
+			if(store!=""&&month==""&&year=="")
+			{
+				for (i = 0; i < data.length; i++)
+				{
+					if(store==data[i].storeName)
+					{
+						row = "";
 
-	//if only year
-	if(store==""&&month==""&&year!=""){
-		for (var i = 0; i < data.length; i++){
-		if(year==data[i].Curr_Date.substring(0,4))
-		{
-			row = "";
-        
-        row += '"' + data[i].Curr_Date + '",';
-		row += '"' + data[i].storeName + '",';
-		row += '"' + data[i].staffName + '",';
-		row += '"' + data[i].shiftStart + '",';
-		row += '"' + data[i].shiftEnd + '",';
-		row += '"' + data[i].BOD_Float + '",';
-		row += '"' + data[i].EOD_Cash + '",';
-		row += '"' + data[i].EOD_Other + '",';
-		row += '"' + data[i].EOD_Card + '",';
-		row += '"' + data[i].Expenses + '",';
-		row += '"' + data[i].EOD_CashTotal + '",';
-		row += '"' + data[i].EOD_Total + '",';
-		row += '"' + data[i].EOD_Float + '",';
-		row += '"' + data[i].floatDiff + '",';
-        
-        //add a line break after each row
-        CSV += row + '\r\n';
-		}
-		}
-	}
+						row += '"' + data[i].Curr_Date + '",';
+						row += '"' + data[i].storeName + '",';
+						row += '"' + data[i].staffName + '",';
+						row += '"' + data[i].shiftStart + '",';
+						row += '"' + data[i].shiftEnd + '",';
+						row += '"' + data[i].BOD_Float + '",';
+						row += '"' + data[i].EOD_Cash + '",';
+						row += '"' + data[i].EOD_Other + '",';
+						row += '"' + data[i].EOD_Card + '",';
+						row += '"' + data[i].Expenses + '",';
+						row += '"' + data[i].EOD_CashTotal + '",';
+						row += '"' + data[i].EOD_Total + '",';
+						row += '"' + data[i].EOD_Float + '",';
+						row += '"' + data[i].floatDiff + '",';
 
-	//if store + month
-	if(store!=""&&month!=""&&year==""){
-		for (var i = 0; i < data.length; i++){
-		if(store==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7))
-		{
-			row = "";
-        
-        row += '"' + data[i].Curr_Date + '",';
-		row += '"' + data[i].storeName + '",';
-		row += '"' + data[i].staffName + '",';
-		row += '"' + data[i].shiftStart + '",';
-		row += '"' + data[i].shiftEnd + '",';
-		row += '"' + data[i].BOD_Float + '",';
-		row += '"' + data[i].EOD_Cash + '",';
-		row += '"' + data[i].EOD_Other + '",';
-		row += '"' + data[i].EOD_Card + '",';
-		row += '"' + data[i].Expenses + '",';
-		row += '"' + data[i].EOD_CashTotal + '",';
-		row += '"' + data[i].EOD_Total + '",';
-		row += '"' + data[i].EOD_Float + '",';
-		row += '"' + data[i].floatDiff + '",';
-        
-        //add a line break after each row
-        CSV += row + '\r\n';
-		}
-		}
-	}
+						//add a line break after each row
+						CSV += row + '\r\n';
+					}
+				}
+			}
 
-	//if store + year
-	if(store!=""&&month==""&&year!=""){
-		for (var i = 0; i < data.length; i++){
-		if(store==data[i].storeName&&year==data[i].Curr_Date.substring(0,4))
-		{
-			row = "";
-        
-        row += '"' + data[i].Curr_Date + '",';
-		row += '"' + data[i].storeName + '",';
-		row += '"' + data[i].staffName + '",';
-		row += '"' + data[i].shiftStart + '",';
-		row += '"' + data[i].shiftEnd + '",';
-		row += '"' + data[i].BOD_Float + '",';
-		row += '"' + data[i].EOD_Cash + '",';
-		row += '"' + data[i].EOD_Other + '",';
-		row += '"' + data[i].EOD_Card + '",';
-		row += '"' + data[i].Expenses + '",';
-		row += '"' + data[i].EOD_CashTotal + '",';
-		row += '"' + data[i].EOD_Total + '",';
-		row += '"' + data[i].EOD_Float + '",';
-		row += '"' + data[i].floatDiff + '",';
-        
-        //add a line break after each row
-        CSV += row + '\r\n';
-		}
-		}
-	}
+			//if only month
+			if(store==""&&month!=""&&year=="")
+			{
+				for (i = 0; i < data.length; i++)
+				{
+					if(parseMonth==data[i].Curr_Date.substring(5,7))
+					{
+						row = "";
 
-	//if month + year
-	if(store==""&&month!=""&&year!=""){
-		for (var i = 0; i < data.length; i++){
-		if(parseMonth==data[i].Curr_Date.substring(5,7)&&year==data[i].Curr_Date.substring(0,4))
-		{
-			row = "";
-        
-        row += '"' + data[i].Curr_Date + '",';
-		row += '"' + data[i].storeName + '",';
-		row += '"' + data[i].staffName + '",';
-		row += '"' + data[i].shiftStart + '",';
-		row += '"' + data[i].shiftEnd + '",';
-		row += '"' + data[i].BOD_Float + '",';
-		row += '"' + data[i].EOD_Cash + '",';
-		row += '"' + data[i].EOD_Other + '",';
-		row += '"' + data[i].EOD_Card + '",';
-		row += '"' + data[i].Expenses + '",';
-		row += '"' + data[i].EOD_CashTotal + '",';
-		row += '"' + data[i].EOD_Total + '",';
-		row += '"' + data[i].EOD_Float + '",';
-		row += '"' + data[i].floatDiff + '",';
-        
-        //add a line break after each row
-        CSV += row + '\r\n';
-		}
-		}
-	}
+						row += '"' + data[i].Curr_Date + '",';
+						row += '"' + data[i].storeName + '",';
+						row += '"' + data[i].staffName + '",';
+						row += '"' + data[i].shiftStart + '",';
+						row += '"' + data[i].shiftEnd + '",';
+						row += '"' + data[i].BOD_Float + '",';
+						row += '"' + data[i].EOD_Cash + '",';
+						row += '"' + data[i].EOD_Other + '",';
+						row += '"' + data[i].EOD_Card + '",';
+						row += '"' + data[i].Expenses + '",';
+						row += '"' + data[i].EOD_CashTotal + '",';
+						row += '"' + data[i].EOD_Total + '",';
+						row += '"' + data[i].EOD_Float + '",';
+						row += '"' + data[i].floatDiff + '",';
 
-	//if all fields filled
-	if(store!=""&&month!=""&&year!=""){
-		for (var i = 0; i < data.length; i++){
-		if(store==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7)&&year==data[i].Curr_Date.substring(0,4))
-		{
-			row = "";
-        
-        row += '"' + data[i].Curr_Date + '",';
-		row += '"' + data[i].storeName + '",';
-		row += '"' + data[i].staffName + '",';
-		row += '"' + data[i].shiftStart + '",';
-		row += '"' + data[i].shiftEnd + '",';
-		row += '"' + data[i].BOD_Float + '",';
-		row += '"' + data[i].EOD_Cash + '",';
-		row += '"' + data[i].EOD_Other + '",';
-		row += '"' + data[i].EOD_Card + '",';
-		row += '"' + data[i].Expenses + '",';
-		row += '"' + data[i].EOD_CashTotal + '",';
-		row += '"' + data[i].EOD_Total + '",';
-		row += '"' + data[i].EOD_Float + '",';
-		row += '"' + data[i].floatDiff + '",';
-        
-        //add a line break after each row
-        CSV += row + '\r\n';
-		}
-		}
-	}                    	
+						//add a line break after each row
+						CSV += row + '\r\n';
+					}
+				}
+			}
 
-    if (CSV == '') {        
-        alert("Invalid data");
-        return;
-    }   
-    
-    //Generate a file name
-    var fileName = "";
-    //this will remove the blank-spaces from the title and replace it with an underscore
-    fileName += ReportTitle.replace(/ /g,"_");   
-    
-    //Initialize file format you want csv or xls
-    var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
-    
-    // Now the little tricky part.
-    // you can use either>> window.open(uri);
-    // but this will not work in some browsers
-    // or you will not get the correct file extension    
-    
-    //this trick will generate a temp <a /> tag
-    var link = document.createElement("a");    
-    link.href = uri;
-    
-    //set the visibility hidden so it will not effect on your web-layout
-    link.style = "visibility:hidden";
-    link.download = fileName + ".csv";
-    
-    //this part will append the anchor tag and remove it after automatic click
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-}
-});
+			//if only year
+			if(store==""&&month==""&&year!="")
+			{
+				for (i = 0; i < data.length; i++)
+				{
+					if(year==data[i].Curr_Date.substring(0,4))
+					{
+						row = "";
+
+						row += '"' + data[i].Curr_Date + '",';
+						row += '"' + data[i].storeName + '",';
+						row += '"' + data[i].staffName + '",';
+						row += '"' + data[i].shiftStart + '",';
+						row += '"' + data[i].shiftEnd + '",';
+						row += '"' + data[i].BOD_Float + '",';
+						row += '"' + data[i].EOD_Cash + '",';
+						row += '"' + data[i].EOD_Other + '",';
+						row += '"' + data[i].EOD_Card + '",';
+						row += '"' + data[i].Expenses + '",';
+						row += '"' + data[i].EOD_CashTotal + '",';
+						row += '"' + data[i].EOD_Total + '",';
+						row += '"' + data[i].EOD_Float + '",';
+						row += '"' + data[i].floatDiff + '",';
+
+						//add a line break after each row
+						CSV += row + '\r\n';
+					}
+				}
+			}
+
+			//if store + month
+			if(store!=""&&month!=""&&year=="")
+			{
+				for (i = 0; i < data.length; i++)
+				{
+					if(store==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7))
+					{
+						row = "";
+
+						row += '"' + data[i].Curr_Date + '",';
+						row += '"' + data[i].storeName + '",';
+						row += '"' + data[i].staffName + '",';
+						row += '"' + data[i].shiftStart + '",';
+						row += '"' + data[i].shiftEnd + '",';
+						row += '"' + data[i].BOD_Float + '",';
+						row += '"' + data[i].EOD_Cash + '",';
+						row += '"' + data[i].EOD_Other + '",';
+						row += '"' + data[i].EOD_Card + '",';
+						row += '"' + data[i].Expenses + '",';
+						row += '"' + data[i].EOD_CashTotal + '",';
+						row += '"' + data[i].EOD_Total + '",';
+						row += '"' + data[i].EOD_Float + '",';
+						row += '"' + data[i].floatDiff + '",';
+
+						//add a line break after each row
+						CSV += row + '\r\n';
+					}
+				}
+			}
+
+			//if store + year
+			if(store!=""&&month==""&&year!="")
+			{
+				for (i = 0; i < data.length; i++)
+				{
+					if(store==data[i].storeName&&year==data[i].Curr_Date.substring(0,4))
+					{
+						row = "";
+
+						row += '"' + data[i].Curr_Date + '",';
+						row += '"' + data[i].storeName + '",';
+						row += '"' + data[i].staffName + '",';
+						row += '"' + data[i].shiftStart + '",';
+						row += '"' + data[i].shiftEnd + '",';
+						row += '"' + data[i].BOD_Float + '",';
+						row += '"' + data[i].EOD_Cash + '",';
+						row += '"' + data[i].EOD_Other + '",';
+						row += '"' + data[i].EOD_Card + '",';
+						row += '"' + data[i].Expenses + '",';
+						row += '"' + data[i].EOD_CashTotal + '",';
+						row += '"' + data[i].EOD_Total + '",';
+						row += '"' + data[i].EOD_Float + '",';
+						row += '"' + data[i].floatDiff + '",';
+
+						//add a line break after each row
+						CSV += row + '\r\n';
+					}
+				}
+			}
+
+			//if month + year
+			if(store==""&&month!=""&&year!="")
+			{
+				for (i = 0; i < data.length; i++)
+				{
+					if(parseMonth==data[i].Curr_Date.substring(5,7)&&year==data[i].Curr_Date.substring(0,4))
+					{
+						row = "";
+
+						row += '"' + data[i].Curr_Date + '",';
+						row += '"' + data[i].storeName + '",';
+						row += '"' + data[i].staffName + '",';
+						row += '"' + data[i].shiftStart + '",';
+						row += '"' + data[i].shiftEnd + '",';
+						row += '"' + data[i].BOD_Float + '",';
+						row += '"' + data[i].EOD_Cash + '",';
+						row += '"' + data[i].EOD_Other + '",';
+						row += '"' + data[i].EOD_Card + '",';
+						row += '"' + data[i].Expenses + '",';
+						row += '"' + data[i].EOD_CashTotal + '",';
+						row += '"' + data[i].EOD_Total + '",';
+						row += '"' + data[i].EOD_Float + '",';
+						row += '"' + data[i].floatDiff + '",';
+
+						//add a line break after each row
+						CSV += row + '\r\n';
+					}
+				}
+			}
+
+			//if all fields filled
+			if(store!=""&&month!=""&&year!="")
+			{
+				for (i = 0; i < data.length; i++)
+				{
+					if(store==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7)&&year==data[i].Curr_Date.substring(0,4))
+					{
+						row = "";
+
+						row += '"' + data[i].Curr_Date + '",';
+						row += '"' + data[i].storeName + '",';
+						row += '"' + data[i].staffName + '",';
+						row += '"' + data[i].shiftStart + '",';
+						row += '"' + data[i].shiftEnd + '",';
+						row += '"' + data[i].BOD_Float + '",';
+						row += '"' + data[i].EOD_Cash + '",';
+						row += '"' + data[i].EOD_Other + '",';
+						row += '"' + data[i].EOD_Card + '",';
+						row += '"' + data[i].Expenses + '",';
+						row += '"' + data[i].EOD_CashTotal + '",';
+						row += '"' + data[i].EOD_Total + '",';
+						row += '"' + data[i].EOD_Float + '",';
+						row += '"' + data[i].floatDiff + '",';
+
+						//add a line break after each row
+						CSV += row + '\r\n';
+					}
+				}
+			}                    	
+
+			if (CSV == '') 
+			{        
+				alert("Invalid data");
+				return;
+			}
+
+			//Generate a file name
+			var fileName = "";
+			//this will remove the blank-spaces from the title and replace it with an underscore
+			fileName += ReportTitle.replace(/ /g,"_");   
+			
+			//Initialize file format you want csv or xls
+			var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+			
+			// Now the little tricky part.
+			// you can use either>> window.open(uri);
+			// but this will not work in some browsers
+			// or you will not get the correct file extension    
+			
+			//this trick will generate a temp <a /> tag
+			var link = document.createElement("a");    
+			link.href = uri;
+
+			//set the visibility hidden so it will not effect on your web-layout
+			link.style = "visibility:hidden";
+			link.download = fileName + ".csv";
+
+			//this part will append the anchor tag and remove it after automatic click
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+		}
+	});
 }
 
 function updateDeliveryTotal()
@@ -830,7 +874,7 @@ function addDeliveryProduct()
 	document.getElementById("printDeliveryReport").style = "display:block";
 
 	deliveryHTML += "<br>";
- 	deliveryHTML += "<br><a>Product Name: " + document.getElementById("deliveryProductName").value + "</a><br>";
+	deliveryHTML += "<br><a>Product Name: " + document.getElementById("deliveryProductName").value + "</a><br>";
 	deliveryHTML += "<br><a>Sub Code: " + document.getElementById("deliveryProductCode").value + "</a><br>";
 	deliveryHTML += "<br><a>Sizes:</a><br>";
 	deliveryHTML += "<a>S: " + document.getElementById("deliveryProductS").value + " </a>";
@@ -881,7 +925,7 @@ function genDeliveryExcel()
 	var date = currentDate.getDate();
 	var month = currentDate.getMonth(); //Be careful! January is 0 not 1
 	var year = currentDate.getFullYear();
-	var timeStamp = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+	//var timeStamp = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
 	var dateString = date + "-" +(month + 1) + "-" + year;
 	
     ReportTitle = "Delivery_" + dateString + "_" + document.getElementById("fromStore").value + "_to_" + document.getElementById("toStore").value;
@@ -905,7 +949,8 @@ function genDeliveryExcel()
 	
 	CSV += deliveryExcelHTML;
 	
-	if (CSV == '') {        
+	if (CSV == '') 
+	{        
         alert("Invalid data");
         return;
     }   
@@ -938,7 +983,7 @@ function addStockCountProduct()
 	document.getElementById("printStockCountReport").style = "display:block";
 
 	stockCountHTML += "<br>";
- 	stockCountHTML += "<br><a>Product Name: " + document.getElementById("stockCountProductName").value + "</a><br>";
+	stockCountHTML += "<br><a>Product Name: " + document.getElementById("stockCountProductName").value + "</a><br>";
 	stockCountHTML += "<br><a>Sub Code: " + document.getElementById("stockCountProductCode").value + "</a><br>";
 	stockCountHTML += "<br><a>Sizes:</a><br>";
 	stockCountHTML += "<a>S: " + document.getElementById("stockCountProductS").value + " </a>";
@@ -989,7 +1034,7 @@ function genStockCountExcel()
 	var date = currentDate.getDate();
 	var month = currentDate.getMonth(); //Be careful! January is 0 not 1
 	var year = currentDate.getFullYear();
-	var timeStamp = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+	//var timeStamp = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
 	var dateString = date + "-" +(month + 1) + "-" + year;
 	
     ReportTitle = "StockCount_" + document.getElementById("storeCountName").value + "_" + dateString;
@@ -1053,34 +1098,37 @@ function popEODYear()
 	var yearListArray = [];
 	
 	$.ajax({
-				type: 'GET',
-                url: '/getReports/',
-                success: function (data) {
+		type: 'GET',
+        url: '/getReports/',
+        success: function (data) 
+        {
+			for (i = 0; i < data.length; i++)
+			{			
+				date = data[i].Curr_Date;
+				yID = date.substring(0,4);
 					
-					for (var i = 0; i < data.length; i++){
-						
-					date = data[i].Curr_Date;
-					yID = date.substring(0,4);
+				if (yearListArray.includes(yID)) 
+				{
+					continue;
+				}
+				else 
+				{
+					yearList += "<option name=" + yID + " value=" + yID + ">" + yID + "</option>";
+					yearListArray.push(yID);
+				}
+			}
 					
-						if (yearListArray.includes(yID)) {
-							continue;
-						}
-						else {
-							yearList += "<option name=" + yID + " value=" + yID + ">" + yID + "</option>";
-							yearListArray.push(yID);
-						}
-					}
-					
-				$("#prevEODYearList").html(yearList);	
-				}		
+			$("#prevEODYearList").html(yearList);	
+		}		
 	});
 });
 
-function fillEODMonth() {
+function fillEODMonth() 
+{
     document.getElementById("prevEODMonth").value = document.getElementById("prevEODMonthList").value;
 }
 
-
-function fillEODYear() {
+function fillEODYear() 
+{
     document.getElementById("prevEODYear").value = document.getElementById("prevEODYearList").value;
 }

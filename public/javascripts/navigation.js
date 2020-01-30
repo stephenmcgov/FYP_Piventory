@@ -1,29 +1,31 @@
+/*eslint-env jquery*/
 $(document).ready(
 
-function (){
-    $("#shopNav").click(function (event) {
-            $(location).attr('href', '/catalogue' );
-        }
-    )
+function ()
+{
+    $("#shopNav").click(function() 
+    {
+        $(location).attr('href', '/catalogue' );
+    })
 
-    $("#backEndNav").click(function (event) {
-            $(location).attr('href', '/management' );
-        }
-    )
+    $("#backEndNav").click(function() 
+    {
+        $(location).attr('href', '/management' );
+    })
 	
-	$("#reportsNav").click(function (event) {
-            $(location).attr('href', '/reports' );
-        }
-    )
+	$("#reportsNav").click(function() 
+    {
+        $(location).attr('href', '/reports' );
+    })
 
-    /*$("#toLoginPageButton").click(function (event){
-            $(location).attr('href', '/index');
-        }
-    )*/
+    /*$("#toLoginPageButton").click(function()
+    {
+        $(location).attr('href', '/index');
+    })*/
 	
-    $("#createAccount").click(function (event){
-            $(location).attr('href', '/catalogue' );
-        }
-    )
+    $("#createAccount").click(function() 
+    {
+        $(location).attr('href', '/catalogue' );
+    })
 });
 

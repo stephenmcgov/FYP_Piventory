@@ -1,22 +1,28 @@
+/*eslint-env jquery*/
+
+//add store to system
 $(document).ready(
-    function() {
-	/**
-         * Event handler for when the user attempts to register
-         */
-        $("#newStoreForm").submit(function (event) {
+    function() 
+    {
+        $("#newStoreForm").submit(function (event) 
+        {
             event.preventDefault();
-            $.ajax({
+            $.ajax(
+            {
                 type: 'POST',
                 url: '/addStore',
                 dataType: 'json',
-                data: {
+                data: 
+                {
                     'storeName': event.target.newStoreName.value
                 },
-                success: function(token){
+                success: function()
+                {
                     $(location).attr('href', '/Catalogue' );
-                    // Redirect to a login page
+                    // Redirect to catalogue page
                 },
-                error: function(errMsg) {
+                error: function(errMsg) 
+                {
                     swal(
                         'Oops...',
                         errMsg.responseJSON.body,
@@ -26,20 +32,26 @@ $(document).ready(
             });
         });
 	
-        $.ajax({
+        $.ajax(
+        {
             type: 'GET',
             url: '/getStores/',
-            success: function (data) {
-
-				//populate products list using forms to submit data to API
+            success: function (data) 
+            {
+				//populate store list using forms to submit data to API
 				//need 'action' in form to force API
                 var storeList = "";
                 var storeListArray = [];
-                for (var i = 0; i < data.length; i++) {
-                    if (storeListArray.includes(data[i].storeName)) {
+             
+                for (var i = 0; i < data.length; i++) 
+                {
+                    if (storeListArray.includes(data[i].storeName)) 
+                    {
                         continue;
                     }
-                    else {
+                    
+                    else 
+                    {
                         storeList += "<option name=" + data[i].storeName + " value=" + data[i].storeName + ">" + data[i].storeName + "</option>";
                         storeListArray.push(data[i].storeName);
                     }
@@ -55,14 +67,17 @@ $(document).ready(
 });
 
 //use dropdown in add-product field to fill value with pre-existing store value
-function fillStoreField() {
+function fillStoreField() 
+{
     document.getElementById("storeName").value = document.getElementById("storeList").value;
 }
 
-function fillStoreCountField() {
+function fillStoreCountField() 
+{
 	document.getElementById("storeCountName").value = document.getElementById("storeCountList").value;
 }
 
-function fillStoreReportField() {
+function fillStoreReportField() 
+{
 	document.getElementById("storeReportName").value = document.getElementById("storeReportList").value;
 }

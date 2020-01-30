@@ -1,14 +1,19 @@
+/*eslint-env jquery*/
 $(document).ready(
     function() {
 	/**
          * Event handler for when the user attempts to register
          */
-        $("#reg-form").submit(function (event) {
+        $("#reg-form").submit(function (event)
+        {
             event.preventDefault();
 			
+            var role = '';
+
 			if($('#inputRole').prop('checked')==true)
-				role='admin'
-			else role='staff'
+				role='admin';
+			
+            else role='staff';
 			
             $.ajax({
                 type: 'POST',
@@ -19,11 +24,13 @@ $(document).ready(
                     'password': event.target.inputPassword.value,
 					'role': role,
                 },
-                success: function(token){
+                success: function()
+                {
                     $(location).attr('href', '/catalogue' );
                     // Redirect to a login page
                 },
-                error: function(errMsg) {
+                error: function(errMsg)
+                {
                     swal(
                         'Oops...',
                         errMsg.responseJSON.body,
@@ -33,7 +40,8 @@ $(document).ready(
             });
         });
 
-        $("#log-form").submit(function (event) {
+        $("#log-form").submit(function (event)
+        {
             event.preventDefault();
             $.ajax({
                 type: 'POST',
@@ -43,12 +51,14 @@ $(document).ready(
                     'user_name': event.target.inputUsername.value,
                     'password': event.target.inputPassword.value
                 },
-                success: function(token){
+                success: function()
+                {
                     //if success, redirects to /backend page
                     $(location).attr('href', '/catalogue' );
                     // Redirect to logged in page
                 },
-                error: function(errMsg) {
+                error: function(errMsg) 
+                {
                     swal(
                         'Oops...',
                         errMsg.responseJSON.body,

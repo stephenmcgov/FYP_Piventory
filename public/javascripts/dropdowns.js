@@ -1,3 +1,4 @@
+/*eslint-env jquery*/
 $(document).ready(
 function hideReportMenus()
 {
@@ -29,21 +30,21 @@ function hideProductMenus()
 
 function showEOD()
 {
-	if(document.getElementById("eod_report").style.display = "none")
+	if(document.getElementById("eod_report").style.display == "none")
 	{
 		document.getElementById("eod_report").style.display = "block";
 		document.getElementById("hide_eod").style.display = "block";
 		document.getElementById("show_eod").style.display = "none";
 	}
 	
-	if(document.getElementById("deliveryReports").style.display = "block")
+	if(document.getElementById("deliveryReports").style.display == "block")
 	{
 		document.getElementById("deliveryReports").style.display = "none";
 		document.getElementById("hide_deliveryReport").style.display = "none";
 		document.getElementById("show_deliveryReport").style.display = "block";
 	}
 	
-	if(document.getElementById("stockCountReports").style.display = "block")
+	if(document.getElementById("stockCountReports").style.display == "block")
 	{
 		document.getElementById("stockCountReports").style.display = "none";
 		document.getElementById("hide_stockCountReport").style.display = "none";
@@ -53,7 +54,7 @@ function showEOD()
 
 function hideEOD()
 {
-	if(document.getElementById("eod_report").style.display = "block")
+	if(document.getElementById("eod_report").style.display == "block")
 	{
 		document.getElementById("eod_report").style.display = "none";
 		document.getElementById("hide_eod").style.display = "none";
@@ -63,28 +64,28 @@ function hideEOD()
 
 function showPrevEOD()
 {
-	if(document.getElementById("previousReports").style.display = "none")
+	if(document.getElementById("previousReports").style.display == "none")
 	{
 		document.getElementById("previousReports").style.display = "block";
 		document.getElementById("hide_prevEOD").style.display = "block";
 		document.getElementById("show_prevEOD").style.display = "none";
 	}
 	
-	if(document.getElementById("productMenu").style.display = "block")
+	if(document.getElementById("productMenu").style.display == "block")
 	{
 		document.getElementById("productMenu").style.display = "none";
 		document.getElementById("hide_newProductMenu").style.display = "none";
 		document.getElementById("show_newProductMenu").style.display = "block";
 	}
 	
-	if(document.getElementById("updateProducts").style.display = "block")
+	if(document.getElementById("updateProducts").style.display == "block")
 	{
 		document.getElementById("updateProducts").style.display = "none";
 		document.getElementById("hide_updateProductMenu").style.display = "none";
 		document.getElementById("show_updateProductMenu").style.display = "block";
 	}
 	
-	if(document.getElementById("accountManagement").style.display = "block")
+	if(document.getElementById("accountManagement").style.display == "block")
 	{
 		document.getElementById("accountManagement").style.display = "none";
 		document.getElementById("hide_accountManagement").style.display = "none";
@@ -94,7 +95,7 @@ function showPrevEOD()
 
 function hidePrevEOD()
 {
-	if(document.getElementById("previousReports").style.display = "block")
+	if(document.getElementById("previousReports").style.display == "block")
 	{
 		document.getElementById("previousReports").style.display = "none";
 		document.getElementById("hide_prevEOD").style.display = "none";
@@ -104,21 +105,21 @@ function hidePrevEOD()
 
 function showDeliveryReport()
 {
-	if(document.getElementById("deliveryReports").style.display = "none")
+	if(document.getElementById("deliveryReports").style.display == "none")
 	{
 		document.getElementById("deliveryReports").style.display = "block";
 		document.getElementById("hide_deliveryReport").style.display = "block";
 		document.getElementById("show_deliveryReport").style.display = "none";
 	}
 	
-	if(document.getElementById("eod_report").style.display = "block")
+	if(document.getElementById("eod_report").style.display == "block")
 	{
 		document.getElementById("eod_report").style.display = "none";
 		document.getElementById("hide_eod").style.display = "none";
 		document.getElementById("show_eod").style.display = "block";
 	}
 	
-	if(document.getElementById("stockCountReports").style.display = "block")
+	if(document.getElementById("stockCountReports").style.display == "block")
 	{
 		document.getElementById("stockCountReports").style.display = "none";
 		document.getElementById("hide_stockCountReport").style.display = "none";
@@ -128,7 +129,7 @@ function showDeliveryReport()
 
 function hideDeliveryReport()
 {
-	if(document.getElementById("deliveryReports").style.display = "block")
+	if(document.getElementById("deliveryReports").style.display == "block")
 	{
 		document.getElementById("deliveryReports").style.display = "none";
 		document.getElementById("hide_deliveryReport").style.display = "none";
@@ -138,28 +139,28 @@ function hideDeliveryReport()
 
 function showNewProductMenu()
 {
-	if(document.getElementById("productMenu").style.display = "none")
+	if(document.getElementById("productMenu").style.display == "none")
 	{
 		document.getElementById("productMenu").style.display = "block";
 		document.getElementById("hide_newProductMenu").style.display = "block";
 		document.getElementById("show_newProductMenu").style.display = "none";
 	}
 	
-	if(document.getElementById("updateProducts").style.display = "block")
+	if(document.getElementById("updateProducts").style.display == "block")
 	{
 		document.getElementById("updateProducts").style.display = "none";
 		document.getElementById("hide_updateProductMenu").style.display = "none";
 		document.getElementById("show_updateProductMenu").style.display = "block";
 	}
 		
-	if(document.getElementById("previousReports").style.display = "block")
+	if(document.getElementById("previousReports").style.display == "block")
 	{
 		document.getElementById("previousReports").style.display = "none";
 		document.getElementById("hide_prevEOD").style.display = "none";
 		document.getElementById("show_prevEOD").style.display = "block";
 	}
 	
-	if(document.getElementById("accountManagement").style.display = "block")
+	if(document.getElementById("accountManagement").style.display == "block")
 	{
 		document.getElementById("accountManagement").style.display = "none";
 		document.getElementById("hide_accountManagement").style.display = "none";
@@ -169,7 +170,7 @@ function showNewProductMenu()
 
 function hideNewProductMenu()
 {
-	if(document.getElementById("productMenu").style.display = "block")
+	if(document.getElementById("productMenu").style.display == "block")
 	{
 		document.getElementById("productMenu").style.display = "none";
 		document.getElementById("hide_newProductMenu").style.display = "none";
@@ -179,28 +180,28 @@ function hideNewProductMenu()
 
 function showUpdateProductMenu()
 {
-	if(document.getElementById("updateProducts").style.display = "none")
+	if(document.getElementById("updateProducts").style.display == "none")
 	{
 		document.getElementById("updateProducts").style.display = "block";
 		document.getElementById("hide_updateProductMenu").style.display = "block";
 		document.getElementById("show_updateProductMenu").style.display = "none";
 	}
 	
-	if(document.getElementById("productMenu").style.display = "block")
+	if(document.getElementById("productMenu").style.display == "block")
 	{
 		document.getElementById("productMenu").style.display = "none";
 		document.getElementById("hide_newProductMenu").style.display = "none";
 		document.getElementById("show_newProductMenu").style.display = "block";
 	}
 		
-	if(document.getElementById("previousReports").style.display = "block")
+	if(document.getElementById("previousReports").style.display == "block")
 	{
 		document.getElementById("previousReports").style.display = "none";
 		document.getElementById("hide_prevEOD").style.display = "none";
 		document.getElementById("show_prevEOD").style.display = "block";
 	}
 	
-	if(document.getElementById("accountManagement").style.display = "block")
+	if(document.getElementById("accountManagement").style.display == "block")
 	{
 		document.getElementById("accountManagement").style.display = "none";
 		document.getElementById("hide_accountManagement").style.display = "none";
@@ -210,7 +211,7 @@ function showUpdateProductMenu()
 
 function hideUpdateProductMenu()
 {
-	if(document.getElementById("updateProducts").style.display = "block")
+	if(document.getElementById("updateProducts").style.display == "block")
 	{
 		document.getElementById("updateProducts").style.display = "none";
 		document.getElementById("hide_updateProductMenu").style.display = "none";
@@ -220,28 +221,28 @@ function hideUpdateProductMenu()
 
 function showAccountManagement()
 {	
-	if(document.getElementById("accountManagement").style.display = "none")
+	if(document.getElementById("accountManagement").style.display == "none")
 	{
 		document.getElementById("accountManagement").style.display = "block";
 		document.getElementById("hide_accountManagement").style.display = "block";
 		document.getElementById("show_accountManagement").style.display = "none";
 	}
 
-	if(document.getElementById("productMenu").style.display = "block")
+	if(document.getElementById("productMenu").style.display == "block")
 	{
 		document.getElementById("productMenu").style.display = "none";
 		document.getElementById("hide_newProductMenu").style.display = "none";
 		document.getElementById("show_newProductMenu").style.display = "block";
 	}
 	
-	if(document.getElementById("updateProducts").style.display = "block")
+	if(document.getElementById("updateProducts").style.display == "block")
 	{
 		document.getElementById("updateProducts").style.display = "none";
 		document.getElementById("hide_updateProductMenu").style.display = "none";
 		document.getElementById("show_updateProductMenu").style.display = "block";
 	}
 		
-	if(document.getElementById("previousReports").style.display = "block")
+	if(document.getElementById("previousReports").style.display == "block")
 	{
 		document.getElementById("previousReports").style.display = "none";
 		document.getElementById("hide_prevEOD").style.display = "none";
@@ -251,7 +252,7 @@ function showAccountManagement()
 
 function hideAccountManagement()
 {
-	if(document.getElementById("accountManagement").style.display = "block")
+	if(document.getElementById("accountManagement").style.display == "block")
 	{
 		document.getElementById("accountManagement").style.display = "none";
 		document.getElementById("hide_accountManagement").style.display = "none";
@@ -261,21 +262,21 @@ function hideAccountManagement()
 
 function showStockCountReport()
 {
-	if(document.getElementById("stockCountReports").style.display = "none")
+	if(document.getElementById("stockCountReports").style.display == "none")
 	{
 		document.getElementById("stockCountReports").style.display = "block";
 		document.getElementById("hide_stockCountReport").style.display = "block";
 		document.getElementById("show_stockCountReport").style.display = "none";
 	}
 	
-	if(document.getElementById("deliveryReports").style.display = "block")
+	if(document.getElementById("deliveryReports").style.display == "block")
 	{
 		document.getElementById("deliveryReports").style.display = "none";
 		document.getElementById("hide_deliveryReport").style.display = "none";
 		document.getElementById("show_deliveryReport").style.display = "block";
 	}
 	
-	if(document.getElementById("eod_report").style.display = "block")
+	if(document.getElementById("eod_report").style.display == "block")
 	{
 		document.getElementById("eod_report").style.display = "none";
 		document.getElementById("hide_eod").style.display = "none";
@@ -285,7 +286,7 @@ function showStockCountReport()
 
 function hideStockCountReport()
 {
-	if(document.getElementById("stockCountReports").style.display = "block")
+	if(document.getElementById("stockCountReports").style.display == "block")
 	{
 		document.getElementById("stockCountReports").style.display = "none";
 		document.getElementById("hide_stockCountReport").style.display = "none";

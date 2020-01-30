@@ -1,4 +1,4 @@
- /*eslint-env jquery*/
+/*eslint-env jquery*/
 var styleIndex = 0;
 
 $(document).ready(
@@ -316,7 +316,7 @@ $(document).ready(
 							}
 						}	
                        
-					    products += "<p>" + data[i].description + "</p>";
+						products += "<p>" + data[i].description + "</p>";
 						products += "</div></div>";
                     }
                     //pass the products variable to the feedproducts div id in catalogue

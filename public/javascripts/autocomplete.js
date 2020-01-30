@@ -1,3 +1,4 @@
+/*eslint-env jquery*/
 $(document).ready(
 //call API @routes/index.js && products.js to return products from db
   function popList() {
@@ -20,21 +21,21 @@ $(document).ready(
     		}
     		catch{
     			console.log("Autocomplete Error 1");
-      	}
+        }
       		
       	try{
     			autocomplete(document.getElementById("deliveryProductName"), productSearchListArray);
     		}
     		catch{
       		console.log("Autocomplete Error 2");
-      	}
+        }
       		
     		try{
     			autocomplete(document.getElementById("stockCountProductName"), productSearchListArray);
       	}
     		catch{
       		console.log("Autocomplete Error 3");
-    		}
+        }
     	}
     });
   }
