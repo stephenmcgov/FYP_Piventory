@@ -9,7 +9,7 @@ clone repo in chosen location via https:
 
 ```git clone https://github.com/stephenmcgov/FYP_Piventory.git```
 
-install dependencies from folder
+install dependencies to project folder
 
 ```cd FYP_Piventory```
 
