@@ -1,0 +1,45 @@
+env tasks/improvements
+-----------------------
+
+- create readme
+
+- include dependencies in npm package (nodemon, express)
+
+- run npm audit
+
+- setup/automate local mongoDB
+
+- remove multi-site solution from framework
+
+- set store name func
+
+- handle api errors
+
+- script env setup, store init and startup autoruns as install wizard
+
+
+app bugs/improvements
+-----------------------
+
+- store default values on edit -> restore defaults button
+store defaults in separate disabled field?
+
+- can't click create/edit form multiple_price checkbox while single_price active
+
+- all multiple prices displayed as size s on catalogue
+
+- can't clear values on prev_eod_report form
+
+- only store value returns search on prev_eod_report form
+
+- should show all reports on load and filter instead of forcing search prev_eod_report form
+
+- Hide product name field until image upload? / disable field
+
+- enforce validation & typing for number fields (prevents api error display)
+
+- prevent eod form submit if any field is NaN and enforce typing
+
+- recover form data func? (use temp single file-writing?)
+
+- add browse for product in catalogue func to stock report form?
