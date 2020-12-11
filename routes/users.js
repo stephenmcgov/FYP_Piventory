@@ -85,11 +85,12 @@ router.post('/login', function(req, res, next)
 			{
 				user.access_token = createJwt({user_name: username});
                 user.save();
-				//set response cookies for auth privileges
+                //set response cookies for auth privileges
+                res.cookie('name', '' + user.user_name);
 				res.cookie('role', '' + user.role);
                 res.cookie('Authorization', 'Bearer ' + user.access_token);
 				res.header('Authorization', 'Bearer ' + user.access_token);
-                res.json({'success' : 'loggedIn',role:user.role});
+                res.json({'success' : 'loggedIn',name:user.user_name});
             }
             
 			else 

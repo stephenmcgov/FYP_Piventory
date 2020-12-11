@@ -3,11 +3,11 @@ var session = require('express-session');
 var express = require('express');
 var router = express.Router();
 var cookieParser = require('cookie-parser');
+var User = require('../models/users');
 var Product = require('../models/products');
 var Report = require('../models/reports');
 var Store = require('../models/stores');
 var jwt = require('jsonwebtoken');
-var ssn;
 
 /*---NAV FUNCTIONS---*/
 
@@ -84,6 +84,14 @@ router.get('/register', function (req, res, next) {
 			
 	else if(decodedCookie=='staff')
 		{res.send('Restricted to Admin');}
+})
+
+router.get('/getUsers', function (req, res, next) {
+    User.find({}, {user_name:1,role:1}, function (err, users) {
+        if (err)
+            res.send(err);
+        res.json(users);
+    });
 })
 
 /*---PRODUCT FUNCTIONS---*/

@@ -30,6 +30,7 @@
     <script src="/javascripts/dropdowns.js"></script>
     <script src="/javascripts/addStore.js"></script>
 	<script src="/javascripts/reportFunctions.js"></script>
+    <script src="/javascripts/userFunctions.js"></script>
 
     <nav id="navbar" style="border-bottom:2px solid black" class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="navbar-nav">
@@ -37,6 +38,7 @@
 			<a style="color:black" class="nav-item nav-link" id="reportsNav"> Reports </a> 
 			<a style="color:black" class="nav-item nav-link" id="backEndNav"> Management </a>               
         </div>
+        <div id="loggedInUser" onload="getLoggedInUser()"></div>
     </nav>
 </head>
 

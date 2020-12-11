@@ -43,7 +43,8 @@ $(document).ready(
                 $("#categorySearchList").html(categoryList);
             }
         });
-    });
+	}
+);
 	
 //use dropdown in add-product field to fill value with pre-existing category value
 function fillCategoryField() 
