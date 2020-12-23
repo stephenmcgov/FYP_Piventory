@@ -85,14 +85,14 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			salePrice3XL: req.body.salePrice3XL,
 			salePrice4XL: req.body.salePrice4XL,
 			
-			inStoreCork: req.body.inCork,
-			inStoreKala: req.body.inKala,
-			inStoreGalway: req.body.inGalway,
+			//inStoreCork: req.body.inCork,
+			//inStoreKala: req.body.inKala,
+			//inStoreGalway: req.body.inGalway,
 			inWarehouse: req.body.inWarehouse,
 
-			totalKala: req.body.countKala,
-			totalCork: req.body.countCork,
-			totalGalway: req.body.countGalway,
+			//totalKala: req.body.countKala,
+			//totalCork: req.body.countCork,
+			//totalGalway: req.body.countGalway,
 			totalWarehouse: req.body.countWarehouse,
 			
 			cart: "no"
@@ -154,7 +154,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			WarehouseSize3XL:req.body.warehouseSize3XL,
 			WarehouseSize4XL:req.body.warehouseSize4XL,
 			
-			CorkSizeS:req.body.corkSizeS,
+			/*CorkSizeS:req.body.corkSizeS,
 			CorkSizeM:req.body.corkSizeM,
 			CorkSizeL:req.body.corkSizeL,
 			CorkSizeXL:req.body.corkSizeXL,
@@ -176,16 +176,16 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			GalwaySizeXL:req.body.galwaySizeXL,
 			GalwaySize2XL:req.body.galwaySize2XL,
 			GalwaySize3XL:req.body.galwaySize3XL,
-			GalwaySize4XL:req.body.galwaySize4XL,
+			GalwaySize4XL:req.body.galwaySize4XL,*/
 			
-			inStoreCork: req.body.inCork,
-			inStoreKala: req.body.inKala,
-			inStoreGalway: req.body.inGalway,
+			//inStoreCork: req.body.inCork,
+			//inStoreKala: req.body.inKala,
+			//inStoreGalway: req.body.inGalway,
 			inWarehouse: req.body.inWarehouse,
 
-			totalKala: req.body.countKala,
-			totalCork: req.body.countCork,
-			totalGalway: req.body.countGalway,
+			//totalKala: req.body.countKala,
+			//totalCork: req.body.countCork,
+			//totalGalway: req.body.countGalway,
 			totalWarehouse: req.body.countWarehouse,
 			
 			//cart: "no"
@@ -247,7 +247,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			WarehouseSize3XL:req.body.warehouseSize3XL,
 			WarehouseSize4XL:req.body.warehouseSize4XL,
 			
-			CorkSizeS:req.body.corkSizeS,
+			/*CorkSizeS:req.body.corkSizeS,
 			CorkSizeM:req.body.corkSizeM,
 			CorkSizeL:req.body.corkSizeL,
 			CorkSizeXL:req.body.corkSizeXL,
@@ -269,16 +269,16 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			GalwaySizeXL:req.body.galwaySizeXL,
 			GalwaySize2XL:req.body.galwaySize2XL,
 			GalwaySize3XL:req.body.galwaySize3XL,
-			GalwaySize4XL:req.body.galwaySize4XL,
+			GalwaySize4XL:req.body.galwaySize4XL,*/
 			
-			inStoreCork: req.body.inCork,
-			inStoreKala: req.body.inKala,
-			inStoreGalway: req.body.inGalway,
+			//inStoreCork: req.body.inCork,
+			//inStoreKala: req.body.inKala,
+			//inStoreGalway: req.body.inGalway,
 			inWarehouse: req.body.inWarehouse,
 
-			totalKala: req.body.countKala,
-			totalCork: req.body.countCork,
-			totalGalway: req.body.countGalway,
+			//totalKala: req.body.countKala,
+			//totalCork: req.body.countCork,
+			//totalGalway: req.body.countGalway,
 			totalWarehouse: req.body.countWarehouse,
 			
 			//cart: "no"
@@ -344,73 +344,73 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			colorCode10: req.body.color10,
 			
 			color1Total: req.body.colorTotal1,
-			color1CorkTotal: req.body.subCountCork1,
-			color1KalaTotal: req.body.subCountKala1,
-			color1GalwayTotal: req.body.subCountGalway1,
+			//color1CorkTotal: req.body.subCountCork1,
+			//color1KalaTotal: req.body.subCountKala1,
+			//color1GalwayTotal: req.body.subCountGalway1,
 			color1WarehouseTotal: req.body.subCountWarehouse1,
 			
 			color2Total: req.body.colorTotal2,
-			color2CorkTotal: req.body.subCountCork2,
-			color2KalaTotal: req.body.subCountKala2,
-			color2GalwayTotal: req.body.subCountGalway2,
+			//color2CorkTotal: req.body.subCountCork2,
+			//color2KalaTotal: req.body.subCountKala2,
+			//color2GalwayTotal: req.body.subCountGalway2,
 			color2WarehouseTotal: req.body.subCountWarehouse2,
 			
 			color3Total: req.body.colorTotal3,
-			color3CorkTotal: req.body.subCountCork3,
-			color3KalaTotal: req.body.subCountKala3,
-			color3GalwayTotal: req.body.subCountGalway3,
+			//color3CorkTotal: req.body.subCountCork3,
+			//color3KalaTotal: req.body.subCountKala3,
+			//color3GalwayTotal: req.body.subCountGalway3,
 			color3WarehouseTotal: req.body.subCountWarehouse3,
 			
 			color4Total: req.body.colorTotal4,
-			color4CorkTotal: req.body.subCountCork4,
-			color4KalaTotal: req.body.subCountKala4,
-			color4GalwayTotal: req.body.subCountGalway4,
+			//color4CorkTotal: req.body.subCountCork4,
+			//color4KalaTotal: req.body.subCountKala4,
+			//color4GalwayTotal: req.body.subCountGalway4,
 			color4WarehouseTotal: req.body.subCountWarehouse4,
 			
 			color5Total: req.body.colorTotal5,
-			color5CorkTotal: req.body.subCountCork5,
-			color5KalaTotal: req.body.subCountKala5,
-			color5GalwayTotal: req.body.subCountGalway5,
+			//color5CorkTotal: req.body.subCountCork5,
+			//color5KalaTotal: req.body.subCountKala5,
+			//color5GalwayTotal: req.body.subCountGalway5,
 			color5WarehouseTotal: req.body.subCountWarehouse5,
 			
 			color6Total: req.body.colorTotal6,
-			color6CorkTotal: req.body.subCountCork6,
-			color6KalaTotal: req.body.subCountKala6,
-			color6GalwayTotal: req.body.subCountGalway6,
+			//color6CorkTotal: req.body.subCountCork6,
+			//color6KalaTotal: req.body.subCountKala6,
+			//color6GalwayTotal: req.body.subCountGalway6,
 			color6WarehouseTotal: req.body.subCountWarehouse6,
 			
 			color7Total: req.body.colorTotal7,
-			color7CorkTotal: req.body.subCountCork7,
-			color7KalaTotal: req.body.subCountKala7,
-			color7GalwayTotal: req.body.subCountGalway7,
+			//color7CorkTotal: req.body.subCountCork7,
+			//color7KalaTotal: req.body.subCountKala7,
+			//color7GalwayTotal: req.body.subCountGalway7,
 			color7WarehouseTotal: req.body.subCountWarehouse7,
 			
 			color8Total: req.body.colorTotal8,
-			color8CorkTotal: req.body.subCountCork8,
-			color8KalaTotal: req.body.subCountKala8,
-			color8GalwayTotal: req.body.subCountGalway8,
+			//color8CorkTotal: req.body.subCountCork8,
+			//color8KalaTotal: req.body.subCountKala8,
+			//color8GalwayTotal: req.body.subCountGalway8,
 			color8WarehouseTotal: req.body.subCountWarehouse8,
 			
 			color9Total: req.body.colorTotal9,
-			color9CorkTotal: req.body.subCountCork9,
-			color9KalaTotal: req.body.subCountKala9,
-			color9GalwayTotal: req.body.subCountGalway9,
+			//color9CorkTotal: req.body.subCountCork9,
+			//color9KalaTotal: req.body.subCountKala9,
+			//color9GalwayTotal: req.body.subCountGalway9,
 			color9WarehouseTotal: req.body.subCountWarehouse9,
 			
 			color10Total: req.body.colorTotal10,
-			color10CorkTotal: req.body.subCountCork10,
-			color10KalaTotal: req.body.subCountKala10,
-			color10GalwayTotal: req.body.subCountGalway10,
+			//color10CorkTotal: req.body.subCountCork10,
+			//color10KalaTotal: req.body.subCountKala10,
+			//color10GalwayTotal: req.body.subCountGalway10,
 			color10WarehouseTotal: req.body.subCountWarehouse10,
 			
-			inStoreCork: req.body.inCork,
-			inStoreKala: req.body.inKala,
-			inStoreGalway: req.body.inGalway,
+			//inStoreCork: req.body.inCork,
+			//inStoreKala: req.body.inKala,
+			//inStoreGalway: req.body.inGalway,
 			inWarehouse: req.body.inWarehouse,
 
-			totalKala: req.body.countKala,
-			totalCork: req.body.countCork,
-			totalGalway: req.body.countGalway,
+			//totalKala: req.body.countKala,
+			//totalCork: req.body.countCork,
+			//totalGalway: req.body.countGalway,
 			totalWarehouse: req.body.countWarehouse,
 			
 			cart: "no"
@@ -476,7 +476,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			colorCode9: req.body.color9,
 			colorCode10: req.body.color10,
 			
-			color1CorkSizeS:req.body.corkSizeS1,
+			/*color1CorkSizeS:req.body.corkSizeS1,
 			color1CorkSizeM:req.body.corkSizeM1,
 			color1CorkSizeL:req.body.corkSizeL1,
 			color1CorkSizeXL:req.body.corkSizeXL1,
@@ -498,7 +498,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color1GalwaySizeXL:req.body.galwaySizeXL1,
 			color1GalwaySize2XL:req.body.galwaySize2XL1,
 			color1GalwaySize3XL:req.body.galwaySize3XL1,
-			color1GalwaySize4XL:req.body.galwaySize4XL1,
+			color1GalwaySize4XL:req.body.galwaySize4XL1,*/
 			
 			color1WarehouseSizeS:req.body.warehouseSizeS1,
 			color1WarehouseSizeM:req.body.warehouseSizeM1,
@@ -509,12 +509,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color1WarehouseSize4XL:req.body.warehouseSize4XL1,
 			
 			color1Total: req.body.colorTotal1,
-			color1CorkTotal: req.body.subCountCork1,
-			color1KalaTotal: req.body.subCountKala1,
-			color1GalwayTotal: req.body.subCountGalway1,
+			//color1CorkTotal: req.body.subCountCork1,
+			//color1KalaTotal: req.body.subCountKala1,
+			//color1GalwayTotal: req.body.subCountGalway1,
 			color1WarehouseTotal: req.body.subCountWarehouse1,
 			
-			color2CorkSizeS:req.body.corkSizeS2,
+			/*color2CorkSizeS:req.body.corkSizeS2,
 			color2CorkSizeM:req.body.corkSizeM2,
 			color2CorkSizeL:req.body.corkSizeL2,
 			color2CorkSizeXL:req.body.corkSizeXL2,
@@ -536,7 +536,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color2GalwaySizeXL:req.body.galwaySizeXL2,
 			color2GalwaySize2XL:req.body.galwaySize2XL2,
 			color2GalwaySize3XL:req.body.galwaySize3XL2,
-			color2GalwaySize4XL:req.body.galwaySize4XL2,
+			color2GalwaySize4XL:req.body.galwaySize4XL2,*/
 			
 			color2WarehouseSizeS:req.body.warehouseSizeS2,
 			color2WarehouseSizeM:req.body.warehouseSizeM2,
@@ -547,12 +547,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color2WarehouseSize4XL:req.body.warehouseSize4XL2,
 			
 			color2Total: req.body.colorTotal2,
-			color2CorkTotal: req.body.subCountCork2,
-			color2KalaTotal: req.body.subCountKala2,
-			color2GalwayTotal: req.body.subCountGalway2,
+			//color2CorkTotal: req.body.subCountCork2,
+			//color2KalaTotal: req.body.subCountKala2,
+			//color2GalwayTotal: req.body.subCountGalway2,
 			color2WarehouseTotal: req.body.subCountWarehouse2,
 			
-			color3CorkSizeS:req.body.corkSizeS3,
+			/*color3CorkSizeS:req.body.corkSizeS3,
 			color3CorkSizeM:req.body.corkSizeM3,
 			color3CorkSizeL:req.body.corkSizeL3,
 			color3CorkSizeXL:req.body.corkSizeXL3,
@@ -574,7 +574,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color3GalwaySizeXL:req.body.galwaySizeXL3,
 			color3GalwaySize2XL:req.body.galwaySize2XL3,
 			color3GalwaySize3XL:req.body.galwaySize3XL3,
-			color3GalwaySize4XL:req.body.galwaySize4XL3,
+			color3GalwaySize4XL:req.body.galwaySize4XL3,*/
 			
 			color3WarehouseSizeS:req.body.warehouseSizeS3,
 			color3WarehouseSizeM:req.body.warehouseSizeM3,
@@ -585,12 +585,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color3WarehouseSize4XL:req.body.warehouseSize4XL3,
 			
 			color3Total: req.body.colorTotal3,
-			color3CorkTotal: req.body.subCountCork3,
-			color3KalaTotal: req.body.subCountKala3,
-			color3GalwayTotal: req.body.subCountGalway3,
+			//color3CorkTotal: req.body.subCountCork3,
+			//color3KalaTotal: req.body.subCountKala3,
+			//color3GalwayTotal: req.body.subCountGalway3,
 			color3WarehouseTotal: req.body.subCountWarehouse3,
 			
-			color4CorkSizeS:req.body.corkSizeS4,
+			/*color4CorkSizeS:req.body.corkSizeS4,
 			color4CorkSizeM:req.body.corkSizeM4,
 			color4CorkSizeL:req.body.corkSizeL4,
 			color4CorkSizeXL:req.body.corkSizeXL4,
@@ -612,7 +612,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color4GalwaySizeXL:req.body.galwaySizeXL4,
 			color4GalwaySize2XL:req.body.galwaySize2XL4,
 			color4GalwaySize3XL:req.body.galwaySize3XL4,
-			color4GalwaySize4XL:req.body.galwaySize4XL4,
+			color4GalwaySize4XL:req.body.galwaySize4XL4,*/
 			
 			color4WarehouseSizeS:req.body.warehouseSizeS4,
 			color4WarehouseSizeM:req.body.warehouseSizeM4,
@@ -623,12 +623,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color4WarehouseSize4XL:req.body.warehouseSize4XL4,
 			
 			color4Total: req.body.colorTotal4,
-			color4CorkTotal: req.body.subCountCork4,
-			color4KalaTotal: req.body.subCountKala4,
-			color4GalwayTotal: req.body.subCountGalway4,
+			//color4CorkTotal: req.body.subCountCork4,
+			//color4KalaTotal: req.body.subCountKala4,
+			//color4GalwayTotal: req.body.subCountGalway4,
 			color4WarehouseTotal: req.body.subCountWarehouse4,
 			
-			color5CorkSizeS:req.body.corkSizeS5,
+			/*color5CorkSizeS:req.body.corkSizeS5,
 			color5CorkSizeM:req.body.corkSizeM5,
 			color5CorkSizeL:req.body.corkSizeL5,
 			color5CorkSizeXL:req.body.corkSizeXL5,
@@ -650,7 +650,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color5GalwaySizeXL:req.body.galwaySizeXL5,
 			color5GalwaySize2XL:req.body.galwaySize2XL5,
 			color5GalwaySize3XL:req.body.galwaySize3XL5,
-			color5GalwaySize4XL:req.body.galwaySize4XL5,
+			color5GalwaySize4XL:req.body.galwaySize4XL5,*/
 			
 			color5WarehouseSizeS:req.body.warehouseSizeS5,
 			color5WarehouseSizeM:req.body.warehouseSizeM5,
@@ -661,12 +661,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color5WarehouseSize4XL:req.body.warehouseSize4XL5,
 			
 			color5Total: req.body.colorTotal5,
-			color5CorkTotal: req.body.subCountCork5,
-			color5KalaTotal: req.body.subCountKala5,
-			color5GalwayTotal: req.body.subCountGalway5,
+			//color5CorkTotal: req.body.subCountCork5,
+			//color5KalaTotal: req.body.subCountKala5,
+			//color5GalwayTotal: req.body.subCountGalway5,
 			color5WarehouseTotal: req.body.subCountWarehouse5,
 			
-			color6CorkSizeS:req.body.corkSizeS6,
+			/*color6CorkSizeS:req.body.corkSizeS6,
 			color6CorkSizeM:req.body.corkSizeM6,
 			color6CorkSizeL:req.body.corkSizeL6,
 			color6CorkSizeXL:req.body.corkSizeXL6,
@@ -688,7 +688,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color6GalwaySizeXL:req.body.galwaySizeXL6,
 			color6GalwaySize2XL:req.body.galwaySize2XL6,
 			color6GalwaySize3XL:req.body.galwaySize3XL6,
-			color6GalwaySize4XL:req.body.galwaySize4XL6,
+			color6GalwaySize4XL:req.body.galwaySize4XL6,*/
 			
 			color6WarehouseSizeS:req.body.warehouseSizeS6,
 			color6WarehouseSizeM:req.body.warehouseSizeM6,
@@ -699,12 +699,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color6WarehouseSize4XL:req.body.warehouseSize4XL6,
 			
 			color6Total: req.body.colorTotal6,
-			color6CorkTotal: req.body.subCountCork6,
-			color6KalaTotal: req.body.subCountKala6,
-			color6GalwayTotal: req.body.subCountGalway6,
+			//color6CorkTotal: req.body.subCountCork6,
+			//color6KalaTotal: req.body.subCountKala6,
+			//color6GalwayTotal: req.body.subCountGalway6,
 			color6WarehouseTotal: req.body.subCountWarehouse6,
 			
-			color7CorkSizeS:req.body.corkSizeS7,
+			/*color7CorkSizeS:req.body.corkSizeS7,
 			color7CorkSizeM:req.body.corkSizeM7,
 			color7CorkSizeL:req.body.corkSizeL7,
 			color7CorkSizeXL:req.body.corkSizeXL7,
@@ -726,7 +726,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color7GalwaySizeXL:req.body.galwaySizeXL7,
 			color7GalwaySize2XL:req.body.galwaySize2XL7,
 			color7GalwaySize3XL:req.body.galwaySize3XL7,
-			color7GalwaySize4XL:req.body.galwaySize4XL7,
+			color7GalwaySize4XL:req.body.galwaySize4XL7,*/
 			
 			color7WarehouseSizeS:req.body.warehouseSizeS7,
 			color7WarehouseSizeM:req.body.warehouseSizeM7,
@@ -737,12 +737,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color7WarehouseSize4XL:req.body.warehouseSize4XL7,
 			
 			color7Total: req.body.colorTotal7,
-			color7CorkTotal: req.body.subCountCork7,
-			color7KalaTotal: req.body.subCountKala7,
-			color7GalwayTotal: req.body.subCountGalway7,
+			//color7CorkTotal: req.body.subCountCork7,
+			//color7KalaTotal: req.body.subCountKala7,
+			//color7GalwayTotal: req.body.subCountGalway7,
 			color7WarehouseTotal: req.body.subCountWarehouse7,
 			
-			color8CorkSizeS:req.body.corkSizeS8,
+			/*color8CorkSizeS:req.body.corkSizeS8,
 			color8CorkSizeM:req.body.corkSizeM8,
 			color8CorkSizeL:req.body.corkSizeL8,
 			color8CorkSizeXL:req.body.corkSizeXL8,
@@ -764,7 +764,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color8GalwaySizeXL:req.body.galwaySizeXL8,
 			color8GalwaySize2XL:req.body.galwaySize2XL8,
 			color8GalwaySize3XL:req.body.galwaySize3XL8,
-			color8GalwaySize4XL:req.body.galwaySize4XL8,
+			color8GalwaySize4XL:req.body.galwaySize4XL8,*/
 			
 			color8WarehouseSizeS:req.body.warehouseSizeS8,
 			color8WarehouseSizeM:req.body.warehouseSizeM8,
@@ -775,12 +775,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color8WarehouseSize4XL:req.body.warehouseSize4XL8,
 			
 			color8Total: req.body.colorTotal8,
-			color8CorkTotal: req.body.subCountCork8,
-			color8KalaTotal: req.body.subCountKala8,
-			color8GalwayTotal: req.body.subCountGalway8,
+			//color8CorkTotal: req.body.subCountCork8,
+			//color8KalaTotal: req.body.subCountKala8,
+			//color8GalwayTotal: req.body.subCountGalway8,
 			color8WarehouseTotal: req.body.subCountWarehouse8,
 			
-			color9CorkSizeS:req.body.corkSizeS9,
+			/*color9CorkSizeS:req.body.corkSizeS9,
 			color9CorkSizeM:req.body.corkSizeM9,
 			color9CorkSizeL:req.body.corkSizeL9,
 			color9CorkSizeXL:req.body.corkSizeXL9,
@@ -802,7 +802,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color9GalwaySizeXL:req.body.galwaySizeXL9,
 			color9GalwaySize2XL:req.body.galwaySize2XL9,
 			color9GalwaySize3XL:req.body.galwaySize3XL9,
-			color9GalwaySize4XL:req.body.galwaySize4XL9,
+			color9GalwaySize4XL:req.body.galwaySize4XL9,*/
 			
 			color9WarehouseSizeS:req.body.warehouseSizeS9,
 			color9WarehouseSizeM:req.body.warehouseSizeM9,
@@ -813,12 +813,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color9WarehouseSize4XL:req.body.warehouseSize4XL9,
 			
 			color9Total: req.body.colorTotal9,
-			color9CorkTotal: req.body.subCountCork9,
-			color9KalaTotal: req.body.subCountKala9,
-			color9GalwayTotal: req.body.subCountGalway9,
+			//color9CorkTotal: req.body.subCountCork9,
+			//color9KalaTotal: req.body.subCountKala9,
+			//color9GalwayTotal: req.body.subCountGalway9,
 			color9WarehouseTotal: req.body.subCountWarehouse9,
 			
-			color10CorkSizeS:req.body.corkSizeS10,
+			/*color10CorkSizeS:req.body.corkSizeS10,
 			color10CorkSizeM:req.body.corkSizeM10,
 			color10CorkSizeL:req.body.corkSizeL10,
 			color10CorkSizeXL:req.body.corkSizeXL10,
@@ -840,7 +840,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color10GalwaySizeXL:req.body.galwaySizeXL10,
 			color10GalwaySize2XL:req.body.galwaySize2XL10,
 			color10GalwaySize3XL:req.body.galwaySize3XL10,
-			color10GalwaySize4XL:req.body.galwaySize4XL10,
+			color10GalwaySize4XL:req.body.galwaySize4XL10,*/
 			
 			color10WarehouseSizeS:req.body.warehouseSizeS10,
 			color10WarehouseSizeM:req.body.warehouseSizeM10,
@@ -851,19 +851,19 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color10WarehouseSize4XL:req.body.warehouseSize4XL10,
 			
 			color10Total: req.body.colorTotal10,
-			color10CorkTotal: req.body.subCountCork10,
-			color10KalaTotal: req.body.subCountKala10,
-			color10GalwayTotal: req.body.subCountGalway10,
+			//color10CorkTotal: req.body.subCountCork10,
+			//color10KalaTotal: req.body.subCountKala10,
+			//color10GalwayTotal: req.body.subCountGalway10,
 			color10WarehouseTotal: req.body.subCountWarehouse10,
 			
-			inStoreCork: req.body.inCork,
-			inStoreKala: req.body.inKala,
-			inStoreGalway: req.body.inGalway,
+			//inStoreCork: req.body.inCork,
+			//inStoreKala: req.body.inKala,
+			//inStoreGalway: req.body.inGalway,
 			inWarehouse: req.body.inWarehouse,
 
-			totalKala: req.body.countKala,
-			totalCork: req.body.countCork,
-			totalGalway: req.body.countGalway,
+			//totalKala: req.body.countKala,
+			//totalCork: req.body.countCork,
+			//totalGalway: req.body.countGalway,
 			totalWarehouse: req.body.countWarehouse,
 			
 			//cart: "no"
@@ -929,7 +929,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			colorCode9: req.body.color9,
 			colorCode10: req.body.color10,
 			
-			color1CorkSizeS:req.body.corkSizeS1,
+			/*color1CorkSizeS:req.body.corkSizeS1,
 			color1CorkSizeM:req.body.corkSizeM1,
 			color1CorkSizeL:req.body.corkSizeL1,
 			color1CorkSizeXL:req.body.corkSizeXL1,
@@ -951,7 +951,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color1GalwaySizeXL:req.body.galwaySizeXL1,
 			color1GalwaySize2XL:req.body.galwaySize2XL1,
 			color1GalwaySize3XL:req.body.galwaySize3XL1,
-			color1GalwaySize4XL:req.body.galwaySize4XL1,
+			color1GalwaySize4XL:req.body.galwaySize4XL1,*/
 			
 			color1WarehouseSizeS:req.body.warehouseSizeS1,
 			color1WarehouseSizeM:req.body.warehouseSizeM1,
@@ -962,12 +962,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color1WarehouseSize4XL:req.body.warehouseSize4XL1,
 			
 			color1Total: req.body.colorTotal1,
-			color1CorkTotal: req.body.subCountCork1,
-			color1KalaTotal: req.body.subCountKala1,
-			color1GalwayTotal: req.body.subCountGalway1,
+			//color1CorkTotal: req.body.subCountCork1,
+			//color1KalaTotal: req.body.subCountKala1,
+			//color1GalwayTotal: req.body.subCountGalway1,
 			color1WarehouseTotal: req.body.subCountWarehouse1,
 			
-			color2CorkSizeS:req.body.corkSizeS2,
+			/*color2CorkSizeS:req.body.corkSizeS2,
 			color2CorkSizeM:req.body.corkSizeM2,
 			color2CorkSizeL:req.body.corkSizeL2,
 			color2CorkSizeXL:req.body.corkSizeXL2,
@@ -989,7 +989,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color2GalwaySizeXL:req.body.galwaySizeXL2,
 			color2GalwaySize2XL:req.body.galwaySize2XL2,
 			color2GalwaySize3XL:req.body.galwaySize3XL2,
-			color2GalwaySize4XL:req.body.galwaySize4XL2,
+			color2GalwaySize4XL:req.body.galwaySize4XL2,*/
 			
 			color2WarehouseSizeS:req.body.warehouseSizeS2,
 			color2WarehouseSizeM:req.body.warehouseSizeM2,
@@ -1000,12 +1000,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color2WarehouseSize4XL:req.body.warehouseSize4XL2,
 			
 			color2Total: req.body.colorTotal2,
-			color2CorkTotal: req.body.subCountCork2,
-			color2KalaTotal: req.body.subCountKala2,
-			color2GalwayTotal: req.body.subCountGalway2,
+			//color2CorkTotal: req.body.subCountCork2,
+			//color2KalaTotal: req.body.subCountKala2,
+			//color2GalwayTotal: req.body.subCountGalway2,
 			color2WarehouseTotal: req.body.subCountWarehouse2,
 			
-			color3CorkSizeS:req.body.corkSizeS3,
+			/*color3CorkSizeS:req.body.corkSizeS3,
 			color3CorkSizeM:req.body.corkSizeM3,
 			color3CorkSizeL:req.body.corkSizeL3,
 			color3CorkSizeXL:req.body.corkSizeXL3,
@@ -1027,7 +1027,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color3GalwaySizeXL:req.body.galwaySizeXL3,
 			color3GalwaySize2XL:req.body.galwaySize2XL3,
 			color3GalwaySize3XL:req.body.galwaySize3XL3,
-			color3GalwaySize4XL:req.body.galwaySize4XL3,
+			color3GalwaySize4XL:req.body.galwaySize4XL3,*/
 			
 			color3WarehouseSizeS:req.body.warehouseSizeS3,
 			color3WarehouseSizeM:req.body.warehouseSizeM3,
@@ -1038,12 +1038,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color3WarehouseSize4XL:req.body.warehouseSize4XL3,
 			
 			color3Total: req.body.colorTotal3,
-			color3CorkTotal: req.body.subCountCork3,
-			color3KalaTotal: req.body.subCountKala3,
-			color3GalwayTotal: req.body.subCountGalway3,
+			//color3CorkTotal: req.body.subCountCork3,
+			//color3KalaTotal: req.body.subCountKala3,
+			//color3GalwayTotal: req.body.subCountGalway3,
 			color3WarehouseTotal: req.body.subCountWarehouse3,
 			
-			color4CorkSizeS:req.body.corkSizeS4,
+			/*color4CorkSizeS:req.body.corkSizeS4,
 			color4CorkSizeM:req.body.corkSizeM4,
 			color4CorkSizeL:req.body.corkSizeL4,
 			color4CorkSizeXL:req.body.corkSizeXL4,
@@ -1065,7 +1065,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color4GalwaySizeXL:req.body.galwaySizeXL4,
 			color4GalwaySize2XL:req.body.galwaySize2XL4,
 			color4GalwaySize3XL:req.body.galwaySize3XL4,
-			color4GalwaySize4XL:req.body.galwaySize4XL4,
+			color4GalwaySize4XL:req.body.galwaySize4XL4,*/
 			
 			color4WarehouseSizeS:req.body.warehouseSizeS4,
 			color4WarehouseSizeM:req.body.warehouseSizeM4,
@@ -1076,12 +1076,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color4WarehouseSize4XL:req.body.warehouseSize4XL4,
 			
 			color4Total: req.body.colorTotal4,
-			color4CorkTotal: req.body.subCountCork4,
-			color4KalaTotal: req.body.subCountKala4,
-			color4GalwayTotal: req.body.subCountGalway4,
+			//color4CorkTotal: req.body.subCountCork4,
+			//color4KalaTotal: req.body.subCountKala4,
+			//color4GalwayTotal: req.body.subCountGalway4,
 			color4WarehouseTotal: req.body.subCountWarehouse4,
 			
-			color5CorkSizeS:req.body.corkSizeS5,
+			/*color5CorkSizeS:req.body.corkSizeS5,
 			color5CorkSizeM:req.body.corkSizeM5,
 			color5CorkSizeL:req.body.corkSizeL5,
 			color5CorkSizeXL:req.body.corkSizeXL5,
@@ -1103,7 +1103,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color5GalwaySizeXL:req.body.galwaySizeXL5,
 			color5GalwaySize2XL:req.body.galwaySize2XL5,
 			color5GalwaySize3XL:req.body.galwaySize3XL5,
-			color5GalwaySize4XL:req.body.galwaySize4XL5,
+			color5GalwaySize4XL:req.body.galwaySize4XL5,*/
 			
 			color5WarehouseSizeS:req.body.warehouseSizeS5,
 			color5WarehouseSizeM:req.body.warehouseSizeM5,
@@ -1114,12 +1114,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color5WarehouseSize4XL:req.body.warehouseSize4XL5,
 			
 			color5Total: req.body.colorTotal5,
-			color5CorkTotal: req.body.subCountCork5,
-			color5KalaTotal: req.body.subCountKala5,
-			color5GalwayTotal: req.body.subCountGalway5,
+			//color5CorkTotal: req.body.subCountCork5,
+			//color5KalaTotal: req.body.subCountKala5,
+			//color5GalwayTotal: req.body.subCountGalway5,
 			color5WarehouseTotal: req.body.subCountWarehouse5,
 			
-			color6CorkSizeS:req.body.corkSizeS6,
+			/*color6CorkSizeS:req.body.corkSizeS6,
 			color6CorkSizeM:req.body.corkSizeM6,
 			color6CorkSizeL:req.body.corkSizeL6,
 			color6CorkSizeXL:req.body.corkSizeXL6,
@@ -1141,7 +1141,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color6GalwaySizeXL:req.body.galwaySizeXL6,
 			color6GalwaySize2XL:req.body.galwaySize2XL6,
 			color6GalwaySize3XL:req.body.galwaySize3XL6,
-			color6GalwaySize4XL:req.body.galwaySize4XL6,
+			color6GalwaySize4XL:req.body.galwaySize4XL6,*/
 			
 			color6WarehouseSizeS:req.body.warehouseSizeS6,
 			color6WarehouseSizeM:req.body.warehouseSizeM6,
@@ -1152,12 +1152,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color6WarehouseSize4XL:req.body.warehouseSize4XL6,
 			
 			color6Total: req.body.colorTotal6,
-			color6CorkTotal: req.body.subCountCork6,
-			color6KalaTotal: req.body.subCountKala6,
-			color6GalwayTotal: req.body.subCountGalway6,
+			//color6CorkTotal: req.body.subCountCork6,
+			//color6KalaTotal: req.body.subCountKala6,
+			//color6GalwayTotal: req.body.subCountGalway6,
 			color6WarehouseTotal: req.body.subCountWarehouse6,
 			
-			color7CorkSizeS:req.body.corkSizeS7,
+			/*color7CorkSizeS:req.body.corkSizeS7,
 			color7CorkSizeM:req.body.corkSizeM7,
 			color7CorkSizeL:req.body.corkSizeL7,
 			color7CorkSizeXL:req.body.corkSizeXL7,
@@ -1179,7 +1179,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color7GalwaySizeXL:req.body.galwaySizeXL7,
 			color7GalwaySize2XL:req.body.galwaySize2XL7,
 			color7GalwaySize3XL:req.body.galwaySize3XL7,
-			color7GalwaySize4XL:req.body.galwaySize4XL7,
+			color7GalwaySize4XL:req.body.galwaySize4XL7,*/
 			
 			color7WarehouseSizeS:req.body.warehouseSizeS7,
 			color7WarehouseSizeM:req.body.warehouseSizeM7,
@@ -1190,12 +1190,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color7WarehouseSize4XL:req.body.warehouseSize4XL7,
 			
 			color7Total: req.body.colorTotal7,
-			color7CorkTotal: req.body.subCountCork7,
-			color7KalaTotal: req.body.subCountKala7,
-			color7GalwayTotal: req.body.subCountGalway7,
+			//color7CorkTotal: req.body.subCountCork7,
+			//color7KalaTotal: req.body.subCountKala7,
+			//color7GalwayTotal: req.body.subCountGalway7,
 			color7WarehouseTotal: req.body.subCountWarehouse7,
 			
-			color8CorkSizeS:req.body.corkSizeS8,
+			/*color8CorkSizeS:req.body.corkSizeS8,
 			color8CorkSizeM:req.body.corkSizeM8,
 			color8CorkSizeL:req.body.corkSizeL8,
 			color8CorkSizeXL:req.body.corkSizeXL8,
@@ -1217,7 +1217,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color8GalwaySizeXL:req.body.galwaySizeXL8,
 			color8GalwaySize2XL:req.body.galwaySize2XL8,
 			color8GalwaySize3XL:req.body.galwaySize3XL8,
-			color8GalwaySize4XL:req.body.galwaySize4XL8,
+			color8GalwaySize4XL:req.body.galwaySize4XL8,*/
 			
 			color8WarehouseSizeS:req.body.warehouseSizeS8,
 			color8WarehouseSizeM:req.body.warehouseSizeM8,
@@ -1228,12 +1228,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color8WarehouseSize4XL:req.body.warehouseSize4XL8,
 			
 			color8Total: req.body.colorTotal8,
-			color8CorkTotal: req.body.subCountCork8,
-			color8KalaTotal: req.body.subCountKala8,
-			color8GalwayTotal: req.body.subCountGalway8,
+			//color8CorkTotal: req.body.subCountCork8,
+			//color8KalaTotal: req.body.subCountKala8,
+			//color8GalwayTotal: req.body.subCountGalway8,
 			color8WarehouseTotal: req.body.subCountWarehouse8,
 			
-			color9CorkSizeS:req.body.corkSizeS9,
+			/*color9CorkSizeS:req.body.corkSizeS9,
 			color9CorkSizeM:req.body.corkSizeM9,
 			color9CorkSizeL:req.body.corkSizeL9,
 			color9CorkSizeXL:req.body.corkSizeXL9,
@@ -1255,7 +1255,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color9GalwaySizeXL:req.body.galwaySizeXL9,
 			color9GalwaySize2XL:req.body.galwaySize2XL9,
 			color9GalwaySize3XL:req.body.galwaySize3XL9,
-			color9GalwaySize4XL:req.body.galwaySize4XL9,
+			color9GalwaySize4XL:req.body.galwaySize4XL9,*/
 			
 			color9WarehouseSizeS:req.body.warehouseSizeS9,
 			color9WarehouseSizeM:req.body.warehouseSizeM9,
@@ -1266,12 +1266,12 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color9WarehouseSize4XL:req.body.warehouseSize4XL9,
 			
 			color9Total: req.body.colorTotal9,
-			color9CorkTotal: req.body.subCountCork9,
-			color9KalaTotal: req.body.subCountKala9,
-			color9GalwayTotal: req.body.subCountGalway9,
+			//color9CorkTotal: req.body.subCountCork9,
+			//color9KalaTotal: req.body.subCountKala9,
+			//color9GalwayTotal: req.body.subCountGalway9,
 			color9WarehouseTotal: req.body.subCountWarehouse9,
 			
-			color10CorkSizeS:req.body.corkSizeS10,
+			/*color10CorkSizeS:req.body.corkSizeS10,
 			color10CorkSizeM:req.body.corkSizeM10,
 			color10CorkSizeL:req.body.corkSizeL10,
 			color10CorkSizeXL:req.body.corkSizeXL10,
@@ -1293,7 +1293,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color10GalwaySizeXL:req.body.galwaySizeXL10,
 			color10GalwaySize2XL:req.body.galwaySize2XL10,
 			color10GalwaySize3XL:req.body.galwaySize3XL10,
-			color10GalwaySize4XL:req.body.galwaySize4XL10,
+			color10GalwaySize4XL:req.body.galwaySize4XL10,*/
 			
 			color10WarehouseSizeS:req.body.warehouseSizeS10,
 			color10WarehouseSizeM:req.body.warehouseSizeM10,
@@ -1304,19 +1304,19 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color10WarehouseSize4XL:req.body.warehouseSize4XL10,
 			
 			color10Total: req.body.colorTotal10,
-			color10CorkTotal: req.body.subCountCork10,
-			color10KalaTotal: req.body.subCountKala10,
-			color10GalwayTotal: req.body.subCountGalway10,
+			//color10CorkTotal: req.body.subCountCork10,
+			//color10KalaTotal: req.body.subCountKala10,
+			//color10GalwayTotal: req.body.subCountGalway10,
 			color10WarehouseTotal: req.body.subCountWarehouse10,
 			
-			inStoreCork: req.body.inCork,
-			inStoreKala: req.body.inKala,
-			inStoreGalway: req.body.inGalway,
+			//inStoreCork: req.body.inCork,
+			//inStoreKala: req.body.inKala,
+			//inStoreGalway: req.body.inGalway,
 			inWarehouse: req.body.inWarehouse,
 
-			totalKala: req.body.countKala,
-			totalCork: req.body.countCork,
-			totalGalway: req.body.countGalway,
+			//totalKala: req.body.countKala,
+			//totalCork: req.body.countCork,
+			//totalGalway: req.body.countGalway,
 			totalWarehouse: req.body.countWarehouse,
 			
 			//cart: "no"

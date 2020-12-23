@@ -592,7 +592,7 @@ $(document).ready(
 						document.getElementById("editCategory").value = data[i].category;
 						document.getElementById("editDescription").value = data[i].description;
 						
-						if(data[i].inStoreCork=="on")
+						/*if(data[i].inStoreCork=="on")
 							$("#inCorkEdit").prop("checked", true);
 						
 						else
@@ -608,7 +608,7 @@ $(document).ready(
 							$("#inGalwayEdit").prop("checked", true);
 						
 						else
-							$("#inGalwayEdit").prop("checked", false);
+							$("#inGalwayEdit").prop("checked", false);*/
 						
 						if(data[i].inWarehouse=="on")
 							$("#inWarehouseEdit").prop("checked", true);
@@ -629,16 +629,16 @@ $(document).ready(
 							$("#hasColorsEdit").prop("checked", false);
 						
 						document.getElementById("editCountWarehouse").value = data[i].totalWarehouse;
-						document.getElementById("editCountCork").value = data[i].totalCork;
-						document.getElementById("editCountKala").value = data[i].totalKala;
-						document.getElementById("editCountGalway").value = data[i].totalGalway;
+						//document.getElementById("editCountCork").value = data[i].totalCork;
+						//document.getElementById("editCountKala").value = data[i].totalKala;
+						//document.getElementById("editCountGalway").value = data[i].totalGalway;
 						
 						if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==false)
 						{
 							document.getElementById("editShowWarehouseSizes").style.display =  "none";
-							document.getElementById("editShowCorkSizes").style.display =  "none";
-							document.getElementById("editShowKalaSizes").style.display =  "none";
-							document.getElementById("editShowGalwaySizes").style.display =  "none";
+							//document.getElementById("editShowCorkSizes").style.display =  "none";
+							//document.getElementById("editShowKalaSizes").style.display =  "none";
+							//document.getElementById("editShowGalwaySizes").style.display =  "none";
 							document.getElementById("editAddSubStyle").style.display = "none";
 							document.getElementById("editSubStyleMenu").style.display = "none";
 						}
@@ -660,7 +660,7 @@ $(document).ready(
 								document.getElementById("editWarehouseSize4XL").value =  data[i].WarehouseSize4XL;
 							}
 							
-							if($('#inCorkEdit').prop('checked')==true)
+							/*if($('#inCorkEdit').prop('checked')==true)
 							{
 								document.getElementById("editShowCorkSizes").style.display =  "block";
 								document.getElementById("editCorkSizeS").value =  data[i].CorkSizeS;
@@ -694,7 +694,7 @@ $(document).ready(
 								document.getElementById("editGalwaySize2XL").value =  data[i].GalwaySize2XL;
 								document.getElementById("editGalwaySize3XL").value =  data[i].GalwaySize3XL;
 								document.getElementById("editGalwaySize4XL").value =  data[i].GalwaySize4XL;
-							}
+							}*/
 						}
 						
 						if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==true)
@@ -717,7 +717,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse1' id='editSubCountWarehouse1' value='"+data[i].color1WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork1'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork1'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork1' id='editSubCountCork1' value='"+data[i].color1CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -728,7 +728,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway1'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway1' id='editSubCountGalway1' value='"+data[i].color1GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -748,7 +748,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse2' id='editSubCountWarehouse2' value='"+data[i].color2WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork2'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork2'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork2' id='editSubCountCork2' value='"+data[i].color2CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -759,7 +759,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway2'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway2' id='editSubCountGalway2' value='"+data[i].color2GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -779,7 +779,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse3' id='editSubCountWarehouse3' value='"+data[i].color3WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork3'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork3'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork3' id='editSubCountCork3' value='"+data[i].color3CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -790,7 +790,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway3'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway3' id='editSubCountGalway3' value='"+data[i].color3GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -810,7 +810,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse4' id='editSubCountWarehouse4' value='"+data[i].color4WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork4'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork4'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork4' id='editSubCountCork4' value='"+data[i].color4CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -821,7 +821,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway4'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway4' id='editSubCountGalway4' value='"+data[i].color4GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -841,7 +841,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse5' id='editSubCountWarehouse5' value='"+data[i].color5WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork5'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork5'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork5' id='editSubCountCork5' value='"+data[i].color5CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -852,7 +852,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway5'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway5' id='editSubCountGalway5' value='"+data[i].color5GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -872,7 +872,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse6' id='editSubCountWarehouse6' value='"+data[i].color6WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork6'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork6'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork6' id='editSubCountCork6' value='"+data[i].color6CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -883,7 +883,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway6'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway6' id='editSubCountGalway6' value='"+data[i].color6GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -903,7 +903,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse7' id='editSubCountWarehouse7' value='"+data[i].color7WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork7'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork7'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork7' id='editSubCountCork7' value='"+data[i].color7CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -914,7 +914,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway7'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway7' id='editSubCountGalway7' value='"+data[i].color7GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -934,7 +934,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse8' id='editSubCountWarehouse8' value='"+data[i].color8WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork8'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork8'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork8' id='editSubCountCork8' value='"+data[i].color8CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -945,7 +945,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway8'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway8' id='editSubCountGalway8' value='"+data[i].color8GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -965,7 +965,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse9' id='editSubCountWarehouse9' value='"+data[i].color9WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork9'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork9'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork9' id='editSubCountCork9' value='"+data[i].color9CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -976,7 +976,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway9'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway9' id='editSubCountGalway9' value='"+data[i].color9GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -996,7 +996,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse10' id='editSubCountWarehouse10' value='"+data[i].color10WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork10'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork10'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork10' id='editSubCountCork10' value='"+data[i].color10CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1007,7 +1007,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway10'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway10' id='editSubCountGalway10' value='"+data[i].color10GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -1036,7 +1036,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse1' id='editSubCountWarehouse1' value='"+data[i].color1WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork1'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork1'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork1' id='editSubCountCork1' value='"+data[i].color1CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1047,7 +1047,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway1'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway1' id='editSubCountGalway1' value='"+data[i].color1GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1062,7 +1062,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editWarehouseSize3XL1' id='editWarehouseSize3XL1' value='"+data[i].color1WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL1'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editWarehouseSize4XL1' id='editWarehouseSize4XL1' value='"+data[i].color1WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL1'>:4XL</label><br>"
 								formControl +=		"</div>"
-								formControl +=		"<div class='col-sm-3' id='editShowCorkSizes1' style='display: none'>"
+								/*formControl +=		"<div class='col-sm-3' id='editShowCorkSizes1' style='display: none'>"
 								formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeS1' id='editCorkSizeS1' value='"+data[i].color1CorkSizeS+"' onchange='updateEditTotals()'><label for='editCorkSizeS1'>:S</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeM1' id='editCorkSizeM1' value='"+data[i].color1CorkSizeM+"' onchange='updateEditTotals()'><label for='editCorkSizeM1'>:M</label><br>"
@@ -1091,7 +1091,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editGalwaySize2XL1' id='editGalwaySize2XL1' value='"+data[i].color1GalwaySize2XL+"' onchange='updateEditTotals()'><label for='editGalwaySize2XL1'>:2XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize3XL1' id='editGalwaySize3XL1' value='"+data[i].color1GalwaySize3XL+"' onchange='updateEditTotals()'><label for='editGalwaySize3XL1'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize4XL1' id='editGalwaySize4XL1' value='"+data[i].color1GalwaySize4XL+"' onchange='updateEditTotals()'><label for='editGalwaySize4XL1'>:4XL</label><br>"
-								formControl +=		"</div>"
+								formControl +=		"</div>"*/
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
 								formControl +=	"<div class='row' id='addSubStyle1' style='display: none'>"
@@ -1119,7 +1119,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse2' id='editSubCountWarehouse2' value='"+data[i].color2WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork2'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork2'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork2' id='editSubCountCork2' value='"+data[i].color2CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1130,7 +1130,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway2'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway2' id='editSubCountGalway2' value='"+data[i].color2GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1145,7 +1145,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editWarehouseSize3XL2' id='editWarehouseSize3XL2' value='"+data[i].color2WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL2'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editWarehouseSize4XL2' id='editWarehouseSize4XL2' value='"+data[i].color2WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL2'>:4XL</label><br>"
 								formControl +=		"</div>"
-								formControl +=		"<div class='col-sm-3' id='editShowCorkSizes2' style='display: none'>"
+								formControl +=		/*"<div class='col-sm-3' id='editShowCorkSizes2' style='display: none'>"
 								formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeS2' id='editCorkSizeS2' value='"+data[i].color2CorkSizeS+"' onchange='updateEditTotals()'><label for='editCorkSizeS2'>:S</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeM2' id='editCorkSizeM2' value='"+data[i].color2CorkSizeM+"' onchange='updateEditTotals()'><label for='editCorkSizeM2'>:M</label><br>"
@@ -1174,7 +1174,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editGalwaySize2XL2' id='editGalwaySize2XL2' value='"+data[i].color2GalwaySize2XL+"' onchange='updateEditTotals()'><label for='editGalwaySize2XL2'>:2XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize3XL2' id='editGalwaySize3XL2' value='"+data[i].color2GalwaySize3XL+"' onchange='updateEditTotals()'><label for='editGalwaySize3XL2'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize4XL2' id='editGalwaySize4XL2' value='"+data[i].color2GalwaySize4XL+"' onchange='updateEditTotals()'><label for='editGalwaySize4XL2'>:4XL</label><br>"
-								formControl +=		"</div>"
+								formControl +=		"</div>"*/
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
 								formControl +=	"<div class='row' id='addSubStyle2' style='display: none'>"
@@ -1202,7 +1202,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse3' id='editSubCountWarehouse3' value='"+data[i].color3WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork3'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork3'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork3' id='editSubCountCork3' value='"+data[i].color3CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1213,7 +1213,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway3'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway3' id='editSubCountGalway3' value='"+data[i].color3GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1228,7 +1228,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editWarehouseSize3XL3' id='editWarehouseSize3XL3' value='"+data[i].color3WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL3'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editWarehouseSize4XL3' id='editWarehouseSize4XL3' value='"+data[i].color3WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL3'>:4XL</label><br>"
 								formControl +=		"</div>"
-								formControl +=		"<div class='col-sm-3' id='editShowCorkSizes3' style='display: none'>"
+								/*formControl +=		"<div class='col-sm-3' id='editShowCorkSizes3' style='display: none'>"
 								formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeS3' id='editCorkSizeS3' value='"+data[i].color3CorkSizeS+"' onchange='updateEditTotals()'><label for='editCorkSizeS3'>:S</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeM3' id='editCorkSizeM3' value='"+data[i].color3CorkSizeM+"' onchange='updateEditTotals()'><label for='editCorkSizeM3'>:M</label><br>"
@@ -1257,7 +1257,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editGalwaySize2XL3' id='editGalwaySize2XL3' value='"+data[i].color3GalwaySize2XL+"' onchange='updateEditTotals()'><label for='editGalwaySize2XL3'>:2XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize3XL3' id='editGalwaySize3XL3' value='"+data[i].color3GalwaySize3XL+"' onchange='updateEditTotals()'><label for='editGalwaySize3XL3'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize4XL3' id='editGalwaySize4XL3' value='"+data[i].color3GalwaySize4XL+"' onchange='updateEditTotals()'><label for='editGalwaySize4XL3'>:4XL</label><br>"
-								formControl +=		"</div>"
+								formControl +=		"</div>"*/
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
 								formControl +=	"<div class='row' id='addSubStyle3' style='display: none'>"
@@ -1285,7 +1285,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse4' id='editSubCountWarehouse4' value='"+data[i].color4WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork4'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork4'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork4' id='editSubCountCork4' value='"+data[i].color4CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1296,7 +1296,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway4'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway4' id='editSubCountGalway4' value='"+data[i].color4GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1311,7 +1311,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editWarehouseSize3XL4' id='editWarehouseSize3XL4' value='"+data[i].color4WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL4'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editWarehouseSize4XL4' id='editWarehouseSize4XL4' value='"+data[i].color4WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL4'>:4XL</label><br>"
 								formControl +=		"</div>"
-								formControl +=		"<div class='col-sm-3' id='editShowCorkSizes4' style='display: none'>"
+								/*formControl +=		"<div class='col-sm-3' id='editShowCorkSizes4' style='display: none'>"
 								formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeS4' id='editCorkSizeS4' value='"+data[i].color4CorkSizeS+"' onchange='updateEditTotals()'><label for='editCorkSizeS4'>:S</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeM4' id='editCorkSizeM4' value='"+data[i].color4CorkSizeM+"' onchange='updateEditTotals()'><label for='editCorkSizeM4'>:M</label><br>"
@@ -1340,7 +1340,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editGalwaySize2XL4' id='editGalwaySize2XL4' value='"+data[i].color4GalwaySize2XL+"' onchange='updateEditTotals()'><label for='editGalwaySize2XL4'>:2XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize3XL4' id='editGalwaySize3XL4' value='"+data[i].color4GalwaySize3XL+"' onchange='updateEditTotals()'><label for='editGalwaySize3XL4'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize4XL4' id='editGalwaySize4XL4' value='"+data[i].color4GalwaySize4XL+"' onchange='updateEditTotals()'><label for='editGalwaySize4XL4'>:4XL</label><br>"
-								formControl +=		"</div>"
+								formControl +=		"</div>"*/
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
 								formControl +=	"<div class='row' id='addSubStyle4' style='display: none'>"
@@ -1368,7 +1368,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse5' id='editSubCountWarehouse5' value='"+data[i].color5WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork5'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork5'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork5' id='editSubCountCork5' value='"+data[i].color5CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1379,7 +1379,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway5'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway5' id='editSubCountGalway5' value='"+data[i].color5GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1394,7 +1394,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editWarehouseSize3XL5' id='editWarehouseSize3XL5' value='"+data[i].color5WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL5'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editWarehouseSize4XL5' id='editWarehouseSize4XL5' value='"+data[i].color5WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL5'>:4XL</label><br>"
 								formControl +=		"</div>"
-								formControl +=		"<div class='col-sm-3' id='editShowCorkSizes5' style='display: none'>"
+								/*formControl +=		"<div class='col-sm-3' id='editShowCorkSizes5' style='display: none'>"
 								formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeS5' id='editCorkSizeS5' value='"+data[i].color5CorkSizeS+"' onchange='updateEditTotals()'><label for='editCorkSizeS5'>:S</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeM5' id='editCorkSizeM5' value='"+data[i].color5CorkSizeM+"' onchange='updateEditTotals()'><label for='editCorkSizeM5'>:M</label><br>"
@@ -1423,7 +1423,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editGalwaySize2XL5' id='editGalwaySize2XL5' value='"+data[i].color5GalwaySize2XL+"' onchange='updateEditTotals()'><label for='editGalwaySize2XL5'>:2XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize3XL5' id='editGalwaySize3XL5' value='"+data[i].color5GalwaySize3XL+"' onchange='updateEditTotals()'><label for='editGalwaySize3XL5'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize4XL5' id='editGalwaySize4XL5' value='"+data[i].color5GalwaySize4XL+"' onchange='updateEditTotals()'><label for='editGalwaySize4XL5'>:4XL</label><br>"
-								formControl +=		"</div>"
+								formControl +=		"</div>"*/
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
 								formControl +=	"<div class='row' id='addSubStyle5' style='display: none'>"
@@ -1451,7 +1451,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse6' id='editSubCountWarehouse6' value='"+data[i].color6WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork6'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork6'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork6' id='editSubCountCork6' value='"+data[i].color6CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1462,7 +1462,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway6'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway6' id='editSubCountGalway6' value='"+data[i].color6GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1477,7 +1477,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editWarehouseSize3XL6' id='editWarehouseSize3XL6' value='"+data[i].color6WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL6'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editWarehouseSize4XL6' id='editWarehouseSize4XL6' value='"+data[i].color6WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL6'>:4XL</label><br>"
 								formControl +=		"</div>"
-								formControl +=		"<div class='col-sm-3' id='editShowCorkSizes6' style='display: none'>"
+								/*formControl +=		"<div class='col-sm-3' id='editShowCorkSizes6' style='display: none'>"
 								formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeS6' id='editCorkSizeS6' value='"+data[i].color6CorkSizeS+"' onchange='updateEditTotals()'><label for='editCorkSizeS6'>:S</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeM6' id='editCorkSizeM6' value='"+data[i].color6CorkSizeM+"' onchange='updateEditTotals()'><label for='editCorkSizeM6'>:M</label><br>"
@@ -1506,7 +1506,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editGalwaySize2XL6' id='editGalwaySize2XL6' value='"+data[i].color6GalwaySize2XL+"' onchange='updateEditTotals()'><label for='editGalwaySize2XL6'>:2XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize3XL6' id='editGalwaySize3XL6' value='"+data[i].color6GalwaySize3XL+"' onchange='updateEditTotals()'><label for='editGalwaySize3XL6'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize4XL6' id='editGalwaySize4XL6' value='"+data[i].color6GalwaySize4XL+"' onchange='updateEditTotals()'><label for='editGalwaySize4XL6'>:4XL</label><br>"
-								formControl +=		"</div>"
+								formControl +=		"</div>"*/
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
 								formControl +=	"<div class='row' id='addSubStyle6' style='display: none'>"
@@ -1534,7 +1534,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse7' id='editSubCountWarehouse7' value='"+data[i].color7WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork7'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork7'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork7' id='editSubCountCork7' value='"+data[i].color7CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1545,7 +1545,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway7'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway7' id='editSubCountGalway7' value='"+data[i].color7GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1560,7 +1560,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editWarehouseSize3XL7' id='editWarehouseSize3XL7' value='"+data[i].color7WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL7'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editWarehouseSize4XL7' id='editWarehouseSize4XL7' value='"+data[i].color7WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL7'>:4XL</label><br>"
 								formControl +=		"</div>"
-								formControl +=		"<div class='col-sm-3' id='editShowCorkSizes7' style='display: none'>"
+								/*formControl +=		"<div class='col-sm-3' id='editShowCorkSizes7' style='display: none'>"
 								formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeS7' id='editCorkSizeS7' value='"+data[i].color7CorkSizeS+"' onchange='updateEditTotals()'><label for='editCorkSizeS7'>:S</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeM7' id='editCorkSizeM7' value='"+data[i].color7CorkSizeM+"' onchange='updateEditTotals()'><label for='editCorkSizeM7'>:M</label><br>"
@@ -1589,7 +1589,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editGalwaySize2XL7' id='editGalwaySize2XL7' value='"+data[i].color7GalwaySize2XL+"' onchange='updateEditTotals()'><label for='editGalwaySize2XL7'>:2XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize3XL7' id='editGalwaySize3XL7' value='"+data[i].color7GalwaySize3XL+"' onchange='updateEditTotals()'><label for='editGalwaySize3XL7'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize4XL7' id='editGalwaySize4XL7' value='"+data[i].color7GalwaySize4XL+"' onchange='updateEditTotals()'><label for='editGalwaySize4XL7'>:4XL</label><br>"
-								formControl +=		"</div>"
+								formControl +=		"</div>"*/
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
 								formControl +=	"<div class='row' id='addSubStyle7' style='display: none'>"
@@ -1617,7 +1617,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse8' id='editSubCountWarehouse8' value='"+data[i].color8WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork8'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork8'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork8' id='editSubCountCork8' value='"+data[i].color8CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1628,7 +1628,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway8'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway8' id='editSubCountGalway8' value='"+data[i].color8GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1643,7 +1643,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editWarehouseSize3XL8' id='editWarehouseSize3XL8' value='"+data[i].color8WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL8'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editWarehouseSize4XL8' id='editWarehouseSize4XL8' value='"+data[i].color8WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL8'>:4XL</label><br>"
 								formControl +=		"</div>"
-								formControl +=		"<div class='col-sm-3' id='editShowCorkSizes8' style='display: none'>"
+								/*formControl +=		"<div class='col-sm-3' id='editShowCorkSizes8' style='display: none'>"
 								formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeS8' id='editCorkSizeS8' value='"+data[i].color8CorkSizeS+"' onchange='updateEditTotals()'><label for='editCorkSizeS8'>:S</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeM8' id='editCorkSizeM8' value='"+data[i].color8CorkSizeM+"' onchange='updateEditTotals()'><label for='editCorkSizeM8'>:M</label><br>"
@@ -1672,7 +1672,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editGalwaySize2XL8' id='editGalwaySize2XL8' value='"+data[i].color8GalwaySize2XL+"' onchange='updateEditTotals()'><label for='editGalwaySize2XL8'>:2XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize3XL8' id='editGalwaySize3XL8' value='"+data[i].color8GalwaySize3XL+"' onchange='updateEditTotals()'><label for='editGalwaySize3XL8'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize4XL8' id='editGalwaySize4XL8' value='"+data[i].color8GalwaySize4XL+"' onchange='updateEditTotals()'><label for='editGalwaySize4XL8'>:4XL</label><br>"
-								formControl +=		"</div>"
+								formControl +=		"</div>"*/
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
 								formControl +=	"<div class='row' id='addSubStyle8' style='display: none'>"
@@ -1700,7 +1700,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse9' id='editSubCountWarehouse9' value='"+data[i].color9WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork9'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork9'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork9' id='editSubCountCork9' value='"+data[i].color9CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1711,7 +1711,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway9'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway9' id='editSubCountGalway9' value='"+data[i].color9GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1726,7 +1726,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editWarehouseSize3XL9' id='editWarehouseSize3XL9' value='"+data[i].color9WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL9'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editWarehouseSize4XL9' id='editWarehouseSize4XL9' value='"+data[i].color9WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL9'>:4XL</label><br>"
 								formControl +=		"</div>"
-								formControl +=		"<div class='col-sm-3' id='editShowCorkSizes9' style='display: none'>"
+								/*formControl +=		"<div class='col-sm-3' id='editShowCorkSizes9' style='display: none'>"
 								formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeS9' id='editCorkSizeS9' value='"+data[i].color9CorkSizeS+"' onchange='updateEditTotals()'><label for='editCorkSizeS9'>:S</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeM9' id='editCorkSizeM9' value='"+data[i].color9CorkSizeM+"' onchange='updateEditTotals()'><label for='editCorkSizeM9'>:M</label><br>"
@@ -1755,7 +1755,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editGalwaySize2XL9' id='editGalwaySize2XL9' value='"+data[i].color9GalwaySize2XL+"' onchange='updateEditTotals()'><label for='editGalwaySize2XL9'>:2XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize3XL9' id='editGalwaySize3XL9' value='"+data[i].color9GalwaySize3XL+"' onchange='updateEditTotals()'><label for='editGalwaySize3XL9'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize4XL9' id='editGalwaySize4XL9' value='"+data[i].color9GalwaySize4XL+"' onchange='updateEditTotals()'><label for='editGalwaySize4XL9'>:4XL</label><br>"
-								formControl +=		"</div>"
+								formControl +=		"</div>"*/
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
 								formControl +=	"<div class='row' id='addSubStyle9' style='display: none'>"
@@ -1783,7 +1783,7 @@ $(document).ready(
 								formControl += "<p>Warehouse</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse10' id='editSubCountWarehouse10' value='"+data[i].color10WarehouseTotal+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubCork10'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSubCork10'>"
 								formControl += "<p>Cork</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork10' id='editSubCountCork10' value='"+data[i].color10CorkTotal+"'' onchange='updateEditTotals()'>"
 								formControl += "</div>"
@@ -1794,7 +1794,7 @@ $(document).ready(
 								formControl += "<div class='col-sm-2' id='editShowSubGalway10'>"
 								formControl += "<p>Galway</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway10' id='editSubCountGalway10' value='"+data[i].color10GalwayTotal+"'' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1809,7 +1809,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editWarehouseSize3XL10' id='editWarehouseSize3XL10' value='"+data[i].color10WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL10'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editWarehouseSize4XL10' id='editWarehouseSize4XL10' value='"+data[i].color10WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL10'>:4XL</label><br>"
 								formControl +=		"</div>"
-								formControl +=		"<div class='col-sm-3' id='editShowCorkSizes10' style='display: none'>"
+								/*formControl +=		"<div class='col-sm-3' id='editShowCorkSizes10' style='display: none'>"
 								formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeS10' id='editCorkSizeS10' value='"+data[i].color10CorkSizeS+"' onchange='updateEditTotals()'><label for='editCorkSizeS10'>:S</label><br>"
 								formControl +=			"<input type='text' name='editCorkSizeM10' id='editCorkSizeM10' value='"+data[i].color10CorkSizeM+"' onchange='updateEditTotals()'><label for='editCorkSizeM10'>:M</label><br>"
@@ -1838,7 +1838,7 @@ $(document).ready(
 								formControl +=			"<input type='text' name='editGalwaySize2XL10' id='editGalwaySize2XL10' value='"+data[i].color10GalwaySize2XL+"' onchange='updateEditTotals()'><label for='editGalwaySize2XL10'>:2XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize3XL10' id='editGalwaySize3XL10' value='"+data[i].color10GalwaySize3XL+"' onchange='updateEditTotals()'><label for='editGalwaySize3XL10'>:3XL</label><br>"
 								formControl +=			"<input type='text' name='editGalwaySize4XL10' id='editGalwaySize4XL10' value='"+data[i].color10GalwaySize4XL+"' onchange='updateEditTotals()'><label for='editGalwaySize4XL10'>:4XL</label><br>"
-								formControl +=		"</div>"
+								formControl +=		"</div>"*/
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
 								formControl +=	"<div class='row' id='addSubStyle10' style='display: none'>"
@@ -1886,7 +1886,7 @@ $(document).ready(
 									document.getElementById("editShowWarehouseSizes10").style.display = "block";
 							}
 								
-							if($('#inCorkEdit').prop('checked')==true)
+							/*if($('#inCorkEdit').prop('checked')==true)
 							{
 								if(styleIndex>=1)
 									document.getElementById("editShowCorkSizes1").style.display = "block";
@@ -1983,7 +1983,7 @@ $(document).ready(
 									
 								if(styleIndex>=10)
 									document.getElementById("editShowGalwaySizes10").style.display = "block";
-							}
+							}*/
 							
 							document.getElementById("editSubStyleMenu").style = "block";
 						}
@@ -2100,7 +2100,7 @@ function addEditForm()
 				formControl += "<p>Warehouse</p>"
 				formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse"+i+"' id='editSubCountWarehouse"+i+"' value='0' onchange='updateEditTotals()'>"
 				formControl += "</div>"
-				formControl += "<div class='col-sm-2' id='editShowSubCork"+i+"'>"
+				/*formControl += "<div class='col-sm-2' id='editShowSubCork"+i+"'>"
 				formControl += "<p>Cork</p>"
 				formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountCork"+i+"' id='editSubCountCork"+i+"' value='0' onchange='updateEditTotals()'>"
 				formControl += "</div>"
@@ -2111,7 +2111,7 @@ function addEditForm()
 				formControl += "<div class='col-sm-2' id='editShowSubGalway"+i+"'>"
 				formControl += "<p>Galway</p>"
 				formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountGalway"+i+"' id='editSubCountGalway"+i+"' value='0' onchange='updateEditTotals()'>"
-				formControl += "</div>"
+				formControl += "</div>"*/
 				formControl += "</div>"
 				formControl += "</div><br>"
 				formControl += "<div class='row' id='editSubSizeList"+i+"'>"
@@ -2125,7 +2125,7 @@ function addEditForm()
 				formControl +=			"<input type='text' name='editWarehouseSize3XL"+i+"' id='editWarehouseSize3XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editWarehouseSize3XL"+i+"'>:3XL</label><br>"
 				formControl +=			"<input type='text' name='editWarehouseSize4XL"+i+"' id='editWarehouseSize4XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editWarehouseSize4XL"+i+"'>:4XL</label><br>"
 				formControl +=		"</div>"
-				formControl +=		"<div class='col-sm-3' id='editShowCorkSizes"+i+"' style='display: none'>"
+				/*formControl +=		"<div class='col-sm-3' id='editShowCorkSizes"+i+"' style='display: none'>"
 				formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
 				formControl +=			"<input type='text' name='editCorkSizeS"+i+"' id='editCorkSizeS"+i+"' value='0' onchange='updateEditTotals()'><label for='editCorkSizeS"+i+"'>:S</label><br>"
 				formControl +=			"<input type='text' name='editCorkSizeM"+i+"' id='editCorkSizeM"+i+"' value='0' onchange='updateEditTotals()'><label for='editCorkSizeM"+i+"'>:M</label><br>"
@@ -2154,7 +2154,7 @@ function addEditForm()
 				formControl +=			"<input type='text' name='editGalwaySize2XL"+i+"' id='editGalwaySize2XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editGalwaySize2XL"+i+"'>:2XL</label><br>"
 				formControl +=			"<input type='text' name='editGalwaySize3XL"+i+"' id='editGalwaySize3XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editGalwaySize3XL"+i+"'>:3XL</label><br>"
 				formControl +=			"<input type='text' name='editGalwaySize4XL"+i+"' id='editGalwaySize4XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editGalwaySize4XL"+i+"'>:4XL</label><br>"
-				formControl +=		"</div>"
+				formControl +=		"</div>"*/
 				formControl +=	"</div>"	
 				formControl +=	"<br>"
 				formControl +=	"<div class='row' id='addSubStyle"+i+"' style='display: none'>"
@@ -2332,9 +2332,9 @@ function controlEditForm()
 	
 	if($('#hasColorsEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
 	{
-		document.getElementById("editShowCorkSizes").style.display =  "none";
-		document.getElementById("editShowKalaSizes").style.display =  "none";
-		document.getElementById("editShowGalwaySizes").style.display =  "none";
+		//document.getElementById("editShowCorkSizes").style.display =  "none";
+		//document.getElementById("editShowKalaSizes").style.display =  "none";
+		//document.getElementById("editShowGalwaySizes").style.display =  "none";
 		document.getElementById("editShowWarehouseSizes").style.display =  "none";
 	}
 	
@@ -2346,9 +2346,9 @@ function controlEditForm()
 		{
 			currStyle=i;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
-			var editShowCorkSizes = document.getElementById("editShowCorkSizes").id + currStyle;
-			var editShowKalaSizes = document.getElementById("editShowKalaSizes").id + currStyle;
-			var editShowGalwaySizes = document.getElementById("editShowGalwaySizes").id + currStyle;
+			//var editShowCorkSizes = document.getElementById("editShowCorkSizes").id + currStyle;
+			//var editShowKalaSizes = document.getElementById("editShowKalaSizes").id + currStyle;
+			//var editShowGalwaySizes = document.getElementById("editShowGalwaySizes").id + currStyle;
 			var editShowWarehouseSizes = document.getElementById("editShowWarehouseSizes").id + currStyle;
 			//var subStyle = document.getElementById("editSubStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("editAddSubStyle").id + currStyle;
@@ -2362,7 +2362,7 @@ function controlEditForm()
 				else if($('#inWarehouseEdit').prop('checked')==false)
 					document.getElementById(editShowWarehouseSizes).style.display =  "none";
 						
-				if($('#inCorkEdit').prop('checked')==true)
+				/*if($('#inCorkEdit').prop('checked')==true)
 					document.getElementById(editShowCorkSizes).style.display =  "block";
 				
 				else if($('#inCorkEdit').prop('checked')==false)
@@ -2378,15 +2378,15 @@ function controlEditForm()
 					document.getElementById(editShowGalwaySizes).style.display =  "block";
 				
 				else if($('#inGalwayEdit').prop('checked')==false)
-					document.getElementById(editShowGalwaySizes).style.display =  "none";
+					document.getElementById(editShowGalwaySizes).style.display =  "none";*/
 			}
 				
 			else if($('#hasSizesEdit').prop('checked')==false)
 			{
 				document.getElementById(editShowWarehouseSizes).style.display =  "none";
-				document.getElementById(editShowCorkSizes).style.display =  "none";
-				document.getElementById(editShowKalaSizes).style.display =  "none";
-				document.getElementById(editShowGalwaySizes).style.display =  "none";
+				//document.getElementById(editShowCorkSizes).style.display =  "none";
+				//document.getElementById(editShowKalaSizes).style.display =  "none";
+				//document.getElementById(editShowGalwaySizes).style.display =  "none";
 			}
 		}
 			
@@ -2415,9 +2415,9 @@ function controlEditForm()
 		{
 			currStyle=i;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
-			editShowSubCork = document.getElementById("editShowSubCork").id + currStyle;
-			editShowSubKala = document.getElementById("editShowSubKala").id + currStyle;
-			editShowSubGalway = document.getElementById("editShowSubGalway").id + currStyle;
+			//editShowSubCork = document.getElementById("editShowSubCork").id + currStyle;
+			//editShowSubKala = document.getElementById("editShowSubKala").id + currStyle;
+			//editShowSubGalway = document.getElementById("editShowSubGalway").id + currStyle;
 			editShowSubWarehouse = document.getElementById("editShowSubWarehouse").id + currStyle;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
@@ -2430,7 +2430,7 @@ function controlEditForm()
 			else if($('#inWarehouseEdit').prop('checked')==false)
 				document.getElementById(editShowSubWarehouse).style.display =  "none";
 				
-			if($('#inCorkEdit').prop('checked')==true)
+			/*if($('#inCorkEdit').prop('checked')==true)
 				document.getElementById(editShowSubCork).style.display =  "block";
 				
 			else if($('#inCorkEdit').prop('checked')==false)
@@ -2446,16 +2446,16 @@ function controlEditForm()
 				document.getElementById(editShowSubGalway).style.display =  "block";
 				
 			else if($('#inGalwayEdit').prop('checked')==false)
-				document.getElementById(editShowSubGalway).style.display =  "none";	
+				document.getElementById(editShowSubGalway).style.display =  "none";*/
 		}
 	}
 	
 	if($('#hasSizesEdit').prop('checked')==false)
 	{
 		document.getElementById("editShowWarehouseSizes").style.display =  "none";
-		document.getElementById("editShowCorkSizes").style.display =  "none";
-		document.getElementById("editShowKalaSizes").style.display =  "none";
-		document.getElementById("editShowGalwaySizes").style.display =  "none";
+		//document.getElementById("editShowCorkSizes").style.display =  "none";
+		//document.getElementById("editShowKalaSizes").style.display =  "none";
+		//document.getElementById("editShowGalwaySizes").style.display =  "none";
 		
 		for(i=1; i<styleIndex+1; i++)
 		{
@@ -2467,7 +2467,7 @@ function controlEditForm()
 				document.getElementById(editSubCountWarehouse).value=0;
 			}
 			
-			if($('#inCorkEdit').prop('checked')==false)
+			/*if($('#inCorkEdit').prop('checked')==false)
 			{
 				var editSubCountCork = document.getElementById("editSubCountCork").id + currStyle;
 				document.getElementById(editSubCountCork).value=0;
@@ -2483,7 +2483,7 @@ function controlEditForm()
 			{
 				var editSubCountGalway = document.getElementById("editSubCountGalway").id + currStyle;
 				document.getElementById(editSubCountGalway).value=0;
-			}
+			}*/
 		}
 		
 		for(i=1; i<styleIndex+1; i++)
@@ -2491,9 +2491,9 @@ function controlEditForm()
 			currStyle=i;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
 			editShowSubWarehouse = document.getElementById("editShowSubWarehouse").id + currStyle;
-			editShowSubCork = document.getElementById("editShowSubCork").id + currStyle;
-			editShowSubKala = document.getElementById("editShowSubKala").id + currStyle;
-			editShowSubGalway = document.getElementById("editShowSubGalway").id + currStyle;
+			//editShowSubCork = document.getElementById("editShowSubCork").id + currStyle;
+			//editShowSubKala = document.getElementById("editShowSubKala").id + currStyle;
+			//editShowSubGalway = document.getElementById("editShowSubGalway").id + currStyle;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
 				
@@ -2505,7 +2505,7 @@ function controlEditForm()
 			else if($('#inWarehouseEdit').prop('checked')==false)
 				document.getElementById(editShowSubWarehouse).style.display =  "none";
 				
-			if($('#inCorkEdit').prop('checked')==true)
+			/*if($('#inCorkEdit').prop('checked')==true)
 				document.getElementById(editShowSubCork).style.display =  "block";
 				
 			else if($('#inCorkEdit').prop('checked')==false)
@@ -2521,8 +2521,7 @@ function controlEditForm()
 				document.getElementById(editShowSubGalway).style.display =  "block";
 				
 			else if($('#inGalwayEdit').prop('checked')==false)
-				document.getElementById(editShowSubGalway).style.display =  "none";
-				
+				document.getElementById(editShowSubGalway).style.display =  "none";*/				
 		}
 	}
 	
@@ -2534,7 +2533,7 @@ function controlEditForm()
 		else if($('#inWarehouseEdit').prop('checked')==false)
 			document.getElementById("editShowWarehouseSizes").style.display =  "none";
 		
-		if($('#inCorkEdit').prop('checked')==true)
+		/*if($('#inCorkEdit').prop('checked')==true)
 			document.getElementById("editShowCorkSizes").style.display =  "block";
 	
 		else if($('#inCorkEdit').prop('checked')==false)
@@ -2550,7 +2549,7 @@ function controlEditForm()
 			document.getElementById("editShowGalwaySizes").style.display =  "block";
 	
 		else if($('#inGalwayEdit').prop('checked')==false)
-			document.getElementById("editShowGalwaySizes").style.display =  "none";
+			document.getElementById("editShowGalwaySizes").style.display =  "none";*/
 	}
 	
 	if(($('#hasSizesEdit').prop('checked')==false) && ($('#hasColorsEdit').prop('checked')==false))
@@ -2558,16 +2557,16 @@ function controlEditForm()
 		if($('#inWarehouseEdit').prop('checked')==false)
 			document.getElementById("editCountWarehouse").value = 0;
 	
-		if($('#inCorkEdit').prop('checked')==false)
+		/*if($('#inCorkEdit').prop('checked')==false)
 			document.getElementById("editCountCork").value = 0;
 		
 		if($('#inKalaEdit').prop('checked')==false)
 			document.getElementById("editCountKala").value = 0;
 	
 		if($('#inGalwayEdit').prop('checked')==false)
-			document.getElementById("editCountGalway").value = 0;
+			document.getElementById("editCountGalway").value = 0;*/
 	}
-	
+
 	updateEditTotals();
 }
 
@@ -2577,9 +2576,9 @@ function updateEditTotals()
 	var currStyle=0;
 
 	var editWarehouseTotal = 0;
-	var editCorkTotal = 0;
-	var editKalaTotal = 0;
-	var editGalwayTotal = 0;
+	//var editCorkTotal = 0;
+	//var editKalaTotal = 0;
+	//var editGalwayTotal = 0;
 
 	var editCountWarehouseSizeS = 0;
 	var editCountWarehouseSizeM = 0;
@@ -2590,7 +2589,7 @@ function updateEditTotals()
 	var editCountWarehouseSize4XL = 0;
 	var editWarehouseSizeTotal = 0;
 
-	var editCountCorkSizeS = 0;
+	/*var editCountCorkSizeS = 0;
 	var editCountCorkSizeM = 0;
 	var editCountCorkSizeL = 0;
 	var editCountCorkSizeXL = 0;
@@ -2615,32 +2614,32 @@ function updateEditTotals()
 	var editCountGalwaySize2XL = 0;
 	var editCountGalwaySize3XL = 0;
 	var editCountGalwaySize4XL = 0;
-	var editGalwaySizeTotal = 0;
+	var editGalwaySizeTotal = 0;*/
 
 	var editSubCountWarehouse = 0;
-	var editSubCountCork = 0;
-	var editSubCountKala = 0;
-	var editSubCountGalway = 0;
+	//var editSubCountCork = 0;
+	//var editSubCountKala = 0;
+	//var editSubCountGalway = 0;
 
-	var editTempTotalCork = 0;
-	var editTempTotalKala = 0;
-	var editTempTotalGalway = 0;
+	//var editTempTotalCork = 0;
+	//var editTempTotalKala = 0;
+	//var editTempTotalGalway = 0;
 	var editTempTotalWarehouse = 0;
 
 	if($('#hasSizesEdit').prop('checked')==true&&$('#hasColorsEdit').prop('checked')==true)
 	{
 		document.getElementById("editCountWarehouse").value = 0;
-		document.getElementById("editCountCork").value = 0;
-		document.getElementById("editCountKala").value = 0;
-		document.getElementById("editCountGalway").value = 0;
+		//document.getElementById("editCountCork").value = 0;
+		//document.getElementById("editCountKala").value = 0;
+		//document.getElementById("editCountGalway").value = 0;
 			
 		for(i=1;i<styleIndex+1;i++)
 		{
 			currStyle = i;
 			editWarehouseTotal = 0;
-			editCorkTotal = 0;
-			editKalaTotal = 0;
-			editGalwayTotal = 0;
+			//editCorkTotal = 0;
+			//editKalaTotal = 0;
+			//editGalwayTotal = 0;
 			
 			var editWarehouseSizeS = document.getElementById("editWarehouseSizeS").id + currStyle; 
 			var editWarehouseSizeM = document.getElementById("editWarehouseSizeM").id + currStyle; 
@@ -2669,7 +2668,7 @@ function updateEditTotals()
 			else if($('#inWarehouseEdit').prop('checked')==false)
 				editWarehouseSizeTotal = 0;
 			
-			var editCorkSizeS = document.getElementById("editCorkSizeS").id + currStyle; 
+			/*var editCorkSizeS = document.getElementById("editCorkSizeS").id + currStyle; 
 			var editCorkSizeM = document.getElementById("editCorkSizeM").id + currStyle; 
 			var editCorkSizeL = document.getElementById("editCorkSizeL").id + currStyle; 
 			var editCorkSizeXL = document.getElementById("editCorkSizeXL").id + currStyle; 
@@ -2748,7 +2747,7 @@ function updateEditTotals()
 			}	
 			
 			if($('#inGalwayEdit').prop('checked')==false)
-				editGalwaySizeTotal = 0;
+				editGalwaySizeTotal = 0;*/
 			
 			var editColorTotal = (document.getElementById("editColorTotal").id + currStyle); 
 			//console.log(editColorTotal);
@@ -2758,9 +2757,9 @@ function updateEditTotals()
 	
 	if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==true)
 	{
-		editTempTotalCork = 0;
-		editTempTotalKala = 0;
-		editTempTotalGalway = 0;
+		//editTempTotalCork = 0;
+		//editTempTotalKala = 0;
+		//editTempTotalGalway = 0;
 		editTempTotalWarehouse = 0;
 			
 		for(i=1;i<styleIndex+1;i++)
@@ -2768,9 +2767,9 @@ function updateEditTotals()
 			currStyle = i;
 				
 			editColorTotal = document.getElementById("editColorTotal").id + currStyle;
-			editCorkTotal = 0;
-			editKalaTotal = 0;
-			editGalwayTotal = 0;
+			//editCorkTotal = 0;
+			//editKalaTotal = 0;
+			//editGalwayTotal = 0;
 			editWarehouseTotal = 0;
 				
 			if($('#inWarehouseEdit').prop('checked')==true)
@@ -2780,7 +2779,7 @@ function updateEditTotals()
 				editTempTotalWarehouse = editTempTotalWarehouse + parseInt(document.getElementById(editSubCountWarehouse).value);
 			}	
 				
-			if($('#inCorkEdit').prop('checked')==true)
+			/*if($('#inCorkEdit').prop('checked')==true)
 			{						
 				editSubCountCork = document.getElementById("editSubCountCork").id + currStyle;	
 				editCorkTotal = parseInt(document.getElementById(editSubCountCork).value) + editCorkTotal;
@@ -2799,12 +2798,12 @@ function updateEditTotals()
 				editSubCountGalway = document.getElementById("editSubCountGalway").id + currStyle;	
 				editGalwayTotal = parseInt(document.getElementById(editSubCountGalway).value) + editGalwayTotal;
 				editTempTotalGalway = editTempTotalGalway + parseInt(document.getElementById(editSubCountGalway).value);
-			}
+			}*/
 				
 			document.getElementById("editCountWarehouse").value = editTempTotalWarehouse;
-			document.getElementById("editCountCork").value = editTempTotalCork;
-			document.getElementById("editCountKala").value = editTempTotalKala;
-			document.getElementById("editCountGalway").value = editTempTotalGalway;
+			//document.getElementById("editCountCork").value = editTempTotalCork;
+			//document.getElementById("editCountKala").value = editTempTotalKala;
+			//document.getElementById("editCountGalway").value = editTempTotalGalway;
 			document.getElementById(editColorTotal).value = editWarehouseTotal + editCorkTotal + editKalaTotal + editGalwayTotal;
 		}
 	}
@@ -2812,9 +2811,9 @@ function updateEditTotals()
 	if($('#hasSizesEdit').prop('checked')==true&&$('#hasColorsEdit').prop('checked')==false)
 	{		
 		editWarehouseTotal = 0;
-		editCorkTotal = 0;
-		editKalaTotal = 0;
-		editGalwayTotal = 0;
+		//editCorkTotal = 0;
+		//editKalaTotal = 0;
+		//editGalwayTotal = 0;
 			
 		editCountWarehouseSizeS = parseInt(document.getElementById("editWarehouseSizeS").value);
 		editCountWarehouseSizeM = parseInt(document.getElementById("editWarehouseSizeM").value);
@@ -2834,7 +2833,7 @@ function updateEditTotals()
 		else if($('#inWarehouseEdit').prop('checked')==false)
 			document.getElementById("editCountWarehouse").value = 0;
 			
-		editCountCorkSizeS = parseInt(document.getElementById("editCorkSizeS").value);
+		/*editCountCorkSizeS = parseInt(document.getElementById("editCorkSizeS").value);
 		editCountCorkSizeM = parseInt(document.getElementById("editCorkSizeM").value);
 		editCountCorkSizeL = parseInt(document.getElementById("editCorkSizeL").value);
 		editCountCorkSizeXL = parseInt(document.getElementById("editCorkSizeXL").value);
@@ -2886,15 +2885,14 @@ function updateEditTotals()
 		}
 			
 		else if($('#inGalwayEdit').prop('checked')==false)
-			document.getElementById("editCountGalway").value = 0;
-			
+			document.getElementById("editCountGalway").value = 0;*/	
 	}
 	
 	if($('#hasColorsEdit').prop('checked')==true&&$('#inWarehouseEdit').prop('checked')==false)
 	{
 		document.getElementById("editCountWarehouse").value = 0;
 	}
-	if($('#hasColorsEdit').prop('checked')==true&&$('#inCorkEdit').prop('checked')==false)
+	/*if($('#hasColorsEdit').prop('checked')==true&&$('#inCorkEdit').prop('checked')==false)
 	{
 		document.getElementById("editCountCork").value = 0;
 	}
@@ -2905,20 +2903,20 @@ function updateEditTotals()
 	if($('#hasColorsEdit').prop('checked')==true&&$('#inGalwayEdit').prop('checked')==false)
 	{
 		document.getElementById("editCountGalway").value = 0;
-	}
+	}*/
 	
 	if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==false)
 	{
 		if($('#inWarehouseEdit').prop('checked')==false)
 			document.getElementById("editCountWarehouse").value = 0;
 	
-		if($('#inCorkEdit').prop('checked')==false)
+		/*if($('#inCorkEdit').prop('checked')==false)
 			document.getElementById("editCountCork").value = 0;
 		
 		if($('#inKalaEdit').prop('checked')==false)
 			document.getElementById("editCountKala").value = 0;
 		
 		if($('#inGalwayEdit').prop('checked')==false)
-			document.getElementById("editCountGalway").value = 0;
+			document.getElementById("editCountGalway").value = 0;*/
 	}
 }

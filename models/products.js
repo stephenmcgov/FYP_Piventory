@@ -32,17 +32,17 @@ var productSchema = new Schema({
 	salePrice3XL: {type: Number},
 	salePrice4XL: {type: Number},
 	
-	inStoreCork: {type: String},
-	inStoreKala: {type: String},
-	inStoreGalway: {type: String},
+	//inStoreCork: {type: String},
+	//inStoreKala: {type: String},
+	//inStoreGalway: {type: String},
 	inWarehouse: {type: String},
 	
-	totalKala: {type: Number},
-	totalCork: {type: Number},
-	totalGalway: {type: Number},
+	//totalKala: {type: Number},
+	//totalCork: {type: Number},
+	//totalGalway: {type: Number},
 	totalWarehouse: {type: Number},
 	
-	CorkSizeS:{type: Number},
+	/*CorkSizeS:{type: Number},
 	CorkSizeM:{type: Number},
 	CorkSizeL:{type: Number},
 	CorkSizeXL:{type: Number},
@@ -64,7 +64,7 @@ var productSchema = new Schema({
 	GalwaySizeXL:{type: Number},
 	GalwaySize2XL:{type: Number},
 	GalwaySize3XL:{type: Number},
-	GalwaySize4XL:{type: Number},
+	GalwaySize4XL:{type: Number},*/
 	
 	WarehouseSizeS:{type: Number},
 	WarehouseSizeM:{type: Number},
@@ -87,7 +87,7 @@ var productSchema = new Schema({
 	colorCode9: {type:String},
 	colorCode10: {type:String},
 	
-	color1CorkSizeS:{type: Number},
+	/*color1CorkSizeS:{type: Number},
 	color1CorkSizeM:{type: Number},
 	color1CorkSizeL:{type: Number},
 	color1CorkSizeXL:{type: Number},
@@ -109,7 +109,7 @@ var productSchema = new Schema({
 	color1GalwaySizeXL:{type: Number},
 	color1GalwaySize2XL:{type: Number},
 	color1GalwaySize3XL:{type: Number},
-	color1GalwaySize4XL:{type: Number},
+	color1GalwaySize4XL:{type: Number},*/
 	
 	color1WarehouseSizeS:{type: Number},
 	color1WarehouseSizeM:{type: Number},
@@ -120,7 +120,7 @@ var productSchema = new Schema({
 	color1WarehouseSize4XL:{type: Number},
 	
 	color1Total: {type:Number},
-	color1CorkTotal: {type:Number},
+	/*color1CorkTotal: {type:Number},
 	color1KalaTotal: {type:Number},
 	color1GalwayTotal: {type:Number},
 	color1WarehouseTotal: {type:Number},
@@ -147,7 +147,7 @@ var productSchema = new Schema({
 	color2GalwaySizeXL:{type: Number},
 	color2GalwaySize2XL:{type: Number},
 	color2GalwaySize3XL:{type: Number},
-	color2GalwaySize4XL:{type: Number},
+	color2GalwaySize4XL:{type: Number},*/
 	
 	color2WarehouseSizeS:{type: Number},
 	color2WarehouseSizeM:{type: Number},
@@ -158,7 +158,7 @@ var productSchema = new Schema({
 	color2WarehouseSize4XL:{type: Number},
 	
 	color2Total: {type:Number},
-	color2CorkTotal: {type:Number},
+	/*color2CorkTotal: {type:Number},
 	color2KalaTotal: {type:Number},
 	color2GalwayTotal: {type:Number},
 	color2WarehouseTotal: {type:Number},
@@ -185,7 +185,7 @@ var productSchema = new Schema({
 	color3GalwaySizeXL:{type: Number},
 	color3GalwaySize2XL:{type: Number},
 	color3GalwaySize3XL:{type: Number},
-	color3GalwaySize4XL:{type: Number},
+	color3GalwaySize4XL:{type: Number},*/
 	
 	color3WarehouseSizeS:{type: Number},
 	color3WarehouseSizeM:{type: Number},
@@ -196,7 +196,7 @@ var productSchema = new Schema({
 	color3WarehouseSize4XL:{type: Number},
 	
 	color3Total: {type:Number},
-	color3CorkTotal: {type:Number},
+	/*color3CorkTotal: {type:Number},
 	color3KalaTotal: {type:Number},
 	color3GalwayTotal: {type:Number},
 	color3WarehouseTotal: {type:Number},
@@ -223,7 +223,7 @@ var productSchema = new Schema({
 	color4GalwaySizeXL:{type: Number},
 	color4GalwaySize2XL:{type: Number},
 	color4GalwaySize3XL:{type: Number},
-	color4GalwaySize4XL:{type: Number},
+	color4GalwaySize4XL:{type: Number},*/
 	
 	color4WarehouseSizeS:{type: Number},
 	color4WarehouseSizeM:{type: Number},
@@ -234,7 +234,7 @@ var productSchema = new Schema({
 	color4WarehouseSize4XL:{type: Number},
 	
 	color4Total: {type:Number},
-	color4CorkTotal: {type:Number},
+	/*color4CorkTotal: {type:Number},
 	color4KalaTotal: {type:Number},
 	color4GalwayTotal: {type:Number},
 	color4WarehouseTotal: {type:Number},
@@ -261,7 +261,7 @@ var productSchema = new Schema({
 	color5GalwaySizeXL:{type: Number},
 	color5GalwaySize2XL:{type: Number},
 	color5GalwaySize3XL:{type: Number},
-	color5GalwaySize4XL:{type: Number},
+	color5GalwaySize4XL:{type: Number},*/
 	
 	color5WarehouseSizeS:{type: Number},
 	color5WarehouseSizeM:{type: Number},
@@ -272,7 +272,7 @@ var productSchema = new Schema({
 	color5WarehouseSize4XL:{type: Number},
 	
 	color5Total: {type:Number},
-	color5CorkTotal: {type:Number},
+	/*color5CorkTotal: {type:Number},
 	color5KalaTotal: {type:Number},
 	color5GalwayTotal: {type:Number},
 	color5WarehouseTotal: {type:Number},
@@ -299,7 +299,7 @@ var productSchema = new Schema({
 	color6GalwaySizeXL:{type: Number},
 	color6GalwaySize2XL:{type: Number},
 	color6GalwaySize3XL:{type: Number},
-	color6GalwaySize4XL:{type: Number},
+	color6GalwaySize4XL:{type: Number},*/
 	
 	color6WarehouseSizeS:{type: Number},
 	color6WarehouseSizeM:{type: Number},
@@ -310,7 +310,7 @@ var productSchema = new Schema({
 	color6WarehouseSize4XL:{type: Number},
 	
 	color6Total: {type:Number},
-	color6CorkTotal: {type:Number},
+	/*color6CorkTotal: {type:Number},
 	color6KalaTotal: {type:Number},
 	color6GalwayTotal: {type:Number},
 	color6WarehouseTotal: {type:Number},
@@ -337,7 +337,7 @@ var productSchema = new Schema({
 	color7GalwaySizeXL:{type: Number},
 	color7GalwaySize2XL:{type: Number},
 	color7GalwaySize3XL:{type: Number},
-	color7GalwaySize4XL:{type: Number},
+	color7GalwaySize4XL:{type: Number},*/
 	
 	color7WarehouseSizeS:{type: Number},
 	color7WarehouseSizeM:{type: Number},
@@ -348,7 +348,7 @@ var productSchema = new Schema({
 	color7WarehouseSize4XL:{type: Number},
 	
 	color7Total: {type:Number},
-	color7CorkTotal: {type:Number},
+	/*color7CorkTotal: {type:Number},
 	color7KalaTotal: {type:Number},
 	color7GalwayTotal: {type:Number},
 	color7WarehouseTotal: {type:Number},
@@ -375,7 +375,7 @@ var productSchema = new Schema({
 	color8GalwaySizeXL:{type: Number},
 	color8GalwaySize2XL:{type: Number},
 	color8GalwaySize3XL:{type: Number},
-	color8GalwaySize4XL:{type: Number},
+	color8GalwaySize4XL:{type: Number},*/
 	
 	color8WarehouseSizeS:{type: Number},
 	color8WarehouseSizeM:{type: Number},
@@ -386,7 +386,7 @@ var productSchema = new Schema({
 	color8WarehouseSize4XL:{type: Number},
 	
 	color8Total: {type:Number},
-	color8CorkTotal: {type:Number},
+	/*color8CorkTotal: {type:Number},
 	color8KalaTotal: {type:Number},
 	color8GalwayTotal: {type:Number},
 	color8WarehouseTotal: {type:Number},
@@ -413,7 +413,7 @@ var productSchema = new Schema({
 	color9GalwaySizeXL:{type: Number},
 	color9GalwaySize2XL:{type: Number},
 	color9GalwaySize3XL:{type: Number},
-	color9GalwaySize4XL:{type: Number},
+	color9GalwaySize4XL:{type: Number},*/
 	
 	color9WarehouseSizeS:{type: Number},
 	color9WarehouseSizeM:{type: Number},
@@ -424,7 +424,7 @@ var productSchema = new Schema({
 	color9WarehouseSize4XL:{type: Number},
 	
 	color9Total: {type:Number},
-	color9CorkTotal: {type:Number},
+	/*color9CorkTotal: {type:Number},
 	color9KalaTotal: {type:Number},
 	color9GalwayTotal: {type:Number},
 	color9WarehouseTotal: {type:Number},
@@ -451,7 +451,7 @@ var productSchema = new Schema({
 	color10GalwaySizeXL:{type: Number},
 	color10GalwaySize2XL:{type: Number},
 	color10GalwaySize3XL:{type: Number},
-	color10GalwaySize4XL:{type: Number},
+	color10GalwaySize4XL:{type: Number},*/
 	
 	color10WarehouseSizeS:{type: Number},
 	color10WarehouseSizeM:{type: Number},
@@ -462,10 +462,10 @@ var productSchema = new Schema({
 	color10WarehouseSize4XL:{type: Number},
 	
 	color10Total: {type:Number},
-	color10CorkTotal: {type:Number},
+	/*color10CorkTotal: {type:Number},
 	color10KalaTotal: {type:Number},
 	color10GalwayTotal: {type:Number},
-	color10WarehouseTotal: {type:Number},
+	color10WarehouseTotal: {type:Number},*/
 });
 
 module.exports = mongoose.model('Product', productSchema);
