@@ -36,7 +36,6 @@ body{
 			<!--<button  id = "registerButton" class="btn btn-success" >Register Staff</button>-->
 			</div><br>
 		</div>
-		
 	</div>
 </div><br>
 
@@ -239,10 +238,7 @@ body{
 					<input type="text" class="form-control input-lg required" required="required" name="storeName" id="storeName" placeholder="Use List ^">	-->
 					
 					<label for="inStore" class="control-label">In Store</label><br>
-					<div class="checkbox"><input name="inWarehouse" id="inWarehouse" type="checkbox" onchange="controlForm()">Warehouse</div>	
-					<!--<div class="checkbox"><input name="inCork" id="inCork" type="checkbox" onchange="controlForm()">Cork</div>
-					<div class="checkbox"><input name="inKala" id="inKala" type="checkbox" onchange="controlForm()">Kala</div>
-					<div class="checkbox"><input name="inGalway" id="inGalway" type="checkbox" onchange="controlForm()">Galway</div>-->			
+					<div class="checkbox"><input name="inWarehouse" id="inWarehouse" type="checkbox" onchange="controlForm()">Warehouse</div>			
 				</div>
 				
 				<div class="col-sm-2">
@@ -261,18 +257,6 @@ body{
 					<label for="countWarehouse" class="control-label">Total Warehouse</label>
 					<input type="text" class="form-control input-lg required" required="required" name="countWarehouse" id="countWarehouse" onchange="updateTotals()" onclick="updateTotals()" value="0">
 				</div>	
-				<!--<div class="col-sm-2">
-					<label for="countCork" class="control-label">Total Cork</label>
-					<input type="text" class="form-control input-lg required" required="required" name="countCork" id="countCork" onchange="updateTotals()" onclick="updateTotals()" value="0">
-				</div>	
-				<div class="col-sm-2">
-					<label for="countKala" class="control-label">Total Kala</label>
-					<input type="text" class="form-control input-lg required" required="required" name="countKala" id="countKala" onchange="updateTotals()" onclick="updateTotals()" value="0">
-				</div>		
-				<div class="col-sm-2">	
-					<label for="countGalway" class="control-label">Total Galway</label>
-					<input type="text" class="form-control input-lg required" required="required" name="countGalway" id="countGalway" onchange="updateTotals()" onclick="updateTotals()" value="0">
-				</div>-->
 			</div>
 		<br>
 
@@ -287,36 +271,6 @@ body{
 				<input type="text" name="warehouseSize3XL" id="warehouseSize3XL" value="0" onchange='updateTotals()'><label for="warehouseSize3XL">:3XL</label><br>
 				<input type="text" name="warehouseSize4XL" id="warehouseSize4XL" value="0" onchange='updateTotals()'><label for="warehouseSize4XL">:4XL</label><br>
 			</div>
-			<!--<div class="col-sm-3" id="showCorkSizes" style="display:none">
-				<label for="storeSizesCork" class="control-label">Cork Sizes</label><br>
-				<input type="text" name="corkSizeS" id="corkSizeS" value="0" onchange='updateTotals()'><label for="corkSizeS">:S</label><br>
-				<input type="text" name="corkSizeM" id="corkSizeM" value="0" onchange='updateTotals()'><label for="corkSizeM">:M</label><br>
-				<input type="text" name="corkSizeL" id="corkSizeL" value="0" onchange='updateTotals()'><label for="corkSizeL">:L</label><br>
-				<input type="text" name="corkSizeXL" id="corkSizeXL" value="0" onchange='updateTotals()'><label for="corkSizeXL">:XL</label><br>
-				<input type="text" name="corkSize2XL" id="corkSize2XL" value="0" onchange='updateTotals()'><label for="corkSize2XL">:2XL</label><br>
-				<input type="text" name="corkSize3XL" id="corkSize3XL" value="0" onchange='updateTotals()'><label for="corkSize3XL">:3XL</label><br>
-				<input type="text" name="corkSize4XL" id="corkSize4XL" value="0" onchange='updateTotals()'><label for="corkSize4XL">:4XL</label><br>
-			</div>
-			<div class="col-sm-3" id="showKalaSizes" style="display:none">
-				<label for="storeSizesKala" class="control-label">Kala Sizes</label><br>
-				<input type="text" name="kalaSizeS" id="kalaSizeS" value="0" onchange='updateTotals()'><label for="kalaSizeS">:S</label><br>
-				<input type="text" name="kalaSizeM" id="kalaSizeM" value="0" onchange='updateTotals()'><label for="kalaSizeM">:M</label><br>
-				<input type="text" name="kalaSizeL" id="kalaSizeL" value="0" onchange='updateTotals()'><label for="kalaSizeL">:L</label><br>
-				<input type="text" name="kalaSizeXL" id="kalaSizeXL" value="0" onchange='updateTotals()'><label for="kalaSizeXL">:XL</label><br>
-				<input type="text" name="kalaSize2XL" id="kalaSize2XL" value="0" onchange='updateTotals()'><label for="kalaSize2XL">:2XL</label><br>
-				<input type="text" name="kalaSize3XL" id="kalaSize3XL" value="0" onchange='updateTotals()'><label for="kalaSize3XL">:3XL</label><br>
-				<input type="text" name="kalaSize4XL" id="kalaSize4XL" value="0" onchange='updateTotals()'><label for="kalaSize4XL">:4XL</label><br>
-			</div>
-			<div class="col-sm-3" id="showGalwaySizes" style="display:none">
-				<label for="storeSizesGalway" class="control-label">Galway Sizes</label><br>
-				<input type="text" name="galwaySizeS" id="galwaySizeS" value="0" onchange='updateTotals()'><label for="galwaySizeS">:S</label><br>
-				<input type="text" name="galwaySizeM" id="galwaySizeM" value="0" onchange='updateTotals()'><label for="galwaySizeM">:M</label><br>
-				<input type="text" name="galwaySizeL" id="galwaySizeL" value="0" onchange='updateTotals()'><label for="galwaySizeL">:L</label><br>
-				<input type="text" name="galwaySizeXL" id="galwaySizeXL" value="0" onchange='updateTotals()'><label for="galwaySizeXL">:XL</label><br>
-				<input type="text" name="galwaySize2XL" id="galwaySize2XL" value="0" onchange='updateTotals()'><label for="galwaySize2XL">:2XL</label><br>
-				<input type="text" name="galwaySize3XL" id="galwaySize3XL" value="0" onchange='updateTotals()'><label for="galwaySize3XL">:3XL</label><br>
-				<input type="text" name="galwaySize4XL" id="galwaySize4XL" value="0" onchange='updateTotals()'><label for="galwaySize4XL">:4XL</label><br>
-			</div>-->
 		</div>
 		<br>
 		<div class="row" id="subStyle" style="display: none">
@@ -332,18 +286,6 @@ body{
 					<p>Warehouse</p>
 					<input type="text" class="form-control input-lg required" name="subCountWarehouse" id="subCountWarehouse" value="0" onchange='updateTotals()'>
 			</div>
-			<!--<div class="col-sm-2" id="showSubCork" style="display:none">
-					<p>Cork</p>
-					<input type="text" class="form-control input-lg required" name="subCountCork" id="subCountCork" value="0" onchange='updateTotals()'>
-			</div>	
-			<div class="col-sm-2" id="showSubKala" style="display:none">
-				<p>Kala</p>
-				<input type="text" class="form-control input-lg required" name="subCountKala" id="subCountKala" value="0" onchange='updateTotals()'>
-			</div>		
-			<div class="col-sm-2" id="showSubGalway" style="display:none">	
-				<p>Galway</p>
-				<input type="text" class="form-control input-lg required" name="subCountGalway" id="subCountGalway" value="0" onchange='updateTotals()'>
-			</div>-->
 		</div>
 		<br>
 		<div class="row" id="addSubStyle" style="display: none">
@@ -539,10 +481,7 @@ body{
 					<input type="text" class="form-control input-lg required" required="required" name="storeEditName" id="storeEditName" placeholder="Use List ^">	-->
 					
 					<label for="inStoreEdit" class="control-label">In Store</label><br>
-					<div class="checkbox"><input name="inWarehouseEdit" id="inWarehouseEdit" type="checkbox" onchange="controlEditForm()">Warehouse</div>
-					<!--<div class="checkbox"><input name="inCorkEdit" id="inCorkEdit" type="checkbox" onchange="controlEditForm()">Cork</div>
-					<div class="checkbox"><input name="inKalaEdit" id="inKalaEdit" type="checkbox" onchange="controlEditForm()">Kala</div>
-					<div class="checkbox"><input name="inGalwayEdit" id="inGalwayEdit" type="checkbox" onchange="controlEditForm()">Galway</div>-->			
+					<div class="checkbox"><input name="inWarehouseEdit" id="inWarehouseEdit" type="checkbox" onchange="controlEditForm()">Warehouse</div>		
 				</div>
 				
 				<div class="col-sm-2">
@@ -561,18 +500,6 @@ body{
 					<label for="editCountWarehouse" class="control-label">Total Warehouse</label>
 					<input type="text" class="form-control input-lg required" required="required" name="editCountWarehouse" id="editCountWarehouse" onchange="updateEditTotals()" onclick="updateEditTotals()" value="0">
 				</div>	
-				<!--<div class="col-sm-2">
-					<label for="editCountCork" class="control-label">Total Cork</label>
-					<input type="text" class="form-control input-lg required" required="required" name="editCountCork" id="editCountCork" onchange="updateEditTotals()" onclick="updateEditTotals()" value="0">
-				</div>	
-				<div class="col-sm-2">
-					<label for="editCountKala" class="control-label">Total Kala</label>
-					<input type="text" class="form-control input-lg required" required="required" name="editCountKala" id="editCountKala" onchange="updateEditTotals()" onclick="updateEditTotals()" value="0">
-				</div>		
-				<div class="col-sm-2">	
-					<label for="editCountGalway" class="control-label">Total Galway</label>
-					<input type="text" class="form-control input-lg required" required="required" name="editCountGalway" id="editCountGalway" onchange="updateEditTotals()" onclick="updateEditTotals()" value="0">
-				</div>-->
 			</div>
 		<br>
 
@@ -587,36 +514,6 @@ body{
 				<input type="text" name="editWarehouseSize3XL" id="editWarehouseSize3XL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSize3XL">:3XL</label><br>
 				<input type="text" name="editWarehouseSize4XL" id="editWarehouseSize4XL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSize4XL">:4XL</label><br>
 			</div>
-			<!--<div class="col-sm-3" id="editShowCorkSizes" style="display: none">
-				<label for="editSizesCork" class="control-label">Cork Sizes</label><br>
-				<input type="text" name="editCorkSizeS" id="editCorkSizeS" value="0" onchange='updateEditTotals()'><label for="editCorkSizeS">:S</label><br>
-				<input type="text" name="editCorkSizeM" id="editCorkSizeM" value="0" onchange='updateEditTotals()'><label for="editCorkSizeM">:M</label><br>
-				<input type="text" name="editCorkSizeL" id="editCorkSizeL" value="0" onchange='updateEditTotals()'><label for="editCorkSizeL">:L</label><br>
-				<input type="text" name="editCorkSizeXL" id="editCorkSizeXL" value="0" onchange='updateEditTotals()'><label for="editCorkSizeXL">:XL</label><br>
-				<input type="text" name="editCorkSize2XL" id="editCorkSize2XL" value="0" onchange='updateEditTotals()'><label for="editCorkSize2XL">:2XL</label><br>
-				<input type="text" name="editCorkSize3XL" id="editCorkSize3XL" value="0" onchange='updateEditTotals()'><label for="editCorkSize3XL">:3XL</label><br>
-				<input type="text" name="editCorkSize4XL" id="editCorkSize4XL" value="0" onchange='updateEditTotals()'><label for="editCorkSize4XL">:4XL</label><br>
-			</div>
-			<div class="col-sm-3" id="editShowKalaSizes" style="display: none">
-				<label for="editSizesKala" class="control-label">Kala Sizes</label><br>
-				<input type="text" name="editKalaSizeS" id="editKalaSizeS" value="0" onchange='updateEditTotals()'><label for="editKalaSizeS">:S</label><br>
-				<input type="text" name="editKalaSizeM" id="editKalaSizeM" value="0" onchange='updateEditTotals()'><label for="editKalaSizeM">:M</label><br>
-				<input type="text" name="editKalaSizeL" id="editKalaSizeL" value="0" onchange='updateEditTotals()'><label for="editKalaSizeL">:L</label><br>
-				<input type="text" name="editKalaSizeXL" id="editKalaSizeXL" value="0" onchange='updateEditTotals()'><label for="editKalaSizeXL">:XL</label><br>
-				<input type="text" name="editKalaSize2XL" id="editKalaSize2XL" value="0" onchange='updateEditTotals()'><label for="editKalaSize2XL">:2XL</label><br>
-				<input type="text" name="editKalaSize3XL" id="editKalaSize3XL" value="0" onchange='updateEditTotals()'><label for="editKalaSize3XL">:3XL</label><br>
-				<input type="text" name="editKalaSize4XL" id="editKalaSize4XL" value="0" onchange='updateEditTotals()'><label for="editKalaSize4XL">:4XL</label><br>
-			</div>
-			<div class="col-sm-3" id="editShowGalwaySizes" style="display: none">
-				<label for="editSizesGalway" class="control-label">Galway Sizes</label><br>
-				<input type="text" name="editGalwaySizeS" id="editGalwaySizeS" value="0" onchange='updateEditTotals()'><label for="editGalwaySizeS">:S</label><br>
-				<input type="text" name="editGalwaySizeM" id="editGalwaySizeM" value="0" onchange='updateEditTotals()'><label for="editGalwaySizeM">:M</label><br>
-				<input type="text" name="editGalwaySizeL" id="editGalwaySizeL" value="0" onchange='updateEditTotals()'><label for="editGalwaySizeL">:L</label><br>
-				<input type="text" name="editGalwaySizeXL" id="editGalwaySizeXL" value="0" onchange='updateEditTotals()'><label for="editGalwaySizeXL">:XL</label><br>
-				<input type="text" name="editGalwaySize2XL" id="editGalwaySize2XL" value="0" onchange='updateEditTotals()'><label for="editGalwaySize2XL">:2XL</label><br>
-				<input type="text" name="editGalwaySize3XL" id="editGalwaySize3XL" value="0" onchange='updateEditTotals()'><label for="editGalwaySize3XL">:3XL</label><br>
-				<input type="text" name="editGalwaySize4XL" id="editGalwaySize4XL" value="0" onchange='updateEditTotals()'><label for="editGalwaySize4XL">:4XL</label><br>
-			</div>-->
 		</div>
 		<br>
 		<div class="row" id="editSubStyle" style="display: none">
@@ -632,18 +529,6 @@ body{
 					<p>Cork</p>
 					<input type="text" class="form-control input-lg required" name="editSubCountCork" id="editSubCountWarehouse" value="0" onchange='updateEditTotals()'>
 			</div>
-			<!--<div class="col-sm-2" id="editShowSubCork" style="display:none">
-					<p>Cork</p>
-					<input type="text" class="form-control input-lg required" name="editSubCountCork" id="editSubCountCork" value="0" onchange='updateEditTotals()'>
-			</div>	
-			<div class="col-sm-2" id="editShowSubKala" style="display:none">
-				<p>Kala</p>
-				<input type="text" class="form-control input-lg required" name="editSubCountKala" id="editSubCountKala" value="0" onchange='updateEditTotals()'>
-			</div>		
-			<div class="col-sm-2" id="editShowSubGalway" style="display:none">	
-				<p>Galway</p>
-				<input type="text" class="form-control input-lg required" name="editSubCountGalway" id="editSubCountGalway" value="0" onchange='updateEditTotals()'>
-			</div>-->
 		</div>
 		<br>
 		<div class="row" id="editAddSubStyle" style="display: none">

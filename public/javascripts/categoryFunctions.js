@@ -93,9 +93,6 @@ function toggleSwitches()
 
 function controlForm()
 {
-	//var showSubCork = '';
-	//var showSubKala = '';
-	//var showSubGalway = '';
 	var showSubWarehouse = '';
 
 	if($('#singlePrice').prop('checked')==true)
@@ -209,9 +206,6 @@ function controlForm()
 	
 	if($('#hasColors').prop('checked')==true&&$('#hasSizes').prop('checked')==true)
 	{
-		//document.getElementById("showCorkSizes").style.display =  "none";
-		//document.getElementById("showKalaSizes").style.display =  "none";
-		//document.getElementById("showGalwaySizes").style.display =  "none";
 		document.getElementById("showWarehouseSizes").style.display =  "none";
 	}
 	
@@ -223,9 +217,6 @@ function controlForm()
 		{
 			currStyle=i;
 
-			//var showCorkSizes = document.getElementById("showCorkSizes").id + currStyle;
-			//var showKalaSizes = document.getElementById("showKalaSizes").id + currStyle;
-			//var showGalwaySizes = document.getElementById("showGalwaySizes").id + currStyle;
 			var showWarehouseSizes = document.getElementById("showWarehouseSizes").id + currStyle;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
@@ -237,32 +228,11 @@ function controlForm()
 				
 				else if($('#inWarehouse').prop('checked')==false)
 					document.getElementById(showWarehouseSizes).style.display =  "none";
-						
-				/*if($('#inCork').prop('checked')==true)
-					document.getElementById(showCorkSizes).style.display =  "block";
-					
-				else if($('#inCork').prop('checked')==false)
-					document.getElementById(showCorkSizes).style.display =  "none";
-						
-				if($('#inKala').prop('checked')==true)
-					document.getElementById(showKalaSizes).style.display =  "block";
-				
-				else if($('#inKala').prop('checked')==false)
-					document.getElementById(showKalaSizes).style.display =  "none";
-				
-				if($('#inGalway').prop('checked')==true)
-					document.getElementById(showGalwaySizes).style.display =  "block";
-				
-				else if($('#inGalway').prop('checked')==false)
-					document.getElementById(showGalwaySizes).style.display =  "none";*/
 			}
 				
 			else if($('#hasSizes').prop('checked')==false)
 			{
 				document.getElementById(showWarehouseSizes).style.display =  "none";
-				//document.getElementById(showCorkSizes).style.display =  "none";
-				//document.getElementById(showKalaSizes).style.display =  "none";
-				//document.getElementById(showGalwaySizes).style.display =  "none";
 			}
 		}
 			
@@ -290,9 +260,6 @@ function controlForm()
 		{
 			currStyle=i;
 				
-			//showSubCork = document.getElementById("showSubCork").id + currStyle;
-			//showSubKala = document.getElementById("showSubKala").id + currStyle;
-			//showSubGalway = document.getElementById("showSubGalway").id + currStyle;
 			showSubWarehouse = document.getElementById("showSubWarehouse").id + currStyle;
 					
 			if($('#inWarehouse').prop('checked')==true)
@@ -300,33 +267,12 @@ function controlForm()
 				
 			else if($('#inWarehouse').prop('checked')==false)
 				document.getElementById(showSubWarehouse).style.display =  "none";
-				
-			/*if($('#inCork').prop('checked')==true)
-				document.getElementById(showSubCork).style.display =  "block";
-				
-			else if($('#inCork').prop('checked')==false)
-				document.getElementById(showSubCork).style.display =  "none";
-						
-			if($('#inKala').prop('checked')==true)
-				document.getElementById(showSubKala).style.display =  "block";
-				
-			else if($('#inKala').prop('checked')==false)
-				document.getElementById(showSubKala).style.display =  "none";
-				
-			if($('#inGalway').prop('checked')==true)
-				document.getElementById(showSubGalway).style.display =  "block";
-				
-			else if($('#inGalway').prop('checked')==false)
-				document.getElementById(showSubGalway).style.display =  "none";*/
 		}
 	}
 	
 	if($('#hasSizes').prop('checked')==false)
 	{
 		document.getElementById("showWarehouseSizes").style.display =  "none";
-		//document.getElementById("showCorkSizes").style.display =  "none";
-		//document.getElementById("showKalaSizes").style.display =  "none";
-		//document.getElementById("showGalwaySizes").style.display =  "none";
 		
 		for(i=1; i<styleIndex+1; i++)
 		{
@@ -337,24 +283,6 @@ function controlForm()
 				var subCountWarehouse = document.getElementById("subCountWarehouse").id + currStyle;
 				document.getElementById(subCountWarehouse).value=0;
 			}
-			
-			/*if($('#inCork').prop('checked')==false)
-			{
-				var subCountCork = document.getElementById("subCountCork").id + currStyle;
-				document.getElementById(subCountCork).value=0;
-			}
-					
-			if($('#inKala').prop('checked')==false)
-			{
-				var subCountKala = document.getElementById("subCountKala").id + currStyle;
-				document.getElementById(subCountKala).value=0;
-			}
-				
-			if($('#inGalway').prop('checked')==false)
-			{
-				var subCountGalway = document.getElementById("subCountGalway").id + currStyle;
-				document.getElementById(subCountGalway).value=0;
-			}*/
 		}
 		
 		for(i=1; i<styleIndex+1; i++)
@@ -362,33 +290,12 @@ function controlForm()
 			currStyle=i;
 
 			showSubWarehouse = document.getElementById("showSubWarehouse").id + currStyle;
-			//showSubCork = document.getElementById("showSubCork").id + currStyle;
-			//showSubKala = document.getElementById("showSubKala").id + currStyle;
-			//showSubGalway = document.getElementById("showSubGalway").id + currStyle;
 		
 			if($('#inWarehouse').prop('checked')==true)
 				document.getElementById(showSubWarehouse).style.display =  "block";
 				
 			else if($('#inWarehouse').prop('checked')==false)
 				document.getElementById(showSubWarehouse).style.display =  "none";
-				
-			/*if($('#inCork').prop('checked')==true)
-				document.getElementById(showSubCork).style.display =  "block";
-				
-			else if($('#inCork').prop('checked')==false)
-				document.getElementById(showSubCork).style.display =  "none";
-						
-			if($('#inKala').prop('checked')==true)
-				document.getElementById(showSubKala).style.display =  "block";
-				
-			else if($('#inKala').prop('checked')==false)
-				document.getElementById(showSubKala).style.display =  "none";
-				
-			if($('#inGalway').prop('checked')==true)
-				document.getElementById(showSubGalway).style.display =  "block";
-				
-			else if($('#inGalway').prop('checked')==false)
-				document.getElementById(showSubGalway).style.display =  "none";*/
 		}
 	}
 	
@@ -399,39 +306,12 @@ function controlForm()
 	
 		else if($('#inWarehouse').prop('checked')==false)
 			document.getElementById("showWarehouseSizes").style.display =  "none";
-		
-		/*if($('#inCork').prop('checked')==true)
-			document.getElementById("showCorkSizes").style.display =  "block";
-	
-		else if($('#inCork').prop('checked')==false)
-			document.getElementById("showCorkSizes").style.display =  "none";
-			
-		if($('#inKala').prop('checked')==true)
-			document.getElementById("showKalaSizes").style.display =  "block";
-	
-		else if($('#inKala').prop('checked')==false)
-			document.getElementById("showKalaSizes").style.display =  "none";
-	
-		if($('#inGalway').prop('checked')==true)
-			document.getElementById("showGalwaySizes").style.display =  "block";
-	
-		else if($('#inGalway').prop('checked')==false)
-			document.getElementById("showGalwaySizes").style.display =  "none";*/
 	}
 	
 	if(($('#hasSizes').prop('checked')==false) && ($('#hasColors').prop('checked')==false))
 	{
 		if($('#inWarehouse').prop('checked')==false)
 			document.getElementById("countWarehouse").value = 0;
-	
-		/*if($('#inCork').prop('checked')==false)
-			document.getElementById("countCork").value = 0;
-		
-		if($('#inKala').prop('checked')==false)
-			document.getElementById("countKala").value = 0;
-	
-		if($('#inGalway').prop('checked')==false)
-			document.getElementById("countGalway").value = 0;*/
 	}
 	
 	updateTotals();
@@ -440,9 +320,6 @@ function controlForm()
 function updateTotals()
 {
 	var subCountWarehouse = 0;
-	//var subCountCork = 0;
-	//var subCountKala = 0;
-	//var subCountGalway = 0;
 
 	var countWarehouseSizeS = 0;
 	var countWarehouseSizeM = 0;
@@ -452,54 +329,17 @@ function updateTotals()
 	var countWarehouseSize3XL = 0;
 	var countWarehouseSize4XL = 0;
 
-	/*var countCorkSizeS = 0;
-	var countCorkSizeM = 0;
-	var countCorkSizeL = 0;
-	var countCorkSizeXL = 0;
-	var countCorkSize2XL = 0;
-	var countCorkSize3XL = 0;
-	var countCorkSize4XL = 0;
-
-	var countKalaSizeS = 0;
-	var countKalaSizeM = 0;
-	var countKalaSizeL = 0;
-	var countKalaSizeXL = 0;
-	var countKalaSize2XL = 0;
-	var countKalaSize3XL = 0;
-	var countKalaSize4XL = 0;
-
-	var countGalwaySizeS = 0;
-	var countGalwaySizeM = 0;
-	var countGalwaySizeL = 0;
-	var countGalwaySizeXL = 0;
-	var countGalwaySize2XL = 0;
-	var countGalwaySize3XL = 0;
-	var countGalwaySize4XL = 0;*/
-
 	var warehouseSizeTotal = 0;
-	//var corkSizeTotal = 0;
-	//var kalaSizeTotal = 0;
-	//var galwaySizeTotal = 0;
-
 	var warehouseTotal = 0;
-	//var corkTotal = 0;
-	//var kalaTotal = 0;
-	//var galwayTotal = 0;
 
 	if($('#hasSizes').prop('checked')==true&&$('#hasColors').prop('checked')==true)
 	{
 		document.getElementById("countWarehouse").value = 0;
-		//document.getElementById("countCork").value = 0;
-		//document.getElementById("countKala").value = 0;
-		//document.getElementById("countGalway").value = 0;
-			
+		
 		for(i=1;i<styleIndex+1;i++)
 		{
 			currStyle = i;
 			warehouseTotal = 0;
-			//corkTotal = 0;
-			//kalaTotal = 0;
-			//galwayTotal = 0;
 			
 			var warehouseSizeS = document.getElementById("warehouseSizeS").id + currStyle; 
 			var warehouseSizeM = document.getElementById("warehouseSizeM").id + currStyle; 
@@ -528,87 +368,6 @@ function updateTotals()
 			else if($('#inWarehouse').prop('checked')==false)
 				warehouseSizeTotal = 0;
 			
-			/*var corkSizeS = document.getElementById("corkSizeS").id + currStyle; 
-			var corkSizeM = document.getElementById("corkSizeM").id + currStyle; 
-			var corkSizeL = document.getElementById("corkSizeL").id + currStyle; 
-			var corkSizeXL = document.getElementById("corkSizeXL").id + currStyle; 
-			var corkSize2XL = document.getElementById("corkSize2XL").id + currStyle; 
-			var corkSize3XL = document.getElementById("corkSize3XL").id + currStyle; 
-			var corkSize4XL = document.getElementById("corkSize4XL").id + currStyle; 
-			countCorkSizeS = parseInt(document.getElementById(corkSizeS).value);
-			countCorkSizeM = parseInt(document.getElementById(corkSizeM).value);
-			countCorkSizeL = parseInt(document.getElementById(corkSizeL).value);
-			countCorkSizeXL = parseInt(document.getElementById(corkSizeXL).value);
-			countCorkSize2XL = parseInt(document.getElementById(corkSize2XL).value);
-			countCorkSize3XL = parseInt(document.getElementById(corkSize3XL).value);
-			countCorkSize4XL = parseInt(document.getElementById(corkSize4XL).value);
-			corkSizeTotal = parseInt(countCorkSizeS) + parseInt(countCorkSizeM) + parseInt(countCorkSizeL) + parseInt(countCorkSizeXL) + parseInt(countCorkSize2XL) + parseInt(countCorkSize3XL) + parseInt(countCorkSize4XL);
-			subCountCork = document.getElementById("subCountCork").id + currStyle;
-			
-			if($('#inCork').prop('checked')==true&&$('#hasSizes').prop('checked')==true)
-			{
-				corkTotal += parseInt(corkSizeTotal);
-				document.getElementById(subCountCork).value = corkTotal;
-				document.getElementById("countCork").value = parseInt(document.getElementById("countCork").value) + parseInt(document.getElementById(subCountCork).value);
-			}
-			
-			else if($('#inCork').prop('checked')==false)
-				corkSizeTotal = 0;
-			
-			var kalaSizeS = document.getElementById("kalaSizeS").id + currStyle; 
-			var kalaSizeM = document.getElementById("kalaSizeM").id + currStyle; 
-			var kalaSizeL = document.getElementById("kalaSizeL").id + currStyle; 
-			var kalaSizeXL = document.getElementById("kalaSizeXL").id + currStyle; 
-			var kalaSize2XL = document.getElementById("kalaSize2XL").id + currStyle; 
-			var kalaSize3XL = document.getElementById("kalaSize3XL").id + currStyle; 
-			var kalaSize4XL = document.getElementById("kalaSize4XL").id + currStyle; 
-			countKalaSizeS = parseInt(document.getElementById(kalaSizeS).value);
-			countKalaSizeM = parseInt(document.getElementById(kalaSizeM).value);
-			countKalaSizeL = parseInt(document.getElementById(kalaSizeL).value);
-			countKalaSizeXL = parseInt(document.getElementById(kalaSizeXL).value);
-			countKalaSize2XL = parseInt(document.getElementById(kalaSize2XL).value);
-			countKalaSize3XL = parseInt(document.getElementById(kalaSize3XL).value);
-			countKalaSize4XL = parseInt(document.getElementById(kalaSize4XL).value);
-			kalaSizeTotal = countKalaSizeS + countKalaSizeM + countKalaSizeL + countKalaSizeXL + countKalaSize2XL + countKalaSize3XL + countKalaSize4XL;
-			subCountKala = document.getElementById("subCountKala").id + currStyle;
-			
-			if($('#inKala').prop('checked')==true&&$('#hasSizes').prop('checked')==true)
-			{
-				kalaTotal += parseInt(kalaSizeTotal);
-				document.getElementById(subCountKala).value = kalaTotal;
-				document.getElementById("countKala").value = parseInt(document.getElementById("countKala").value) + parseInt(document.getElementById(subCountKala).value);
-			}
-			
-			else if($('#inKala').prop('checked')==false)
-				kalaSizeTotal = 0;
-			
-			var galwaySizeS = document.getElementById("galwaySizeS").id + currStyle; 
-			var galwaySizeM = document.getElementById("galwaySizeM").id + currStyle; 
-			var galwaySizeL = document.getElementById("galwaySizeL").id + currStyle; 
-			var galwaySizeXL = document.getElementById("galwaySizeXL").id + currStyle; 
-			var galwaySize2XL = document.getElementById("galwaySize2XL").id + currStyle; 
-			var galwaySize3XL = document.getElementById("galwaySize3XL").id + currStyle; 
-			var galwaySize4XL = document.getElementById("galwaySize4XL").id + currStyle; 
-			countGalwaySizeS = parseInt(document.getElementById(galwaySizeS).value);
-			countGalwaySizeM = parseInt(document.getElementById(galwaySizeM).value);
-			countGalwaySizeL = parseInt(document.getElementById(galwaySizeL).value);
-			countGalwaySizeXL = parseInt(document.getElementById(galwaySizeXL).value);
-			countGalwaySize2XL = parseInt(document.getElementById(galwaySize2XL).value);
-			countGalwaySize3XL = parseInt(document.getElementById(galwaySize3XL).value);
-			countGalwaySize4XL = parseInt(document.getElementById(galwaySize4XL).value);
-			galwaySizeTotal = countGalwaySizeS + countGalwaySizeM + countGalwaySizeL + countGalwaySizeXL + countGalwaySize2XL + countGalwaySize3XL + countGalwaySize4XL;
-			subCountGalway = document.getElementById("subCountGalway").id + currStyle;
-			
-			if($('#inGalway').prop('checked')==true&&$('#hasSizes').prop('checked')==true)
-			{
-				galwayTotal += parseInt(galwaySizeTotal);
-				document.getElementById(subCountGalway).value = galwayTotal;
-				document.getElementById("countGalway").value = parseInt(document.getElementById("countGalway").value) + parseInt(document.getElementById(subCountGalway).value);
-			}	
-			
-			if($('#inGalway').prop('checked')==false)
-				galwaySizeTotal = 0;*/
-			
 			var colorTotal = (document.getElementById("colorTotal").id + currStyle); 
 			//console.log(colorTotal);
 			document.getElementById(colorTotal).value = warehouseTotal + corkTotal + kalaTotal + galwayTotal;
@@ -617,10 +376,7 @@ function updateTotals()
 	
 	if($('#hasSizes').prop('checked')==false&&$('#hasColors').prop('checked')==true)
 	{
-		//var subCountTotal = 0;
-		//var tempTotalCork = 0;
-		//var tempTotalKala = 0;
-		//var tempTotalGalway = 0;
+		var subCountTotal = 0;
 		var tempTotalWarehouse = 0;
 			
 		for(i=1;i<styleIndex+1;i++)
@@ -628,9 +384,6 @@ function updateTotals()
 			currStyle = i;
 				
 			colorTotal = document.getElementById("colorTotal").id + currStyle;
-			//corkTotal = 0;
-			//kalaTotal = 0;
-			//galwayTotal = 0;
 			warehouseTotal = 0;
 				
 			if($('#inWarehouse').prop('checked')==true)
@@ -640,31 +393,7 @@ function updateTotals()
 				tempTotalWarehouse = tempTotalWarehouse + parseInt(document.getElementById(subCountWarehouse).value);
 			}	
 				
-			/*if($('#inCork').prop('checked')==true)
-			{						
-				subCountCork = document.getElementById("subCountCork").id + currStyle;	
-				corkTotal = parseInt(document.getElementById(subCountCork).value) + corkTotal;
-				tempTotalCork = tempTotalCork + parseInt(document.getElementById(subCountCork).value);
-			}	
-				
-			if($('#inKala').prop('checked')==true)
-			{
-				subCountKala = document.getElementById("subCountKala").id + currStyle;	
-				kalaTotal = parseInt(document.getElementById(subCountKala).value) + kalaTotal;
-				tempTotalKala = tempTotalKala + parseInt(document.getElementById(subCountKala).value);
-			}
-				
-			if($('#inGalway').prop('checked')==true)
-			{
-				subCountGalway = document.getElementById("subCountGalway").id + currStyle;	
-				galwayTotal = parseInt(document.getElementById(subCountGalway).value) + galwayTotal;
-				tempTotalGalway = tempTotalGalway + parseInt(document.getElementById(subCountGalway).value);
-			}*/
-				
 			document.getElementById("countWarehouse").value = tempTotalWarehouse;
-			//document.getElementById("countCork").value = tempTotalCork;
-			//document.getElementById("countKala").value = tempTotalKala;
-			//document.getElementById("countGalway").value = tempTotalGalway;
 			document.getElementById(colorTotal).value = warehouseTotal + corkTotal + kalaTotal + galwayTotal;
 		}
 	}
@@ -672,9 +401,6 @@ function updateTotals()
 	if($('#hasSizes').prop('checked')==true&&$('#hasColors').prop('checked')==false)
 	{		
 		warehouseTotal = 0;
-		//corkTotal = 0;
-		//kalaTotal = 0;
-		//galwayTotal = 0;
 			
 		countWarehouseSizeS = parseInt(document.getElementById("warehouseSizeS").value);
 		countWarehouseSizeM = parseInt(document.getElementById("warehouseSizeM").value);
@@ -694,88 +420,17 @@ function updateTotals()
 		else if($('#inWarehouse').prop('checked')==false)
 			document.getElementById("countWarehouse").value = 0;
 			
-		/*countCorkSizeS = parseInt(document.getElementById("corkSizeS").value);
-		countCorkSizeM = parseInt(document.getElementById("corkSizeM").value);
-		countCorkSizeL = parseInt(document.getElementById("corkSizeL").value);
-		countCorkSizeXL = parseInt(document.getElementById("corkSizeXL").value);
-		countCorkSize2XL = parseInt(document.getElementById("corkSize2XL").value);
-		countCorkSize3XL = parseInt(document.getElementById("corkSize3XL").value);
-		countCorkSize4XL = parseInt(document.getElementById("corkSize4XL").value);
-		corkSizeTotal = parseInt(countCorkSizeS) + parseInt(countCorkSizeM) + parseInt(countCorkSizeL) + parseInt(countCorkSizeXL) + parseInt(countCorkSize2XL) + parseInt(countCorkSize3XL) + parseInt(countCorkSize4XL);
-		
-		if($('#inCork').prop('checked')==true&&$('#hasSizes').prop('checked')==true)
-		{
-			corkTotal = parseInt(corkSizeTotal);
-			document.getElementById("countCork").value = corkTotal;
-		}
-			
-		else if($('#inCork').prop('checked')==false)
-			document.getElementById("countCork").value = 0;
-			
-		countKalaSizeS = parseInt(document.getElementById("kalaSizeS").value);
-		countKalaSizeM = parseInt(document.getElementById("kalaSizeM").value);
-		countKalaSizeL = parseInt(document.getElementById("kalaSizeL").value);
-		countKalaSizeXL = parseInt(document.getElementById("kalaSizeXL").value);
-		countKalaSize2XL = parseInt(document.getElementById("kalaSize2XL").value);
-		countKalaSize3XL = parseInt(document.getElementById("kalaSize3XL").value);
-		countKalaSize4XL = parseInt(document.getElementById("kalaSize4XL").value);
-		kalaSizeTotal = parseInt(countKalaSizeS) + parseInt(countKalaSizeM) + parseInt(countKalaSizeL) + parseInt(countKalaSizeXL) + parseInt(countKalaSize2XL) + parseInt(countKalaSize3XL) + parseInt(countKalaSize4XL);
-			
-		if($('#inKala').prop('checked')==true&&$('#hasSizes').prop('checked')==true)
-		{
-			kalaTotal = parseInt(kalaSizeTotal);
-			document.getElementById("countKala").value = kalaTotal;
-		}
-			
-		else if($('#inKala').prop('checked')==false)
-			document.getElementById("countKala").value = 0;
-			
-		countGalwaySizeS = parseInt(document.getElementById("galwaySizeS").value);
-		countGalwaySizeM = parseInt(document.getElementById("galwaySizeM").value);
-		countGalwaySizeL = parseInt(document.getElementById("galwaySizeL").value);
-		countGalwaySizeXL = parseInt(document.getElementById("galwaySizeXL").value);
-		countGalwaySize2XL = parseInt(document.getElementById("galwaySize2XL").value);
-		countGalwaySize3XL = parseInt(document.getElementById("galwaySize3XL").value);
-		countGalwaySize4XL = parseInt(document.getElementById("galwaySize4XL").value);
-		galwaySizeTotal = parseInt(countGalwaySizeS) + parseInt(countGalwaySizeM) + parseInt(countGalwaySizeL) + parseInt(countGalwaySizeXL) + parseInt(countGalwaySize2XL) + parseInt(countGalwaySize3XL) + parseInt(countGalwaySize4XL);
-		
-		if($('#inGalway').prop('checked')==true&&$('#hasSizes').prop('checked')==true)
-		{
-			galwayTotal = parseInt(galwaySizeTotal);
-				document.getElementById("countGalway").value = galwayTotal;
-		}
-			
-		else if($('#inGalway').prop('checked')==false)
-			document.getElementById("countGalway").value = 0;*/
 	}
 	
 	if($('#hasColors').prop('checked')==true&&$('#inWarehouse').prop('checked')==false)
 	{
 		document.getElementById("countWarehouse").value = 0;
 	}
-	
-	/*if($('#hasColors').prop('checked')==true&&$('#inCork').prop('checked')==false)
-	{
-		document.getElementById("countCork").value = 0;
-	}
-	
-	if($('#hasColors').prop('checked')==true&&$('#inKala').prop('checked')==false)
-	{
-		document.getElementById("countKala").value = 0;
-	}
-	
-	if($('#hasColors').prop('checked')==true&&$('#inGalway').prop('checked')==false)
-	{
-		document.getElementById("countGalway").value = 0;
-	}*/
 }
 
 function addForm()
 {
 	document.getElementById("countWarehouse").value = 0;
-	//document.getElementById("countCork").value = 0;
-	//document.getElementById("countKala").value = 0;
-	//document.getElementById("countGalway").value = 0;
 	styleIndex = parseInt(document.getElementById("numSubStyles").value);
 	
 	var formControl = "";
@@ -796,16 +451,6 @@ function addForm()
 		formControl += "<input type='text' class='form-control input-lg required' required='required' name='subCountWarehouse"+i+"' id='subCountWarehouse"+i+"' value='0' onchange='updateTotals()'>"
 		formControl += "</div>"
 		formControl += "<div class='col-sm-2' id='showSubCork"+i+"'>"
-		/*formControl += "<p>Cork</p>"
-		formControl += "<input type='text' class='form-control input-lg required' required='required' name='subCountCork"+i+"' id='subCountCork"+i+"' value='0' onchange='updateTotals()'>"
-		formControl += "</div>"
-		formControl += "<div class='col-sm-2' id='showSubKala"+i+"'>"
-		formControl += "<p>Kala</p>"
-		formControl += "<input type='text' class='form-control input-lg required' required='required' name='subCountKala"+i+"' id='subCountKala"+i+"' value='0' onchange='updateTotals()'>"
-		formControl += "</div>"
-		formControl += "<div class='col-sm-2' id='showSubGalway"+i+"'>"
-		formControl += "<p>Galway</p>"
-		formControl += "<input type='text' class='form-control input-lg required' required='required' name='subCountGalway"+i+"' id='subCountGalway"+i+"' value='0' onchange='updateTotals()'>"*/
 		formControl += "</div>"
 		formControl += "</div>"
 		formControl += "</div><br>"
@@ -820,36 +465,6 @@ function addForm()
 		formControl +=			"<input type='text' name='warehouseSize3XL"+i+"' id='warehouseSize3XL"+i+"' value='0' onchange='updateTotals()'><label for='warehouseSize3XL"+i+"'>:3XL</label><br>"
 		formControl +=			"<input type='text' name='warehouseSize4XL"+i+"' id='warehouseSize4XL"+i+"' value='0' onchange='updateTotals()'><label for='warehouseSize4XL"+i+"'>:4XL</label><br>"
 		formControl +=		"</div>"
-		/*formControl +=		"<div class='col-sm-3' id='showCorkSizes"+i+"' style='display: none'>"
-		formControl +=			"<label for='storeSizesCork' class='control-label'>Cork Sizes</label><br>"
-		formControl +=			"<input type='text' name='corkSizeS"+i+"' id='corkSizeS"+i+"' value='0' onchange='updateTotals()'><label for='corkSizeS"+i+"'>:S</label><br>"
-		formControl +=			"<input type='text' name='corkSizeM"+i+"' id='corkSizeM"+i+"' value='0' onchange='updateTotals()'><label for='corkSizeM"+i+"'>:M</label><br>"
-		formControl +=			"<input type='text' name='corkSizeL"+i+"' id='corkSizeL"+i+"' value='0' onchange='updateTotals()'><label for='corkSizeL"+i+"'>:L</label><br>"
-		formControl +=			"<input type='text' name='corkSizeXL"+i+"' id='corkSizeXL"+i+"' value='0' onchange='updateTotals()'><label for='corkSizeXL"+i+"'>:XL</label><br>"
-		formControl +=			"<input type='text' name='corkSize2XL"+i+"' id='corkSize2XL"+i+"' value='0' onchange='updateTotals()'><label for='corkSize2XL"+i+"'>:2XL</label><br>"
-		formControl +=			"<input type='text' name='corkSize3XL"+i+"' id='corkSize3XL"+i+"' value='0' onchange='updateTotals()'><label for='corkSize3XL"+i+"'>:3XL</label><br>"
-		formControl +=			"<input type='text' name='corkSize4XL"+i+"' id='corkSize4XL"+i+"' value='0' onchange='updateTotals()'><label for='corkSize4XL"+i+"'>:4XL</label><br>"
-		formControl +=		"</div>"
-		formControl +=		"<div class='col-sm-3' id='showKalaSizes"+i+"' style='display: none'>"
-		formControl +=			"<label for='storeSizesKala' class='control-label'>Kala Sizes</label><br>"
-		formControl +=			"<input type='text' name='kalaSizeS"+i+"' id='kalaSizeS"+i+"' value='0' onchange='updateTotals()'><label for='kalaSizeS"+i+"'>:S</label><br>"
-		formControl +=			"<input type='text' name='kalaSizeM"+i+"' id='kalaSizeM"+i+"' value='0' onchange='updateTotals()'><label for='kalaSizeM"+i+"'>:M</label><br>"
-		formControl +=			"<input type='text' name='kalaSizeL"+i+"' id='kalaSizeL"+i+"' value='0' onchange='updateTotals()'><label for='kalaSizeL"+i+"'>:L</label><br>"
-		formControl +=			"<input type='text' name='kalaSizeXL"+i+"' id='kalaSizeXL"+i+"' value='0' onchange='updateTotals()'><label for='kalaSizeXL"+i+"'>:XL</label><br>"
-		formControl +=			"<input type='text' name='kalaSize2XL"+i+"' id='kalaSize2XL"+i+"' value='0' onchange='updateTotals()'><label for='kalaSize2XL"+i+"'>:2XL</label><br>"
-		formControl +=			"<input type='text' name='kalaSize3XL"+i+"' id='kalaSize3XL"+i+"' value='0' onchange='updateTotals()'><label for='kalaSize3XL"+i+"'>:3XL</label><br>"
-		formControl +=			"<input type='text' name='kalaSize4XL"+i+"' id='kalaSize4XL"+i+"' value='0' onchange='updateTotals()'><label for='kalaSize4XL"+i+"'>:4XL</label><br>"
-		formControl +=		"</div>"
-		formControl +=		"<div class='col-sm-3' id='showGalwaySizes"+i+"' style='display: none'>"
-		formControl +=			"<label for='storeSizesGalway' class='control-label'>Galway Sizes</label><br>"
-		formControl +=			"<input type='text' name='galwaySizeS"+i+"' id='galwaySizeS"+i+"' value='0' onchange='updateTotals()'><label for='galwaySizeS"+i+"'>:S</label><br>"
-		formControl +=			"<input type='text' name='galwaySizeM"+i+"' id='galwaySizeM"+i+"' value='0' onchange='updateTotals()'><label for='galwaySizeM"+i+"'>:M</label><br>"
-		formControl +=			"<input type='text' name='galwaySizeL"+i+"' id='galwaySizeL"+i+"' value='0' onchange='updateTotals()'><label for='galwaySizeL"+i+"'>:L</label><br>"
-		formControl +=			"<input type='text' name='galwaySizeXL"+i+"' id='galwaySizeXL"+i+"' value='0' onchange='updateTotals()'><label for='galwaySizeXL"+i+"'>:XL</label><br>"
-		formControl +=			"<input type='text' name='galwaySize2XL"+i+"' id='galwaySize2XL"+i+"' value='0' onchange='updateTotals()'><label for='galwaySize2XL"+i+"'>:2XL</label><br>"
-		formControl +=			"<input type='text' name='galwaySize3XL"+i+"' id='galwaySize3XL"+i+"' value='0' onchange='updateTotals()'><label for='galwaySize3XL"+i+"'>:3XL</label><br>"
-		formControl +=			"<input type='text' name='galwaySize4XL"+i+"' id='galwaySize4XL"+i+"' value='0' onchange='updateTotals()'><label for='galwaySize4XL"+i+"'>:4XL</label><br>"
-		formControl +=		"</div>"*/
 		formControl +=	"</div>"	
 		formControl +=	"<br>"
 		formControl +=	"<div class='row' id='addSubStyle"+i+"' style='display: none'>"
