@@ -7,20 +7,22 @@ install nodejs:
 ```https://nodejs.org/en/download/```
 
 * For Linux/Raspbian:
-** Check ARM version:
+Check ARM version:
 ```uname -m```
 
-** Pull tar based on ARM ver:
+Pull tar based on ARM ver:
 ```wget <link-address>```
 
-** Extract Archive (```-xfz``` for gz, ```-xJf``` for xz)
+Extract Archive (```-xfz``` for gz, ```-xJf``` for xz)
 ```tar <option> <pulled-filename>```
 
-** Copy Node to /usr/local
+Copy Node to /usr/local
 ```cd <extracted-filepath>```
 ```sudo cp -R * /usr/local/```
 
-Confirm node install in terminal:
+///
+
+Confirm node installed in terminal:
 ```node -v```
 ```npm -v```
 
