@@ -7,6 +7,7 @@ install nodejs:
 ```https://nodejs.org/en/download/```
 
 * For Linux/Raspbian:
+
 Check ARM version:
 ```uname -m```
 
