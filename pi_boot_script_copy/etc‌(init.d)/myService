@@ -1,0 +1,19 @@
+#!/bin/sh
+#/etc/init.d/myService
+export PATH=$PATH:/home/pi
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+
+case "$1" in
+start)
+exec forever --sourceDir=/home/pi/FYP_Piventory -p /home/pi/FYP_Piventory ./bin/www  #scriptarguments
+;;
+stop) 
+exec forever stop --sourceDir=/home/pi/FYP_Piventory ./bin/www
+;;
+*)
+echo "Usage: /etc/init.d/myService {start|stop}"
+exit 1
+;;
+esac 
+exit 0
+
