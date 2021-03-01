@@ -1434,10 +1434,7 @@ function controlEditForm()
 {
 	var i=0;
 	var currStyle=0;
-
-	var editShowSubCork = '';
-	var editShowSubKala = '';
-	var editShowSubGalway = '';
+	
 	var editShowSubWarehouse = '';
 
 	if($('#editSinglePrice').value!="on")
