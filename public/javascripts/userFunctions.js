@@ -31,6 +31,30 @@ $(document).ready(
 );
 
 $(document).ready(
+    //call API @routes/index.js
+    function getStore() 
+    {
+        $.ajax(
+        {
+            type: 'GET',
+            url: '/getStoreName',
+            dataType: 'json',
+            success: function (data) 
+            {
+                var store = "";
+            
+                for (i = 0; i < data.length; i++) 
+				{
+                    store += "<div class='panel'><br>";
+                    store += "<p>" + data[i].storeName + "</p></div>";
+                }
+                $("#store").html(store);
+            }
+        });
+    },
+);
+
+$(document).ready(
 function getLoggedInUser()
 {
     var name = "name" + "=";

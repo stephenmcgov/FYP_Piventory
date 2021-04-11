@@ -461,6 +461,7 @@ $(document).ready(
 
 function showEOD_report()
 {
+	//need to set storename, leave as prefilled for now					
 	var storeName = document.getElementById("storeName").value;
 	var staffName = document.getElementById("inputStaffName").value;
 	var shiftStart = document.getElementById("inputShiftStart").value;

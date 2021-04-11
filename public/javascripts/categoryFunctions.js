@@ -326,9 +326,9 @@ function updateTotals()
 			sizeTotal = parseInt(countSizeS) + parseInt(countSizeM) + parseInt(countSizeL) + parseInt(countSizeXL) + parseInt(countSize2XL) + parseInt(countSize3XL) + parseInt(countSize4XL);
 			colorTotal = document.getElementById("colorTotal").id + currStyle;
 			
-			colorTotal += parseInt(sizeTotal);
-			document.getElementById(colorTotal).value = total;
-			document.getElementById("countTotal").value = parseInt(document.getElementById("countTotal").value) + parseInt(document.getElementById(colorTotal).value);
+			colorTotal = document.getElementById("colorTotal").id + currStyle;
+			document.getElementById(colorTotal).value = parseInt(sizeTotal);
+			document.getElementById("countTotal").value = parseInt(document.getElementById("countTotal").value) + parseInt(sizeTotal);
 			
 			//var colorTotal = (document.getElementById("colorTotal").id + currStyle); 
 			//console.log(colorTotal);

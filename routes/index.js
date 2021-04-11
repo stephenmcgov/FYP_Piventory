@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var User = require('../models/users');
 var Product = require('../models/products');
 var Report = require('../models/reports');
-var Store = require('../models/stores');
+var Store = require('../models/store');
 var jwt = require('jsonwebtoken');
 
 /*---NAV FUNCTIONS---*/
@@ -147,6 +147,7 @@ router.get('/getCategory/:category', function (req, res, next) {
 
 // Find products with store "variable" parameter :store
 //!Need to change to return results for store picked where stock greater than 0!
+// Maybe can be removed
 router.get('/getStore/:storeName', function (req, res, next) {
     var store = req.params.storeName;
 
@@ -183,7 +184,7 @@ router.get('/getStore/:storeName', function (req, res, next) {
 
 /*---GET Stores List---*/
 //Retrieves stores from the database
-router.get('/getStores', function (req, res, next) {
+router.get('/getStoreName', function (req, res, next) {
     Store.find({}, function (err, stores) {
         if (err)
             res.send(err);
