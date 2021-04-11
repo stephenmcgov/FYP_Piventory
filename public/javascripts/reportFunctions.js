@@ -10,6 +10,11 @@ var thisDate = "";
 var uID = "";
 var i = 0;
 
+/*
+! ADD CODE TO READ-IN EXCEL AND DISPLAY INFO !
+! REMOVE STORE CONTROLS !
+*/
+
 //show reports list on shopfront page
 //going to replace this with search reports function
 //CHECK BRACKETS HERE

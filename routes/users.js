@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
  Creates a JWT
  */
 function createJwt(profile) {
-    return jwt.sign(profile, 'CSIsTheWorst', {
+    return jwt.sign(profile, 'YouCan(Not)Connect', {
         expiresIn: '1d'
     });
 }
@@ -86,11 +86,19 @@ router.post('/login', function(req, res, next)
 				user.access_token = createJwt({user_name: username});
                 user.save();
                 //set response cookies for auth privileges
+                //change to sessions
                 res.cookie('name', '' + user.user_name);
 				res.cookie('role', '' + user.role);
                 res.cookie('Authorization', 'Bearer ' + user.access_token);
-				res.header('Authorization', 'Bearer ' + user.access_token);
+                
+                /*var sess;
+                sess=req.session;
+                sess.user_name = user.user_name ; // equivalent to $_SESSION['email'] in PHP.
+                sess.role = user.role; // equivalent to $_SESSION['username'] in PHP.
+                console.log("Session: "+sess);*/
+                res.header('Authorization', 'Bearer ' + user.access_token);
                 res.json({'success' : 'loggedIn',name:user.user_name});
+
             }
             
 			else 

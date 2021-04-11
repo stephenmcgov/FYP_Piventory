@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
+var helmet = require('helmet');
+//var validator = require('validator');
+
 //route vars
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -20,12 +23,45 @@ app = express(),
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+// set security options
+// Sets "X-Content-Type-Options: nosniff"
+app.use(helmet.noSniff());
+// Sets "Content-Security-Policy"
+/*app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "example.com"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+    },
+  })
+);*/
+// Sets "X-DNS-Prefetch-Control: off"
+app.use(
+  helmet.dnsPrefetchControl({
+    allow: false,
+  })
+);
+// Sets "X-Download-Options: noopen"
+app.use(helmet.ieNoOpen());
+// Sets "X-Frame-Options: SAMEORIGIN"
+app.use(
+  helmet.frameguard({
+    action: "sameorigin",
+  })
+);
+// Removes the X-Powered-By header if it was set.
+app.use(helmet.hidePoweredBy());
+// Sets "X-XSS-Protection: 0"
+app.use(helmet.xssFilter());
+
 //setup background env
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({secret: "CSIsTheWorst"}));
+app.use(session({secret: "YouCan(Not)Connect"}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

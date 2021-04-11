@@ -26,7 +26,8 @@ $(document).ready(
                 },
                 success: function()
                 {
-                    $(location).attr('href', '/catalogue' );
+                    $(location).attr('href', '/management' );
+                    // BUG -> NOT REDIRECTING TO MANAGEMENT
                     // Redirect to a login page
                 },
                 error: function(errMsg)

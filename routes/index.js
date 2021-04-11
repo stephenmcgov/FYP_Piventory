@@ -14,7 +14,7 @@ var jwt = require('jsonwebtoken');
 //!NEED TO USE VERIFY JWT ON EVERY ROUTE!
 /* Verifies a JWT */
 function verifyJwt(jwtString) {
-    var value = jwt.verify(jwtString, 'CSIsTheWorst');
+    var value = jwt.verify(jwtString, 'YouCan(Not)Connect');
     return value;
 }
 
@@ -23,6 +23,7 @@ router.get('/management', function (req, res, next) {
     try {
 		var decodedCookie = req.cookies.role;
         var jwtString = req.cookies.Authorization.split(" ");
+        //console.log(decodedCookie);
         var profile = verifyJwt(jwtString[1]);
 		if (profile) 
 		{
@@ -77,8 +78,19 @@ router.get('/index', function (req, res, next) {
 /* GET register page */
 //!CHANGE TO STAFF MANAGEMENT!
 router.get('/register', function (req, res, next) {
-	var decodedCookie = req.cookies.role;
 	
+    var sess;
+    sess=req.session;
+    console.log("Session: "+sess);
+    /*
+    if(sess.role=='admin')
+		{res.render('register', {title: 'Register'});}
+    
+    else if(sess.role=='staff')
+		{res.send('Restricted to Admin');}*/
+    
+	
+    var decodedCookie = req.cookies.role;
 	if(decodedCookie=='admin')
 		{res.render('register', {title: 'Register'});}
 			
@@ -138,7 +150,7 @@ router.get('/getCategory/:category', function (req, res, next) {
 router.get('/getStore/:storeName', function (req, res, next) {
     var store = req.params.storeName;
 
-	if(store=='Cork')
+	/*if(store=='Cork')
 	{
 		//find the name in database
 		Product.find({"inStoreCork": 'on'}, function (err, products) {
@@ -156,7 +168,7 @@ router.get('/getStore/:storeName', function (req, res, next) {
 				res.send(err);
 			res.json(products);
 		});
-	}
+	}*/
 	
 	if(store=='Galway')
 	{
