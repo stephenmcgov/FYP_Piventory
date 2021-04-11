@@ -32,16 +32,13 @@ var productSchema = new Schema({
 	salePrice3XL: {type: Number},
 	salePrice4XL: {type: Number},
 	
-	inWarehouse: {type: String},
-	totalWarehouse: {type: Number},
-	
-	SizeS:{type: Number},
-	SizeM:{type: Number},
-	SizeL:{type: Number},
-	SizeXL:{type: Number},
-	Size2XL:{type: Number},
-	Size3XL:{type: Number},
-	Size4XL:{type: Number},
+	sizeS:{type: Number},
+	sizeM:{type: Number},
+	sizeL:{type: Number},
+	sizeXL:{type: Number},
+	size2XL:{type: Number},
+	size3XL:{type: Number},
+	size4XL:{type: Number},
 	
 	numColors: {type: Number},
 	
@@ -145,6 +142,8 @@ var productSchema = new Schema({
 	color10Size3XL:{type: Number},
 	color10Size4XL:{type: Number},
 	color10Total: {type:Number},
+
+	total: {type: Number},
 });
 
 module.exports = mongoose.model('Product', productSchema);

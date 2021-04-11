@@ -4,6 +4,7 @@ $(document).ready(
 	/**
          * Event handler for when the user attempts to register
          */
+        /* ! REQUIRES VALIDATION ! */
         $("#reg-form").submit(function (event)
         {
             event.preventDefault();
@@ -41,6 +42,7 @@ $(document).ready(
             });
         });
 
+        /* ! REQUIRES VALIDATION ! */
         $("#log-form").submit(function (event)
         {
             event.preventDefault();

@@ -84,10 +84,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			salePrice3XL: req.body.salePrice3XL,
 			salePrice4XL: req.body.salePrice4XL,
 			
-			inWarehouse: req.body.inWarehouse,
-			totalWarehouse: req.body.countWarehouse,
-			
-			cart: "no"
+			total: req.body.countTotal,
 		});
 		product
         .save()
@@ -138,18 +135,15 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			
 			numColors: 0,
 			hasSizes:req.body.hasSizes,
-			WarehouseSizeS:req.body.warehouseSizeS,
-			WarehouseSizeM:req.body.warehouseSizeM,
-			WarehouseSizeL:req.body.warehouseSizeL,
-			WarehouseSizeXL:req.body.warehouseSizeXL,
-			WarehouseSize2XL:req.body.warehouseSize2XL,
-			WarehouseSize3XL:req.body.warehouseSize3XL,
-			WarehouseSize4XL:req.body.warehouseSize4XL,
+			SizeS:req.body.sizeS,
+			SizeM:req.body.sizeM,
+			SizeL:req.body.sizeL,
+			SizeXL:req.body.sizeXL,
+			Size2XL:req.body.size2XL,
+			Size3XL:req.body.size3XL,
+			Size4XL:req.body.ize4XL,
 			
-			inWarehouse: req.body.inWarehouse,
-			totalWarehouse: req.body.countWarehouse,
-			
-			//cart: "no"
+			total: req.body.countTotal,
 		});
 		product
         .save()
@@ -200,18 +194,15 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			
 			numColors: 0,
 			hasSizes:req.body.hasSizes,
-			WarehouseSizeS:req.body.warehouseSizeS,
-			WarehouseSizeM:req.body.warehouseSizeM,
-			WarehouseSizeL:req.body.warehouseSizeL,
-			WarehouseSizeXL:req.body.warehouseSizeXL,
-			WarehouseSize2XL:req.body.warehouseSize2XL,
-			WarehouseSize3XL:req.body.warehouseSize3XL,
-			WarehouseSize4XL:req.body.warehouseSize4XL,
-			
-			inWarehouse: req.body.inWarehouse,
-			totalWarehouse: req.body.countWarehouse,
-			
-			//cart: "no"
+			SizeS:req.body.sizeS,
+			SizeM:req.body.sizeM,
+			SizeL:req.body.sizeL,
+			SizeXL:req.body.sizeXL,
+			Size2XL:req.body.size2XL,
+			Size3XL:req.body.size3XL,
+			Size4XL:req.body.size4XL,
+
+			total: req.body.countTotal,
 		});
 		product
         .save()
@@ -274,39 +265,17 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			colorCode10: req.body.color10,
 			
 			color1Total: req.body.colorTotal1,
-			color1WarehouseTotal: req.body.subCountWarehouse1,
-			
-			color2Total: req.body.colorTotal2,
-			color2WarehouseTotal: req.body.subCountWarehouse2,
-			
+			color2Total: req.body.colorTotal2,	
 			color3Total: req.body.colorTotal3,
-			color3WarehouseTotal: req.body.subCountWarehouse3,
-			
 			color4Total: req.body.colorTotal4,
-			color4WarehouseTotal: req.body.subCountWarehouse4,
-			
 			color5Total: req.body.colorTotal5,
-			color5WarehouseTotal: req.body.subCountWarehouse5,
-			
 			color6Total: req.body.colorTotal6,
-			color6WarehouseTotal: req.body.subCountWarehouse6,
-			
 			color7Total: req.body.colorTotal7,
-			color7WarehouseTotal: req.body.subCountWarehouse7,
-			
 			color8Total: req.body.colorTotal8,
-			color8WarehouseTotal: req.body.subCountWarehouse8,
-			
 			color9Total: req.body.colorTotal9,
-			color9WarehouseTotal: req.body.subCountWarehouse9,
-			
 			color10Total: req.body.colorTotal10,
-			color10WarehouseTotal: req.body.subCountWarehouse10,
-			
-			inWarehouse: req.body.inWarehouse,
-			totalWarehouse: req.body.countWarehouse,
-			
-			//cart: "no"
+
+			total: req.body.countTotal,
 		});
 		product
         .save()
@@ -369,120 +338,108 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			colorCode9: req.body.color9,
 			colorCode10: req.body.color10,
 			
-			color1WarehouseSizeS:req.body.warehouseSizeS1,
-			color1WarehouseSizeM:req.body.warehouseSizeM1,
-			color1WarehouseSizeL:req.body.warehouseSizeL1,
-			color1WarehouseSizeXL:req.body.warehouseSizeXL1,
-			color1WarehouseSize2XL:req.body.warehouseSize2XL1,
-			color1WarehouseSize3XL:req.body.warehouseSize3XL1,
-			color1WarehouseSize4XL:req.body.warehouseSize4XL1,
+			color1SizeS:req.body.sizeS1,
+			color1SizeM:req.body.sizeM1,
+			color1SizeL:req.body.sizeL1,
+			color1SizeXL:req.body.sizeXL1,
+			color1Size2XL:req.body.size2XL1,
+			color1Size3XL:req.body.size3XL1,
+			color1Size4XL:req.body.size4XL1,
 			
 			color1Total: req.body.colorTotal1,
-			color1WarehouseTotal: req.body.subCountWarehouse1,
-			
-			color2WarehouseSizeS:req.body.warehouseSizeS2,
-			color2WarehouseSizeM:req.body.warehouseSizeM2,
-			color2WarehouseSizeL:req.body.warehouseSizeL2,
-			color2WarehouseSizeXL:req.body.warehouseSizeXL2,
-			color2WarehouseSize2XL:req.body.warehouseSize2XL2,
-			color2WarehouseSize3XL:req.body.warehouseSize3XL2,
-			color2WarehouseSize4XL:req.body.warehouseSize4XL2,
+
+			color2SizeS:req.body.sizeS2,
+			color2SizeM:req.body.sSizeM2,
+			colorSizeL:req.body.sizeL2,
+			colorSizeXL:req.body.sizeXL2,
+			color2Size2XL:req.body.size2XL2,
+			color2Size3XL:req.body.size3XL2,
+			color2Size4XL:req.body.size4XL2,
 			
 			color2Total: req.body.colorTotal2,
 			color2WarehouseTotal: req.body.subCountWarehouse2,
 			
-			color3WarehouseSizeS:req.body.warehouseSizeS3,
-			color3WarehouseSizeM:req.body.warehouseSizeM3,
-			color3WarehouseSizeL:req.body.warehouseSizeL3,
-			color3WarehouseSizeXL:req.body.warehouseSizeXL3,
-			color3WarehouseSize2XL:req.body.warehouseSize2XL3,
-			color3WarehouseSize3XL:req.body.warehouseSize3XL3,
-			color3WarehouseSize4XL:req.body.warehouseSize4XL3,
+			color3SizeS:req.body.sizeS3,
+			color3SizeM:req.body.sizeM3,
+			color3SizeL:req.body.sizeL3,
+			color3SizeXL:req.body.sizeXL3,
+			color3Size2XL:req.body.size2XL3,
+			color3Size3XL:req.body.size3XL3,
+			color3Size4XL:req.body.size4XL3,
 			
 			color3Total: req.body.colorTotal3,
-			color3WarehouseTotal: req.body.subCountWarehouse3,
 			
-			color4WarehouseSizeS:req.body.warehouseSizeS4,
-			color4WarehouseSizeM:req.body.warehouseSizeM4,
-			color4WarehouseSizeL:req.body.warehouseSizeL4,
-			color4WarehouseSizeXL:req.body.warehouseSizeXL4,
-			color4WarehouseSize2XL:req.body.warehouseSize2XL4,
-			color4WarehouseSize3XL:req.body.warehouseSize3XL4,
-			color4WarehouseSize4XL:req.body.warehouseSize4XL4,
+			color4SizeS:req.body.sizeS4,
+			color4SizeM:req.body.sizeM4,
+			color4SizeL:req.body.sizeL4,
+			color4SizeXL:req.body.sizeXL4,
+			color4Size2XL:req.body.size2XL4,
+			color4Size3XL:req.body.size3XL4,
+			color4Size4XL:req.body.size4XL4,
 			
 			color4Total: req.body.colorTotal4,
-			color4WarehouseTotal: req.body.subCountWarehouse4,
 			
-			color5WarehouseSizeS:req.body.warehouseSizeS5,
-			color5WarehouseSizeM:req.body.warehouseSizeM5,
-			color5WarehouseSizeL:req.body.warehouseSizeL5,
-			color5WarehouseSizeXL:req.body.warehouseSizeXL5,
-			color5WarehouseSize2XL:req.body.warehouseSize2XL5,
-			color5WarehouseSize3XL:req.body.warehouseSize3XL5,
-			color5WarehouseSize4XL:req.body.warehouseSize4XL5,
+			color5SizeS:req.body.sizeS5,
+			color5SizeM:req.body.sizeM5,
+			color5SizeL:req.body.sizeL5,
+			color5SizeXL:req.body.sizeXL5,
+			color5Size2XL:req.body.size2XL5,
+			color5Size3XL:req.body.size3XL5,
+			color5Size4XL:req.body.size4XL5,
 			
 			color5Total: req.body.colorTotal5,
-			color5WarehouseTotal: req.body.subCountWarehouse5,
-			
-			color6WarehouseSizeS:req.body.warehouseSizeS6,
-			color6WarehouseSizeM:req.body.warehouseSizeM6,
-			color6WarehouseSizeL:req.body.warehouseSizeL6,
-			color6WarehouseSizeXL:req.body.warehouseSizeXL6,
-			color6WarehouseSize2XL:req.body.warehouseSize2XL6,
-			color6WarehouseSize3XL:req.body.warehouseSize3XL6,
-			color6WarehouseSize4XL:req.body.warehouseSize4XL6,
+
+			color6SizeS:req.body.sizeS6,
+			color6SizeM:req.body.sizeM6,
+			color6SizeL:req.body.sizeL6,
+			color6SizeXL:req.body.sizeXL6,
+			color6Size2XL:req.body.size2XL6,
+			color6Size3XL:req.body.size3XL6,
+			color6Size4XL:req.body.size4XL6,
 			
 			color6Total: req.body.colorTotal6,
-			color6WarehouseTotal: req.body.subCountWarehouse6,
 			
-			color7WarehouseSizeS:req.body.warehouseSizeS7,
-			color7WarehouseSizeM:req.body.warehouseSizeM7,
-			color7WarehouseSizeL:req.body.warehouseSizeL7,
-			color7WarehouseSizeXL:req.body.warehouseSizeXL7,
-			color7WarehouseSize2XL:req.body.warehouseSize2XL7,
-			color7WarehouseSize3XL:req.body.warehouseSize3XL7,
-			color7WarehouseSize4XL:req.body.warehouseSize4XL7,
+			color7SizeS:req.body.sizeS7,
+			color7SizeM:req.body.sizeM7,
+			color7SizeL:req.body.sizeL7,
+			color7SizeXL:req.body.sizeXL7,
+			color7Size2XL:req.body.size2XL7,
+			color7Size3XL:req.body.size3XL7,
+			color7Size4XL:req.body.size4XL7,
 			
 			color7Total: req.body.colorTotal7,
-			color7WarehouseTotal: req.body.subCountWarehouse7,
 			
-			color8WarehouseSizeS:req.body.warehouseSizeS8,
-			color8WarehouseSizeM:req.body.warehouseSizeM8,
-			color8WarehouseSizeL:req.body.warehouseSizeL8,
-			color8WarehouseSizeXL:req.body.warehouseSizeXL8,
-			color8WarehouseSize2XL:req.body.warehouseSize2XL8,
-			color8WarehouseSize3XL:req.body.warehouseSize3XL8,
-			color8WarehouseSize4XL:req.body.warehouseSize4XL8,
+			color8SizeS:req.body.sizeS8,
+			color8SizeM:req.body.sizeM8,
+			color8SizeL:req.body.sizeL8,
+			color8SizeXL:req.body.sizeXL8,
+			color8Size2XL:req.body.size2XL8,
+			color8Size3XL:req.body.size3XL8,
+			color8Size4XL:req.body.size4XL8,
 			
 			color8Total: req.body.colorTotal8,
-			color8WarehouseTotal: req.body.subCountWarehouse8,
 			
-			color9WarehouseSizeS:req.body.warehouseSizeS9,
-			color9WarehouseSizeM:req.body.warehouseSizeM9,
-			color9WarehouseSizeL:req.body.warehouseSizeL9,
-			color9WarehouseSizeXL:req.body.warehouseSizeXL9,
-			color9WarehouseSize2XL:req.body.warehouseSize2XL9,
-			color9WarehouseSize3XL:req.body.warehouseSize3XL9,
-			color9WarehouseSize4XL:req.body.warehouseSize4XL9,
+			color9SizeS:req.body.sizeS9,
+			color9SizeM:req.body.sizeM9,
+			color9SizeL:req.body.sizeL9,
+			color9SizeXL:req.body.sizeXL9,
+			color9Size2XL:req.body.size2XL9,
+			color9Size3XL:req.body.size3XL9,
+			color9Size4XL:req.body.size4XL9,
 			
 			color9Total: req.body.colorTotal9,
-			color9WarehouseTotal: req.body.subCountWarehouse9,
 			
-			color10WarehouseSizeS:req.body.warehouseSizeS10,
-			color10WarehouseSizeM:req.body.warehouseSizeM10,
-			color10WarehouseSizeL:req.body.warehouseSizeL10,
-			color10WarehouseSizeXL:req.body.warehouseSizeXL10,
-			color10WarehouseSize2XL:req.body.warehouseSize2XL10,
-			color10WarehouseSize3XL:req.body.warehouseSize3XL10,
-			color10WarehouseSize4XL:req.body.warehouseSize4XL10,
+			color10SizeS:req.body.sizeS10,
+			color10SizeM:req.body.sizeM10,
+			color10SizeL:req.body.sizeL10,
+			color10SizeXL:req.body.sizeXL10,
+			color10Size2XL:req.body.size2XL10,
+			color10Size3XL:req.body.size3XL10,
+			color10Size4XL:req.body.size4XL10,
 			
 			color10Total: req.body.colorTotal10,
-			color10WarehouseTotal: req.body.subCountWarehouse10,
 			
-			inWarehouse: req.body.inWarehouse,
-			totalWarehouse: req.body.countWarehouse,
-			
-			//cart: "no"
+			total: req.body.countTotal,
 		});
 		product
         .save()
@@ -545,120 +502,107 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			colorCode9: req.body.color9,
 			colorCode10: req.body.color10,
 			
-			color1WarehouseSizeS:req.body.warehouseSizeS1,
-			color1WarehouseSizeM:req.body.warehouseSizeM1,
-			color1WarehouseSizeL:req.body.warehouseSizeL1,
-			color1WarehouseSizeXL:req.body.warehouseSizeXL1,
-			color1WarehouseSize2XL:req.body.warehouseSize2XL1,
-			color1WarehouseSize3XL:req.body.warehouseSize3XL1,
-			color1WarehouseSize4XL:req.body.warehouseSize4XL1,
+			color1SizeS:req.body.sizeS1,
+			color1SizeM:req.body.sizeM1,
+			color1SizeL:req.body.sizeL1,
+			color1SizeXL:req.body.sizeXL1,
+			color1Size2XL:req.body.size2XL1,
+			color1Size3XL:req.body.size3XL1,
+			color1Size4XL:req.body.size4XL1,
 			
 			color1Total: req.body.colorTotal1,
-			color1WarehouseTotal: req.body.subCountWarehouse1,
 			
-			color2WarehouseSizeS:req.body.warehouseSizeS2,
-			color2WarehouseSizeM:req.body.warehouseSizeM2,
-			color2WarehouseSizeL:req.body.warehouseSizeL2,
-			color2WarehouseSizeXL:req.body.warehouseSizeXL2,
-			color2WarehouseSize2XL:req.body.warehouseSize2XL2,
-			color2WarehouseSize3XL:req.body.warehouseSize3XL2,
-			color2WarehouseSize4XL:req.body.warehouseSize4XL2,
+			color2SizeS:req.body.sizeS2,
+			color2SizeM:req.body.sizeM2,
+			color2SizeL:req.body.sizeL2,
+			color2SizeXL:req.body.sizeXL2,
+			color2Size2XL:req.body.size2XL2,
+			color2Size3XL:req.body.size3XL2,
+			color2Size4XL:req.body.size4XL2,
 			
 			color2Total: req.body.colorTotal2,
-			color2WarehouseTotal: req.body.subCountWarehouse2,
 			
-			color3WarehouseSizeS:req.body.warehouseSizeS3,
-			color3WarehouseSizeM:req.body.warehouseSizeM3,
-			color3WarehouseSizeL:req.body.warehouseSizeL3,
-			color3WarehouseSizeXL:req.body.warehouseSizeXL3,
-			color3WarehouseSize2XL:req.body.warehouseSize2XL3,
-			color3WarehouseSize3XL:req.body.warehouseSize3XL3,
-			color3WarehouseSize4XL:req.body.warehouseSize4XL3,
+			color3SizeS:req.body.sizeS3,
+			color3SizeM:req.body.sizeM3,
+			color3SizeL:req.body.sizeL3,
+			color3SizeXL:req.body.sizeXL3,
+			color3Size2XL:req.body.size2XL3,
+			color3Size3XL:req.body.size3XL3,
+			color3Size4XL:req.body.size4XL3,
 			
 			color3Total: req.body.colorTotal3,
-			color3WarehouseTotal: req.body.subCountWarehouse3,
-			
-			color4WarehouseSizeS:req.body.warehouseSizeS4,
-			color4WarehouseSizeM:req.body.warehouseSizeM4,
-			color4WarehouseSizeL:req.body.warehouseSizeL4,
-			color4WarehouseSizeXL:req.body.warehouseSizeXL4,
-			color4WarehouseSize2XL:req.body.warehouseSize2XL4,
-			color4WarehouseSize3XL:req.body.warehouseSize3XL4,
-			color4WarehouseSize4XL:req.body.warehouseSize4XL4,
+
+			color4SizeS:req.body.sizeS4,
+			color4SizeM:req.body.sizeM4,
+			color4SizeL:req.body.sizeL4,
+			color4SizeXL:req.body.sizeXL4,
+			color4Size2XL:req.body.size2XL4,
+			color4Size3XL:req.body.size3XL4,
+			color4Size4XL:req.body.size4XL4,
 			
 			color4Total: req.body.colorTotal4,
-			color4WarehouseTotal: req.body.subCountWarehouse4,
-			
-			color5WarehouseSizeS:req.body.warehouseSizeS5,
-			color5WarehouseSizeM:req.body.warehouseSizeM5,
-			color5WarehouseSizeL:req.body.warehouseSizeL5,
-			color5WarehouseSizeXL:req.body.warehouseSizeXL5,
-			color5WarehouseSize2XL:req.body.warehouseSize2XL5,
-			color5WarehouseSize3XL:req.body.warehouseSize3XL5,
-			color5WarehouseSize4XL:req.body.warehouseSize4XL5,
+
+			color5SizeS:req.body.sizeS5,
+			color5SizeM:req.body.sizeM5,
+			color5SizeL:req.body.sizeL5,
+			color5SizeXL:req.body.sizeXL5,
+			color5Size2XL:req.body.size2XL5,
+			color5Size3XL:req.body.size3XL5,
+			color5Size4XL:req.body.size4XL5,
 			
 			color5Total: req.body.colorTotal5,
-			color5WarehouseTotal: req.body.subCountWarehouse5,
-			
-			color6WarehouseSizeS:req.body.warehouseSizeS6,
-			color6WarehouseSizeM:req.body.warehouseSizeM6,
-			color6WarehouseSizeL:req.body.warehouseSizeL6,
-			color6WarehouseSizeXL:req.body.warehouseSizeXL6,
-			color6WarehouseSize2XL:req.body.warehouseSize2XL6,
-			color6WarehouseSize3XL:req.body.warehouseSize3XL6,
-			color6WarehouseSize4XL:req.body.warehouseSize4XL6,
+
+			color6SizeS:req.body.sizeS6,
+			color6SizeM:req.body.sizeM6,
+			color6SizeL:req.body.sizeL6,
+			color6SizeXL:req.body.sizeXL6,
+			color6Size2XL:req.body.size2XL6,
+			color6Size3XL:req.body.size3XL6,
+			color6Size4XL:req.body.size4XL6,
 			
 			color6Total: req.body.colorTotal6,
-			color6WarehouseTotal: req.body.subCountWarehouse6,
-			
-			color7WarehouseSizeS:req.body.warehouseSizeS7,
-			color7WarehouseSizeM:req.body.warehouseSizeM7,
-			color7WarehouseSizeL:req.body.warehouseSizeL7,
-			color7WarehouseSizeXL:req.body.warehouseSizeXL7,
-			color7WarehouseSize2XL:req.body.warehouseSize2XL7,
-			color7WarehouseSize3XL:req.body.warehouseSize3XL7,
-			color7WarehouseSize4XL:req.body.warehouseSize4XL7,
+
+			color7SizeS:req.body.sizeS7,
+			color7SizeM:req.body.sizeM7,
+			color7SizeL:req.body.sizeL7,
+			color7SizeXL:req.body.sizeXL7,
+			color7Size2XL:req.body.size2XL7,
+			color7Size3XL:req.body.size3XL7,
+			color7Size4XL:req.body.size4XL7,
 			
 			color7Total: req.body.colorTotal7,
-			color7WarehouseTotal: req.body.subCountWarehouse7,
-			
-			color8WarehouseSizeS:req.body.warehouseSizeS8,
-			color8WarehouseSizeM:req.body.warehouseSizeM8,
-			color8WarehouseSizeL:req.body.warehouseSizeL8,
-			color8WarehouseSizeXL:req.body.warehouseSizeXL8,
-			color8WarehouseSize2XL:req.body.warehouseSize2XL8,
-			color8WarehouseSize3XL:req.body.warehouseSize3XL8,
-			color8WarehouseSize4XL:req.body.warehouseSize4XL8,
+
+			color8SizeS:req.body.sizeS8,
+			color8SizeM:req.body.sizeM8,
+			color8SizeL:req.body.sizeL8,
+			color8SizeXL:req.body.sizeXL8,
+			color8Size2XL:req.body.size2XL8,
+			color8Size3XL:req.body.size3XL8,
+			color8Size4XL:req.body.size4XL8,
 			
 			color8Total: req.body.colorTotal8,
-			color8WarehouseTotal: req.body.subCountWarehouse8,
 			
-			color9WarehouseSizeS:req.body.warehouseSizeS9,
-			color9WarehouseSizeM:req.body.warehouseSizeM9,
-			color9WarehouseSizeL:req.body.warehouseSizeL9,
-			color9WarehouseSizeXL:req.body.warehouseSizeXL9,
-			color9WarehouseSize2XL:req.body.warehouseSize2XL9,
-			color9WarehouseSize3XL:req.body.warehouseSize3XL9,
-			color9WarehouseSize4XL:req.body.warehouseSize4XL9,
+			color9SizeS:req.body.sizeS9,
+			color9SizeM:req.body.sizeM9,
+			color9SizeL:req.body.sizeL9,
+			color9SizeXL:req.body.sizeXL9,
+			color9Size2XL:req.body.size2XL9,
+			color9Size3XL:req.body.size3XL9,
+			color9Size4XL:req.body.size4XL9,
 			
 			color9Total: req.body.colorTotal9,
-			color9WarehouseTotal: req.body.subCountWarehouse9,
 			
-			color10WarehouseSizeS:req.body.warehouseSizeS10,
-			color10WarehouseSizeM:req.body.warehouseSizeM10,
-			color10WarehouseSizeL:req.body.warehouseSizeL10,
-			color10WarehouseSizeXL:req.body.warehouseSizeXL10,
-			color10WarehouseSize2XL:req.body.warehouseSize2XL10,
-			color10WarehouseSize3XL:req.body.warehouseSize3XL10,
-			color10WarehouseSize4XL:req.body.warehouseSize4XL10,
+			color10SizeS:req.body.sizeS10,
+			color10SizeM:req.body.sizeM10,
+			color10SizeL:req.body.sizeL10,
+			color10SizeXL:req.body.sizeXL10,
+			color10Size2XL:req.body.size2XL10,
+			color10Size3XL:req.body.size3XL10,
+			color10Size4XL:req.body.size4XL10,
 			
 			color10Total: req.body.colorTotal10,
-			color10WarehouseTotal: req.body.subCountWarehouse10,
 			
-			inWarehouse: req.body.inWarehouse,
-			totalWarehouse: req.body.countWarehouse,
-			
-			//cart: "no"
+			total: req.body.countTotal,
 		});
 		product
         .save()

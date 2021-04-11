@@ -20,6 +20,7 @@ var i = 0;
 //CHECK BRACKETS HERE
 $(document).ready(
     //call API @routes/index.js
+	/* ! REQUIRES VALIDATION ! */
     function getreports() 
     {
 		$("#eodSearchForm").submit(function (event) 

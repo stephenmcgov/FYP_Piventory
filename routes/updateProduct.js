@@ -130,111 +130,109 @@ router.post("/", (req, res, next) => {
 		
 	var hasSizesEdit=req.body.hasSizesEdit;
 	var editNumColors=req.body.editNumSubStyles;
-
-	var inWarehouseEdit = req.body.inWarehouseEdit;
 	
-			var editWarehouseSizeS=0;
-			var editWarehouseSizeM=0;
-			var editWarehouseSizeL=0;
-			var editWarehouseSizeXL=0;
-			var editWarehouseSize2XL=0;
-			var editWarehouseSize3XL=0;
-			var editWarehouseSize4XL=0;
+			var editSizeS=0;
+			var editSizeM=0;
+			var editSizeL=0;
+			var editSizeXL=0;
+			var editSize2XL=0;
+			var editSize3XL=0;
+			var editSize4XL=0;
 			
 			if(editNumColors>=1)
 			{
 				var editColorCode1=req.body.editColor1;
 				
-				var editColor1WarehouseSizeS=req.body.editWarehouseSizeS1;
-				var editColor1WarehouseSizeM=req.body.editWarehouseSizeM1;
-				var editColor1WarehouseSizeL=req.body.editWarehouseSizeL1;
-				var editColor1WarehouseSizeXL=req.body.editWarehouseSizeXL1;
-				var editColor1WarehouseSize2XL=req.body.editWarehouseSize2XL1;
-				var editColor1WarehouseSize3XL=req.body.editWarehouseSize3XL1;
-				var editColor1WarehouseSize4XL=req.body.editWarehouseSize4XL1;
+				var editColor1SizeS=req.body.editSizeS1;
+				var editColor1SizeM=req.body.editSizeM1;
+				var editColor1SizeL=req.body.editSizeL1;
+				var editColor1SizeXL=req.body.editSizeXL1;
+				var editColor1Size2XL=req.body.editSize2XL1;
+				var editColor1Size3XL=req.body.editSize3XL1;
+				var editColor1Size4XL=req.body.editSize4XL1;
 				
 				var editColorTotal1= req.body.editColorTotal1;
-				var editSubCountWarehouse1= req.body.editSubCountWarehouse1;
+				var editSubCount1= req.body.editSubCount1;
 			}
 			
 			else
 			{
 				var editColorCode1="";
 				
-				var editColor1WarehouseSizeS=0;
-				var editColor1WarehouseSizeM=0;
-				var editColor1WarehouseSizeL=0;
-				var editColor1WarehouseSizeXL=0;
-				var editColor1WarehouseSize2XL=0;
-				var editColor1WarehouseSize3XL=0;
-				var editColor1WarehouseSize4XL=0;
+				var editColor1SizeS=0;
+				var editColor1SizeM=0;
+				var editColor1SizeL=0;
+				var editColor1SizeXL=0;
+				var editColor1Size2XL=0;
+				var editColor1Size3XL=0;
+				var editColor1Size4XL=0;
 				
 				var editColorTotal1=0;
-				var editSubCountWarehouse1=0;
+				var editSubCount1=0;
 			}
 			
 			if(styleIndex>=2)
 			{
 				var editColorCode2=req.body.editColor2;
 				
-				var editColor2WarehouseSizeS=req.body.editWarehouseSizeS2;
-				var editColor2WarehouseSizeM=req.body.editWarehouseSizeM2;
-				var editColor2WarehouseSizeL=req.body.editWarehouseSizeL2;
-				var editColor2WarehouseSizeXL=req.body.editWarehouseSizeXL2;
-				var editColor2WarehouseSize2XL=req.body.editWarehouseSize2XL2;
-				var editColor2WarehouseSize3XL=req.body.editWarehouseSize3XL2;
-				var editColor2WarehouseSize4XL=req.body.editWarehouseSize4XL2;
+				var editColor2SizeS=req.body.editSizeS2;
+				var editColor2SizeM=req.body.editSizeM2;
+				var editColor2SizeL=req.body.editSizeL2;
+				var editColor2SizeXL=req.body.editSizeXL2;
+				var editColor2Size2XL=req.body.editSize2XL2;
+				var editColor2Size3XL=req.body.editSize3XL2;
+				var editColor2Size4XL=req.body.editSize4XL2;
 				
 				var editColorTotal2= req.body.editColorTotal2;
-				var editSubCountWarehouse2= req.body.editSubCountWarehouse2;
+				var editSubCount2= req.body.editSubCount2;
 			}
 			
 			else
 			{
 				var editColorCode2="";
 				
-				var editColor2WarehouseSizeS=0;
-				var editColor2WarehouseSizeM=0;
-				var editColor2WarehouseSizeL=0;
-				var editColor2WarehouseSizeXL=0;
-				var editColor2WarehouseSize2XL=0;
-				var editColor2WarehouseSize3XL=0;
-				var editColor2WarehouseSize4XL=0;
+				var editColor2SizeS=0;
+				var editColor2SizeM=0;
+				var editColor2SizeL=0;
+				var editColor2SizeXL=0;
+				var editColor2Size2XL=0;
+				var editColor2Size3XL=0;
+				var editColor2Size4XL=0;
 				
 				var editColorTotal2=0;
-				var editSubCountWarehouse2=0;
+				var editSubCount2=0;
 			}
 			
 			if(styleIndex>=3)
 			{
 				var editColorCode3=req.body.editColor3;
 				
-				var editColor3WarehouseSizeS=req.body.editWarehouseSizeS3;
-				var editColor3WarehouseSizeM=req.body.editWarehouseSizeM3;
-				var editColor3WarehouseSizeL=req.body.editWarehouseSizeL3;
-				var editColor3WarehouseSizeXL=req.body.editWarehouseSizeXL3;
-				var editColor3WarehouseSize2XL=req.body.editWarehouseSize2XL3;
-				var editColor3WarehouseSize3XL=req.body.editWarehouseSize3XL3;
-				var editColor3WarehouseSize4XL=req.body.editWarehouseSize4XL3;
+				var editColor3SizeS=req.body.editSizeS3;
+				var editColor3SizeM=req.body.editSizeM3;
+				var editColor3SizeL=req.body.editSizeL3;
+				var editColor3SizeXL=req.body.editSizeXL3;
+				var editColor3Size2XL=req.body.editSize2XL3;
+				var editColor3Size3XL=req.body.editSize3XL3;
+				var editColor3Size4XL=req.body.editSize4XL3;
 				
 				var editColorTotal3= req.body.editColorTotal3;
-				var editSubCountWarehouse3= req.body.editSubCountWarehouse3;
+				var editSubCount3= req.body.editSubCount3;
 			}
 			
 			else
 			{
 				var editColorCode3="";
 				
-				var editColor3WarehouseSizeS=0;
-				var editColor3WarehouseSizeM=0;
-				var editColor3WarehouseSizeL=0;
-				var editColor3WarehouseSizeXL=0;
-				var editColor3WarehouseSize2XL=0;
-				var editColor3WarehouseSize3XL=0;
-				var editColor3WarehouseSize4XL=0;
+				var editColor3SizeS=0;
+				var editColor3SizeM=0;
+				var editColor3SizeL=0;
+				var editColor3SizeXL=0;
+				var editColor3Size2XL=0;
+				var editColor3Size3XL=0;
+				var editColor3Size4XL=0;
 				
 				var editColorTotal3=0;
-				var editSubCountWarehouse3=0;
+				var editSubCount3=0;
 			}
 			
 			
@@ -242,64 +240,64 @@ router.post("/", (req, res, next) => {
 			{
 				var editColorCode4=req.body.editColor4;
 				
-				var editColor4WarehouseSizeS=req.body.editWarehouseSizeS4;
-				var editColor4WarehouseSizeM=req.body.editWarehouseSizeM4;
-				var editColor4WarehouseSizeL=req.body.editWarehouseSizeL4;
-				var editColor4WarehouseSizeXL=req.body.editWarehouseSizeXL4;
-				var editColor4WarehouseSize2XL=req.body.editWarehouseSize2XL4;
-				var editColor4WarehouseSize3XL=req.body.editWarehouseSize3XL4;
-				var editColor4WarehouseSize4XL=req.body.editWarehouseSize4XL4;
+				var editColor4SizeS=req.body.editSizeS4;
+				var editColor4SizeM=req.body.editSizeM4;
+				var editColor4SizeL=req.body.editSizeL4;
+				var editColor4SizeXL=req.body.editSizeXL4;
+				var editColor4Size2XL=req.body.editSize2XL4;
+				var editColor4Size3XL=req.body.editSize3XL4;
+				var editColor4Size4XL=req.body.editSize4XL4;
 				
 				var editColorTotal4= req.body.editColorTotal4;
-				var editSubCountWarehouse4= req.body.editSubCountWarehouse4;
+				var editSubCount4= req.body.editSubCount4;
 			}
 			
 			else
 			{
 				var editColorCode4="";
 				
-				var editColor4WarehouseSizeS=0;
-				var editColor4WarehouseSizeM=0;
-				var editColor4WarehouseSizeL=0;
-				var editColor4WarehouseSizeXL=0;
-				var editColor4WarehouseSize2XL=0;
-				var editColor4WarehouseSize3XL=0;
-				var editColor4WarehouseSize4XL=0;
+				var editColor4SizeS=0;
+				var editColor4SizeM=0;
+				var editColor4SizeL=0;
+				var editColor4SizeXL=0;
+				var editColor4Size2XL=0;
+				var editColor4Size3XL=0;
+				var editColor4Size4XL=0;
 				
 				var editColorTotal4=0;
-				var editSubCountWarehouse4=0;
+				var editSubCount4=0;
 			}
 			
 			if(styleIndex>=5)
 			{
 				var editColorCode5=req.body.editColor5;
 				
-				var editColor5WarehouseSizeS=req.body.editWarehouseSizeS5;
-				var editColor5WarehouseSizeM=req.body.editWarehouseSizeM5;
-				var editColor5WarehouseSizeL=req.body.editWarehouseSizeL5;
-				var editColor5WarehouseSizeXL=req.body.editWarehouseSizeXL5;
-				var editColor5WarehouseSize2XL=req.body.editWarehouseSize2XL5;
-				var editColor5WarehouseSize3XL=req.body.editWarehouseSize3XL5;
-				var editColor5WarehouseSize4XL=req.body.editWarehouseSize4XL5;
+				var editColor5SizeS=req.body.editSizeS5;
+				var editColor5SizeM=req.body.editSizeM5;
+				var editColor5SizeL=req.body.editSizeL5;
+				var editColor5SizeXL=req.body.editSizeXL5;
+				var editColor5Size2XL=req.body.editSize2XL5;
+				var editColor5Size3XL=req.body.editSize3XL5;
+				var editColor5Size4XL=req.body.editSize4XL5;
 				
 				var editColorTotal5= req.body.editColorTotal5;
-				var editSubCountWarehouse5= req.body.editSubCountWarehouse5;
+				var editSubCount5= req.body.editSubCount5;
 			}
 			
 			else
 			{
 				var editColorCode5="";
 				
-				var editColor5WarehouseSizeS=0;
-				var editColor5WarehouseSizeM=0;
-				var editColor5WarehouseSizeL=0;
-				var editColor5WarehouseSizeXL=0;
-				var editColor5WarehouseSize2XL=0;
-				var editColor5WarehouseSize3XL=0;
-				var editColor5WarehouseSize4XL=0;
+				var editColor5SizeS=0;
+				var editColor5SizeM=0;
+				var editColor5SizeL=0;
+				var editColor5SizeXL=0;
+				var editColor5Size2XL=0;
+				var editColor5Size3XL=0;
+				var editColor5Size4XL=0;
 				
 				var editColorTotal5=0;
-				var editSubCountWarehouse5=0;
+				var editSubCount5=0;
 			}
 			
 			
@@ -307,163 +305,163 @@ router.post("/", (req, res, next) => {
 			{
 				var editColorCode6=req.body.editColor6;
 				
-				var editColor6WarehouseSizeS=req.body.editWarehouseSizeS6;
-				var editColor6WarehouseSizeM=req.body.editWarehouseSizeM6;
-				var editColor6WarehouseSizeL=req.body.editWarehouseSizeL6;
-				var editColor6WarehouseSizeXL=req.body.editWarehouseSizeXL6;
-				var editColor6WarehouseSize2XL=req.body.editWarehouseSize2XL6;
-				var editColor6WarehouseSize3XL=req.body.editWarehouseSize3XL6;
-				var editColor6WarehouseSize4XL=req.body.editWarehouseSize4XL6;
+				var editColor6SizeS=req.body.editSizeS6;
+				var editColor6SizeM=req.body.editSizeM6;
+				var editColor6SizeL=req.body.editSizeL6;
+				var editColor6SizeXL=req.body.editSizeXL6;
+				var editColor6Size2XL=req.body.editSize2XL6;
+				var editColor6Size3XL=req.body.editSize3XL6;
+				var editColor6Size4XL=req.body.editSize4XL6;
 				
 				var editColorTotal6= req.body.editColorTotal6;
-				var editSubCountWarehouse6= req.body.editSubCountWarehouse6;
+				var editSubCount6= req.body.editSubCount6;
 			}
 			
 			else
 			{
 				var editColorCode6="";
 				
-				var editColor6WarehouseSizeS=0;
-				var editColor6WarehouseSizeM=0;
-				var editColor6WarehouseSizeL=0;
-				var editColor6WarehouseSizeXL=0;
-				var editColor6WarehouseSize2XL=0;
-				var editColor6WarehouseSize3XL=0;
-				var editColor6WarehouseSize4XL=0;
+				var editColor6SizeS=0;
+				var editColor6SizeM=0;
+				var editColor6SizeL=0;
+				var editColor6SizeXL=0;
+				var editColor6Size2XL=0;
+				var editColor6Size3XL=0;
+				var editColor6Size4XL=0;
 				
 				var editColorTotal6=0;
-				var editSubCountWarehouse6=0;
+				var editSubCount6=0;
 			}
 
 			if(styleIndex>=7)
 			{
 				var editColorCode7=req.body.editColor7;
 				
-				var editColor7WarehouseSizeS=req.body.editWarehouseSizeS7;
-				var editColor7WarehouseSizeM=req.body.editWarehouseSizeM7;
-				var editColor7WarehouseSizeL=req.body.editWarehouseSizeL7;
-				var editColor7WarehouseSizeXL=req.body.editWarehouseSizeXL7;
-				var editColor7WarehouseSize2XL=req.body.editWarehouseSize2XL7;
-				var editColor7WarehouseSize3XL=req.body.editWarehouseSize3XL7;
-				var editColor7WarehouseSize4XL=req.body.editWarehouseSize4XL7;
+				var editColor7SizeS=req.body.editSizeS7;
+				var editColor7SizeM=req.body.editSizeM7;
+				var editColor7SizeL=req.body.editSizeL7;
+				var editColor7SizeXL=req.body.editSizeXL7;
+				var editColor7Size2XL=req.body.editSize2XL7;
+				var editColor7Size3XL=req.body.editSize3XL7;
+				var editColor7Size4XL=req.body.editSize4XL7;
 				
 				var editColorTotal7= req.body.editColorTotal7;
-				var editSubCountWarehouse7= req.body.editSubCountWarehouse7;
+				var editSubCount7= req.body.editSubCount7;
 			}
 			
 			else
 			{
 				var editColorCode7="";
 				
-				var editColor7WarehouseSizeS=0;
-				var editColor7WarehouseSizeM=0;
-				var editColor7WarehouseSizeL=0;
-				var editColor7WarehouseSizeXL=0;
-				var editColor7WarehouseSize2XL=0;
-				var editColor7WarehouseSize3XL=0;
-				var editColor7WarehouseSize4XL=0;
+				var editColor7SizeS=0;
+				var editColor7SizeM=0;
+				var editColor7SizeL=0;
+				var editColor7SizeXL=0;
+				var editColor7Size2XL=0;
+				var editColor7Size3XL=0;
+				var editColor7Size4XL=0;
 				
 				var editColorTotal7=0;
-				var editSubCountWarehouse7=0;
+				var editSubCount7=0;
 			}
 			
 			if(styleIndex>=8)
 			{
 				var editColorCode8=req.body.editColor8;
 				
-				var editColor8WarehouseSizeS=req.body.editWarehouseSizeS8;
-				var editColor8WarehouseSizeM=req.body.editWarehouseSizeM8;
-				var editColor8WarehouseSizeL=req.body.editWarehouseSizeL8;
-				var editColor8WarehouseSizeXL=req.body.editWarehouseSizeXL8;
-				var editColor8WarehouseSize2XL=req.body.editWarehouseSize2XL8;
-				var editColor8WarehouseSize3XL=req.body.editWarehouseSize3XL8;
-				var editColor8WarehouseSize4XL=req.body.editWarehouseSize4XL8;
+				var editColor8SizeS=req.body.editSizeS8;
+				var editColor8SizeM=req.body.editSizeM8;
+				var editColor8SizeL=req.body.editSizeL8;
+				var editColor8SizeXL=req.body.editSizeXL8;
+				var editColor8Size2XL=req.body.editSize2XL8;
+				var editColor8Size3XL=req.body.editSize3XL8;
+				var editColor8Size4XL=req.body.editSize4XL8;
 				
 				var editColorTotal8= req.body.editColorTotal8;
-				var editSubCountWarehouse8= req.body.editSubCountWarehouse8;
+				var editSubCount8= req.body.editSubCount8;
 			}
 			
 			else
 			{
 				var editColorCode8="";
 				
-				var editColor8WarehouseSizeS=0;
-				var editColor8WarehouseSizeM=0;
-				var editColor8WarehouseSizeL=0;
-				var editColor8WarehouseSizeXL=0;
-				var editColor8WarehouseSize2XL=0;
-				var editColor8WarehouseSize3XL=0;
-				var editColor8WarehouseSize4XL=0;
+				var editColor8SizeS=0;
+				var editColor8SizeM=0;
+				var editColor8SizeL=0;
+				var editColor8SizeXL=0;
+				var editColor8Size2XL=0;
+				var editColor8Size3XL=0;
+				var editColor8Size4XL=0;
 				
 				var editColorTotal8=0;
-				var editSubCountWarehouse8=0;
+				var editSubCount8=0;
 			}
 			
 			if(styleIndex>=9)
 			{
 				var editColorCode9=req.body.editColor9;
 				
-				var editColor9WarehouseSizeS=req.body.editWarehouseSizeS9;
-				var editColor9WarehouseSizeM=req.body.editWarehouseSizeM9;
-				var editColor9WarehouseSizeL=req.body.editWarehouseSizeL9;
-				var editColor9WarehouseSizeXL=req.body.editWarehouseSizeXL9;
-				var editColor9WarehouseSize2XL=req.body.editWarehouseSize2XL9;
-				var editColor9WarehouseSize3XL=req.body.editWarehouseSize3XL9;
-				var editColor9WarehouseSize4XL=req.body.editWarehouseSize4XL9;
+				var editColor9SizeS=req.body.editSizeS9;
+				var editColor9SizeM=req.body.editSizeM9;
+				var editColor9SizeL=req.body.editSizeL9;
+				var editColor9SizeXL=req.body.editSizeXL9;
+				var editColor9Size2XL=req.body.editSize2XL9;
+				var editColor9Size3XL=req.body.editSize3XL9;
+				var editColor9Size4XL=req.body.editSize4XL9;
 				
 				var editColorTotal9= req.body.editColorTotal9;
-				var editSubCountWarehouse9= req.body.editSubCountWarehouse9;
+				var editSubCount9= req.body.editSubCount9;
 			}
 			
 			else
 			{
 				var editColorCode9="";
 				
-				var editColor9WarehouseSizeS=0;
-				var editColor9WarehouseSizeM=0;
-				var editColor9WarehouseSizeL=0;
-				var editColor9WarehouseSizeXL=0;
-				var editColor9WarehouseSize2XL=0;
-				var editColor9WarehouseSize3XL=0;
-				var editColor9WarehouseSize4XL=0;
+				var editColor9SizeS=0;
+				var editColor9SizeM=0;
+				var editColor9SizeL=0;
+				var editColor9SizeXL=0;
+				var editColor9Size2XL=0;
+				var editColor9Size3XL=0;
+				var editColor9Size4XL=0;
 				
 				var editColorTotal9=0;
-				var editSubCountWarehouse9=0;
+				var editSubCount9=0;
 			}
 			
 			if(styleIndex>=10)
 			{
 				var editColorCode10=req.body.editColor10;
 				
-				var editColor10WarehouseSizeS=req.body.editWarehouseSizeS10;
-				var editColor10WarehouseSizeM=req.body.editWarehouseSizeM10;
-				var editColor10WarehouseSizeL=req.body.editWarehouseSizeL10;
-				var editColor10WarehouseSizeXL=req.body.editWarehouseSizeXL10;
-				var editColor10WarehouseSize2XL=req.body.editWarehouseSize2XL10;
-				var editColor10WarehouseSize3XL=req.body.editWarehouseSize3XL10;
-				var editColor10WarehouseSize4XL=req.body.editWarehouseSize4XL10;
+				var editColor10SizeS=req.body.editSizeS10;
+				var editColor10SizeM=req.body.editSizeM10;
+				var editColor10SizeL=req.body.editSizeL10;
+				var editColor10SizeXL=req.body.editSizeXL10;
+				var editColor10Size2XL=req.body.editSize2XL10;
+				var editColor10Size3XL=req.body.editSize3XL10;
+				var editColor10Size4XL=req.body.editSize4XL10;
 				
 				var editColorTotal10= req.body.editColorTotal10;
-				var editSubCountWarehouse10= req.body.editSubCountWarehouse10;
+				var editSubCount10= req.body.editSubCount10;
 			}
 			
 			else
 			{
 				var editColorCode10="";
 				
-				var editColor10WarehouseSizeS=0;
-				var editColor10WarehouseSizeM=0;
-				var editColor10WarehouseSizeL=0;
-				var editColor10WarehouseSizeXL=0;
-				var editColor10WarehouseSize2XL=0;
-				var editColor10WarehouseSize3XL=0;
-				var editColor10WarehouseSize4XL=0;
+				var editColor10SizeS=0;
+				var editColor10SizeM=0;
+				var editColor10SizeL=0;
+				var editColor10SizeXL=0;
+				var editColor10Size2XL=0;
+				var editColor10Size3XL=0;
+				var editColor10Size4XL=0;
 				
 				var editColorTotal10=0;
-				var editSubCountWarehouse10=0;
+				var editSubCount10=0;
 			}
 			
-			var editTotalWarehouse= req.body.editCountWarehouse;
+			var editTotal= req.body.editCount;
 	}
 	
 	//TF
@@ -473,15 +471,13 @@ router.post("/", (req, res, next) => {
 	var hasSizesEdit=req.body.hasSizesEdit;
 	var editNumColors=0;
 	
-	var inWarehouseEdit = req.body.inWarehouseEdit;
-	
-			var editWarehouseSizeS=req.body.editWarehouseSizeS;
-			var editWarehouseSizeM=req.body.editWarehouseSizeM;
-			var editWarehouseSizeL=req.body.editWarehouseSizeL;
-			var editWarehouseSizeXL=req.body.editWarehouseSizeXL;
-			var editWarehouseSize2XL=req.body.editWarehouseSize2XL;
-			var editWarehouseSize3XL=req.body.editWarehouseSize3XL;
-			var editWarehouseSize4XL=req.body.editWarehouseSize4XL;
+			var editSizeS=req.body.editSizeS;
+			var editSizeM=req.body.editSizeM;
+			var editSizeL=req.body.editSizeL;
+			var editSizeXL=req.body.editSizeXL;
+			var editSize2XL=req.body.editSize2XL;
+			var editSize3XL=req.body.editSize3XL;
+			var editSize4XL=req.body.editSize4XL;
 			
 			var editColorCode1="";
 			var editColorCode2="";
@@ -494,117 +490,117 @@ router.post("/", (req, res, next) => {
 			var editColorCode9="";
 			var editColorCode10="";
 			
-			var editColor1WarehouseSizeS=0;
-			var editColor1WarehouseSizeM=0;
-			var editColor1WarehouseSizeL=0;
-			var editColor1WarehouseSizeXL=0;
-			var editColor1WarehouseSize2XL=0;
-			var editColor1WarehouseSize3XL=0;
-			var editColor1WarehouseSize4XL=0;
+			var editColor1SizeS=0;
+			var editColor1SizeM=0;
+			var editColor1SizeL=0;
+			var editColor1SizeXL=0;
+			var editColor1Size2XL=0;
+			var editColor1Size3XL=0;
+			var editColor1Size4XL=0;
 			
 			var editColorTotal1=0;
-			var editSubCountWarehouse1=0;
+			var editSubCount1=0;
 			
-			var editColor2WarehouseSizeS=0;
-			var editColor2WarehouseSizeM=0;
-			var editColor2WarehouseSizeL=0;
-			var editColor2WarehouseSizeXL=0;
-			var editColor2WarehouseSize2XL=0;
-			var editColor2WarehouseSize3XL=0;
-			var editColor2WarehouseSize4XL=0;
+			var editColor2SizeS=0;
+			var editColor2SizeM=0;
+			var editColor2SizeL=0;
+			var editColor2SizeXL=0;
+			var editColor2Size2XL=0;
+			var editColor2Size3XL=0;
+			var editColor2Size4XL=0;
 			
 			var editColorTotal2=0;
-			var editSubCountWarehouse2=0;
+			var editSubCount2=0;
 			
-			var editColor3WarehouseSizeS=0;
-			var editColor3WarehouseSizeM=0;
-			var editColor3WarehouseSizeL=0;
-			var editColor3WarehouseSizeXL=0;
-			var editColor3WarehouseSize2XL=0;
-			var editColor3WarehouseSize3XL=0;
-			var editColor3WarehouseSize4XL=0;
+			var editColor3SizeS=0;
+			var editColor3SizeM=0;
+			var editColor3SizeL=0;
+			var editColor3SizeXL=0;
+			var editColor3Size2XL=0;
+			var editColor3Size3XL=0;
+			var editColor3Size4XL=0;
 			
 			var editColorTotal3=0;
-			var editSubCountWarehouse3=0;
+			var editSubCount3=0;
 			
-			var editColor4WarehouseSizeS=0;
-			var editColor4WarehouseSizeM=0;
-			var editColor4WarehouseSizeL=0;
-			var editColor4WarehouseSizeXL=0;
-			var editColor4WarehouseSize2XL=0;
-			var editColor4WarehouseSize3XL=0;
-			var editColor4WarehouseSize4XL=0;
+			var editColor4SizeS=0;
+			var editColor4SizeM=0;
+			var editColor4SizeL=0;
+			var editColor4SizeXL=0;
+			var editColor4Size2XL=0;
+			var editColor4Size3XL=0;
+			var editColor4Size4XL=0;
 			
 			var editColorTotal4=0;
-			var editSubCountWarehouse4=0;
+			var editSubCount4=0;
 			
-			var editColor5WarehouseSizeS=0;
-			var editColor5WarehouseSizeM=0;
-			var editColor5WarehouseSizeL=0;
-			var editColor5WarehouseSizeXL=0;
-			var editColor5WarehouseSize2XL=0;
-			var editColor5WarehouseSize3XL=0;
-			var editColor5WarehouseSize4XL=0;
+			var editColor5SizeS=0;
+			var editColor5SizeM=0;
+			var editColor5SizeL=0;
+			var editColor5SizeXL=0;
+			var editColor5Size2XL=0;
+			var editColor5Size3XL=0;
+			var editColor5Size4XL=0;
 			
 			var editColorTotal5=0;
-			var editSubCountWarehouse5=0;
+			var editSubCount5=0;
 			
-			var editColor6WarehouseSizeS=0;
-			var editColor6WarehouseSizeM=0;
-			var editColor6WarehouseSizeL=0;
-			var editColor6WarehouseSizeXL=0;
-			var editColor6WarehouseSize2XL=0;
-			var editColor6WarehouseSize3XL=0;
-			var editColor6WarehouseSize4XL=0;
+			var editColor6SizeS=0;
+			var editColor6SizeM=0;
+			var editColor6SizeL=0;
+			var editColor6SizeXL=0;
+			var editColor6Size2XL=0;
+			var editColor6Size3XL=0;
+			var editColor6Size4XL=0;
 			
 			var editColorTotal6=0;
-			var editSubCountWarehouse6=0;
+			var editSubCount6=0;
 			
-			var editColor7WarehouseSizeS=0;
-			var editColor7WarehouseSizeM=0;
-			var editColor7WarehouseSizeL=0;
-			var editColor7WarehouseSizeXL=0;
-			var editColor7WarehouseSize2XL=0;
-			var editColor7WarehouseSize3XL=0;
-			var editColor7WarehouseSize4XL=0;
+			var editColor7SizeS=0;
+			var editColor7SizeM=0;
+			var editColor7SizeL=0;
+			var editColor7SizeXL=0;
+			var editColor7Size2XL=0;
+			var editColor7Size3XL=0;
+			var editColor7Size4XL=0;
 			
 			var editColorTotal7=0;
-			var editSubCountWarehouse7=0;
+			var editSubCount7=0;
 			
-			var editColor8WarehouseSizeS=0;
-			var editColor8WarehouseSizeM=0;
-			var editColor8WarehouseSizeL=0;
-			var editColor8WarehouseSizeXL=0;
-			var editColor8WarehouseSize2XL=0;
-			var editColor8WarehouseSize3XL=0;
-			var editColor8WarehouseSize4XL=0;
+			var editColor8SizeS=0;
+			var editColor8SizeM=0;
+			var editColor8SizeL=0;
+			var editColor8SizeXL=0;
+			var editColor8Size2XL=0;
+			var editColor8Size3XL=0;
+			var editColor8Size4XL=0;
 			
 			var editColorTotal8=0;
-			var editSubCountWarehouse8=0;
+			var editSubCount8=0;
 			
-			var editColor9WarehouseSizeS=0;
-			var editColor9WarehouseSizeM=0;
-			var editColor9WarehouseSizeL=0;
-			var editColor9WarehouseSizeXL=0;
-			var editColor9WarehouseSize2XL=0;
-			var editColor9WarehouseSize3XL=0;
-			var editColor9WarehouseSize4XL=0;
+			var editColor9SizeS=0;
+			var editColor9SizeM=0;
+			var editColor9SizeL=0;
+			var editColor9SizeXL=0;
+			var editColor9Size2XL=0;
+			var editColor9Size3XL=0;
+			var editColor9Size4XL=0;
 			
 			var editColorTotal9=0;
-			var editSubCountWarehouse9=0;
+			var editSubCount9=0;
 			
-			var editColor10WarehouseSizeS=0;
-			var editColor10WarehouseSizeM=0;
-			var editColor10WarehouseSizeL=0;
-			var editColor10WarehouseSizeXL=0;
-			var editColor10WarehouseSize2XL=0;
-			var editColor10WarehouseSize3XL=0;
-			var editColor10WarehouseSize4XL=0;
+			var editColor10SizeS=0;
+			var editColor10SizeM=0;
+			var editColor10SizeL=0;
+			var editColor10SizeXL=0;
+			var editColor10Size2XL=0;
+			var editColor10Size3XL=0;
+			var editColor10Size4XL=0;
 			
 			var editColorTotal10=0;
-			var editSubCountWarehouse10=0;
+			var editSubCount10=0;
 			
-			var editTotalWarehouse= req.body.editCountWarehouse;
+			var editTotal= req.body.editCount;
 	}
 	
 	//FT
@@ -613,238 +609,236 @@ router.post("/", (req, res, next) => {
 
 	var hasSizesEdit=req.body.hasSizesEdit;
 	var editNumColors=req.body.editNumSubStyles;
-	
-	var inWarehouseEdit = req.body.inWarehouseEdit;
 			
-			var editWarehouseSizeS=0;
-			var editWarehouseSizeM=0;
-			var editWarehouseSizeL=0;
-			var editWarehouseSizeXL=0;
-			var editWarehouseSize2XL=0;
-			var editWarehouseSize3XL=0;
-			var editWarehouseSize4XL=0;
+			var editSizeS=0;
+			var editSizeM=0;
+			var editSizeL=0;
+			var editSizeXL=0;
+			var editSize2XL=0;
+			var editSize3XL=0;
+			var editSize4XL=0;
 			
 			if(styleIndex>=1)
 			{		
 				var editColorCode1=req.body.editColor1;
 				var editColorTotal1= req.body.editColorTotal1;
-				var editSubCountWarehouse1= req.body.editSubCountWarehouse1;
+				var editSubCount1= req.body.editSubCount1;
 			}
 			
 			else
 			{
 				var editColorCode1="";
 				var editColorTotal1=0;
-				var editSubCountWarehouse1=0;
+				var editSubCount1=0;
 			}
 			
 			if(styleIndex>=2)
 			{			
 				var editColorCode2=req.body.editColor2;
 				var editColorTotal2= req.body.editColorTotal2;
-				var editSubCountWarehouse2= req.body.editSubCountWarehouse2;
+				var editSubCount2= req.body.editSubCount2;
 			}
 			
 			else
 			{
 				var editColorCode2="";
 				var editColorTotal2=0;
-				var editSubCountWarehouse2=0;
+				var editSubCount2=0;
 			}
 			
 			if(styleIndex>=3)
 			{				
 				var editColorCode3=req.body.editColor3;
 				var editColorTotal3= req.body.editColorTotal3;
-				var editSubCountWarehouse3= req.body.editSubCountWarehouse3;
+				var editSubCount3= req.body.editSubCount3;
 			}
 			
 			else
 			{
 				var editColorCode3="";
 				var editColorTotal3=0;
-				var editSubCountWarehouse3=0;
+				var editSubCount3=0;
 			}
 			
 			if(styleIndex>=4)
 			{				
 				var editColorCode4=req.body.editColor4;
 				var editColorTotal4= req.body.editColorTotal4;
-				var editSubCountWarehouse4= req.body.editSubCountWarehouse4;
+				var editSubCount4= req.body.editSubCount4;
 			}
 			
 			else
 			{
 				var editColorCode4="";
 				var editColorTotal4=0;
-				var editSubCountWarehouse4=0;
+				var editSubCount4=0;
 			}
 			
 			if(styleIndex>=5)
 			{				
 				var editColorCode5=req.body.editColor5;
 				var editColorTotal5= req.body.editColorTotal5;
-				var editSubCountWarehouse5= req.body.editSubCountWarehouse5;
+				var editSubCount5= req.body.editSubCount5;
 			}
 			
 			else
 			{
 				var editColorCode5="";
 				var editColorTotal5=0;
-				var editSubCountWarehouse5=0;
+				var editSubCount5=0;
 			}
 			
 			if(styleIndex>=6)
 			{				
 				var editColorCode6=req.body.editColor6;
 				var editColorTotal6= req.body.editColorTotal6;
-				var editSubCountWarehouse6= req.body.editSubCountWarehouse6;
+				var editSubCount6= req.body.editSubCount6;
 			}
 			
 			else
 			{
 				var editColorCode6="";
 				var editColorTotal6=0;
-				var editSubCountWarehouse6=0;
+				var editSubCount6=0;
 			}
 			
 			if(styleIndex>=7)
 			{				
 				var editColorCode7=req.body.editColor7;
 				var editColorTotal7= req.body.editColorTotal7;
-				var editSubCountWarehouse7= req.body.editSubCountWarehouse7;
+				var editSubCount7= req.body.editSubCount7;
 			}
 			
 			else
 			{
 				var editColorCode7="";
 				var editColorTotal7=0;
-				var editSubCountWarehouse7=0;
+				var editSubCount7=0;
 			}
 			
 			if(styleIndex>=8)
 			{				
 				var editColorCode8=req.body.editColor8;
 				var editColorTotal8= req.body.editColorTotal8;
-				var editSubCountWarehouse8= req.body.editSubCountWarehouse8;
+				var editSubCount8= req.body.editSubCount8;
 			}
 			
 			else
 			{
 				var editColorCode8="";
 				var editColorTotal8=0;
-				var editSubCountWarehouse8=0;
+				var editSubCount8=0;
 			}
 			
 			if(styleIndex>=9)
 			{				
 				var editColorCode9=req.body.editColor9;
 				var editColorTotal9= req.body.editColorTotal9;
-				var editSubCountWarehouse9= req.body.editSubCountWarehouse9;
+				var editSubCount9= req.body.editSubCount9;
 			}
 			
 			else
 			{
 				var editColorCode9="";
 				var editColorTotal9=0;
-				var editSubCountWarehouse9=0;
+				var editSubCount9=0;
 			}
 			
 			if(styleIndex>=10)
 			{				
 				var editColorCode10=req.body.editColor10;
 				var editColorTotal10= req.body.editColorTotal10;
-				var editSubCountWarehouse10= req.body.editSubCountWarehouse10;
+				var editSubCount10= req.body.editSubCount10;
 			}
 			
 			else
 			{
 				var editColorCode10="";
 				var editColorTotal10=0;
-				var editSubCountWarehouse10=0;
+				var editSubCount10=0;
 			}
 			
-			var editColor1WarehouseSizeS=0;
-			var editColor1WarehouseSizeM=0;
-			var editColor1WarehouseSizeL=0;
-			var editColor1WarehouseSizeXL=0;
-			var editColor1WarehouseSize2XL=0;
-			var editColor1WarehouseSize3XL=0;
-			var editColor1WarehouseSize4XL=0;
+			var editColor1SizeS=0;
+			var editColor1SizeM=0;
+			var editColor1SizeL=0;
+			var editColor1SizeXL=0;
+			var editColor1Size2XL=0;
+			var editColor1Size3XL=0;
+			var editColor1Size4XL=0;
 
-			var editColor2WarehouseSizeS=0;
-			var editColor2WarehouseSizeM=0;
-			var editColor2WarehouseSizeL=0;
-			var editColor2WarehouseSizeXL=0;
-			var editColor2WarehouseSize2XL=0;
-			var editColor2WarehouseSize3XL=0;
-			var editColor2WarehouseSize4XL=0;
+			var editColor2SizeS=0;
+			var editColor2SizeM=0;
+			var editColor2SizeL=0;
+			var editColor2SizeXL=0;
+			var editColor2Size2XL=0;
+			var editColor2Size3XL=0;
+			var editColor2Size4XL=0;
 			
-			var editColor3WarehouseSizeS=0;
-			var editColor3WarehouseSizeM=0;
-			var editColor3WarehouseSizeL=0;
-			var editColor3WarehouseSizeXL=0;
-			var editColor3WarehouseSize2XL=0;
-			var editColor3WarehouseSize3XL=0;
-			var editColor3WarehouseSize4XL=0;
+			var editColor3SizeS=0;
+			var editColor3SizeM=0;
+			var editColor3SizeL=0;
+			var editColor3SizeXL=0;
+			var editColor3Size2XL=0;
+			var editColor3Size3XL=0;
+			var editColor3Size4XL=0;
 			
-			var editColor4WarehouseSizeS=0;
-			var editColor4WarehouseSizeM=0;
-			var editColor4WarehouseSizeL=0;
-			var editColor4WarehouseSizeXL=0;
-			var editColor4WarehouseSize2XL=0;
-			var editColor4WarehouseSize3XL=0;
-			var editColor4WarehouseSize4XL=0;
+			var editColor4SizeS=0;
+			var editColor4SizeM=0;
+			var editColor4SizeL=0;
+			var editColor4SizeXL=0;
+			var editColor4Size2XL=0;
+			var editColor4Size3XL=0;
+			var editColor4Size4XL=0;
 
-			var editColor5WarehouseSizeS=0;
-			var editColor5WarehouseSizeM=0;
-			var editColor5WarehouseSizeL=0;
-			var editColor5WarehouseSizeXL=0;
-			var editColor5WarehouseSize2XL=0;
-			var editColor5WarehouseSize3XL=0;
-			var editColor5WarehouseSize4XL=0;
+			var editColor5SizeS=0;
+			var editColor5SizeM=0;
+			var editColor5SizeL=0;
+			var editColor5SizeXL=0;
+			var editColor5Size2XL=0;
+			var editColor5Size3XL=0;
+			var editColor5Size4XL=0;
 			
-			var editColor6WarehouseSizeS=0;
-			var editColor6WarehouseSizeM=0;
-			var editColor6WarehouseSizeL=0;
-			var editColor6WarehouseSizeXL=0;
-			var editColor6WarehouseSize2XL=0;
-			var editColor6WarehouseSize3XL=0;
-			var editColor6WarehouseSize4XL=0;
+			var editColor6SizeS=0;
+			var editColor6SizeM=0;
+			var editColor6SizeL=0;
+			var editColor6SizeXL=0;
+			var editColor6Size2XL=0;
+			var editColor6Size3XL=0;
+			var editColor6Size4XL=0;
 			
-			var editColor7WarehouseSizeS=0;
-			var editColor7WarehouseSizeM=0;
-			var editColor7WarehouseSizeL=0;
-			var editColor7WarehouseSizeXL=0;
-			var editColor7WarehouseSize2XL=0;
-			var editColor7WarehouseSize3XL=0;
-			var editColor7WarehouseSize4XL=0;
+			var editColor7SizeS=0;
+			var editColor7SizeM=0;
+			var editColor7SizeL=0;
+			var editColor7SizeXL=0;
+			var editColor7Size2XL=0;
+			var editColor7Size3XL=0;
+			var editColor7Size4XL=0;
 			
-			var editColor8WarehouseSizeS=0;
-			var editColor8WarehouseSizeM=0;
-			var editColor8WarehouseSizeL=0;
-			var editColor8WarehouseSizeXL=0;
-			var editColor8WarehouseSize2XL=0;
-			var editColor8WarehouseSize3XL=0;
-			var editColor8WarehouseSize4XL=0;
+			var editColor8SizeS=0;
+			var editColor8SizeM=0;
+			var editColor8SizeL=0;
+			var editColor8SizeXL=0;
+			var editColor8Size2XL=0;
+			var editColor8Size3XL=0;
+			var editColor8Size4XL=0;
 			
-			var editColor9WarehouseSizeS=0;
-			var editColor9WarehouseSizeM=0;
-			var editColor9WarehouseSizeL=0;
-			var editColor9WarehouseSizeXL=0;
-			var editColor9WarehouseSize2XL=0;
-			var editColor9WarehouseSize3XL=0;
-			var editColor9WarehouseSize4XL=0;
+			var editColor9SizeS=0;
+			var editColor9SizeM=0;
+			var editColor9SizeL=0;
+			var editColor9SizeXL=0;
+			var editColor9Size2XL=0;
+			var editColor9Size3XL=0;
+			var editColor9Size4XL=0;
 			
-			var editColor10WarehouseSizeS=0;
-			var editColor10WarehouseSizeM=0;
-			var editColor10WarehouseSizeL=0;
-			var editColor10WarehouseSizeXL=0;
-			var editColor10WarehouseSize2XL=0;
-			var editColor10WarehouseSize3XL=0;
-			var editColor10WarehouseSize4XL=0;
+			var editColor10SizeS=0;
+			var editColor10SizeM=0;
+			var editColor10SizeL=0;
+			var editColor10SizeXL=0;
+			var editColor10Size2XL=0;
+			var editColor10Size3XL=0;
+			var editColor10Size4XL=0;
 			
-			var editTotalWarehouse= req.body.editCountWarehouse;
+			var editTotal= req.body.editCount;
 	}
 	
 	//FF
@@ -853,16 +847,14 @@ router.post("/", (req, res, next) => {
 
 	var hasSizesEdit=req.body.hasSizesEdit;
 	var editNumColors=0;
-
-	var inWarehouseEdit = req.body.inWarehouseEdit;
 			
-			var editWarehouseSizeS=0;
-			var editWarehouseSizeM=0;
-			var editWarehouseSizeL=0;
-			var editWarehouseSizeXL=0;
-			var editWarehouseSize2XL=0;
-			var editWarehouseSize3XL=0;
-			var editWarehouseSize4XL=0;
+			var editSizeS=0;
+			var editSizeM=0;
+			var editSizeL=0;
+			var editSizeXL=0;
+			var editSize2XL=0;
+			var editSize3XL=0;
+			var editSize4XL=0;
 			
 			var editColorCode1="";
 			var editColorCode2="";
@@ -875,117 +867,117 @@ router.post("/", (req, res, next) => {
 			var editColorCode9="";
 			var editColorCode10="";
 			
-			var editColor1WarehouseSizeS=0;
-			var editColor1WarehouseSizeM=0;
-			var editColor1WarehouseSizeL=0;
-			var editColor1WarehouseSizeXL=0;
-			var editColor1WarehouseSize2XL=0;
-			var editColor1WarehouseSize3XL=0;
-			var editColor1WarehouseSize4XL=0;
+			var editColor1SizeS=0;
+			var editColor1SizeM=0;
+			var editColor1SizeL=0;
+			var editColor1SizeXL=0;
+			var editColor1Size2XL=0;
+			var editColor1Size3XL=0;
+			var editColor1Size4XL=0;
 			
 			var editColorTotal1=0;
-			var editSubCountWarehouse1=0;
+			var editSubCount1=0;
 			
-			var editColor2WarehouseSizeS=0;
-			var editColor2WarehouseSizeM=0;
-			var editColor2WarehouseSizeL=0;
-			var editColor2WarehouseSizeXL=0;
-			var editColor2WarehouseSize2XL=0;
-			var editColor2WarehouseSize3XL=0;
-			var editColor2WarehouseSize4XL=0;
+			var editColor2SizeS=0;
+			var editColor2SizeM=0;
+			var editColor2SizeL=0;
+			var editColor2SizeXL=0;
+			var editColor2Size2XL=0;
+			var editColor2Size3XL=0;
+			var editColor2Size4XL=0;
 			
 			var editColorTotal2=0;
-			var editSubCountWarehouse2=0;
+			var editSubCount2=0;
 			
-			var editColor3WarehouseSizeS=0;
-			var editColor3WarehouseSizeM=0;
-			var editColor3WarehouseSizeL=0;
-			var editColor3WarehouseSizeXL=0;
-			var editColor3WarehouseSize2XL=0;
-			var editColor3WarehouseSize3XL=0;
-			var editColor3WarehouseSize4XL=0;
+			var editColor3SizeS=0;
+			var editColor3SizeM=0;
+			var editColor3SizeL=0;
+			var editColor3SizeXL=0;
+			var editColor3Size2XL=0;
+			var editColor3Size3XL=0;
+			var editColor3Size4XL=0;
 			
 			var editColorTotal3=0;
-			var editSubCountWarehouse3=0;
+			var editSubCount3=0;
 			
-			var editColor4WarehouseSizeS=0;
-			var editColor4WarehouseSizeM=0;
-			var editColor4WarehouseSizeL=0;
-			var editColor4WarehouseSizeXL=0;
-			var editColor4WarehouseSize2XL=0;
-			var editColor4WarehouseSize3XL=0;
-			var editColor4WarehouseSize4XL=0;
+			var editColor4SizeS=0;
+			var editColor4SizeM=0;
+			var editColor4SizeL=0;
+			var editColor4SizeXL=0;
+			var editColor4Size2XL=0;
+			var editColor4Size3XL=0;
+			var editColor4Size4XL=0;
 			
 			var editColorTotal4=0;
-			var editSubCountWarehouse4=0;
+			var editSubCount4=0;
 			
-			var editColor5WarehouseSizeS=0;
-			var editColor5WarehouseSizeM=0;
-			var editColor5WarehouseSizeL=0;
-			var editColor5WarehouseSizeXL=0;
-			var editColor5WarehouseSize2XL=0;
-			var editColor5WarehouseSize3XL=0;
-			var editColor5WarehouseSize4XL=0;
+			var editColor5SizeS=0;
+			var editColor5SizeM=0;
+			var editColor5SizeL=0;
+			var editColor5SizeXL=0;
+			var editColor5Size2XL=0;
+			var editColor5Size3XL=0;
+			var editColor5Size4XL=0;
 			
 			var editColorTotal5=0;
-			var editSubCountWarehouse5=0;
+			var editSubCount5=0;
 			
-			var editColor6WarehouseSizeS=0;
-			var editColor6WarehouseSizeM=0;
-			var editColor6WarehouseSizeL=0;
-			var editColor6WarehouseSizeXL=0;
-			var editColor6WarehouseSize2XL=0;
-			var editColor6WarehouseSize3XL=0;
-			var editColor6WarehouseSize4XL=0;
+			var editColor6SizeS=0;
+			var editColor6SizeM=0;
+			var editColor6SizeL=0;
+			var editColor6SizeXL=0;
+			var editColor6Size2XL=0;
+			var editColor6Size3XL=0;
+			var editColor6Size4XL=0;
 			
 			var editColorTotal6=0;
-			var editSubCountWarehouse6=0;
+			var editSubCount6=0;
 			
-			var editColor7WarehouseSizeS=0;
-			var editColor7WarehouseSizeM=0;
-			var editColor7WarehouseSizeL=0;
-			var editColor7WarehouseSizeXL=0;
-			var editColor7WarehouseSize2XL=0;
-			var editColor7WarehouseSize3XL=0;
-			var editColor7WarehouseSize4XL=0;
+			var editColor7SizeS=0;
+			var editColor7SizeM=0;
+			var editColor7SizeL=0;
+			var editColor7SizeXL=0;
+			var editColor7Size2XL=0;
+			var editColor7Size3XL=0;
+			var editColor7Size4XL=0;
 			
 			var editColorTotal7=0;
-			var editSubCountWarehouse7=0;
+			var editSubCount7=0;
 
-			var editColor8WarehouseSizeS=0;
-			var editColor8WarehouseSizeM=0;
-			var editColor8WarehouseSizeL=0;
-			var editColor8WarehouseSizeXL=0;
-			var editColor8WarehouseSize2XL=0;
-			var editColor8WarehouseSize3XL=0;
-			var editColor8WarehouseSize4XL=0;
+			var editColor8SizeS=0;
+			var editColor8SizeM=0;
+			var editColor8SizeL=0;
+			var editColor8SizeXL=0;
+			var editColor8Size2XL=0;
+			var editColor8Size3XL=0;
+			var editColor8Size4XL=0;
 			
 			var editColorTotal8=0;
-			var editSubCountWarehouse8=0;
+			var editSubCount8=0;
 			
-			var editColor9WarehouseSizeS=0;
-			var editColor9WarehouseSizeM=0;
-			var editColor9WarehouseSizeL=0;
-			var editColor9WarehouseSizeXL=0;
-			var editColor9WarehouseSize2XL=0;
-			var editColor9WarehouseSize3XL=0;
-			var editColor9WarehouseSize4XL=0;
+			var editColor9SizeS=0;
+			var editColor9SizeM=0;
+			var editColor9SizeL=0;
+			var editColor9SizeXL=0;
+			var editColor9Size2XL=0;
+			var editColor9Size3XL=0;
+			var editColor9Size4XL=0;
 			
 			var editColorTotal9=0;
-			var editSubCountWarehouse9=0;
+			var editSubCount9=0;
 			
-			var editColor10WarehouseSizeS=0;
-			var editColor10WarehouseSizeM=0;
-			var editColor10WarehouseSizeL=0;
-			var editColor10WarehouseSizeXL=0;
-			var editColor10WarehouseSize2XL=0;
-			var editColor10WarehouseSize3XL=0;
-			var editColor10WarehouseSize4XL=0;
+			var editColor10SizeS=0;
+			var editColor10SizeM=0;
+			var editColor10SizeL=0;
+			var editColor10SizeXL=0;
+			var editColor10Size2XL=0;
+			var editColor10Size3XL=0;
+			var editColor10Size4XL=0;
 			
 			var editColorTotal10=0;
-			var editSubCountWarehouse10=0;
+			var editSubCount10=0;
 			
-			var editTotalWarehouse= req.body.editCountWarehouse;
+			var editTotal= req.body.editCount;
 	}
 	
     console.log("routes function");
@@ -1019,13 +1011,13 @@ router.post("/", (req, res, next) => {
 			'salePrice3XL': editSalePrice3XL,
 			'salePrice4XL': editSalePrice4XL,
 		
-			'WarehouseSizeS': editWarehouseSizeS,
-			'WarehouseSizeM': editWarehouseSizeM,
-			'WarehouseSizeL': editWarehouseSizeL,
-			'WarehouseSizeXL': editWarehouseSizeXL,
-			'WarehouseSize2XL': editWarehouseSize2XL,
-			'WarehouseSize3XL': editWarehouseSize3XL,
-			'WarehouseSize4XL': editWarehouseSize4XL,
+			'SizeS': editSizeS,
+			'SizeM': editSizeM,
+			'SizeL': editSizeL,
+			'SizeXL': editSizeXL,
+			'Size2XL': editSize2XL,
+			'Size3XL': editSize3XL,
+			'Size4XL': editSize4XL,
 
 			'colorCode1': editColorCode1,
 			'colorCode2': editColorCode2,
@@ -1038,118 +1030,118 @@ router.post("/", (req, res, next) => {
 			'colorCode9': editColorCode9,
 			'colorCode10': editColorCode10,
 			
-			'color1WarehouseSizeS':editColor1WarehouseSizeS,
-			'color1WarehouseSizeM':editColor1WarehouseSizeM,
-			'color1WarehouseSizeL':editColor1WarehouseSizeL,
-			'color1WarehouseSizeXL':editColor1WarehouseSizeXL,
-			'color1WarehouseSize2XL':editColor1WarehouseSize2XL,
-			'color1WarehouseSize3XL':editColor1WarehouseSize3XL,
-			'color1WarehouseSize4XL':editColor1WarehouseSize4XL,
+			'color1SizeS':editColor1SizeS,
+			'color1SizeM':editColor1SizeM,
+			'color1SizeL':editColor1SizeL,
+			'color1SizeXL':editColor1SizeXL,
+			'color1Size2XL':editColor1Size2XL,
+			'color1Size3XL':editColor1Size3XL,
+			'color1Size4XL':editColor1Size4XL,
 			
 			'color1Total': editColorTotal1,
-			'color1WarehouseTotal': editSubCountWarehouse1,
+			'color1Total': editSubCount1,
 			
-			'color2WarehouseSizeS':editColor2WarehouseSizeS,
-			'color2WarehouseSizeM':editColor2WarehouseSizeM,
-			'color2WarehouseSizeL':editColor2WarehouseSizeL,
-			'color2WarehouseSizeXL':editColor2WarehouseSizeXL,
-			'color2WarehouseSize2XL':editColor2WarehouseSize2XL,
-			'color2WarehouseSize3XL':editColor2WarehouseSize3XL,
-			'color2WarehouseSize4XL':editColor2WarehouseSize4XL,
+			'color2SizeS':editColor2SizeS,
+			'color2SizeM':editColor2SizeM,
+			'color2SizeL':editColor2SizeL,
+			'color2SizeXL':editColor2SizeXL,
+			'color2Size2XL':editColor2Size2XL,
+			'color2Size3XL':editColor2Size3XL,
+			'color2Size4XL':editColor2Size4XL,
 			
 			'color2Total': editColorTotal2,
-			'color2WarehouseTotal': editSubCountWarehouse2,
+			'color2Total': editSubCount2,
 			
-			'color3WarehouseSizeS':editColor3WarehouseSizeS,
-			'color3WarehouseSizeM':editColor3WarehouseSizeM,
-			'color3WarehouseSizeL':editColor3WarehouseSizeL,
-			'color3WarehouseSizeXL':editColor3WarehouseSizeXL,
-			'color3WarehouseSize2XL':editColor3WarehouseSize2XL,
-			'color3WarehouseSize3XL':editColor3WarehouseSize3XL,
-			'color3WarehouseSize4XL':editColor3WarehouseSize4XL,
+			'color3SizeS':editColor3SizeS,
+			'color3SizeM':editColor3SizeM,
+			'color3SizeL':editColor3SizeL,
+			'color3SizeXL':editColor3SizeXL,
+			'color3Size2XL':editColor3Size2XL,
+			'color3Size3XL':editColor3Size3XL,
+			'color3Size4XL':editColor3Size4XL,
 			
 			'color3Total': editColorTotal3,
-			'color3WarehouseTotal': editSubCountWarehouse3,
+			'color3Total': editSubCount3,
 		
-			'color4WarehouseSizeS':editColor4WarehouseSizeS,
-			'color4WarehouseSizeM':editColor4WarehouseSizeM,
-			'color4WarehouseSizeL':editColor4WarehouseSizeL,
-			'color4WarehouseSizeXL':editColor4WarehouseSizeXL,
-			'color4WarehouseSize2XL':editColor4WarehouseSize2XL,
-			'color4WarehouseSize3XL':editColor4WarehouseSize3XL,
-			'color4WarehouseSize4XL':editColor4WarehouseSize4XL,
+			'color4SizeS':editColor4SizeS,
+			'color4SizeM':editColor4SizeM,
+			'color4SizeL':editColor4SizeL,
+			'color4SizeXL':editColor4SizeXL,
+			'color4Size2XL':editColor4Size2XL,
+			'color4Size3XL':editColor4Size3XL,
+			'color4Size4XL':editColor4Size4XL,
 			
 			'color4Total': editColorTotal4,
-			'color4WarehouseTotal': editSubCountWarehouse4,
+			'color4Total': editSubCount4,
 
-			'color5WarehouseSizeS':editColor5WarehouseSizeS,
-			'color5WarehouseSizeM':editColor5WarehouseSizeM,
-			'color5WarehouseSizeL':editColor5WarehouseSizeL,
-			'color5WarehouseSizeXL':editColor5WarehouseSizeXL,
-			'color5WarehouseSize2XL':editColor5WarehouseSize2XL,
-			'color5WarehouseSize3XL':editColor5WarehouseSize3XL,
-			'color5WarehouseSize4XL':editColor5WarehouseSize4XL,
+			'color5SizeS':editColor5SizeS,
+			'color5SizeM':editColor5SizeM,
+			'color5SizeL':editColor5SizeL,
+			'color5SizeXL':editColor5SizeXL,
+			'color5Size2XL':editColor5Size2XL,
+			'color5Size3XL':editColor5Size3XL,
+			'color5Size4XL':editColor5Size4XL,
 
 			'color5Total': editColorTotal5,
-			'color5WarehouseTotal': editSubCountWarehouse5,
+			'color5Total': editSubCount5,
 
-			'color6WarehouseSizeS':editColor6WarehouseSizeS,
-			'color6WarehouseSizeM':editColor6WarehouseSizeM,
-			'color6WarehouseSizeL':editColor6WarehouseSizeL,
-			'color6WarehouseSizeXL':editColor6WarehouseSizeXL,
-			'color6WarehouseSize2XL':editColor6WarehouseSize2XL,
-			'color6WarehouseSize3XL':editColor6WarehouseSize3XL,
-			'color6WarehouseSize4XL':editColor6WarehouseSize4XL,
+			'color6SizeS':editColor6SizeS,
+			'color6SizeM':editColor6SizeM,
+			'color6SizeL':editColor6SizeL,
+			'color6SizeXL':editColor6SizeXL,
+			'color6Size2XL':editColor6Size2XL,
+			'color6Size3XL':editColor6Size3XL,
+			'color6Size4XL':editColor6Size4XL,
 			
 			'color6Total': editColorTotal6,
-			'color6WarehouseTotal': editSubCountWarehouse6,
+			'color6Total': editSubCount6,
 			
-			'color7WarehouseSizeS':editColor7WarehouseSizeS,
-			'color7WarehouseSizeM':editColor7WarehouseSizeM,
-			'color7WarehouseSizeL':editColor7WarehouseSizeL,
-			'color7WarehouseSizeXL':editColor7WarehouseSizeXL,
-			'color7WarehouseSize2XL':editColor7WarehouseSize2XL,
-			'color7WarehouseSize3XL':editColor7WarehouseSize3XL,
-			'color7WarehouseSize4XL':editColor7WarehouseSize4XL,
+			'color7SizeS':editColor7SizeS,
+			'color7SizeM':editColor7SizeM,
+			'color7SizeL':editColor7SizeL,
+			'color7SizeXL':editColor7SizeXL,
+			'color7Size2XL':editColor7Size2XL,
+			'color7Size3XL':editColor7Size3XL,
+			'color7Size4XL':editColor7Size4XL,
 			
 			'color7Total': editColorTotal7,
-			'color7WarehouseTotal': editSubCountWarehouse7,
+			'color7Total': editSubCount7,
 		
-			'color8WarehouseSizeS':editColor8WarehouseSizeS,
-			'color8WarehouseSizeM':editColor8WarehouseSizeM,
-			'color8WarehouseSizeL':editColor8WarehouseSizeL,
-			'color8WarehouseSizeXL':editColor8WarehouseSizeXL,
-			'color8WarehouseSize2XL':editColor8WarehouseSize2XL,
-			'color8WarehouseSize3XL':editColor8WarehouseSize3XL,
-			'color8WarehouseSize4XL':editColor8WarehouseSize4XL,
+			'color8SizeS':editColor8SizeS,
+			'color8SizeM':editColor8SizeM,
+			'color8SizeL':editColor8SizeL,
+			'color8SizeXL':editColor8SizeXL,
+			'color8Size2XL':editColor8Size2XL,
+			'color8Size3XL':editColor8Size3XL,
+			'color8Size4XL':editColor8Size4XL,
 			
 			'color8Total': editColorTotal8,
-			'color8WarehouseTotal': editSubCountWarehouse8,
+			'color8Total': editSubCount8,
 			
-			'color9WarehouseSizeS':editColor9WarehouseSizeS,
-			'color9WarehouseSizeM':editColor9WarehouseSizeM,
-			'color9WarehouseSizeL':editColor9WarehouseSizeL,
-			'color9WarehouseSizeXL':editColor9WarehouseSizeXL,
-			'color9WarehouseSize2XL':editColor9WarehouseSize2XL,
-			'color9WarehouseSize3XL':editColor9WarehouseSize3XL,
-			'color9WarehouseSize4XL':editColor9WarehouseSize4XL,
+			'color9SizeS':editColor9SizeS,
+			'color9SizeM':editColor9SizeM,
+			'color9SizeL':editColor9SizeL,
+			'color9SizeXL':editColor9SizeXL,
+			'color9Size2XL':editColor9Size2XL,
+			'color9Size3XL':editColor9Size3XL,
+			'color9Size4XL':editColor9Size4XL,
 			
 			'color9Total': editColorTotal9,
-			'color9WarehouseTotal': editSubCountWarehouse9,
+			'color9Total': editSubCount9,
 
-			'color10WarehouseSizeS':editColor10WarehouseSizeS,
-			'color10WarehouseSizeM':editColor10WarehouseSizeS,
-			'color10WarehouseSizeL':editColor10WarehouseSizeL,
-			'color10WarehouseSizeXL':editColor10WarehouseSizeXL,
-			'color10WarehouseSize2XL':editColor10WarehouseSize2XL,
-			'color10WarehouseSize3XL':editColor10WarehouseSize3XL,
-			'color10WarehouseSize4XL':editColor10WarehouseSize4XL,
+			'color10SizeS':editColor10SizeS,
+			'color10SizeM':editColor10SizeS,
+			'color10SizeL':editColor10SizeL,
+			'color10SizeXL':editColor10SizeXL,
+			'color10Size2XL':editColor10Size2XL,
+			'color10Size3XL':editColor10Size3XL,
+			'color10Size4XL':editColor10Size4XL,
 
 			'color10Total': editColorTotal10,
-			'color10WarehouseTotal': editSubCountWarehouse10,
+			'color10Total': editSubCount10,
 
-			'inWarehouse': inWarehouseEdit,
-			'totalWarehouse': editTotalWarehouse,
+			'in': inEdit,
+			'total': editTotal,
 		})
 			.exec()
 			.then(doc => {

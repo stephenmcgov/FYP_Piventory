@@ -1,10 +1,12 @@
 /*eslint-env jquery*/
 
 //add store to system
+// REMOVE
+
 $(document).ready(
     function() 
     {
-        $("#newStoreForm").submit(function (event) 
+        /*$("#newStoreForm").submit(function (event) 
         {
             event.preventDefault();
             $.ajax(
@@ -30,7 +32,7 @@ $(document).ready(
                     )
                 }
             });
-        });
+        });*/
 	
         $.ajax(
         {

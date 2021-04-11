@@ -4,6 +4,7 @@ var styleIndex = 0;
 $(document).ready(
     function () {
 		//DELETE PRODUCT METHOD
+		/* ! REQUIRES VALIDATION ! */
 		$("#deleteForm").submit(function (event) {
             event.preventDefault();
             $.ajax({
@@ -32,6 +33,7 @@ $(document).ready(
 		*/
 		
         /*code for finding 1 product in catalogue with a name*/
+		/* ! REQUIRES VALIDATION ! */
         $("#nameSearch").submit(function (event) {
             event.preventDefault();
             $.ajax({
@@ -181,6 +183,7 @@ $(document).ready(
         });
 
         /*code for finding products in catalogue with a category*/
+		/* ! REQUIRES VALIDATION ! */
         $("#categorySearch").submit(function (event) {
             event.preventDefault();
             $.ajax({
@@ -330,6 +333,7 @@ $(document).ready(
         });
 		
 		/*code for finding products in catalogue with a storeName*/
+		/*
         $("#storeSearch").submit(function (event) {
             event.preventDefault();
             $.ajax({
@@ -476,7 +480,7 @@ $(document).ready(
                     console.log(errMsg);
                 }
             });
-        });
+        });*/
 		
 		/*
 		*
@@ -485,6 +489,7 @@ $(document).ready(
 		*/
 		
 		/*code for finding 1 product in management with a name*/
+		/* ! REQURIES VALIDATION ! */
         $("#nameSearchB").submit(function (event) {
             event.preventDefault();
             $.ajax({
@@ -592,12 +597,6 @@ $(document).ready(
 						document.getElementById("editCategory").value = data[i].category;
 						document.getElementById("editDescription").value = data[i].description;
 						
-						if(data[i].inWarehouse=="on")
-							$("#inWarehouseEdit").prop("checked", true);
-						
-						else
-							$("#inWarehouseEdit").prop("checked", false);
-						
 						if(data[i].hasSizes=="on")
 							$("#hasSizesEdit").prop("checked", true);
 						
@@ -610,11 +609,11 @@ $(document).ready(
 						else
 							$("#hasColorsEdit").prop("checked", false);
 						
-						document.getElementById("editCountWarehouse").value = data[i].totalWarehouse;
+						document.getElementById("editCount").value = data[i].total;
 						
 						if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==false)
 						{
-							document.getElementById("editShowWarehouseSizes").style.display =  "none";
+							document.getElementById("editShowSizes").style.display =  "none";
 							document.getElementById("editAddSubStyle").style.display = "none";
 							document.getElementById("editSubStyleMenu").style.display = "none";
 						}
@@ -623,18 +622,15 @@ $(document).ready(
 						{
 							document.getElementById("editAddSubStyle").style.display = "none";
 							document.getElementById("editSubStyleMenu").style.display = "none";
-							
-							if($('#inWarehouseEdit').prop('checked')==true)
-							{
-								document.getElementById("editShowWarehouseSizes").style.display =  "block";
-								document.getElementById("editWarehouseSizeS").value =  data[i].WarehouseSizeS;
-								document.getElementById("editWarehouseSizeM").value =  data[i].WarehouseSizeM;
-								document.getElementById("editWarehouseSizeL").value =  data[i].WarehouseSizeL;
-								document.getElementById("editWarehouseSizeXL").value =  data[i].WarehouseSizeXL;
-								document.getElementById("editWarehouseSize2XL").value =  data[i].WarehouseSize2XL;
-								document.getElementById("editWarehouseSize3XL").value =  data[i].WarehouseSize3XL;
-								document.getElementById("editWarehouseSize4XL").value =  data[i].WarehouseSize4XL;
-							}
+
+								document.getElementById("editShowSizes").style.display =  "block";
+								document.getElementById("editSizeS").value =  data[i].SizeS;
+								document.getElementById("editSizeM").value =  data[i].SizeM;
+								document.getElementById("editSizeL").value =  data[i].SizeL;
+								document.getElementById("editSizeXL").value =  data[i].SizeXL;
+								document.getElementById("editSize2XL").value =  data[i].Size2XL;
+								document.getElementById("editSize3XL").value =  data[i].Size3XL;
+								document.getElementById("editSize4XL").value =  data[i].Size4XL;
 						}
 						
 						if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==true)
@@ -653,9 +649,9 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal1' id='editColorTotal1' value='"+data[i].color1Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse1'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse1' id='editSubCountWarehouse1' value='"+data[i].color1WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub1'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount1' id='editSubCount1' value='"+data[i].color1Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
@@ -672,9 +668,9 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal2' id='editColorTotal2' value='"+data[i].color2Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse2'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse2' id='editSubCountWarehouse2' value='"+data[i].color2WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub2'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount2' id='editSubCount2' value='"+data[i].color2Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
@@ -691,9 +687,9 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal3' id='editColorTotal3' value='"+data[i].color3Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse3'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse3' id='editSubCountWarehouse3' value='"+data[i].color3WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub3'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount3' id='editSubCount3' value='"+data[i].color3Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
@@ -710,9 +706,9 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal4' id='editColorTotal4' value='"+data[i].color4Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse4'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse4' id='editSubCountWarehouse4' value='"+data[i].color4WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub4'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount4' id='editSubCount4' value='"+data[i].color4Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
@@ -729,9 +725,9 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal5' id='editColorTotal5' value='"+data[i].color5Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse5'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse5' id='editSubCountWarehouse5' value='"+data[i].color5WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub5'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount5' id='editSubCount5' value='"+data[i].color5Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
@@ -748,9 +744,9 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal6' id='editColorTotal6' value='"+data[i].color6Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse6'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse6' id='editSubCountWarehouse6' value='"+data[i].color6WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub6'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount6' id='editSubCount6' value='"+data[i].color6Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
@@ -767,9 +763,9 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal7' id='editColorTotal7' value='"+data[i].color7Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse7'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse7' id='editSubCountWarehouse7' value='"+data[i].color7WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub7'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount7' id='editSubCount7' value='"+data[i].color7Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
@@ -786,9 +782,9 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal8' id='editColorTotal8' value='"+data[i].color8Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse8'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse8' id='editSubCountWarehouse8' value='"+data[i].color8WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub8'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount8' id='editSubCount8' value='"+data[i].color8Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
@@ -805,9 +801,9 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal9' id='editColorTotal9' value='"+data[i].color9Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse9'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse9' id='editSubCountWarehouse9' value='"+data[i].color9WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub9'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount9' id='editSubCount9' value='"+data[i].color9Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
@@ -824,9 +820,9 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal10' id='editColorTotal10' value='"+data[i].color10Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse10'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse10' id='editSubCountWarehouse10' value='"+data[i].color10WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub10'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount10' id='editSubCount10' value='"+data[i].color10Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
@@ -852,23 +848,23 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal1' id='editColorTotal1' value='"+data[i].color1Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse1'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse1' id='editSubCountWarehouse1' value='"+data[i].color1WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub1'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount1' id='editSubCount1' value='"+data[i].color1Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
 								formControl += "<div class='row' id='editSubSizeList1'>"
-								formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes1' style='display: none'>"
-								formControl +=			"<label for='editStoreSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeS1' id='editWarehouseSizeS1' value='"+data[i].color1WarehouseSizeS+"' onchange='updateEditTotals()'><label for='editWarehouseSizeS1'>:S</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeM1' id='editWarehouseSizeM1' value='"+data[i].color1WarehouseSizeM+"' onchange='updateEditTotals()'><label for='editWarehouseSizeM1'>:M</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeL1' id='editWarehouseSizeL1' value='"+data[i].color1WarehouseSizeL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeL1'>:L</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeXL1' id='editWarehouseSizeXL1' value='"+data[i].color1WarehouseSizeXL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeXL1'>:XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize2XL1' id='editWarehouseSize2XL1' value='"+data[i].color1WarehouseSize2XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize2XL1'>:2XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize3XL1' id='editWarehouseSize3XL1' value='"+data[i].color1WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL1'>:3XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize4XL1' id='editWarehouseSize4XL1' value='"+data[i].color1WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL1'>:4XL</label><br>"
+								formControl +=		"<div class='col-sm-3' id='editShowSizes1' style='display: none'>"
+								formControl +=			"<label for='editStoreSizes' class='control-label'> Sizes</label><br>"
+								formControl +=			"<input type='text' name='editSizeS1' id='editSizeS1' value='"+data[i].color1SizeS+"' onchange='updateEditTotals()'><label for='editSizeS1'>:S</label><br>"
+								formControl +=			"<input type='text' name='editSizeM1' id='editSizeM1' value='"+data[i].color1SizeM+"' onchange='updateEditTotals()'><label for='editSizeM1'>:M</label><br>"
+								formControl +=			"<input type='text' name='editSizeL1' id='editSizeL1' value='"+data[i].color1SizeL+"' onchange='updateEditTotals()'><label for='editSizeL1'>:L</label><br>"
+								formControl +=			"<input type='text' name='editSizeXL1' id='editSizeXL1' value='"+data[i].color1SizeXL+"' onchange='updateEditTotals()'><label for='editSizeXL1'>:XL</label><br>"
+								formControl +=			"<input type='text' name='editSize2XL1' id='editSize2XL1' value='"+data[i].color1Size2XL+"' onchange='updateEditTotals()'><label for='editSize2XL1'>:2XL</label><br>"
+								formControl +=			"<input type='text' name='editSize3XL1' id='editSize3XL1' value='"+data[i].color1Size3XL+"' onchange='updateEditTotals()'><label for='editSize3XL1'>:3XL</label><br>"
+								formControl +=			"<input type='text' name='editSize4XL1' id='editSize4XL1' value='"+data[i].color1Size4XL+"' onchange='updateEditTotals()'><label for='editSize4XL1'>:4XL</label><br>"
 								formControl +=		"</div>"
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
@@ -893,23 +889,23 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal2' id='editColorTotal2' value='"+data[i].color2Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse2'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse2' id='editSubCountWarehouse2' value='"+data[i].color2WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub2'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount2' id='editSubCount2' value='"+data[i].color2Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
 								formControl += "<div class='row' id='editSubSizeList2'>"
-								formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes2' style='display: none'>"
-								formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeS2' id='editWarehouseSizeS2' value='"+data[i].color2WarehouseSizeS+"' onchange='updateEditTotals()'><label for='editWarehouseSizeS2'>:S</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeM2' id='editWarehouseSizeM2' value='"+data[i].color2WarehouseSizeM+"' onchange='updateEditTotals()'><label for='editWarehouseSizeM2'>:M</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeL2' id='editWarehouseSizeL2' value='"+data[i].color2WarehouseSizeL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeL2'>:L</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeXL2' id='editWarehouseSizeXL2' value='"+data[i].color2WarehouseSizeXL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeXL2'>:XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize2XL2' id='editWarehouseSize2XL2' value='"+data[i].color2WarehouseSize2XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize2XL2'>:2XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize3XL2' id='editWarehouseSize3XL2' value='"+data[i].color2WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL2'>:3XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize4XL2' id='editWarehouseSize4XL2' value='"+data[i].color2WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL2'>:4XL</label><br>"
+								formControl +=		"<div class='col-sm-3' id='editShowSizes2' style='display: none'>"
+								formControl +=			"<label for='storeSizes' class='control-label'> Sizes</label><br>"
+								formControl +=			"<input type='text' name='editSizeS2' id='editSizeS2' value='"+data[i].color2SizeS+"' onchange='updateEditTotals()'><label for='editSizeS2'>:S</label><br>"
+								formControl +=			"<input type='text' name='editSizeM2' id='editSizeM2' value='"+data[i].color2SizeM+"' onchange='updateEditTotals()'><label for='editSizeM2'>:M</label><br>"
+								formControl +=			"<input type='text' name='editSizeL2' id='editSizeL2' value='"+data[i].color2SizeL+"' onchange='updateEditTotals()'><label for='editSizeL2'>:L</label><br>"
+								formControl +=			"<input type='text' name='editSizeXL2' id='editSizeXL2' value='"+data[i].color2SizeXL+"' onchange='updateEditTotals()'><label for='editSizeXL2'>:XL</label><br>"
+								formControl +=			"<input type='text' name='editSize2XL2' id='editSize2XL2' value='"+data[i].color2Size2XL+"' onchange='updateEditTotals()'><label for='editSize2XL2'>:2XL</label><br>"
+								formControl +=			"<input type='text' name='editSize3XL2' id='editSize3XL2' value='"+data[i].color2Size3XL+"' onchange='updateEditTotals()'><label for='editSize3XL2'>:3XL</label><br>"
+								formControl +=			"<input type='text' name='editSize4XL2' id='editSize4XL2' value='"+data[i].color2Size4XL+"' onchange='updateEditTotals()'><label for='editSize4XL2'>:4XL</label><br>"
 								formControl +=		"</div>"
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
@@ -934,23 +930,23 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal3' id='editColorTotal3' value='"+data[i].color3Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse3'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse3' id='editSubCountWarehouse3' value='"+data[i].color3WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub3'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount3' id='editSubCount3' value='"+data[i].color3Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
 								formControl += "<div class='row' id='editSubSizeList3'>"
-								formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes3' style='display: none'>"
-								formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeS3' id='editWarehouseSizeS3' value='"+data[i].color3WarehouseSizeS+"' onchange='updateEditTotals()'><label for='editWarehouseSizeS3'>:S</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeM3' id='editWarehouseSizeM3' value='"+data[i].color3WarehouseSizeM+"' onchange='updateEditTotals()'><label for='editWarehouseSizeM3'>:M</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeL3' id='editWarehouseSizeL3' value='"+data[i].color3WarehouseSizeL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeL3'>:L</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeXL3' id='editWarehouseSizeXL3' value='"+data[i].color3WarehouseSizeXL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeXL3'>:XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize2XL3' id='editWarehouseSize2XL3' value='"+data[i].color3WarehouseSize2XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize2XL3'>:2XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize3XL3' id='editWarehouseSize3XL3' value='"+data[i].color3WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL3'>:3XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize4XL3' id='editWarehouseSize4XL3' value='"+data[i].color3WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL3'>:4XL</label><br>"
+								formControl +=		"<div class='col-sm-3' id='editShowSizes3' style='display: none'>"
+								formControl +=			"<label for='storeSizes' class='control-label'> Sizes</label><br>"
+								formControl +=			"<input type='text' name='editSizeS3' id='editSizeS3' value='"+data[i].color3SizeS+"' onchange='updateEditTotals()'><label for='editSizeS3'>:S</label><br>"
+								formControl +=			"<input type='text' name='editSizeM3' id='editSizeM3' value='"+data[i].color3SizeM+"' onchange='updateEditTotals()'><label for='editSizeM3'>:M</label><br>"
+								formControl +=			"<input type='text' name='editSizeL3' id='editSizeL3' value='"+data[i].color3SizeL+"' onchange='updateEditTotals()'><label for='editSizeL3'>:L</label><br>"
+								formControl +=			"<input type='text' name='editSizeXL3' id='editSizeXL3' value='"+data[i].color3SizeXL+"' onchange='updateEditTotals()'><label for='editSizeXL3'>:XL</label><br>"
+								formControl +=			"<input type='text' name='editSize2XL3' id='editSize2XL3' value='"+data[i].color3Size2XL+"' onchange='updateEditTotals()'><label for='editSize2XL3'>:2XL</label><br>"
+								formControl +=			"<input type='text' name='editSize3XL3' id='editSize3XL3' value='"+data[i].color3Size3XL+"' onchange='updateEditTotals()'><label for='editSize3XL3'>:3XL</label><br>"
+								formControl +=			"<input type='text' name='editSize4XL3' id='editSize4XL3' value='"+data[i].color3Size4XL+"' onchange='updateEditTotals()'><label for='editSize4XL3'>:4XL</label><br>"
 								formControl +=		"</div>"
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
@@ -975,23 +971,23 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal4' id='editColorTotal4' value='"+data[i].color4Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse4'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse4' id='editSubCountWarehouse4' value='"+data[i].color4WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub4'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount4' id='editSubCount4' value='"+data[i].color4Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
 								formControl += "<div class='row' id='editSubSizeList4'>"
-								formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes4' style='display: none'>"
-								formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeS4' id='editWarehouseSizeS4' value='"+data[i].color4WarehouseSizeS+"' onchange='updateEditTotals()'><label for='editWarehouseSizeS4'>:S</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeM4' id='editWarehouseSizeM4' value='"+data[i].color4WarehouseSizeM+"' onchange='updateEditTotals()'><label for='editWarehouseSizeM4'>:M</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeL4' id='editWarehouseSizeL4' value='"+data[i].color4WarehouseSizeL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeL4'>:L</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeXL4' id='editWarehouseSizeXL4' value='"+data[i].color4WarehouseSizeXL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeXL4'>:XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize2XL4' id='editWarehouseSize2XL4' value='"+data[i].color4WarehouseSize2XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize2XL4'>:2XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize3XL4' id='editWarehouseSize3XL4' value='"+data[i].color4WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL4'>:3XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize4XL4' id='editWarehouseSize4XL4' value='"+data[i].color4WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL4'>:4XL</label><br>"
+								formControl +=		"<div class='col-sm-3' id='editShowSizes4' style='display: none'>"
+								formControl +=			"<label for='storeSizes' class='control-label'> Sizes</label><br>"
+								formControl +=			"<input type='text' name='editSizeS4' id='editSizeS4' value='"+data[i].color4SizeS+"' onchange='updateEditTotals()'><label for='editSizeS4'>:S</label><br>"
+								formControl +=			"<input type='text' name='editSizeM4' id='editSizeM4' value='"+data[i].color4SizeM+"' onchange='updateEditTotals()'><label for='editSizeM4'>:M</label><br>"
+								formControl +=			"<input type='text' name='editSizeL4' id='editSizeL4' value='"+data[i].color4SizeL+"' onchange='updateEditTotals()'><label for='editSizeL4'>:L</label><br>"
+								formControl +=			"<input type='text' name='editSizeXL4' id='editSizeXL4' value='"+data[i].color4SizeXL+"' onchange='updateEditTotals()'><label for='editSizeXL4'>:XL</label><br>"
+								formControl +=			"<input type='text' name='editSize2XL4' id='editSize2XL4' value='"+data[i].color4Size2XL+"' onchange='updateEditTotals()'><label for='editSize2XL4'>:2XL</label><br>"
+								formControl +=			"<input type='text' name='editSize3XL4' id='editSize3XL4' value='"+data[i].color4Size3XL+"' onchange='updateEditTotals()'><label for='editSize3XL4'>:3XL</label><br>"
+								formControl +=			"<input type='text' name='editSize4XL4' id='editSize4XL4' value='"+data[i].color4Size4XL+"' onchange='updateEditTotals()'><label for='editSize4XL4'>:4XL</label><br>"
 								formControl +=		"</div>"
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
@@ -1016,23 +1012,23 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal5' id='editColorTotal5' value='"+data[i].color5Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse5'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse5' id='editSubCountWarehouse5' value='"+data[i].color5WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub5'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount5' id='editSubCount5' value='"+data[i].color5Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
 								formControl += "<div class='row' id='editSubSizeList5'>"
-								formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes5' style='display: none'>"
-								formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeS5' id='editWarehouseSizeS5' value='"+data[i].color5WarehouseSizeS+"' onchange='updateEditTotals()'><label for='editWarehouseSizeS5'>:S</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeM5' id='editWarehouseSizeM5' value='"+data[i].color5WarehouseSizeM+"' onchange='updateEditTotals()'><label for='editWarehouseSizeM5'>:M</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeL5' id='editWarehouseSizeL5' value='"+data[i].color5WarehouseSizeL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeL5'>:L</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeXL5' id='editWarehouseSizeXL5' value='"+data[i].color5WarehouseSizeXL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeXL5'>:XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize2XL5' id='editWarehouseSize2XL5' value='"+data[i].color5WarehouseSize2XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize2XL5'>:2XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize3XL5' id='editWarehouseSize3XL5' value='"+data[i].color5WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL5'>:3XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize4XL5' id='editWarehouseSize4XL5' value='"+data[i].color5WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL5'>:4XL</label><br>"
+								formControl +=		"<div class='col-sm-3' id='editShowSizes5' style='display: none'>"
+								formControl +=			"<label for='storeSizes' class='control-label'> Sizes</label><br>"
+								formControl +=			"<input type='text' name='editSizeS5' id='editSizeS5' value='"+data[i].color5SizeS+"' onchange='updateEditTotals()'><label for='editSizeS5'>:S</label><br>"
+								formControl +=			"<input type='text' name='editSizeM5' id='editSizeM5' value='"+data[i].color5SizeM+"' onchange='updateEditTotals()'><label for='editSizeM5'>:M</label><br>"
+								formControl +=			"<input type='text' name='editSizeL5' id='editSizeL5' value='"+data[i].color5SizeL+"' onchange='updateEditTotals()'><label for='editSizeL5'>:L</label><br>"
+								formControl +=			"<input type='text' name='editSizeXL5' id='editSizeXL5' value='"+data[i].color5SizeXL+"' onchange='updateEditTotals()'><label for='editSizeXL5'>:XL</label><br>"
+								formControl +=			"<input type='text' name='editSize2XL5' id='editSize2XL5' value='"+data[i].color5Size2XL+"' onchange='updateEditTotals()'><label for='editSize2XL5'>:2XL</label><br>"
+								formControl +=			"<input type='text' name='editSize3XL5' id='editSize3XL5' value='"+data[i].color5Size3XL+"' onchange='updateEditTotals()'><label for='editSize3XL5'>:3XL</label><br>"
+								formControl +=			"<input type='text' name='editSize4XL5' id='editSize4XL5' value='"+data[i].color5Size4XL+"' onchange='updateEditTotals()'><label for='editSize4XL5'>:4XL</label><br>"
 								formControl +=		"</div>"
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
@@ -1057,23 +1053,23 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal6' id='editColorTotal6' value='"+data[i].color6Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse6'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse6' id='editSubCountWarehouse6' value='"+data[i].color6WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub6'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount6' id='editSubCount6' value='"+data[i].color6Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
 								formControl += "<div class='row' id='editSubSizeList6'>"
-								formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes6' style='display: none'>"
-								formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeS6' id='editWarehouseSizeS6' value='"+data[i].color6WarehouseSizeS+"' onchange='updateEditTotals()'><label for='editWarehouseSizeS6'>:S</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeM6' id='editWarehouseSizeM6' value='"+data[i].color6WarehouseSizeM+"' onchange='updateEditTotals()'><label for='editWarehouseSizeM6'>:M</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeL6' id='editWarehouseSizeL6' value='"+data[i].color6WarehouseSizeL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeL6'>:L</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeXL6' id='editWarehouseSizeXL6' value='"+data[i].color6WarehouseSizeXL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeXL6'>:XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize2XL6' id='editWarehouseSize2XL6' value='"+data[i].color6WarehouseSize2XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize2XL6'>:2XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize3XL6' id='editWarehouseSize3XL6' value='"+data[i].color6WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL6'>:3XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize4XL6' id='editWarehouseSize4XL6' value='"+data[i].color6WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL6'>:4XL</label><br>"
+								formControl +=		"<div class='col-sm-3' id='editShowSizes6' style='display: none'>"
+								formControl +=			"<label for='storeSizes' class='control-label'> Sizes</label><br>"
+								formControl +=			"<input type='text' name='editSizeS6' id='editSizeS6' value='"+data[i].color6SizeS+"' onchange='updateEditTotals()'><label for='editSizeS6'>:S</label><br>"
+								formControl +=			"<input type='text' name='editSizeM6' id='editSizeM6' value='"+data[i].color6SizeM+"' onchange='updateEditTotals()'><label for='editSizeM6'>:M</label><br>"
+								formControl +=			"<input type='text' name='editSizeL6' id='editSizeL6' value='"+data[i].color6SizeL+"' onchange='updateEditTotals()'><label for='editSizeL6'>:L</label><br>"
+								formControl +=			"<input type='text' name='editSizeXL6' id='editSizeXL6' value='"+data[i].color6SizeXL+"' onchange='updateEditTotals()'><label for='editSizeXL6'>:XL</label><br>"
+								formControl +=			"<input type='text' name='editSize2XL6' id='editSize2XL6' value='"+data[i].color6Size2XL+"' onchange='updateEditTotals()'><label for='editSize2XL6'>:2XL</label><br>"
+								formControl +=			"<input type='text' name='editSize3XL6' id='editSize3XL6' value='"+data[i].color6Size3XL+"' onchange='updateEditTotals()'><label for='editSize3XL6'>:3XL</label><br>"
+								formControl +=			"<input type='text' name='editSize4XL6' id='editSize4XL6' value='"+data[i].color6Size4XL+"' onchange='updateEditTotals()'><label for='editSize4XL6'>:4XL</label><br>"
 								formControl +=		"</div>"
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
@@ -1098,23 +1094,23 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal7' id='editColorTotal7' value='"+data[i].color7Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse7'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse7' id='editSubCountWarehouse7' value='"+data[i].color7WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub7'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount7' id='editSubCount7' value='"+data[i].color7Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
 								formControl += "<div class='row' id='editSubSizeList7'>"
-								formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes7' style='display: none'>"
-								formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeS7' id='editWarehouseSizeS7' value='"+data[i].color7WarehouseSizeS+"' onchange='updateEditTotals()'><label for='editWarehouseSizeS7'>:S</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeM7' id='editWarehouseSizeM7' value='"+data[i].color7WarehouseSizeM+"' onchange='updateEditTotals()'><label for='editWarehouseSizeM7'>:M</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeL7' id='editWarehouseSizeL7' value='"+data[i].color7WarehouseSizeL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeL7'>:L</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeXL7' id='editWarehouseSizeXL7' value='"+data[i].color7WarehouseSizeXL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeXL7'>:XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize2XL7' id='editWarehouseSize2XL7' value='"+data[i].color7WarehouseSize2XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize2XL7'>:2XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize3XL7' id='editWarehouseSize3XL7' value='"+data[i].color7WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL7'>:3XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize4XL7' id='editWarehouseSize4XL7' value='"+data[i].color7WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL7'>:4XL</label><br>"
+								formControl +=		"<div class='col-sm-3' id='editShowSizes7' style='display: none'>"
+								formControl +=			"<label for='storeSizes' class='control-label'> Sizes</label><br>"
+								formControl +=			"<input type='text' name='editSizeS7' id='editSizeS7' value='"+data[i].color7SizeS+"' onchange='updateEditTotals()'><label for='editSizeS7'>:S</label><br>"
+								formControl +=			"<input type='text' name='editSizeM7' id='editSizeM7' value='"+data[i].color7SizeM+"' onchange='updateEditTotals()'><label for='editSizeM7'>:M</label><br>"
+								formControl +=			"<input type='text' name='editSizeL7' id='editSizeL7' value='"+data[i].color7SizeL+"' onchange='updateEditTotals()'><label for='editSizeL7'>:L</label><br>"
+								formControl +=			"<input type='text' name='editSizeXL7' id='editSizeXL7' value='"+data[i].color7SizeXL+"' onchange='updateEditTotals()'><label for='editSizeXL7'>:XL</label><br>"
+								formControl +=			"<input type='text' name='editSize2XL7' id='editSize2XL7' value='"+data[i].color7Size2XL+"' onchange='updateEditTotals()'><label for='editSize2XL7'>:2XL</label><br>"
+								formControl +=			"<input type='text' name='editSize3XL7' id='editSize3XL7' value='"+data[i].color7Size3XL+"' onchange='updateEditTotals()'><label for='editSize3XL7'>:3XL</label><br>"
+								formControl +=			"<input type='text' name='editSize4XL7' id='editSize4XL7' value='"+data[i].color7Size4XL+"' onchange='updateEditTotals()'><label for='editSize4XL7'>:4XL</label><br>"
 								formControl +=		"</div>"
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
@@ -1139,23 +1135,23 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal8' id='editColorTotal8' value='"+data[i].color8Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse8'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse8' id='editSubCountWarehouse8' value='"+data[i].color8WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub8'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount8' id='editSubCount8' value='"+data[i].color8Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
 								formControl += "<div class='row' id='editSubSizeList8'>"
-								formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes8' style='display: none'>"
-								formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeS8' id='editWarehouseSizeS8' value='"+data[i].color8WarehouseSizeS+"' onchange='updateEditTotals()'><label for='editWarehouseSizeS8'>:S</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeM8' id='editWarehouseSizeM8' value='"+data[i].color8WarehouseSizeM+"' onchange='updateEditTotals()'><label for='editWarehouseSizeM8'>:M</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeL8' id='editWarehouseSizeL8' value='"+data[i].color8WarehouseSizeL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeL8'>:L</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeXL8' id='editWarehouseSizeXL8' value='"+data[i].color8WarehouseSizeXL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeXL8'>:XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize2XL8' id='editWarehouseSize2XL8' value='"+data[i].color8WarehouseSize2XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize2XL8'>:2XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize3XL8' id='editWarehouseSize3XL8' value='"+data[i].color8WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL8'>:3XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize4XL8' id='editWarehouseSize4XL8' value='"+data[i].color8WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL8'>:4XL</label><br>"
+								formControl +=		"<div class='col-sm-3' id='editShowSizes8' style='display: none'>"
+								formControl +=			"<label for='storeSizes' class='control-label'> Sizes</label><br>"
+								formControl +=			"<input type='text' name='editSizeS8' id='editSizeS8' value='"+data[i].color8SizeS+"' onchange='updateEditTotals()'><label for='editSizeS8'>:S</label><br>"
+								formControl +=			"<input type='text' name='editSizeM8' id='editSizeM8' value='"+data[i].color8SizeM+"' onchange='updateEditTotals()'><label for='editSizeM8'>:M</label><br>"
+								formControl +=			"<input type='text' name='editSizeL8' id='editSizeL8' value='"+data[i].color8SizeL+"' onchange='updateEditTotals()'><label for='editSizeL8'>:L</label><br>"
+								formControl +=			"<input type='text' name='editSizeXL8' id='editSizeXL8' value='"+data[i].color8SizeXL+"' onchange='updateEditTotals()'><label for='editSizeXL8'>:XL</label><br>"
+								formControl +=			"<input type='text' name='editSize2XL8' id='editSize2XL8' value='"+data[i].color8Size2XL+"' onchange='updateEditTotals()'><label for='editSize2XL8'>:2XL</label><br>"
+								formControl +=			"<input type='text' name='editSize3XL8' id='editSize3XL8' value='"+data[i].color8Size3XL+"' onchange='updateEditTotals()'><label for='editSize3XL8'>:3XL</label><br>"
+								formControl +=			"<input type='text' name='editSize4XL8' id='editSize4XL8' value='"+data[i].color8Size4XL+"' onchange='updateEditTotals()'><label for='editSize4XL8'>:4XL</label><br>"
 								formControl +=		"</div>"
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
@@ -1180,23 +1176,23 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal9' id='editColorTotal9' value='"+data[i].color9Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse9'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse9' id='editSubCountWarehouse9' value='"+data[i].color9WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub9'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount9' id='editSubCount9' value='"+data[i].color9Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
 								formControl += "<div class='row' id='editSubSizeList9'>"
-								formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes9' style='display: none'>"
-								formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeS9' id='editWarehouseSizeS9' value='"+data[i].color9WarehouseSizeS+"' onchange='updateEditTotals()'><label for='editWarehouseSizeS9'>:S</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeM9' id='editWarehouseSizeM9' value='"+data[i].color9WarehouseSizeM+"' onchange='updateEditTotals()'><label for='editWarehouseSizeM9'>:M</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeL9' id='editWarehouseSizeL9' value='"+data[i].color9WarehouseSizeL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeL9'>:L</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeXL9' id='editWarehouseSizeXL9' value='"+data[i].color9WarehouseSizeXL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeXL9'>:XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize2XL9' id='editWarehouseSize2XL9' value='"+data[i].color9WarehouseSize2XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize2XL9'>:2XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize3XL9' id='editWarehouseSize3XL9' value='"+data[i].color9WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL9'>:3XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize4XL9' id='editWarehouseSize4XL9' value='"+data[i].color9WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL9'>:4XL</label><br>"
+								formControl +=		"<div class='col-sm-3' id='editShowSizes9' style='display: none'>"
+								formControl +=			"<label for='storeSizes' class='control-label'> Sizes</label><br>"
+								formControl +=			"<input type='text' name='editSizeS9' id='editSizeS9' value='"+data[i].color9SizeS+"' onchange='updateEditTotals()'><label for='editSizeS9'>:S</label><br>"
+								formControl +=			"<input type='text' name='editSizeM9' id='editSizeM9' value='"+data[i].color9SizeM+"' onchange='updateEditTotals()'><label for='editSizeM9'>:M</label><br>"
+								formControl +=			"<input type='text' name='editSizeL9' id='editSizeL9' value='"+data[i].color9SizeL+"' onchange='updateEditTotals()'><label for='editSizeL9'>:L</label><br>"
+								formControl +=			"<input type='text' name='editSizeXL9' id='editSizeXL9' value='"+data[i].color9SizeXL+"' onchange='updateEditTotals()'><label for='editSizeXL9'>:XL</label><br>"
+								formControl +=			"<input type='text' name='editSize2XL9' id='editSize2XL9' value='"+data[i].color9Size2XL+"' onchange='updateEditTotals()'><label for='editSize2XL9'>:2XL</label><br>"
+								formControl +=			"<input type='text' name='editSize3XL9' id='editSize3XL9' value='"+data[i].color9Size3XL+"' onchange='updateEditTotals()'><label for='editSize3XL9'>:3XL</label><br>"
+								formControl +=			"<input type='text' name='editSize4XL9' id='editSize4XL9' value='"+data[i].color9Size4XL+"' onchange='updateEditTotals()'><label for='editSize4XL9'>:4XL</label><br>"
 								formControl +=		"</div>"
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
@@ -1221,23 +1217,23 @@ $(document).ready(
 								formControl += "<div class='col-sm-2'>"
 								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal10' id='editColorTotal10' value='"+data[i].color10Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSubWarehouse10'>"
-								formControl += "<p>Warehouse</p>"
-								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse10' id='editSubCountWarehouse10' value='"+data[i].color10WarehouseTotal+"' onchange='updateEditTotals()'>"
+								formControl += "<div class='col-sm-2' id='editShowSub10'>"
+								formControl += "<p>Total</p>"
+								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount10' id='editSubCount10' value='"+data[i].color10Total+"' onchange='updateEditTotals()'>"
 								formControl += "</div>"
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
 								formControl += "<div class='row' id='editSubSizeList10'>"
-								formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes10' style='display: none'>"
-								formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeS10' id='editWarehouseSizeS10' value='"+data[i].color10WarehouseSizeS+"' onchange='updateEditTotals()'><label for='editWarehouseSizeS10'>:S</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeM10' id='editWarehouseSizeM10' value='"+data[i].color10WarehouseSizeM+"' onchange='updateEditTotals()'><label for='editWarehouseSizeM10'>:M</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeL10' id='editWarehouseSizeL10' value='"+data[i].color10WarehouseSizeL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeL10'>:L</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSizeXL10' id='editWarehouseSizeXL10' value='"+data[i].color10WarehouseSizeXL+"' onchange='updateEditTotals()'><label for='editWarehouseSizeXL10'>:XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize2XL10' id='editWarehouseSize2XL10' value='"+data[i].color10WarehouseSize2XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize2XL10'>:2XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize3XL10' id='editWarehouseSize3XL10' value='"+data[i].color10WarehouseSize3XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize3XL10'>:3XL</label><br>"
-								formControl +=			"<input type='text' name='editWarehouseSize4XL10' id='editWarehouseSize4XL10' value='"+data[i].color10WarehouseSize4XL+"' onchange='updateEditTotals()'><label for='editWarehouseSize4XL10'>:4XL</label><br>"
+								formControl +=		"<div class='col-sm-3' id='editShowSizes10' style='display: none'>"
+								formControl +=			"<label for='storeSizes' class='control-label'> Sizes</label><br>"
+								formControl +=			"<input type='text' name='editSizeS10' id='editSizeS10' value='"+data[i].color10SizeS+"' onchange='updateEditTotals()'><label for='editSizeS10'>:S</label><br>"
+								formControl +=			"<input type='text' name='editSizeM10' id='editSizeM10' value='"+data[i].color10SizeM+"' onchange='updateEditTotals()'><label for='editSizeM10'>:M</label><br>"
+								formControl +=			"<input type='text' name='editSizeL10' id='editSizeL10' value='"+data[i].color10SizeL+"' onchange='updateEditTotals()'><label for='editSizeL10'>:L</label><br>"
+								formControl +=			"<input type='text' name='editSizeXL10' id='editSizeXL10' value='"+data[i].color10SizeXL+"' onchange='updateEditTotals()'><label for='editSizeXL10'>:XL</label><br>"
+								formControl +=			"<input type='text' name='editSize2XL10' id='editSize2XL10' value='"+data[i].color10Size2XL+"' onchange='updateEditTotals()'><label for='editSize2XL10'>:2XL</label><br>"
+								formControl +=			"<input type='text' name='editSize3XL10' id='editSize3XL10' value='"+data[i].color10Size3XL+"' onchange='updateEditTotals()'><label for='editSize3XL10'>:3XL</label><br>"
+								formControl +=			"<input type='text' name='editSize4XL10' id='editSize4XL10' value='"+data[i].color10Size4XL+"' onchange='updateEditTotals()'><label for='editSize4XL10'>:4XL</label><br>"
 								formControl +=		"</div>"
 								formControl +=	"</div>"	
 								formControl +=	"<br>"
@@ -1253,38 +1249,36 @@ $(document).ready(
 							
 							document.getElementById("editSubStyleMenu").innerHTML = formControl;
 							
-							if($('#inWarehouseEdit').prop('checked')==true)
-							{
 								if(styleIndex>=1)
-									document.getElementById("editShowWarehouseSizes1").style.display = "block";
+									document.getElementById("editShowSizes1").style.display = "block";
 									
 								if(styleIndex>=2)
-									document.getElementById("editShowWarehouseSizes2").style.display = "block";
+									document.getElementById("editShowSizes2").style.display = "block";
 									
 								if(styleIndex>=3)
-									document.getElementById("editShowWarehouseSizes3").style.display = "block";
+									document.getElementById("editShowSizes3").style.display = "block";
 									
 								if(styleIndex>=4)
-									document.getElementById("editShowWarehouseSizes4").style.display = "block";
+									document.getElementById("editShowSizes4").style.display = "block";
 									
 								if(styleIndex>=5)
-									document.getElementById("editShowWarehouseSizes5").style.display = "block";
+									document.getElementById("editShowSizes5").style.display = "block";
 									
 								if(styleIndex>=6)
-									document.getElementById("editShowWarehouseSizes6").style.display = "block";
+									document.getElementById("editShowSizes6").style.display = "block";
 									
 								if(styleIndex>=7)
-									document.getElementById("editShowWarehouseSizes7").style.display = "block";
+									document.getElementById("editShowSizes7").style.display = "block";
 									
 								if(styleIndex>=8)
-									document.getElementById("editShowWarehouseSizes8").style.display = "block";
+									document.getElementById("editShowSizes8").style.display = "block";
 									
 								if(styleIndex>=9)
-									document.getElementById("editShowWarehouseSizes9").style.display = "block";
+									document.getElementById("editShowSizes9").style.display = "block";
 									
 								if(styleIndex>=10)
-									document.getElementById("editShowWarehouseSizes10").style.display = "block";
-							}
+									document.getElementById("editShowSizes10").style.display = "block";
+
 							document.getElementById("editSubStyleMenu").style = "block";
 						}
 						
@@ -1310,6 +1304,7 @@ $(document).ready(
     });//doc.rdy
 
 //show image preview in add/edit product field
+/* ! REQUIRES VALIDATION ATTEMPT ! */
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -1377,10 +1372,10 @@ $("#uploadInput").change(function () {
 
 function addEditForm()
 {
-	document.getElementById("editCountWarehouse").value = 0;
-	document.getElementById("editCountCork").value = 0;
+	document.getElementById("editCount").value = 0;
+	/*document.getElementById("editCountCork").value = 0;
 	document.getElementById("editCountKala").value = 0;
-	document.getElementById("editCountGalway").value = 0;
+	document.getElementById("editCountGalway").value = 0;*/
 	styleIndex = parseInt(document.getElementById("editNumSubStyles").value);
 	console.log(styleIndex);
 	
@@ -1396,22 +1391,22 @@ function addEditForm()
 				formControl += "<div class='col-sm-2'>"
 				formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal"+i+"' id='editColorTotal"+i+"' placeholder='0'>"
 				formControl += "</div>"
-				formControl += "<div class='col-sm-2' id='editShowSubWarehouse"+i+"'>"
-				formControl += "<p>Warehouse</p>"
-				formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCountWarehouse"+i+"' id='editSubCountWarehouse"+i+"' value='0' onchange='updateEditTotals()'>"
+				formControl += "<div class='col-sm-2' id='editShowSub"+i+"'>"
+				formControl += "<p></p>"
+				formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount"+i+"' id='editSubCount"+i+"' value='0' onchange='updateEditTotals()'>"
 				formControl += "</div>"
 				formControl += "</div>"
 				formControl += "</div><br>"
 				formControl += "<div class='row' id='editSubSizeList"+i+"'>"
-				formControl +=		"<div class='col-sm-3' id='editShowWarehouseSizes"+i+"' style='display: none'>"
-				formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-				formControl +=			"<input type='text' name='editWarehouseSizeS"+i+"' id='editWarehouseSizeS"+i+"' value='0' onchange='updateEditTotals()'><label for='editWarehouseSizeS"+i+"'>:S</label><br>"
-				formControl +=			"<input type='text' name='editWarehouseSizeM"+i+"' id='editWarehouseSizeM"+i+"' value='0' onchange='updateEditTotals()'><label for='editWarehouseSizeM"+i+"'>:M</label><br>"
-				formControl +=			"<input type='text' name='editWarehouseSizeL"+i+"' id='editWarehouseSizeL"+i+"' value='0' onchange='updateEditTotals()'><label for='editWarehouseSizeL"+i+"'>:L</label><br>"
-				formControl +=			"<input type='text' name='editWarehouseSizeXL"+i+"' id='editWarehouseSizeXL"+i+"' value='0' onchange='updateEditTotals()'><label for='editWarehouseSizeXL"+i+"'>:XL</label><br>"
-				formControl +=			"<input type='text' name='editWarehouseSize2XL"+i+"' id='editWarehouseSize2XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editWarehouseSize2XL"+i+"'>:2XL</label><br>"
-				formControl +=			"<input type='text' name='editWarehouseSize3XL"+i+"' id='editWarehouseSize3XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editWarehouseSize3XL"+i+"'>:3XL</label><br>"
-				formControl +=			"<input type='text' name='editWarehouseSize4XL"+i+"' id='editWarehouseSize4XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editWarehouseSize4XL"+i+"'>:4XL</label><br>"
+				formControl +=		"<div class='col-sm-3' id='editShowSizes"+i+"' style='display: none'>"
+				formControl +=			"<label for='storeSizes' class='control-label'>Sizes</label><br>"
+				formControl +=			"<input type='text' name='editSizeS"+i+"' id='editSizeS"+i+"' value='0' onchange='updateEditTotals()'><label for='editSizeS"+i+"'>:S</label><br>"
+				formControl +=			"<input type='text' name='editSizeM"+i+"' id='editSizeM"+i+"' value='0' onchange='updateEditTotals()'><label for='editSizeM"+i+"'>:M</label><br>"
+				formControl +=			"<input type='text' name='editSizeL"+i+"' id='editSizeL"+i+"' value='0' onchange='updateEditTotals()'><label for='editSizeL"+i+"'>:L</label><br>"
+				formControl +=			"<input type='text' name='editSizeXL"+i+"' id='editSizeXL"+i+"' value='0' onchange='updateEditTotals()'><label for='editSizeXL"+i+"'>:XL</label><br>"
+				formControl +=			"<input type='text' name='editSize2XL"+i+"' id='editSize2XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editSize2XL"+i+"'>:2XL</label><br>"
+				formControl +=			"<input type='text' name='editSize3XL"+i+"' id='editSize3XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editSize3XL"+i+"'>:3XL</label><br>"
+				formControl +=			"<input type='text' name='editSize4XL"+i+"' id='editSize4XL"+i+"' value='0' onchange='updateEditTotals()'><label for='editSize4XL"+i+"'>:4XL</label><br>"
 				formControl +=		"</div>"
 				formControl +=	"</div>"	
 				formControl +=	"<br>"
@@ -1435,7 +1430,7 @@ function controlEditForm()
 	var i=0;
 	var currStyle=0;
 	
-	var editShowSubWarehouse = '';
+	var editShowSub = '';
 
 	if($('#editSinglePrice').value!="on")
 	{
@@ -1587,7 +1582,7 @@ function controlEditForm()
 	
 	if($('#hasColorsEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
 	{
-		document.getElementById("editShowWarehouseSizes").style.display =  "none";
+		document.getElementById("editShowSizes").style.display =  "none";
 	}
 	
 	if($('#hasColorsEdit').prop('checked')==true)
@@ -1598,23 +1593,19 @@ function controlEditForm()
 		{
 			currStyle=i;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
-			var editShowWarehouseSizes = document.getElementById("editShowWarehouseSizes").id + currStyle;
+			var editShowSizes = document.getElementById("editShowSizes").id + currStyle;
 			//var subStyle = document.getElementById("editSubStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("editAddSubStyle").id + currStyle;
 				
 			//document.getElementById(addSubStyle).style.display =  "block";
 			if($('#hasSizesEdit').prop('checked')==true)
 			{
-				if($('#inWarehouseEdit').prop('checked')==true)
-					document.getElementById(editShowWarehouseSizes).style.display =  "block";
-				
-				else if($('#inWarehouseEdit').prop('checked')==false)
-					document.getElementById(editShowWarehouseSizes).style.display =  "none";
+				document.getElementById(editShowSizes).style.display =  "block";
 			}
 				
 			else if($('#hasSizesEdit').prop('checked')==false)
 			{
-				document.getElementById(editShowWarehouseSizes).style.display =  "none";
+				document.getElementById(editShowSizes).style.display =  "none";
 			}
 		}
 			
@@ -1643,66 +1634,49 @@ function controlEditForm()
 		{
 			currStyle=i;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
-			editShowSubWarehouse = document.getElementById("editShowSubWarehouse").id + currStyle;
+			editShowSu = document.getElementById("editShowSub").id + currStyle;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
 			
 			//document.getElementById(addSubStyle).style.display =  "block";
-					
-			if($('#inWarehouseEdit').prop('checked')==true)
-				document.getElementById(editShowSubWarehouse).style.display =  "block";
-				
-			else if($('#inWarehouseEdit').prop('checked')==false)
-				document.getElementById(editShowSubWarehouse).style.display =  "none";
+			document.getElementById(editShowSub).style.display =  "block";
 		}
 	}
 	
 	if($('#hasSizesEdit').prop('checked')==false)
 	{
-		document.getElementById("editShowWarehouseSizes").style.display =  "none";
+		document.getElementById("editShowSizes").style.display =  "none";
 		
 		for(i=1; i<styleIndex+1; i++)
 		{
 			currStyle=i;
-			
-			if($('#inWarehouseEdit').prop('checked')==false)
-			{
-				var editSubCountWarehouse = document.getElementById("editSubCountWarehouse").id + currStyle;
-				document.getElementById(editSubCountWarehouse).value=0;
-			}
+
+			var editSubCount = document.getElementById("editSubCount").id + currStyle;
+			document.getElementById(editSubCount).value=0;
 		}
 		
 		for(i=1; i<styleIndex+1; i++)
 		{
 			currStyle=i;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
-			editShowSubWarehouse = document.getElementById("editShowSubWarehouse").id + currStyle;
+			editShowSub = document.getElementById("editShowSub").id + currStyle;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
 				
 			//document.getElementById(addSubStyle).style.display =  "block";
-					
-			if($('#inWarehouseEdit').prop('checked')==true)
-				document.getElementById(editShowSubWarehouse).style.display =  "block";
-				
-			else if($('#inWarehouseEdit').prop('checked')==false)
-				document.getElementById(editShowSubWarehouse).style.display =  "none";			
+
+			document.getElementById(editShowSub).style.display =  "block";
 		}
 	}
 	
 	if(($('#hasSizesEdit').prop('checked')==true) && ($('#hasColorsEdit').prop('checked')==false))
 	{	
-		if($('#inWarehouseEdit').prop('checked')==true)
-			document.getElementById("editShowWarehouseSizes").style.display =  "block";
-	
-		else if($('#inWarehouseEdit').prop('checked')==false)
-			document.getElementById("editShowWarehouseSizes").style.display =  "none";
+		document.getElementById("editShowSizes").style.display =  "block";
 	}
 	
 	if(($('#hasSizesEdit').prop('checked')==false) && ($('#hasColorsEdit').prop('checked')==false))
 	{
-		if($('#inWarehouseEdit').prop('checked')==false)
-			document.getElementById("editCountWarehouse").value = 0;
+		document.getElementById("editCount").value = 0;
 	}
 
 	updateEditTotals();
@@ -1713,117 +1687,109 @@ function updateEditTotals()
 	var i=0;
 	var currStyle=0;
 
-	var editWarehouseTotal = 0;
+	var editTotal = 0;
 
-	var editCountWarehouseSizeS = 0;
-	var editCountWarehouseSizeM = 0;
-	var editCountWarehouseSizeL = 0;
-	var editCountWarehouseSizeXL = 0;
-	var editCountWarehouseSize2XL = 0;
-	var editCountWarehouseSize3XL = 0;
-	var editCountWarehouseSize4XL = 0;
-	var editWarehouseSizeTotal = 0;
+	var editCountSizeS = 0;
+	var editCountSizeM = 0;
+	var editCountSizeL = 0;
+	var editCountSizeXL = 0;
+	var editCountSize2XL = 0;
+	var editCountSize3XL = 0;
+	var editCountSize4XL = 0;
+	var ediTSizeTotal = 0;
 
-	var editSubCountWarehouse = 0;
-	var editTempTotalWarehouse = 0;
+	var editSubCount = 0;
+	var editTempTotal = 0;
 
 	if($('#hasSizesEdit').prop('checked')==true&&$('#hasColorsEdit').prop('checked')==true)
 	{
-		document.getElementById("editCountWarehouse").value = 0;
+		document.getElementById("editCount").value = 0;
 			
 		for(i=1;i<styleIndex+1;i++)
 		{
 			currStyle = i;
-			editWarehouseTotal = 0;
+			editTotal = 0;
 
-			var editWarehouseSizeS = document.getElementById("editWarehouseSizeS").id + currStyle; 
-			var editWarehouseSizeM = document.getElementById("editWarehouseSizeM").id + currStyle; 
-			var editWarehouseSizeL = document.getElementById("editWarehouseSizeL").id + currStyle; 
-			var editWarehouseSizeXL = document.getElementById("editWarehouseSizeXL").id + currStyle; 
-			var editWarehouseSize2XL = document.getElementById("editWarehouseSize2XL").id + currStyle; 
-			var editWarehouseSize3XL = document.getElementById("editWarehouseSize3XL").id + currStyle; 
-			var editWarehouseSize4XL = document.getElementById("editWarehouseSize4XL").id + currStyle; 
-			editCountWarehouseSizeS = parseInt(document.getElementById(editWarehouseSizeS).value);
-			editCountWarehouseSizeM = parseInt(document.getElementById(editWarehouseSizeM).value);
-			editCountWarehouseSizeL = parseInt(document.getElementById(editWarehouseSizeL).value);
-			editCountWarehouseSizeXL = parseInt(document.getElementById(editWarehouseSizeXL).value);
-			editCountWarehouseSize2XL = parseInt(document.getElementById(editWarehouseSize2XL).value);
-			editCountWarehouseSize3XL = parseInt(document.getElementById(editWarehouseSize3XL).value);
-			editCountWarehouseSize4XL = parseInt(document.getElementById(editWarehouseSize4XL).value);
-			editWarehouseSizeTotal = parseInt(editCountWarehouseSizeS) + parseInt(editCountWarehouseSizeM) + parseInt(editCountWarehouseSizeL) + parseInt(editCountWarehouseSizeXL) + parseInt(editCountWarehouseSize2XL) + parseInt(editCountWarehouseSize3XL) + parseInt(editCountWarehouseSize4XL);
-			editSubCountWarehouse = document.getElementById("editSubCountWarehouse").id + currStyle;
+			var editSizeS = document.getElementById("editSizeS").id + currStyle; 
+			var editSizeM = document.getElementById("editSizeM").id + currStyle; 
+			var editSizeL = document.getElementById("editSizeL").id + currStyle; 
+			var editSizeXL = document.getElementById("editSizeXL").id + currStyle; 
+			var editSize2XL = document.getElementById("editSize2XL").id + currStyle; 
+			var editSize3XL = document.getElementById("editSize3XL").id + currStyle; 
+			var editSize4XL = document.getElementById("editSize4XL").id + currStyle; 
+			editCountSizeS = parseInt(document.getElementById(editSizeS).value);
+			editCountSizeM = parseInt(document.getElementById(editSizeM).value);
+			editCountSizeL = parseInt(document.getElementById(editSizeL).value);
+			editCountSizeXL = parseInt(document.getElementById(editSizeXL).value);
+			editCountSize2XL = parseInt(document.getElementById(editSize2XL).value);
+			editCountSize3XL = parseInt(document.getElementById(editSize3XL).value);
+			editCountSize4XL = parseInt(document.getElementById(editSize4XL).value);
+			editSizeTotal = parseInt(editCountSizeS) + parseInt(editCountSizeM) + parseInt(editCountSizeL) + parseInt(editCountSizeXL) + parseInt(editCountSize2XL) + parseInt(editCountSize3XL) + parseInt(editCountSize4XL);
+			editSubCount = document.getElementById("editSubCount").id + currStyle;
 			
-			if($('#inWarehouseEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
+			if($('#hasSizesEdit').prop('checked')==true)
 			{
-				editWarehouseTotal += parseInt(editWarehouseSizeTotal);
-				document.getElementById(editSubCountWarehouse).value = editWarehouseTotal;
-				document.getElementById("editCountWarehouse").value = parseInt(document.getElementById("editCountWarehouse").value) + parseInt(document.getElementById(editSubCountWarehouse).value);
+				editTotal += parseInt(editSizeTotal);
+				document.getElementById(editSubCount).value = editTotal;
+				document.getElementById("editCount").value = parseInt(document.getElementById("editCount").value) + parseInt(document.getElementById(editSubCount).value);
 			}
 			
-			else if($('#inWarehouseEdit').prop('checked')==false)
-				editWarehouseSizeTotal = 0;
+			else editSizeTotal = 0;
 
 			var editColorTotal = (document.getElementById("editColorTotal").id + currStyle); 
 			//console.log(editColorTotal);
-			document.getElementById(editColorTotal).value = editWarehouseTotal + editCorkTotal + editKalaTotal + editGalwayTotal;
+			document.getElementById(editColorTotal).value = editTotal;
 		}
 	}
 	
 	if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==true)
 	{
-		editTempTotalWarehouse = 0;
+		editTempTotal = 0;
 			
 		for(i=1;i<styleIndex+1;i++)
 		{
 			currStyle = i;
 				
 			editColorTotal = document.getElementById("editColorTotal").id + currStyle;
-			editWarehouseTotal = 0;
+			editTotal = 0;
 				
-			if($('#inWarehouseEdit').prop('checked')==true)
+			if($('#inEdit').prop('checked')==true)
 			{						
-				editSubCountWarehouse = document.getElementById("editSubCountWarehouse").id + currStyle;	
-				editWarehouseTotal = parseInt(document.getElementById(editSubCountWarehouse).value) + editWarehouseTotal;
-				editTempTotalWarehouse = editTempTotalWarehouse + parseInt(document.getElementById(editSubCountWarehouse).value);
+				editSubCount = document.getElementById("editSubCount").id + currStyle;	
+				editTotal = parseInt(document.getElementById(editSubCount).value) + editTotal;
+				editTempTotal = editTempTotal + parseInt(document.getElementById(editSubCount).value);
 			}	
 
-			document.getElementById("editCountWarehouse").value = editTempTotalWarehouse;
+			document.getElementById("editCount").value = editTempTotal;
 
-			document.getElementById(editColorTotal).value = editWarehouseTotal;
+			document.getElementById(editColorTotal).value = editTotal;
 		}
 	}
 		
 	if($('#hasSizesEdit').prop('checked')==true&&$('#hasColorsEdit').prop('checked')==false)
 	{		
-		editWarehouseTotal = 0;
+		editTotal = 0;
 			
-		editCountWarehouseSizeS = parseInt(document.getElementById("editWarehouseSizeS").value);
-		editCountWarehouseSizeM = parseInt(document.getElementById("editWarehouseSizeM").value);
-		editCountWarehouseSizeL = parseInt(document.getElementById("editWarehouseSizeL").value);
-		editCountWarehouseSizeXL = parseInt(document.getElementById("editWarehouseSizeXL").value);
-		editCountWarehouseSize2XL = parseInt(document.getElementById("editWarehouseSize2XL").value);
-		editCountWarehouseSize3XL = parseInt(document.getElementById("editWarehouseSize3XL").value);
-		editCountWarehouseSize4XL = parseInt(document.getElementById("editWarehouseSize4XL").value);
-		editWarehouseSizeTotal = parseInt(editCountWarehouseSizeS) + parseInt(editCountWarehouseSizeM) + parseInt(editCountWarehouseSizeL) + parseInt(editCountWarehouseSizeXL) + parseInt(editCountWarehouseSize2XL) + parseInt(editCountWarehouseSize3XL) + parseInt(editCountWarehouseSize4XL);
+		editCountSizeS = parseInt(document.getElementById("editSizeS").value);
+		editCountSizeM = parseInt(document.getElementById("editSizeM").value);
+		editCountSizeL = parseInt(document.getElementById("editSizeL").value);
+		editCountSizeXL = parseInt(document.getElementById("editSizeXL").value);
+		editCountSize2XL = parseInt(document.getElementById("editSize2XL").value);
+		editCountSize3XL = parseInt(document.getElementById("editSize3XL").value);
+		editCountSize4XL = parseInt(document.getElementById("editSize4XL").value);
+		editSizeTotal = parseInt(editCountSizeS) + parseInt(editCountSizeM) + parseInt(editCountSizeL) + parseInt(editCountSizeXL) + parseInt(editCountSize2XL) + parseInt(editCountSize3XL) + parseInt(editCountSize4XL);
 			
-		if($('#inWarehouseEdit').prop('checked')==true&&$('#hasSizesEdit').prop('checked')==true)
+		if($('#hasSizesEdit').prop('checked')==true)
 		{
-			editWarehouseTotal = parseInt(editWarehouseSizeTotal);
-			document.getElementById("editCountWarehouse").value = editWarehouseTotal;
+			editTotal = parseInt(editSizeTotal);
+			document.getElementById("editCount").value = editTotal;
 		}
-			
-		else if($('#inWarehouseEdit').prop('checked')==false)
-			document.getElementById("editCountWarehouse").value = 0;
-	}
-	
-	if($('#hasColorsEdit').prop('checked')==true&&$('#inWarehouseEdit').prop('checked')==false)
-	{
-		document.getElementById("editCountWarehouse").value = 0;
+
+		else document.getElementById("editCount").value = 0;
 	}
 
 	if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==false)
 	{
-		if($('#inWarehouseEdit').prop('checked')==false)
-			document.getElementById("editCountWarehouse").value = 0;
+		document.getElementById("editCount").value = 0;
 	}
 }

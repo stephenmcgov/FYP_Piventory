@@ -134,7 +134,6 @@ function controlForm()
 		document.getElementById("inputPrice3XL").style.display =  "block";
 		document.getElementById("inputPrice4XL").style.display =  "block";
 		document.getElementById("inputSinglePrice").style.display =  "none";
-		
 	}
 	
 	if($('#multiPrice').prop('checked')==false)
@@ -206,7 +205,7 @@ function controlForm()
 	
 	if($('#hasColors').prop('checked')==true&&$('#hasSizes').prop('checked')==true)
 	{
-		document.getElementById("showWarehouseSizes").style.display =  "none";
+		document.getElementById("showSizes").style.display =  "none";
 	}
 	
 	if($('#hasColors').prop('checked')==true)
@@ -217,17 +216,13 @@ function controlForm()
 		{
 			currStyle=i;
 
-			var showWarehouseSizes = document.getElementById("showWarehouseSizes").id + currStyle;
+			var showSizes = document.getElementById("showSizes").id + currStyle;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
 				
 			if($('#hasSizes').prop('checked')==true)
 			{
-				if($('#inWarehouse').prop('checked')==true)
-					document.getElementById(showWarehouseSizes).style.display =  "block";
-				
-				else if($('#inWarehouse').prop('checked')==false)
-					document.getElementById(showWarehouseSizes).style.display =  "none";
+				document.getElementById(showSizes).style.display =  "block";
 			}
 				
 			else if($('#hasSizes').prop('checked')==false)
@@ -260,58 +255,40 @@ function controlForm()
 		{
 			currStyle=i;
 				
-			showSubWarehouse = document.getElementById("showSubWarehouse").id + currStyle;
-					
-			if($('#inWarehouse').prop('checked')==true)
-				document.getElementById(showSubWarehouse).style.display =  "block";
-				
-			else if($('#inWarehouse').prop('checked')==false)
-				document.getElementById(showSubWarehouse).style.display =  "none";
+			showSubWarehouse = document.getElementById("showSub").id + currStyle;
+			document.getElementById(showSub).style.display =  "block";
 		}
 	}
 	
 	if($('#hasSizes').prop('checked')==false)
 	{
-		document.getElementById("showWarehouseSizes").style.display =  "none";
-		
-		for(i=1; i<styleIndex+1; i++)
-		{
-			currStyle=i;
-			
-			if($('#inWarehouse').prop('checked')==false)
-			{
-				var subCountWarehouse = document.getElementById("subCountWarehouse").id + currStyle;
-				document.getElementById(subCountWarehouse).value=0;
-			}
-		}
+		document.getElementById("showSizes").style.display =  "none";
 		
 		for(i=1; i<styleIndex+1; i++)
 		{
 			currStyle=i;
 
-			showSubWarehouse = document.getElementById("showSubWarehouse").id + currStyle;
-		
-			if($('#inWarehouse').prop('checked')==true)
-				document.getElementById(showSubWarehouse).style.display =  "block";
-				
-			else if($('#inWarehouse').prop('checked')==false)
-				document.getElementById(showSubWarehouse).style.display =  "none";
+			var subCount = document.getElementById("subCount").id + currStyle;
+			document.getElementById(subCount).value=0;
+		}
+
+		for(i=1; i<styleIndex+1; i++)
+		{
+			currStyle=i;
+
+			showSub = document.getElementById("showSub").id + currStyle;
+			document.getElementById(showSub).style.display =  "block";
 		}
 	}
 	
 	if(($('#hasSizes').prop('checked')==true) && ($('#hasColors').prop('checked')==false))
 	{	
-		if($('#inWarehouse').prop('checked')==true)
-			document.getElementById("showWarehouseSizes").style.display =  "block";
-	
-		else if($('#inWarehouse').prop('checked')==false)
-			document.getElementById("showWarehouseSizes").style.display =  "none";
+		document.getElementById("showSizes").style.display =  "block";
 	}
 	
 	if(($('#hasSizes').prop('checked')==false) && ($('#hasColors').prop('checked')==false))
 	{
-		if($('#inWarehouse').prop('checked')==false)
-			document.getElementById("countWarehouse").value = 0;
+		document.getElementById("countTotal").value = 0;
 	}
 	
 	updateTotals();
@@ -319,118 +296,101 @@ function controlForm()
 
 function updateTotals()
 {
-	var subCountWarehouse = 0;
+	/* REPLACE WITH 1 STORE TOTAL & CHANGE CALCS BELOW */
+	var countSizeS = 0;
+	var countSizeM = 0;
+	var countSizeL = 0;
+	var countSizeXL = 0;
+	var countSize2XL = 0;
+	var countSize3XL = 0;
+	var countSize4XL = 0;
 
-	var countWarehouseSizeS = 0;
-	var countWarehouseSizeM = 0;
-	var countWarehouseSizeL = 0;
-	var countWarehouseSizeXL = 0;
-	var countWarehouseSize2XL = 0;
-	var countWarehouseSize3XL = 0;
-	var countWarehouseSize4XL = 0;
-
-	var warehouseSizeTotal = 0;
-	var warehouseTotal = 0;
+	var countTotal = 0;
 
 	if($('#hasSizes').prop('checked')==true&&$('#hasColors').prop('checked')==true)
 	{
-		document.getElementById("countWarehouse").value = 0;
+		document.getElementById("countTotal").value = 0;
 		
 		for(i=1;i<styleIndex+1;i++)
 		{
 			currStyle = i;
-			warehouseTotal = 0;
+			sizeTotal = 0;
+			subCount = 0;
 			
-			var warehouseSizeS = document.getElementById("warehouseSizeS").id + currStyle; 
-			var warehouseSizeM = document.getElementById("warehouseSizeM").id + currStyle; 
-			var warehouseSizeL = document.getElementById("warehouseSizeL").id + currStyle; 
-			var warehouseSizeXL = document.getElementById("warehouseSizeXL").id + currStyle; 
-			var warehouseSize2XL = document.getElementById("warehouseSize2XL").id + currStyle; 
-			var warehouseSize3XL = document.getElementById("warehouseSize3XL").id + currStyle; 
-			var warehouseSize4XL = document.getElementById("warehouseSize4XL").id + currStyle; 
-			countWarehouseSizeS = parseInt(document.getElementById(warehouseSizeS).value);
-			countWarehouseSizeM = parseInt(document.getElementById(warehouseSizeM).value);
-			countWarehouseSizeL = parseInt(document.getElementById(warehouseSizeL).value);
-			countWarehouseSizeXL = parseInt(document.getElementById(warehouseSizeXL).value);
-			countWarehouseSize2XL = parseInt(document.getElementById(warehouseSize2XL).value);
-			countWarehouseSize3XL = parseInt(document.getElementById(warehouseSize3XL).value);
-			countWarehouseSize4XL = parseInt(document.getElementById(warehouseSize4XL).value);
-			warehouseSizeTotal = parseInt(countWarehouseSizeS) + parseInt(countWarehouseSizeM) + parseInt(countWarehouseSizeL) + parseInt(countWarehouseSizeXL) + parseInt(countWarehouseSize2XL) + parseInt(countWarehouseSize3XL) + parseInt(countWarehouseSize4XL);
-			subCountWarehouse = document.getElementById("subCountWarehouse").id + currStyle;
+			var SizeS = document.getElementById("SizeS").id + currStyle; 
+			var SizeM = document.getElementById("SizeM").id + currStyle; 
+			var SizeL = document.getElementById("SizeL").id + currStyle; 
+			var SizeXL = document.getElementById("SizeXL").id + currStyle; 
+			var Size2XL = document.getElementById("Size2XL").id + currStyle; 
+			var Size3XL = document.getElementById("Size3XL").id + currStyle; 
+			var Size4XL = document.getElementById("Size4XL").id + currStyle; 
+			countSizeS = parseInt(document.getElementById(SizeS).value);
+			countSizeM = parseInt(document.getElementById(SizeM).value);
+			countSizeL = parseInt(document.getElementById(SizeL).value);
+			countSizeXL = parseInt(document.getElementById(SizeXL).value);
+			countSize2XL = parseInt(document.getElementById(Size2XL).value);
+			countSize3XL = parseInt(document.getElementById(Size3XL).value);
+			countSize4XL = parseInt(document.getElementById(Size4XL).value);
+			sizeTotal = parseInt(couneSizeS) + parseInt(countSizeM) + parseInt(countSizeL) + parseInt(countSizeXL) + parseInt(countSize2XL) + parseInt(countSize3XL) + parseInt(countSize4XL);
+			subCount = document.getElementById("subCount").id + currStyle;
 			
-			if($('#inWarehouse').prop('checked')==true&&$('#hasSizes').prop('checked')==true)
-			{
-				warehouseTotal += parseInt(warehouseSizeTotal);
-				document.getElementById(subCountWarehouse).value = warehouseTotal;
-				document.getElementById("countWarehouse").value = parseInt(document.getElementById("countWarehouse").value) + parseInt(document.getElementById(subCountWarehouse).value);
-			}
-			
-			else if($('#inWarehouse').prop('checked')==false)
-				warehouseSizeTotal = 0;
+			countTotal += parseInt(sizeTotal);
+			document.getElementById(subCount).value = countTotal;
+			document.getElementById("countTotal").value = parseInt(document.getElementById("countTotal").value) + parseInt(document.getElementById(subCount).value);
 			
 			var colorTotal = (document.getElementById("colorTotal").id + currStyle); 
 			//console.log(colorTotal);
-			document.getElementById(colorTotal).value = warehouseTotal + corkTotal + kalaTotal + galwayTotal;
+			document.getElementById(colorTotal).value = Total;
 		}
 	}
 	
 	if($('#hasSizes').prop('checked')==false&&$('#hasColors').prop('checked')==true)
 	{
 		var subCountTotal = 0;
-		var tempTotalWarehouse = 0;
+		var tempTotal = 0;
 			
 		for(i=1;i<styleIndex+1;i++)
 		{
 			currStyle = i;
 				
 			colorTotal = document.getElementById("colorTotal").id + currStyle;
-			warehouseTotal = 0;
+			countTotal = 0;
+									
+			subCount = document.getElementById("subCount").id + currStyle;	
+			countTotal = parseInt(document.getElementById(subCount).value) + countTotal;
+			tempTotal = tempTotal + parseInt(document.getElementById(subCount).value);
 				
-			if($('#inWarehouse').prop('checked')==true)
-			{						
-				subCountWarehouse = document.getElementById("subCountWarehouse").id + currStyle;	
-				warehouseTotal = parseInt(document.getElementById(subCountWarehouse).value) + warehouseTotal;
-				tempTotalWarehouse = tempTotalWarehouse + parseInt(document.getElementById(subCountWarehouse).value);
-			}	
-				
-			document.getElementById("countWarehouse").value = tempTotalWarehouse;
-			document.getElementById(colorTotal).value = warehouseTotal + corkTotal + kalaTotal + galwayTotal;
+			document.getElementById("countTotal").value = tempTotal;
+			document.getElementById(colorTotal).value = countTotal;
 		}
 	}
 		
 	if($('#hasSizes').prop('checked')==true&&$('#hasColors').prop('checked')==false)
 	{		
-		warehouseTotal = 0;
+		countTotal = 0;
 			
-		countWarehouseSizeS = parseInt(document.getElementById("warehouseSizeS").value);
-		countWarehouseSizeM = parseInt(document.getElementById("warehouseSizeM").value);
-		countWarehouseSizeL = parseInt(document.getElementById("warehouseSizeL").value);
-		countWarehouseSizeXL = parseInt(document.getElementById("warehouseSizeXL").value);
-		countWarehouseSize2XL = parseInt(document.getElementById("warehouseSize2XL").value);
-		countWarehouseSize3XL = parseInt(document.getElementById("warehouseSize3XL").value);
-		countWarehouseSize4XL = parseInt(document.getElementById("warehouseSize4XL").value);
-		warehouseSizeTotal = parseInt(countWarehouseSizeS) + parseInt(countWarehouseSizeM) + parseInt(countWarehouseSizeL) + parseInt(countWarehouseSizeXL) + parseInt(countWarehouseSize2XL) + parseInt(countWarehouseSize3XL) + parseInt(countWarehouseSize4XL);
-			
-		if($('#inWarehouse').prop('checked')==true&&$('#hasSizes').prop('checked')==true)
-		{
-			warehouseTotal = parseInt(warehouseSizeTotal);
-			document.getElementById("countWarehouse").value = warehouseTotal;
-		}
-			
-		else if($('#inWarehouse').prop('checked')==false)
-			document.getElementById("countWarehouse").value = 0;
-			
+		countSizeS = parseInt(document.getElementById("SizeS").value);
+		countSizeM = parseInt(document.getElementById("SizeM").value);
+		countSizeL = parseInt(document.getElementById("SizeL").value);
+		countSizeXL = parseInt(document.getElementById("SizeXL").value);
+		countSize2XL = parseInt(document.getElementById("Size2XL").value);
+		countSize3XL = parseInt(document.getElementById("Size3XL").value);
+		countSize4XL = parseInt(document.getElementById("Size4XL").value);
+		sizeTotal = parseInt(countSizeS) + parseInt(countSizeM) + parseInt(countWarehouseSizeL) + parseInt(countWarehouseSizeXL) + parseInt(countWarehouseSize2XL) + parseInt(countWarehouseSize3XL) + parseInt(countWarehouseSize4XL);
+
+		countTotal = parseInt(SizeTotal);
+		document.getElementById("countTotal").value = countTotal;
 	}
 	
 	if($('#hasColors').prop('checked')==true&&$('#inWarehouse').prop('checked')==false)
 	{
-		document.getElementById("countWarehouse").value = 0;
+		document.getElementById("countTotal").value = 0;
 	}
 }
 
 function addForm()
 {
-	document.getElementById("countWarehouse").value = 0;
+	document.getElementById("countTotal").value = 0;
 	styleIndex = parseInt(document.getElementById("numSubStyles").value);
 	
 	var formControl = "";
@@ -446,24 +406,23 @@ function addForm()
 		formControl += "<div class='col-sm-2'>"
 		formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='colorTotal"+i+"' id='colorTotal"+i+"' placeholder='0'>"
 		formControl += "</div>"
-		formControl += "<div class='col-sm-2' id='showSubWarehouse"+i+"'>"
-		formControl += "<p>Warehouse</p>"
-		formControl += "<input type='text' class='form-control input-lg required' required='required' name='subCountWarehouse"+i+"' id='subCountWarehouse"+i+"' value='0' onchange='updateTotals()'>"
+		formControl += "<div class='col-sm-2' id='showSub"+i+"'>"
+		formControl += "<p>Totals</p>"
+		formControl += "<input type='text' class='form-control input-lg required' required='required' name='subCount"+i+"' id='subCount"+i+"' value='0' onchange='updateTotals()'>"
 		formControl += "</div>"
-		formControl += "<div class='col-sm-2' id='showSubCork"+i+"'>"
 		formControl += "</div>"
 		formControl += "</div>"
 		formControl += "</div><br>"
 		formControl += "<div class='row' id='subSizeList"+i+"'>"
-		formControl +=		"<div class='col-sm-3' id='showWarehouseSizes"+i+"' style='display: none'>"
-		formControl +=			"<label for='storeSizesWarehouse' class='control-label'>Warehouse Sizes</label><br>"
-		formControl +=			"<input type='text' name='warehouseSizeS"+i+"' id='warehouseSizeS"+i+"' value='0' onchange='updateTotals()'><label for='warehouseSizeS"+i+"'>:S</label><br>"
-		formControl +=			"<input type='text' name='warehouseSizeM"+i+"' id='warehouseSizeM"+i+"' value='0' onchange='updateTotals()'><label for='warehouseSizeM"+i+"'>:M</label><br>"
-		formControl +=			"<input type='text' name='warehouseSizeL"+i+"' id='warehouseSizeL"+i+"' value='0' onchange='updateTotals()'><label for='warehouseSizeL"+i+"'>:L</label><br>"
-		formControl +=			"<input type='text' name='warehouseSizeXL"+i+"' id='warehouseSizeXL"+i+"' value='0' onchange='updateTotals()'><label for='warehouseSizeXL"+i+"'>:XL</label><br>"
-		formControl +=			"<input type='text' name='warehouseSize2XL"+i+"' id='warehouseSize2XL"+i+"' value='0' onchange='updateTotals()'><label for='warehouseSize2XL"+i+"'>:2XL</label><br>"
-		formControl +=			"<input type='text' name='warehouseSize3XL"+i+"' id='warehouseSize3XL"+i+"' value='0' onchange='updateTotals()'><label for='warehouseSize3XL"+i+"'>:3XL</label><br>"
-		formControl +=			"<input type='text' name='warehouseSize4XL"+i+"' id='warehouseSize4XL"+i+"' value='0' onchange='updateTotals()'><label for='warehouseSize4XL"+i+"'>:4XL</label><br>"
+		formControl +=		"<div class='col-sm-3' id='showSizes"+i+"' style='display: none'>"
+		formControl +=			"<label for='storeSizes' class='control-label'>Sizes</label><br>"
+		formControl +=			"<input type='text' name='SizeS"+i+"' id='SizeS"+i+"' value='0' onchange='updateTotals()'><label for='SizeS"+i+"'>:S</label><br>"
+		formControl +=			"<input type='text' name='SizeM"+i+"' id='SizeM"+i+"' value='0' onchange='updateTotals()'><label for='SizeM"+i+"'>:M</label><br>"
+		formControl +=			"<input type='text' name='SizeL"+i+"' id='SizeL"+i+"' value='0' onchange='updateTotals()'><label for='SizeL"+i+"'>:L</label><br>"
+		formControl +=			"<input type='text' name='SizeXL"+i+"' id='SizeXL"+i+"' value='0' onchange='updateTotals()'><label for='SizeXL"+i+"'>:XL</label><br>"
+		formControl +=			"<input type='text' name='Size2XL"+i+"' id='Size2XL"+i+"' value='0' onchange='updateTotals()'><label for='Size2XL"+i+"'>:2XL</label><br>"
+		formControl +=			"<input type='text' name='Size3XL"+i+"' id='Size3XL"+i+"' value='0' onchange='updateTotals()'><label for='Size3XL"+i+"'>:3XL</label><br>"
+		formControl +=			"<input type='text' name='Size4XL"+i+"' id='Size4XL"+i+"' value='0' onchange='updateTotals()'><label for='Size4XL"+i+"'>:4XL</label><br>"
 		formControl +=		"</div>"
 		formControl +=	"</div>"	
 		formControl +=	"<br>"
