@@ -624,13 +624,13 @@ $(document).ready(
 							document.getElementById("editSubStyleMenu").style.display = "none";
 
 								document.getElementById("editShowSizes").style.display =  "block";
-								document.getElementById("editSizeS").value =  data[i].SizeS;
-								document.getElementById("editSizeM").value =  data[i].SizeM;
-								document.getElementById("editSizeL").value =  data[i].SizeL;
-								document.getElementById("editSizeXL").value =  data[i].SizeXL;
-								document.getElementById("editSize2XL").value =  data[i].Size2XL;
-								document.getElementById("editSize3XL").value =  data[i].Size3XL;
-								document.getElementById("editSize4XL").value =  data[i].Size4XL;
+								document.getElementById("editSizeS").value =  data[i].sizeS;
+								document.getElementById("editSizeM").value =  data[i].sizeM;
+								document.getElementById("editSizeL").value =  data[i].sizeL;
+								document.getElementById("editSizeXL").value =  data[i].sizeXL;
+								document.getElementById("editSize2XL").value =  data[i].size2XL;
+								document.getElementById("editSize3XL").value =  data[i].size3XL;
+								document.getElementById("editSize4XL").value =  data[i].size4XL;
 						}
 						
 						if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==true)
@@ -1634,7 +1634,7 @@ function controlEditForm()
 		{
 			currStyle=i;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
-			editShowSu = document.getElementById("editShowSub").id + currStyle;
+			editShowSub = document.getElementById("editShowSub").id + currStyle;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
 			
@@ -1696,7 +1696,7 @@ function updateEditTotals()
 	var editCountSize2XL = 0;
 	var editCountSize3XL = 0;
 	var editCountSize4XL = 0;
-	var ediTSizeTotal = 0;
+	var editSizeTotal = 0;
 
 	var editSubCount = 0;
 	var editTempTotal = 0;

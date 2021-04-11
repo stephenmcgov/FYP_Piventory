@@ -90,7 +90,7 @@ router.post('/login', function(req, res, next)
                 res.cookie('name', '' + user.user_name);
 				res.cookie('role', '' + user.role);
                 res.cookie('Authorization', 'Bearer ' + user.access_token);
-                
+
                 /*var sess;
                 sess=req.session;
                 sess.user_name = user.user_name ; // equivalent to $_SESSION['email'] in PHP.
@@ -98,7 +98,6 @@ router.post('/login', function(req, res, next)
                 console.log("Session: "+sess);*/
                 res.header('Authorization', 'Bearer ' + user.access_token);
                 res.json({'success' : 'loggedIn',name:user.user_name});
-
             }
             
 			else 

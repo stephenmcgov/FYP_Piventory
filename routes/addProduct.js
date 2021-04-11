@@ -135,13 +135,13 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			
 			numColors: 0,
 			hasSizes:req.body.hasSizes,
-			SizeS:req.body.sizeS,
-			SizeM:req.body.sizeM,
-			SizeL:req.body.sizeL,
-			SizeXL:req.body.sizeXL,
-			Size2XL:req.body.size2XL,
-			Size3XL:req.body.size3XL,
-			Size4XL:req.body.ize4XL,
+			sizeS:req.body.sizeS,
+			sizeM:req.body.sizeM,
+			sizeL:req.body.sizeL,
+			sizeXL:req.body.sizeXL,
+			size2XL:req.body.size2XL,
+			size3XL:req.body.size3XL,
+			size4XL:req.body.size4XL,
 			
 			total: req.body.countTotal,
 		});
@@ -194,13 +194,13 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			
 			numColors: 0,
 			hasSizes:req.body.hasSizes,
-			SizeS:req.body.sizeS,
-			SizeM:req.body.sizeM,
-			SizeL:req.body.sizeL,
-			SizeXL:req.body.sizeXL,
-			Size2XL:req.body.size2XL,
-			Size3XL:req.body.size3XL,
-			Size4XL:req.body.size4XL,
+			sizeS:req.body.sizeS,
+			sizeM:req.body.sizeM,
+			sizeL:req.body.sizeL,
+			sizeXL:req.body.sizeXL,
+			size2XL:req.body.size2XL,
+			size3XL:req.body.size3XL,
+			size4XL:req.body.size4XL,
 
 			total: req.body.countTotal,
 		});
@@ -357,7 +357,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color2Size4XL:req.body.size4XL2,
 			
 			color2Total: req.body.colorTotal2,
-			color2WarehouseTotal: req.body.subCountWarehouse2,
+			color2Total: req.body.subCount2,
 			
 			color3SizeS:req.body.sizeS3,
 			color3SizeM:req.body.sizeM3,

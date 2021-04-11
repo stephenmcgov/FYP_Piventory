@@ -93,7 +93,7 @@ function toggleSwitches()
 
 function controlForm()
 {
-	var showSubWarehouse = '';
+	var showSub = '';
 
 	if($('#singlePrice').prop('checked')==true)
 	{
@@ -227,7 +227,7 @@ function controlForm()
 				
 			else if($('#hasSizes').prop('checked')==false)
 			{
-				document.getElementById(showWarehouseSizes).style.display =  "none";
+				document.getElementById(showSizes).style.display =  "none";
 			}
 		}
 			
@@ -255,7 +255,7 @@ function controlForm()
 		{
 			currStyle=i;
 				
-			showSubWarehouse = document.getElementById("showSub").id + currStyle;
+			showSub = document.getElementById("showSub").id + currStyle;
 			document.getElementById(showSub).style.display =  "block";
 		}
 	}
@@ -268,16 +268,8 @@ function controlForm()
 		{
 			currStyle=i;
 
-			var subCount = document.getElementById("subCount").id + currStyle;
-			document.getElementById(subCount).value=0;
-		}
-
-		for(i=1; i<styleIndex+1; i++)
-		{
-			currStyle=i;
-
-			showSub = document.getElementById("showSub").id + currStyle;
-			document.getElementById(showSub).style.display =  "block";
+			var colorTotal = document.getElementById("colorTotal").id + currStyle;
+			document.getElementById(colorTotal).value=0;
 		}
 	}
 	
@@ -296,7 +288,6 @@ function controlForm()
 
 function updateTotals()
 {
-	/* REPLACE WITH 1 STORE TOTAL & CHANGE CALCS BELOW */
 	var countSizeS = 0;
 	var countSizeM = 0;
 	var countSizeL = 0;
@@ -306,6 +297,7 @@ function updateTotals()
 	var countSize4XL = 0;
 
 	var countTotal = 0;
+	var tempTotal = 0;
 
 	if($('#hasSizes').prop('checked')==true&&$('#hasColors').prop('checked')==true)
 	{
@@ -315,76 +307,71 @@ function updateTotals()
 		{
 			currStyle = i;
 			sizeTotal = 0;
-			subCount = 0;
+			colorTotal = 0;
 			
-			var SizeS = document.getElementById("SizeS").id + currStyle; 
-			var SizeM = document.getElementById("SizeM").id + currStyle; 
-			var SizeL = document.getElementById("SizeL").id + currStyle; 
-			var SizeXL = document.getElementById("SizeXL").id + currStyle; 
-			var Size2XL = document.getElementById("Size2XL").id + currStyle; 
-			var Size3XL = document.getElementById("Size3XL").id + currStyle; 
-			var Size4XL = document.getElementById("Size4XL").id + currStyle; 
-			countSizeS = parseInt(document.getElementById(SizeS).value);
-			countSizeM = parseInt(document.getElementById(SizeM).value);
-			countSizeL = parseInt(document.getElementById(SizeL).value);
-			countSizeXL = parseInt(document.getElementById(SizeXL).value);
-			countSize2XL = parseInt(document.getElementById(Size2XL).value);
-			countSize3XL = parseInt(document.getElementById(Size3XL).value);
-			countSize4XL = parseInt(document.getElementById(Size4XL).value);
-			sizeTotal = parseInt(couneSizeS) + parseInt(countSizeM) + parseInt(countSizeL) + parseInt(countSizeXL) + parseInt(countSize2XL) + parseInt(countSize3XL) + parseInt(countSize4XL);
-			subCount = document.getElementById("subCount").id + currStyle;
+			var sizeS = document.getElementById("sizeS").id + currStyle; 
+			var sizeM = document.getElementById("sizeM").id + currStyle; 
+			var sizeL = document.getElementById("sizeL").id + currStyle; 
+			var sizeXL = document.getElementById("sizeXL").id + currStyle; 
+			var size2XL = document.getElementById("size2XL").id + currStyle; 
+			var size3XL = document.getElementById("size3XL").id + currStyle; 
+			var size4XL = document.getElementById("size4XL").id + currStyle; 
+			countSizeS = parseInt(document.getElementById(sizeS).value);
+			countSizeM = parseInt(document.getElementById(sizeM).value);
+			countSizeL = parseInt(document.getElementById(sizeL).value);
+			countSizeXL = parseInt(document.getElementById(sizeXL).value);
+			countSize2XL = parseInt(document.getElementById(size2XL).value);
+			countSize3XL = parseInt(document.getElementById(size3XL).value);
+			countSize4XL = parseInt(document.getElementById(size4XL).value);
+			sizeTotal = parseInt(countSizeS) + parseInt(countSizeM) + parseInt(countSizeL) + parseInt(countSizeXL) + parseInt(countSize2XL) + parseInt(countSize3XL) + parseInt(countSize4XL);
+			colorTotal = document.getElementById("colorTotal").id + currStyle;
 			
-			countTotal += parseInt(sizeTotal);
-			document.getElementById(subCount).value = countTotal;
-			document.getElementById("countTotal").value = parseInt(document.getElementById("countTotal").value) + parseInt(document.getElementById(subCount).value);
+			colorTotal += parseInt(sizeTotal);
+			document.getElementById(colorTotal).value = total;
+			document.getElementById("countTotal").value = parseInt(document.getElementById("countTotal").value) + parseInt(document.getElementById(colorTotal).value);
 			
-			var colorTotal = (document.getElementById("colorTotal").id + currStyle); 
+			//var colorTotal = (document.getElementById("colorTotal").id + currStyle); 
 			//console.log(colorTotal);
-			document.getElementById(colorTotal).value = Total;
+			//document.getElementById(colorTotal).value = tempTotal;
 		}
 	}
 	
 	if($('#hasSizes').prop('checked')==false&&$('#hasColors').prop('checked')==true)
 	{
-		var subCountTotal = 0;
-		var tempTotal = 0;
-			
+		// needs fix
+		colorTotal = 0;
+		countTotal = 0;
+		tempTotal = 0;
+		
 		for(i=1;i<styleIndex+1;i++)
 		{
 			currStyle = i;
-				
+			
 			colorTotal = document.getElementById("colorTotal").id + currStyle;
-			countTotal = 0;
-									
-			subCount = document.getElementById("subCount").id + currStyle;	
-			countTotal = parseInt(document.getElementById(subCount).value) + countTotal;
-			tempTotal = tempTotal + parseInt(document.getElementById(subCount).value);
-				
-			document.getElementById("countTotal").value = tempTotal;
-			document.getElementById(colorTotal).value = countTotal;
+			console.log("colorTotal:"+document.getElementById(colorTotal).value);
+			countTotal = countTotal+parseInt(document.getElementById(colorTotal).value);
+			console.log("total:"+countTotal);
 		}
+		console.log("finaltotal:"+countTotal);
+		document.getElementById("countTotal").value = parseInt(countTotal);
+		console.log("should be updated!");
 	}
 		
 	if($('#hasSizes').prop('checked')==true&&$('#hasColors').prop('checked')==false)
 	{		
 		countTotal = 0;
 			
-		countSizeS = parseInt(document.getElementById("SizeS").value);
-		countSizeM = parseInt(document.getElementById("SizeM").value);
-		countSizeL = parseInt(document.getElementById("SizeL").value);
-		countSizeXL = parseInt(document.getElementById("SizeXL").value);
-		countSize2XL = parseInt(document.getElementById("Size2XL").value);
-		countSize3XL = parseInt(document.getElementById("Size3XL").value);
-		countSize4XL = parseInt(document.getElementById("Size4XL").value);
-		sizeTotal = parseInt(countSizeS) + parseInt(countSizeM) + parseInt(countWarehouseSizeL) + parseInt(countWarehouseSizeXL) + parseInt(countWarehouseSize2XL) + parseInt(countWarehouseSize3XL) + parseInt(countWarehouseSize4XL);
+		countSizeS = parseInt(document.getElementById("sizeS").value);
+		countSizeM = parseInt(document.getElementById("sizeM").value);
+		countSizeL = parseInt(document.getElementById("sizeL").value);
+		countSizeXL = parseInt(document.getElementById("sizeXL").value);
+		countSize2XL = parseInt(document.getElementById("size2XL").value);
+		countSize3XL = parseInt(document.getElementById("size3XL").value);
+		countSize4XL = parseInt(document.getElementById("size4XL").value);
+		sizeTotal = parseInt(countSizeS) + parseInt(countSizeM) + parseInt(countSizeL) + parseInt(countSizeXL) + parseInt(countSize2XL) + parseInt(countSize3XL) + parseInt(countSize4XL);
 
-		countTotal = parseInt(SizeTotal);
+		countTotal = parseInt(sizeTotal);
 		document.getElementById("countTotal").value = countTotal;
-	}
-	
-	if($('#hasColors').prop('checked')==true&&$('#inWarehouse').prop('checked')==false)
-	{
-		document.getElementById("countTotal").value = 0;
 	}
 }
 
@@ -404,25 +391,25 @@ function addForm()
 		formControl += "</div>"
 		formControl += "<br>"
 		formControl += "<div class='col-sm-2'>"
-		formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='colorTotal"+i+"' id='colorTotal"+i+"' placeholder='0'>"
+		formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='colorTotal"+i+"' id='colorTotal"+i+"' placeholder='0' onchange='updateTotals()'>"
 		formControl += "</div>"
-		formControl += "<div class='col-sm-2' id='showSub"+i+"'>"
+		/*formControl += "<div class='col-sm-2' id='showSub"+i+"'>"
 		formControl += "<p>Totals</p>"
 		formControl += "<input type='text' class='form-control input-lg required' required='required' name='subCount"+i+"' id='subCount"+i+"' value='0' onchange='updateTotals()'>"
-		formControl += "</div>"
+		formControl += "</div>"*/
 		formControl += "</div>"
 		formControl += "</div>"
 		formControl += "</div><br>"
 		formControl += "<div class='row' id='subSizeList"+i+"'>"
 		formControl +=		"<div class='col-sm-3' id='showSizes"+i+"' style='display: none'>"
 		formControl +=			"<label for='storeSizes' class='control-label'>Sizes</label><br>"
-		formControl +=			"<input type='text' name='SizeS"+i+"' id='SizeS"+i+"' value='0' onchange='updateTotals()'><label for='SizeS"+i+"'>:S</label><br>"
-		formControl +=			"<input type='text' name='SizeM"+i+"' id='SizeM"+i+"' value='0' onchange='updateTotals()'><label for='SizeM"+i+"'>:M</label><br>"
-		formControl +=			"<input type='text' name='SizeL"+i+"' id='SizeL"+i+"' value='0' onchange='updateTotals()'><label for='SizeL"+i+"'>:L</label><br>"
-		formControl +=			"<input type='text' name='SizeXL"+i+"' id='SizeXL"+i+"' value='0' onchange='updateTotals()'><label for='SizeXL"+i+"'>:XL</label><br>"
-		formControl +=			"<input type='text' name='Size2XL"+i+"' id='Size2XL"+i+"' value='0' onchange='updateTotals()'><label for='Size2XL"+i+"'>:2XL</label><br>"
-		formControl +=			"<input type='text' name='Size3XL"+i+"' id='Size3XL"+i+"' value='0' onchange='updateTotals()'><label for='Size3XL"+i+"'>:3XL</label><br>"
-		formControl +=			"<input type='text' name='Size4XL"+i+"' id='Size4XL"+i+"' value='0' onchange='updateTotals()'><label for='Size4XL"+i+"'>:4XL</label><br>"
+		formControl +=			"<input type='text' name='sizeS"+i+"' id='sizeS"+i+"' value='0' onchange='updateTotals()'><label for='sizeS"+i+"'>:S</label><br>"
+		formControl +=			"<input type='text' name='sizeM"+i+"' id='sizeM"+i+"' value='0' onchange='updateTotals()'><label for='sizeM"+i+"'>:M</label><br>"
+		formControl +=			"<input type='text' name='sizeL"+i+"' id='sizeL"+i+"' value='0' onchange='updateTotals()'><label for='sizeL"+i+"'>:L</label><br>"
+		formControl +=			"<input type='text' name='sizeXL"+i+"' id='sizeXL"+i+"' value='0' onchange='updateTotals()'><label for='sizeXL"+i+"'>:XL</label><br>"
+		formControl +=			"<input type='text' name='size2XL"+i+"' id='size2XL"+i+"' value='0' onchange='updateTotals()'><label for='size2XL"+i+"'>:2XL</label><br>"
+		formControl +=			"<input type='text' name='size3XL"+i+"' id='size3XL"+i+"' value='0' onchange='updateTotals()'><label for='size3XL"+i+"'>:3XL</label><br>"
+		formControl +=			"<input type='text' name='size4XL"+i+"' id='size4XL"+i+"' value='0' onchange='updateTotals()'><label for='size4XL"+i+"'>:4XL</label><br>"
 		formControl +=		"</div>"
 		formControl +=	"</div>"	
 		formControl +=	"<br>"

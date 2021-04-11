@@ -6,7 +6,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var helmet = require('helmet');
-//var validator = require('validator');
+var validator = require('validator');
 
 //route vars
 var indexRouter = require('./routes/index');

@@ -228,18 +228,18 @@ body{
 		</div>
 		<br>
 			<div class="row">	
-				<div class="col-sm-2">
-					<!-- REPLACE WITH SINGLE STORE NAME FROM DB AND REMOVE SECTION -->
-					<label for="store" class="control-label">Store</label>		
+				<!--<div class="col-sm-2">
+					 REPLACE WITH SINGLE STORE NAME FROM DB AND REMOVE SECTION -->
+					<!--<label for="store" class="control-label">Store</label>-->
 					<!--<select class="selectpicker" id="storeList" data-style="btn-info" name="selectpicker" onchange="fillStoreField()">
 						<optgroup label="Select Store">
 				
 							</optgroup>
 						</select>-->
 					<!--<input type="text" class="form-control input-lg required" required="required" name="storeName" id="storeName" value="Example">-->
-					<label for="inStore" class="control-label">In Store</label><br>
-					<div class="checkbox"><input name="inWarehouse" id="inWarehouse" type="checkbox" onchange="controlForm()">Warehouse</div>			
-				</div>
+					<!--<label for="inStore" class="control-label">In Store</label><br>
+					<div class="checkbox"><input name="inWarehouse" id="inWarehouse" type="checkbox" onchange="controlForm()">Warehouse</div>
+				</div>-->	
 				
 				<div class="col-sm-2">
 					<label for="itemDetails" class="control-label">Extra Details</label><br>
@@ -254,22 +254,22 @@ body{
 				//if masterPrice>0 show results in search result
 				//show total count per store() (add each size)-->
 				<div class="col-sm-2">
-					<label for="countWarehouse" class="control-label">Total Warehouse</label>
-					<input type="text" class="form-control input-lg required" required="required" name="countWarehouse" id="countWarehouse" onchange="updateTotals()" onclick="updateTotals()" value="0">
+					<label for="countTotal" class="control-label">Total</label>
+					<input type="text" class="form-control input-lg required" required="required" name="countTotal" id="countTotal" onchange="updateTotals()" onclick="updateTotals()" value="0">
 				</div>	
 			</div>
 		<br>
 
 		<div class="row" id="masterSizeList">
-			<div class="col-sm-3" id="showWarehouseSizes" style="display:none">
-				<label for="storeSizesWarehouse" class="control-label">Warehouse Sizes</label><br>
-				<input type="text" name="warehouseSizeS" id="warehouseSizeS" value="0" onchange='updateTotals()'><label for="warehouseSizeS">:S</label><br>
-				<input type="text" name="warehouseSizeM" id="warehouseSizeM" value="0" onchange='updateTotals()'><label for="warehouseSizeM">:M</label><br>
-				<input type="text" name="warehouseSizeL" id="warehouseSizeL" value="0" onchange='updateTotals()'><label for="warehouseSizeL">:L</label><br>
-				<input type="text" name="warehouseSizeXL" id="warehouseSizeXL" value="0" onchange='updateTotals()'><label for="warehouseSizeXL">:XL</label><br>
-				<input type="text" name="warehouseSize2XL" id="warehouseSize2XL" value="0" onchange='updateTotals()'><label for="warehouseSize2XL">:2XL</label><br>
-				<input type="text" name="warehouseSize3XL" id="warehouseSize3XL" value="0" onchange='updateTotals()'><label for="warehouseSize3XL">:3XL</label><br>
-				<input type="text" name="warehouseSize4XL" id="warehouseSize4XL" value="0" onchange='updateTotals()'><label for="warehouseSize4XL">:4XL</label><br>
+			<div class="col-sm-3" id="showSizes" style="display:none">
+				<label for="storeSizes" class="control-label">Sizes</label><br>
+				<input type="text" name="sizeS" id="sizeS" value="0" onchange='updateTotals()'><label for="sizeS">:S</label><br>
+				<input type="text" name="sizeM" id="sizeM" value="0" onchange='updateTotals()'><label for="sizeM">:M</label><br>
+				<input type="text" name="sizeL" id="sizeL" value="0" onchange='updateTotals()'><label for="sizeL">:L</label><br>
+				<input type="text" name="sizeXL" id="sizeXL" value="0" onchange='updateTotals()'><label for="sizeXL">:XL</label><br>
+				<input type="text" name="size2XL" id="size2XL" value="0" onchange='updateTotals()'><label for="size2XL">:2XL</label><br>
+				<input type="text" name="size3XL" id="size3XL" value="0" onchange='updateTotals()'><label for="size3XL">:3XL</label><br>
+				<input type="text" name="size4XL" id="size4XL" value="0" onchange='updateTotals()'><label for="size4XL">:4XL</label><br>
 			</div>
 		</div>
 		<br>
@@ -281,10 +281,6 @@ body{
 			<br>
 			<div class="col-sm-2">
 				<p>Sub-Style Total:</p><input type="text" class="form-control input-lg" name="colorTotal" id="colorTotal" placeholder="0">
-			</div>
-			<div class="col-sm-2" id="showSubWarehouse" style="display:none">
-					<p>Warehouse</p>
-					<input type="text" class="form-control input-lg required" name="subCountWarehouse" id="subCountWarehouse" value="0" onchange='updateTotals()'>
 			</div>
 		</div>
 		<br>
@@ -471,18 +467,18 @@ body{
 		</div>
 		<br>
 			<div class="row">	
-				<div class="col-sm-2">
-					<!--<label for="store" class="control-label">Store</label>		
+				<!--<div class="col-sm-2">
+					<label for="store" class="control-label">Store</label>		
 					<select class="selectpicker" id="storeEditList" data-style="btn-info" name="selectpicker" onchange="fillStoreEditField()">
 						<optgroup label="Select Store">
 				
 							</optgroup>
 						</select> 
-					<input type="text" class="form-control input-lg required" required="required" name="storeEditName" id="storeEditName" placeholder="Use List ^">	-->
+					<input type="text" class="form-control input-lg required" required="required" name="storeEditName" id="storeEditName" placeholder="Use List ^">	
 					
 					<label for="inStoreEdit" class="control-label">In Store</label><br>
 					<div class="checkbox"><input name="inWarehouseEdit" id="inWarehouseEdit" type="checkbox" onchange="controlEditForm()">Warehouse</div>		
-				</div>
+				</div>-->
 				
 				<div class="col-sm-2">
 					<label for="itemDetails" class="control-label">Extra Details</label><br>
@@ -497,22 +493,22 @@ body{
 				//if masterPrice>0 show results in search result
 				//show total count per store() (add each size)-->
 				<div class="col-sm-2">
-					<label for="editCountWarehouse" class="control-label">Total Warehouse</label>
-					<input type="text" class="form-control input-lg required" required="required" name="editCountWarehouse" id="editCountWarehouse" onchange="updateEditTotals()" onclick="updateEditTotals()" value="0">
+					<label for="editCount" class="control-label">Total</label>
+					<input type="text" class="form-control input-lg required" required="required" name="editCount" id="editCount" onchange="updateEditTotals()" onclick="updateEditTotals()" value="0">
 				</div>	
 			</div>
 		<br>
 
 		<div class="row" id="masterSizeEditList">
-			<div class="col-sm-3" id="editShowWarehouseSizes" style="display: none">
-				<label for="editSizesWarehouse" class="control-label">Warehouse Sizes</label><br>
-				<input type="text" name="editWarehouseSizeS" id="editWarehouseSizeS" value="0" onchange='updateEditTotals()'><label for="editWarehouseSizeS">:S</label><br>
-				<input type="text" name="editWarehouseSizeM" id="editWarehouseSizeM" value="0" onchange='updateEditTotals()'><label for="editWarehouseSizeM">:M</label><br>
-				<input type="text" name="editWarehouseSizeL" id="editWarehouseSizeL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSizeL">:L</label><br>
-				<input type="text" name="editWarehouseSizeXL" id="editWarehouseSizeXL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSizeXL">:XL</label><br>
-				<input type="text" name="editWarehouseSize2XL" id="editWarehouseSize2XL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSize2XL">:2XL</label><br>
-				<input type="text" name="editWarehouseSize3XL" id="editWarehouseSize3XL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSize3XL">:3XL</label><br>
-				<input type="text" name="editWarehouseSize4XL" id="editWarehouseSize4XL" value="0" onchange='updateEditTotals()'><label for="editWarehouseSize4XL">:4XL</label><br>
+			<div class="col-sm-3" id="editShowSizes" style="display: none">
+				<label for="editSizes" class="control-label"></label>Sizes</label><br>
+				<input type="text" name="editSizeS" id="editSizeS" value="0" onchange='updateEditTotals()'><label for="editSizeS">:S</label><br>
+				<input type="text" name="editSizeM" id="editSizeM" value="0" onchange='updateEditTotals()'><label for="editSizeM">:M</label><br>
+				<input type="text" name="editSizeL" id="editSizeL" value="0" onchange='updateEditTotals()'><label for="editSizeL">:L</label><br>
+				<input type="text" name="editSizeXL" id="editeSizeXL" value="0" onchange='updateEditTotals()'><label for="editSizeXL">:XL</label><br>
+				<input type="text" name="editSize2XL" id="editSize2XL" value="0" onchange='updateEditTotals()'><label for="editSize2XL">:2XL</label><br>
+				<input type="text" name="editSize3XL" id="editSize3XL" value="0" onchange='updateEditTotals()'><label for="editSize3XL">:3XL</label><br>
+				<input type="text" name="editSize4XL" id="editSize4XL" value="0" onchange='updateEditTotals()'><label for="editSize4XL">:4XL</label><br>
 			</div>
 		</div>
 		<br>
@@ -525,9 +521,8 @@ body{
 			<div class="col-sm-3">
 				<p>Sub-Style Total:</p><input type="text" class="form-control input-lg" name="editColorTotal" id="editColorTotal" placeholder="0">
 			</div>
-			<div class="col-sm-2" id="editShowSubWarehouse" style="display:none">
-					<p>Cork</p>
-					<input type="text" class="form-control input-lg required" name="editSubCountCork" id="editSubCountWarehouse" value="0" onchange='updateEditTotals()'>
+			<div class="col-sm-2" id="editShowSub" style="display:none">
+					<input type="text" class="form-control input-lg required" name="editSubCount" id="editSubCount" value="0" onchange='updateEditTotals()'>
 			</div>
 		</div>
 		<br>
