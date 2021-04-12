@@ -1,5 +1,5 @@
 var express = require('express');
-var session = require('express-session');
+//var session = require('express-session');
 var express = require('express');
 var router = express.Router();
 var cookieParser = require('cookie-parser');
@@ -78,17 +78,17 @@ router.get('/index', function (req, res, next) {
 /* GET register page */
 //!CHANGE TO STAFF MANAGEMENT!
 router.get('/register', function (req, res, next) {
-	
+	/*
     var sess;
     sess=req.session;
     console.log("Session: "+sess);
-    /*
+
     if(sess.role=='admin')
 		{res.render('register', {title: 'Register'});}
     
     else if(sess.role=='staff')
-		{res.send('Restricted to Admin');}*/
-    
+		{res.send('Restricted to Admin');}
+    */
 	
     var decodedCookie = req.cookies.role;
 	if(decodedCookie=='admin')
@@ -148,28 +148,9 @@ router.get('/getCategory/:category', function (req, res, next) {
 // Find products with store "variable" parameter :store
 //!Need to change to return results for store picked where stock greater than 0!
 // Maybe can be removed
+/*
 router.get('/getStore/:storeName', function (req, res, next) {
     var store = req.params.storeName;
-
-	/*if(store=='Cork')
-	{
-		//find the name in database
-		Product.find({"inStoreCork": 'on'}, function (err, products) {
-			if (err)
-				res.send(err);
-			res.json(products);
-		});
-	}
-	
-	if(store=='Kala')
-	{
-		//find the name in database
-		Product.find({"inStoreKala": 'on'}, function (err, products) {
-			if (err)
-				res.send(err);
-			res.json(products);
-		});
-	}*/
 	
 	if(store=='Galway')
 	{
@@ -181,6 +162,7 @@ router.get('/getStore/:storeName', function (req, res, next) {
 		});
 	}
 });
+*/
 
 /*---GET Stores List---*/
 //Retrieves stores from the database

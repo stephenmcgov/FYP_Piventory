@@ -3,6 +3,8 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const multer = require('multer');
 const Product = require("../models/products");
+//const validator = require('express-validator');
+const {check, validationResult} = require('express-validator');
 
 //specify how we store a file through multer
 //save to upload folder and keep original filename
@@ -35,8 +37,17 @@ const upload = multer({
 });
 
 //add product function
-router.post("/", upload.single('productImage'), (req, res, next) => {
-	//console.log(req.body.inCork);
+router.post("/", upload.single('productImage'), [	
+		//check("total").isNumeric()
+	],
+	(req, res) => {
+	/*const errors = validationResult(req);
+    console.log(req.body);
+	if (!errors.isEmpty()) {
+		console.log(errors);
+		return res.status(422).jsonp(errors.array());
+	} */
+
 	//need multiple if's to decide on product details
 	if(req.body.hasSizes)
 		var hasS = true;
@@ -49,8 +60,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 	if(req.body.multiPrice)
 		var hasMP = true;
 	else hasMP = false;
-	//hasSizes must be true to use
-			
+
 	//if hasSizes/Colors is false
 	if(hasS == false && hasC == false)
 	{
@@ -91,7 +101,6 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
         .then(result => {
             console.log(result);
             res.redirect('/management');
-			
         })
         .catch(err => {
             console.log(err);
@@ -143,7 +152,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			size3XL:req.body.size3XL,
 			size4XL:req.body.size4XL,
 			
-			total: req.body.countTotal,
+			total: parseInt(req.body.countTotal),
 		});
 		product
         .save()
@@ -202,7 +211,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			size3XL:req.body.size3XL,
 			size4XL:req.body.size4XL,
 
-			total: req.body.countTotal,
+			total: parseInt(req.body.countTotal),
 		});
 		product
         .save()
@@ -275,7 +284,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color9Total: req.body.colorTotal9,
 			color10Total: req.body.colorTotal10,
 
-			total: req.body.countTotal,
+			total: parseInt(req.body.countTotal),
 		});
 		product
         .save()
@@ -357,7 +366,6 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			color2Size4XL:req.body.size4XL2,
 			
 			color2Total: req.body.colorTotal2,
-			color2Total: req.body.subCount2,
 			
 			color3SizeS:req.body.sizeS3,
 			color3SizeM:req.body.sizeM3,
@@ -439,7 +447,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			
 			color10Total: req.body.colorTotal10,
 			
-			total: req.body.countTotal,
+			total: parseInt(req.body.countTotal),
 		});
 		product
         .save()
@@ -602,7 +610,7 @@ router.post("/", upload.single('productImage'), (req, res, next) => {
 			
 			color10Total: req.body.colorTotal10,
 			
-			total: req.body.countTotal,
+			total: parseInt(req.body.countTotal),
 		});
 		product
         .save()

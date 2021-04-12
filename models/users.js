@@ -1,11 +1,11 @@
 require('./util');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
-var validator = require('validator');
+//var validator = require('validator');
 var Schema = mongoose.Schema;
 
 var usersSchema = new Schema({
-    user_name:{
+    /*user_name:{
         type: String,
         required: true,
         trim: true
@@ -24,7 +24,9 @@ var usersSchema = new Schema({
                 throw new Error('Password should not contain password!')
             }
         }
-    },
+    },*/
+    user_name: String,
+    password: String,
 	role: String,
     access_token: String
 });
