@@ -1039,7 +1039,6 @@ router.post("/", (req, res, next) => {
 			'color1Size4XL':editColor1Size4XL,
 			
 			'color1Total': editColorTotal1,
-			'color1Total': editSubCount1,
 			
 			'color2SizeS':editColor2SizeS,
 			'color2SizeM':editColor2SizeM,
@@ -1050,7 +1049,6 @@ router.post("/", (req, res, next) => {
 			'color2Size4XL':editColor2Size4XL,
 			
 			'color2Total': editColorTotal2,
-			'color2Total': editSubCount2,
 			
 			'color3SizeS':editColor3SizeS,
 			'color3SizeM':editColor3SizeM,
@@ -1061,7 +1059,6 @@ router.post("/", (req, res, next) => {
 			'color3Size4XL':editColor3Size4XL,
 			
 			'color3Total': editColorTotal3,
-			'color3Total': editSubCount3,
 		
 			'color4SizeS':editColor4SizeS,
 			'color4SizeM':editColor4SizeM,
@@ -1072,7 +1069,6 @@ router.post("/", (req, res, next) => {
 			'color4Size4XL':editColor4Size4XL,
 			
 			'color4Total': editColorTotal4,
-			'color4Total': editSubCount4,
 
 			'color5SizeS':editColor5SizeS,
 			'color5SizeM':editColor5SizeM,
@@ -1083,7 +1079,6 @@ router.post("/", (req, res, next) => {
 			'color5Size4XL':editColor5Size4XL,
 
 			'color5Total': editColorTotal5,
-			'color5Total': editSubCount5,
 
 			'color6SizeS':editColor6SizeS,
 			'color6SizeM':editColor6SizeM,
@@ -1094,7 +1089,6 @@ router.post("/", (req, res, next) => {
 			'color6Size4XL':editColor6Size4XL,
 			
 			'color6Total': editColorTotal6,
-			'color6Total': editSubCount6,
 			
 			'color7SizeS':editColor7SizeS,
 			'color7SizeM':editColor7SizeM,
@@ -1105,7 +1099,6 @@ router.post("/", (req, res, next) => {
 			'color7Size4XL':editColor7Size4XL,
 			
 			'color7Total': editColorTotal7,
-			'color7Total': editSubCount7,
 		
 			'color8SizeS':editColor8SizeS,
 			'color8SizeM':editColor8SizeM,
@@ -1116,7 +1109,6 @@ router.post("/", (req, res, next) => {
 			'color8Size4XL':editColor8Size4XL,
 			
 			'color8Total': editColorTotal8,
-			'color8Total': editSubCount8,
 			
 			'color9SizeS':editColor9SizeS,
 			'color9SizeM':editColor9SizeM,
@@ -1127,7 +1119,6 @@ router.post("/", (req, res, next) => {
 			'color9Size4XL':editColor9Size4XL,
 			
 			'color9Total': editColorTotal9,
-			'color9Total': editSubCount9,
 
 			'color10SizeS':editColor10SizeS,
 			'color10SizeM':editColor10SizeS,
@@ -1138,9 +1129,7 @@ router.post("/", (req, res, next) => {
 			'color10Size4XL':editColor10Size4XL,
 
 			'color10Total': editColorTotal10,
-			'color10Total': editSubCount10,
 
-			'in': inEdit,
 			'total': editTotal,
 		})
 			.exec()

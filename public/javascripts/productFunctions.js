@@ -647,12 +647,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal1' id='editColorTotal1' value='"+data[i].color1Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal1' id='editColorTotal1' onchange='updateEditTotals()' value='"+data[i].color1Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub1'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub1'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount1' id='editSubCount1' value='"+data[i].color1Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -666,12 +666,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal2' id='editColorTotal2' value='"+data[i].color2Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal2' id='editColorTotal2' onchange='updateEditTotals()' value='"+data[i].color2Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub2'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub2'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount2' id='editSubCount2' value='"+data[i].color2Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -685,12 +685,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal3' id='editColorTotal3' value='"+data[i].color3Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal3' id='editColorTotal3' onchange='updateEditTotals()' value='"+data[i].color3Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub3'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub3'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount3' id='editSubCount3' value='"+data[i].color3Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -704,12 +704,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal4' id='editColorTotal4' value='"+data[i].color4Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal4' id='editColorTotal4' onchange='updateEditTotals()' value='"+data[i].color4Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub4'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub4'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount4' id='editSubCount4' value='"+data[i].color4Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -723,12 +723,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal5' id='editColorTotal5' value='"+data[i].color5Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal5' id='editColorTotal5' onchange='updateEditTotals()' value='"+data[i].color5Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub5'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub5'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount5' id='editSubCount5' value='"+data[i].color5Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -742,12 +742,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal6' id='editColorTotal6' value='"+data[i].color6Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal6' id='editColorTotal6' onchange='updateEditTotals()' value='"+data[i].color6Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub6'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub6'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount6' id='editSubCount6' value='"+data[i].color6Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -761,12 +761,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal7' id='editColorTotal7' value='"+data[i].color7Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal7' id='editColorTotal7' onchange='updateEditTotals()' value='"+data[i].color7Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub7'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub7'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount7' id='editSubCount7' value='"+data[i].color7Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -780,12 +780,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal8' id='editColorTotal8' value='"+data[i].color8Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal8' id='editColorTotal8' onchange='updateEditTotals()' value='"+data[i].color8Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub8'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub8'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount8' id='editSubCount8' value='"+data[i].color8Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -799,12 +799,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal9' id='editColorTotal9' value='"+data[i].color9Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal9' id='editColorTotal9' onchange='updateEditTotals()' value='"+data[i].color9Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub9'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub9'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount9' id='editSubCount9' value='"+data[i].color9Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -818,12 +818,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal10' id='editColorTotal10' value='"+data[i].color10Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal10' id='editColorTotal10' onchange='updateEditTotals()' value='"+data[i].color10Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub10'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub10'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount10' id='editSubCount10' value='"+data[i].color10Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 							}
@@ -846,12 +846,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal1' id='editColorTotal1' value='"+data[i].color1Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal1' id='editColorTotal1' onchange='updateEditTotals()' ='"+data[i].color1Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub1'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub1'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount1' id='editSubCount1' value='"+data[i].color1Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -887,12 +887,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal2' id='editColorTotal2' value='"+data[i].color2Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal2' id='editColorTotal2' onchange='updateEditTotals()' value='"+data[i].color2Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub2'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub2'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount2' id='editSubCount2' value='"+data[i].color2Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -928,12 +928,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal3' id='editColorTotal3' value='"+data[i].color3Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal3' id='editColorTotal3' onchange='updateEditTotals()' value='"+data[i].color3Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub3'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub3'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount3' id='editSubCount3' value='"+data[i].color3Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -969,12 +969,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal4' id='editColorTotal4' value='"+data[i].color4Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal4' id='editColorTotal4' onchange='updateEditTotals()' value='"+data[i].color4Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub4'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub4'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount4' id='editSubCount4' value='"+data[i].color4Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1010,12 +1010,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal5' id='editColorTotal5' value='"+data[i].color5Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal5' id='editColorTotal5' onchange='updateEditTotals()' value='"+data[i].color5Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub5'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub5'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount5' id='editSubCount5' value='"+data[i].color5Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1051,12 +1051,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal6' id='editColorTotal6' value='"+data[i].color6Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal6' id='editColorTotal6' onchange='updateEditTotals()' value='"+data[i].color6Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub6'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub6'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount6' id='editSubCount6' value='"+data[i].color6Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1092,12 +1092,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal7' id='editColorTotal7' value='"+data[i].color7Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal7' id='editColorTotal7' onchange='updateEditTotals()' value='"+data[i].color7Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub7'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub7'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount7' id='editSubCount7' value='"+data[i].color7Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1133,12 +1133,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal8' id='editColorTotal8' value='"+data[i].color8Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal8' id='editColorTotal8' onchange='updateEditTotals()' value='"+data[i].color8Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub8'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub8'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount8' id='editSubCount8' value='"+data[i].color8Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1174,12 +1174,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal9' id='editColorTotal9' value='"+data[i].color9Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal9' id='editColorTotal9' onchange='updateEditTotals()' value='"+data[i].color9Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub9'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub9'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount9' id='editSubCount9' value='"+data[i].color9Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1215,12 +1215,12 @@ $(document).ready(
 								formControl += "</div>"
 								formControl += "<br>"
 								formControl += "<div class='col-sm-2'>"
-								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal10' id='editColorTotal10' value='"+data[i].color10Total+"'>"
+								formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal10' id='editColorTotal10' onchange='updateEditTotals()' value='"+data[i].color10Total+"'>"
 								formControl += "</div>"
-								formControl += "<div class='col-sm-2' id='editShowSub10'>"
+								/*formControl += "<div class='col-sm-2' id='editShowSub10'>"
 								formControl += "<p>Total</p>"
 								formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount10' id='editSubCount10' value='"+data[i].color10Total+"' onchange='updateEditTotals()'>"
-								formControl += "</div>"
+								formControl += "</div>"*/
 								formControl += "</div>"
 								formControl += "</div><br>"
 								
@@ -1280,6 +1280,7 @@ $(document).ready(
 									document.getElementById("editShowSizes10").style.display = "block";
 
 							document.getElementById("editSubStyleMenu").style = "block";
+							console.log("suspect presence:"+(document.getElementById("editSizeXL").id+1));
 						}
 						
 						////////////////////////////////////////
@@ -1373,9 +1374,9 @@ $("#uploadInput").change(function () {
 function addEditForm()
 {
 	document.getElementById("editCount").value = 0;
-	/*document.getElementById("editCountCork").value = 0;
-	document.getElementById("editCountKala").value = 0;
-	document.getElementById("editCountGalway").value = 0;*/
+	//document.getElementById("editCountCork").value = 0;
+	//document.getElementById("editCountKala").value = 0;
+	//document.getElementById("editCountGalway").value = 0;
 	styleIndex = parseInt(document.getElementById("editNumSubStyles").value);
 	console.log(styleIndex);
 	
@@ -1389,12 +1390,12 @@ function addEditForm()
 				formControl += "</div>"
 				formControl += "<br>"
 				formControl += "<div class='col-sm-2'>"
-				formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal"+i+"' id='editColorTotal"+i+"' placeholder='0'>"
+				formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='editColorTotal"+i+"' id='editColorTotal"+i+"' onchange='updateEditTotals()' placeholder='0'>"
 				formControl += "</div>"
-				formControl += "<div class='col-sm-2' id='editShowSub"+i+"'>"
+				/*formControl += "<div class='col-sm-2' id='editShowSub"+i+"'>"
 				formControl += "<p></p>"
 				formControl += "<input type='text' class='form-control input-lg required' required='required' name='editSubCount"+i+"' id='editSubCount"+i+"' value='0' onchange='updateEditTotals()'>"
-				formControl += "</div>"
+				formControl += "</div>"*/
 				formControl += "</div>"
 				formControl += "</div><br>"
 				formControl += "<div class='row' id='editSubSizeList"+i+"'>"
@@ -1430,7 +1431,7 @@ function controlEditForm()
 	var i=0;
 	var currStyle=0;
 	
-	var editShowSub = '';
+	//var editShowSub = '';
 
 	if($('#editSinglePrice').value!="on")
 	{
@@ -1634,12 +1635,12 @@ function controlEditForm()
 		{
 			currStyle=i;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
-			editShowSub = document.getElementById("editShowSub").id + currStyle;
+			//editShowSub = document.getElementById("editShowSub").id + currStyle;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
 			
 			//document.getElementById(addSubStyle).style.display =  "block";
-			document.getElementById(editShowSub).style.display =  "block";
+			//document.getElementById(editShowSub).style.display =  "block";
 		}
 	}
 	
@@ -1651,21 +1652,21 @@ function controlEditForm()
 		{
 			currStyle=i;
 
-			var editSubCount = document.getElementById("editSubCount").id + currStyle;
-			document.getElementById(editSubCount).value=0;
+			var editColorTotal = document.getElementById("editColorTotal").id + currStyle;
+			document.getElementById(editColorTotal).value=0;
 		}
 		
 		for(i=1; i<styleIndex+1; i++)
 		{
 			currStyle=i;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
-			editShowSub = document.getElementById("editShowSub").id + currStyle;
+			//editShowSub = document.getElementById("editShowSub").id + currStyle;
 			//var subStyle = document.getElementById("subStyle").id + currStyle;
 			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
 				
 			//document.getElementById(addSubStyle).style.display =  "block";
 
-			document.getElementById(editShowSub).style.display =  "block";
+			//document.getElementById(editShowSub).style.display =  "block";
 		}
 	}
 	
@@ -1698,8 +1699,10 @@ function updateEditTotals()
 	var editCountSize4XL = 0;
 	var editSizeTotal = 0;
 
-	var editSubCount = 0;
+	var editColorTotak = 0;
 	var editTempTotal = 0;
+	
+	//console.log("searching editSizeXL1 as:"+document.getElementById("editSizeXL").id + 1);
 
 	if($('#hasSizesEdit').prop('checked')==true&&$('#hasColorsEdit').prop('checked')==true)
 	{
@@ -1707,13 +1710,18 @@ function updateEditTotals()
 			
 		for(i=1;i<styleIndex+1;i++)
 		{
+			console.log("trying...");
 			currStyle = i;
 			editTotal = 0;
-
-			var editSizeS = document.getElementById("editSizeS").id + currStyle; 
-			var editSizeM = document.getElementById("editSizeM").id + currStyle; 
-			var editSizeL = document.getElementById("editSizeL").id + currStyle; 
-			var editSizeXL = document.getElementById("editSizeXL").id + currStyle; 
+			console.log("currStyle..."+currStyle);
+			var editSizeS = document.getElementById("editSizeS").id + currStyle;
+			//console.log("searching editSizeS1 as:"+document.getElementById("editSizeS").id + currStyle);
+			var editSizeM = document.getElementById("editSizeM").id + currStyle;
+			//console.log("searching editSizeM1 as:"+document.getElementById("editSizeM").id + currStyle);
+			var editSizeL = document.getElementById("editSizeL").id + currStyle;
+			//console.log("searching editSizeL1 as:"+document.getElementById("editSizeL").id + currStyle);
+			var editSizeXL = document.getElementById("editSizeXL").id + currStyle;
+			//console.log("searching editSizeXL1 as:"+document.getElementById("editSizeXL").id + currStyle);
 			var editSize2XL = document.getElementById("editSize2XL").id + currStyle; 
 			var editSize3XL = document.getElementById("editSize3XL").id + currStyle; 
 			var editSize4XL = document.getElementById("editSize4XL").id + currStyle; 
@@ -1725,13 +1733,13 @@ function updateEditTotals()
 			editCountSize3XL = parseInt(document.getElementById(editSize3XL).value);
 			editCountSize4XL = parseInt(document.getElementById(editSize4XL).value);
 			editSizeTotal = parseInt(editCountSizeS) + parseInt(editCountSizeM) + parseInt(editCountSizeL) + parseInt(editCountSizeXL) + parseInt(editCountSize2XL) + parseInt(editCountSize3XL) + parseInt(editCountSize4XL);
-			editSubCount = document.getElementById("editSubCount").id + currStyle;
+			editColorTotal = document.getElementById("editColorTotal").id + currStyle;
 			
 			if($('#hasSizesEdit').prop('checked')==true)
 			{
 				editTotal += parseInt(editSizeTotal);
-				document.getElementById(editSubCount).value = editTotal;
-				document.getElementById("editCount").value = parseInt(document.getElementById("editCount").value) + parseInt(document.getElementById(editSubCount).value);
+				document.getElementById(editColorTotal).value = parseInt(editSizeTotal);
+				document.getElementById("editCount").value = parseInt(document.getElementById("editCount").value) + parseInt(document.getElementById(editColorTotal).value);
 			}
 			
 			else editSizeTotal = 0;
@@ -1745,25 +1753,22 @@ function updateEditTotals()
 	if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==true)
 	{
 		editTempTotal = 0;
-			
+		console.log("trying...");
 		for(i=1;i<styleIndex+1;i++)
 		{
 			currStyle = i;
 				
 			editColorTotal = document.getElementById("editColorTotal").id + currStyle;
 			editTotal = 0;
-				
-			if($('#inEdit').prop('checked')==true)
-			{						
-				editSubCount = document.getElementById("editSubCount").id + currStyle;	
-				editTotal = parseInt(document.getElementById(editSubCount).value) + editTotal;
-				editTempTotal = editTempTotal + parseInt(document.getElementById(editSubCount).value);
-			}	
 
-			document.getElementById("editCount").value = editTempTotal;
-
+			editColorTotal = document.getElementById("editColorTotal").id + currStyle;	
+			editTotal = parseInt(document.getElementById(editColorTotal).value) + editTotal;
+			console.log("total"+editTotal);
+			editTempTotal += parseInt(document.getElementById(editColorTotal).value);	
+			//console.log("temptotal"+editTempTotal);
 			document.getElementById(editColorTotal).value = editTotal;
 		}
+		document.getElementById("editCount").value = parseInt(editTempTotal);
 	}
 		
 	if($('#hasSizesEdit').prop('checked')==true&&$('#hasColorsEdit').prop('checked')==false)
@@ -1790,6 +1795,6 @@ function updateEditTotals()
 
 	if($('#hasSizesEdit').prop('checked')==false&&$('#hasColorsEdit').prop('checked')==false)
 	{
-		document.getElementById("editCount").value = 0;
+		document.getElementById("editCount").value = document.getElementById("editCount").value;
 	}
 }
