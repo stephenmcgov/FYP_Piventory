@@ -32,7 +32,8 @@ $(document).ready(
                 }
             });
         });*/
-});
+    }
+);
 
 //use dropdown in add-product field to fill value with pre-existing store value
 function fillStoreField() 

@@ -4,7 +4,10 @@ require('./util');
 
 var storeSchema = new Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    storeName: { type: String}
+    storeName: { 
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Store', storeSchema);

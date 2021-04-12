@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Product = require("../models/products");
+const { check, validationResult } = require('express-validator');
 
 var hasS;
 var hasC;
@@ -11,7 +12,31 @@ var hasSale;
 var styleIndex;
 
 //update product function
-router.post("/", (req, res, next) => {
+router.post("/", [
+	//perform validation
+	//couple with pre-regex func?
+
+	//check("x").not().isEmpty() for value presence
+	//chase strings with .trim().escape()
+	check("name").exists().not().isEmpty().trim().escape(),
+	check("editCategory").exists().not().isEmpty().trim().escape(),
+	check("editDescription").trim().escape(),
+	check("hasSizesEdit").trim().escape(),
+	check("editColorCode1").trim().escape(),
+	check("editColorCode2").trim().escape(),
+	check("editColorCode3").trim().escape(),
+	check("editColorCode4").trim().escape(),
+	check("editColorCode5").trim().escape(),
+	check("editColorCode6").trim().escape(),
+	check("editColorCode7").trim().escape(),
+	check("editColorCode8").trim().escape(),
+	check("editColorCode9").trim().escape(),
+	check("editColorCode10").trim().escape(),
+	check("hasSizesEdit").trim().escape(),
+	check("hasColorsEdit").trim().escape(),
+	check("editMultiPrice").trim().escape(),
+	check("editSinglePrice").trim().escape()
+], (req, res, next) => {
 		
 	//true constants	
 	var editName= req.body.editName;
@@ -184,7 +209,6 @@ router.post("/", (req, res, next) => {
 				var editColor2Size4XL=req.body.editSize4XL2;
 				
 				var editColorTotal2= req.body.editColorTotal2;
-				var editSubCount2= req.body.editSubCount2;
 			}
 			
 			else
@@ -200,7 +224,6 @@ router.post("/", (req, res, next) => {
 				var editColor2Size4XL=0;
 				
 				var editColorTotal2=0;
-				var editSubCount2=0;
 			}
 			
 			if(styleIndex>=3)
@@ -216,7 +239,6 @@ router.post("/", (req, res, next) => {
 				var editColor3Size4XL=req.body.editSize4XL3;
 				
 				var editColorTotal3= req.body.editColorTotal3;
-				var editSubCount3= req.body.editSubCount3;
 			}
 			
 			else
@@ -232,7 +254,6 @@ router.post("/", (req, res, next) => {
 				var editColor3Size4XL=0;
 				
 				var editColorTotal3=0;
-				var editSubCount3=0;
 			}
 			
 			
@@ -249,7 +270,6 @@ router.post("/", (req, res, next) => {
 				var editColor4Size4XL=req.body.editSize4XL4;
 				
 				var editColorTotal4= req.body.editColorTotal4;
-				var editSubCount4= req.body.editSubCount4;
 			}
 			
 			else
@@ -265,7 +285,6 @@ router.post("/", (req, res, next) => {
 				var editColor4Size4XL=0;
 				
 				var editColorTotal4=0;
-				var editSubCount4=0;
 			}
 			
 			if(styleIndex>=5)
@@ -281,7 +300,6 @@ router.post("/", (req, res, next) => {
 				var editColor5Size4XL=req.body.editSize4XL5;
 				
 				var editColorTotal5= req.body.editColorTotal5;
-				var editSubCount5= req.body.editSubCount5;
 			}
 			
 			else
@@ -297,7 +315,6 @@ router.post("/", (req, res, next) => {
 				var editColor5Size4XL=0;
 				
 				var editColorTotal5=0;
-				var editSubCount5=0;
 			}
 			
 			
@@ -314,7 +331,6 @@ router.post("/", (req, res, next) => {
 				var editColor6Size4XL=req.body.editSize4XL6;
 				
 				var editColorTotal6= req.body.editColorTotal6;
-				var editSubCount6= req.body.editSubCount6;
 			}
 			
 			else
@@ -330,7 +346,6 @@ router.post("/", (req, res, next) => {
 				var editColor6Size4XL=0;
 				
 				var editColorTotal6=0;
-				var editSubCount6=0;
 			}
 
 			if(styleIndex>=7)
@@ -346,7 +361,6 @@ router.post("/", (req, res, next) => {
 				var editColor7Size4XL=req.body.editSize4XL7;
 				
 				var editColorTotal7= req.body.editColorTotal7;
-				var editSubCount7= req.body.editSubCount7;
 			}
 			
 			else
@@ -362,7 +376,6 @@ router.post("/", (req, res, next) => {
 				var editColor7Size4XL=0;
 				
 				var editColorTotal7=0;
-				var editSubCount7=0;
 			}
 			
 			if(styleIndex>=8)
@@ -378,7 +391,6 @@ router.post("/", (req, res, next) => {
 				var editColor8Size4XL=req.body.editSize4XL8;
 				
 				var editColorTotal8= req.body.editColorTotal8;
-				var editSubCount8= req.body.editSubCount8;
 			}
 			
 			else
@@ -394,7 +406,6 @@ router.post("/", (req, res, next) => {
 				var editColor8Size4XL=0;
 				
 				var editColorTotal8=0;
-				var editSubCount8=0;
 			}
 			
 			if(styleIndex>=9)
@@ -410,7 +421,6 @@ router.post("/", (req, res, next) => {
 				var editColor9Size4XL=req.body.editSize4XL9;
 				
 				var editColorTotal9= req.body.editColorTotal9;
-				var editSubCount9= req.body.editSubCount9;
 			}
 			
 			else
@@ -426,7 +436,6 @@ router.post("/", (req, res, next) => {
 				var editColor9Size4XL=0;
 				
 				var editColorTotal9=0;
-				var editSubCount9=0;
 			}
 			
 			if(styleIndex>=10)
@@ -442,7 +451,6 @@ router.post("/", (req, res, next) => {
 				var editColor10Size4XL=req.body.editSize4XL10;
 				
 				var editColorTotal10= req.body.editColorTotal10;
-				var editSubCount10= req.body.editSubCount10;
 			}
 			
 			else
@@ -458,7 +466,6 @@ router.post("/", (req, res, next) => {
 				var editColor10Size4XL=0;
 				
 				var editColorTotal10=0;
-				var editSubCount10=0;
 			}
 			
 			var editTotal= req.body.editCount;
@@ -499,7 +506,6 @@ router.post("/", (req, res, next) => {
 			var editColor1Size4XL=0;
 			
 			var editColorTotal1=0;
-			var editSubCount1=0;
 			
 			var editColor2SizeS=0;
 			var editColor2SizeM=0;
@@ -510,7 +516,6 @@ router.post("/", (req, res, next) => {
 			var editColor2Size4XL=0;
 			
 			var editColorTotal2=0;
-			var editSubCount2=0;
 			
 			var editColor3SizeS=0;
 			var editColor3SizeM=0;
@@ -521,7 +526,6 @@ router.post("/", (req, res, next) => {
 			var editColor3Size4XL=0;
 			
 			var editColorTotal3=0;
-			var editSubCount3=0;
 			
 			var editColor4SizeS=0;
 			var editColor4SizeM=0;
@@ -532,7 +536,6 @@ router.post("/", (req, res, next) => {
 			var editColor4Size4XL=0;
 			
 			var editColorTotal4=0;
-			var editSubCount4=0;
 			
 			var editColor5SizeS=0;
 			var editColor5SizeM=0;
@@ -543,7 +546,6 @@ router.post("/", (req, res, next) => {
 			var editColor5Size4XL=0;
 			
 			var editColorTotal5=0;
-			var editSubCount5=0;
 			
 			var editColor6SizeS=0;
 			var editColor6SizeM=0;
@@ -554,7 +556,6 @@ router.post("/", (req, res, next) => {
 			var editColor6Size4XL=0;
 			
 			var editColorTotal6=0;
-			var editSubCount6=0;
 			
 			var editColor7SizeS=0;
 			var editColor7SizeM=0;
@@ -565,7 +566,6 @@ router.post("/", (req, res, next) => {
 			var editColor7Size4XL=0;
 			
 			var editColorTotal7=0;
-			var editSubCount7=0;
 			
 			var editColor8SizeS=0;
 			var editColor8SizeM=0;
@@ -576,7 +576,6 @@ router.post("/", (req, res, next) => {
 			var editColor8Size4XL=0;
 			
 			var editColorTotal8=0;
-			var editSubCount8=0;
 			
 			var editColor9SizeS=0;
 			var editColor9SizeM=0;
@@ -587,7 +586,6 @@ router.post("/", (req, res, next) => {
 			var editColor9Size4XL=0;
 			
 			var editColorTotal9=0;
-			var editSubCount9=0;
 			
 			var editColor10SizeS=0;
 			var editColor10SizeM=0;
@@ -598,7 +596,6 @@ router.post("/", (req, res, next) => {
 			var editColor10Size4XL=0;
 			
 			var editColorTotal10=0;
-			var editSubCount10=0;
 			
 			var editTotal= req.body.editCount;
 	}
@@ -622,140 +619,120 @@ router.post("/", (req, res, next) => {
 			{		
 				var editColorCode1=req.body.editColor1;
 				var editColorTotal1= req.body.editColorTotal1;
-				var editSubCount1= req.body.editSubCount1;
 			}
 			
 			else
 			{
 				var editColorCode1="";
 				var editColorTotal1=0;
-				var editSubCount1=0;
 			}
 			
 			if(styleIndex>=2)
 			{			
 				var editColorCode2=req.body.editColor2;
 				var editColorTotal2= req.body.editColorTotal2;
-				var editSubCount2= req.body.editSubCount2;
 			}
 			
 			else
 			{
 				var editColorCode2="";
 				var editColorTotal2=0;
-				var editSubCount2=0;
 			}
 			
 			if(styleIndex>=3)
 			{				
 				var editColorCode3=req.body.editColor3;
 				var editColorTotal3= req.body.editColorTotal3;
-				var editSubCount3= req.body.editSubCount3;
 			}
 			
 			else
 			{
 				var editColorCode3="";
 				var editColorTotal3=0;
-				var editSubCount3=0;
 			}
 			
 			if(styleIndex>=4)
 			{				
 				var editColorCode4=req.body.editColor4;
 				var editColorTotal4= req.body.editColorTotal4;
-				var editSubCount4= req.body.editSubCount4;
 			}
 			
 			else
 			{
 				var editColorCode4="";
 				var editColorTotal4=0;
-				var editSubCount4=0;
 			}
 			
 			if(styleIndex>=5)
 			{				
 				var editColorCode5=req.body.editColor5;
 				var editColorTotal5= req.body.editColorTotal5;
-				var editSubCount5= req.body.editSubCount5;
 			}
 			
 			else
 			{
 				var editColorCode5="";
 				var editColorTotal5=0;
-				var editSubCount5=0;
 			}
 			
 			if(styleIndex>=6)
 			{				
 				var editColorCode6=req.body.editColor6;
 				var editColorTotal6= req.body.editColorTotal6;
-				var editSubCount6= req.body.editSubCount6;
 			}
 			
 			else
 			{
 				var editColorCode6="";
 				var editColorTotal6=0;
-				var editSubCount6=0;
 			}
 			
 			if(styleIndex>=7)
 			{				
 				var editColorCode7=req.body.editColor7;
 				var editColorTotal7= req.body.editColorTotal7;
-				var editSubCount7= req.body.editSubCount7;
 			}
 			
 			else
 			{
 				var editColorCode7="";
 				var editColorTotal7=0;
-				var editSubCount7=0;
 			}
 			
 			if(styleIndex>=8)
 			{				
 				var editColorCode8=req.body.editColor8;
 				var editColorTotal8= req.body.editColorTotal8;
-				var editSubCount8= req.body.editSubCount8;
 			}
 			
 			else
 			{
 				var editColorCode8="";
 				var editColorTotal8=0;
-				var editSubCount8=0;
 			}
 			
 			if(styleIndex>=9)
 			{				
 				var editColorCode9=req.body.editColor9;
 				var editColorTotal9= req.body.editColorTotal9;
-				var editSubCount9= req.body.editSubCount9;
 			}
 			
 			else
 			{
 				var editColorCode9="";
 				var editColorTotal9=0;
-				var editSubCount9=0;
 			}
 			
 			if(styleIndex>=10)
 			{				
 				var editColorCode10=req.body.editColor10;
 				var editColorTotal10= req.body.editColorTotal10;
-				var editSubCount10= req.body.editSubCount10;
 			}
 			
 			else
 			{
 				var editColorCode10="";
 				var editColorTotal10=0;
-				var editSubCount10=0;
 			}
 			
 			var editColor1SizeS=0;
@@ -838,7 +815,7 @@ router.post("/", (req, res, next) => {
 			var editColor10Size3XL=0;
 			var editColor10Size4XL=0;
 			
-			var editTotal= req.body.editCount;
+			var editTotal = req.body.editCount;
 	}
 	
 	//FF
@@ -876,7 +853,6 @@ router.post("/", (req, res, next) => {
 			var editColor1Size4XL=0;
 			
 			var editColorTotal1=0;
-			var editSubCount1=0;
 			
 			var editColor2SizeS=0;
 			var editColor2SizeM=0;
@@ -887,7 +863,6 @@ router.post("/", (req, res, next) => {
 			var editColor2Size4XL=0;
 			
 			var editColorTotal2=0;
-			var editSubCount2=0;
 			
 			var editColor3SizeS=0;
 			var editColor3SizeM=0;
@@ -898,7 +873,6 @@ router.post("/", (req, res, next) => {
 			var editColor3Size4XL=0;
 			
 			var editColorTotal3=0;
-			var editSubCount3=0;
 			
 			var editColor4SizeS=0;
 			var editColor4SizeM=0;
@@ -909,7 +883,6 @@ router.post("/", (req, res, next) => {
 			var editColor4Size4XL=0;
 			
 			var editColorTotal4=0;
-			var editSubCount4=0;
 			
 			var editColor5SizeS=0;
 			var editColor5SizeM=0;
@@ -920,7 +893,6 @@ router.post("/", (req, res, next) => {
 			var editColor5Size4XL=0;
 			
 			var editColorTotal5=0;
-			var editSubCount5=0;
 			
 			var editColor6SizeS=0;
 			var editColor6SizeM=0;
@@ -931,7 +903,6 @@ router.post("/", (req, res, next) => {
 			var editColor6Size4XL=0;
 			
 			var editColorTotal6=0;
-			var editSubCount6=0;
 			
 			var editColor7SizeS=0;
 			var editColor7SizeM=0;
@@ -942,7 +913,6 @@ router.post("/", (req, res, next) => {
 			var editColor7Size4XL=0;
 			
 			var editColorTotal7=0;
-			var editSubCount7=0;
 
 			var editColor8SizeS=0;
 			var editColor8SizeM=0;
@@ -953,7 +923,6 @@ router.post("/", (req, res, next) => {
 			var editColor8Size4XL=0;
 			
 			var editColorTotal8=0;
-			var editSubCount8=0;
 			
 			var editColor9SizeS=0;
 			var editColor9SizeM=0;
@@ -964,7 +933,6 @@ router.post("/", (req, res, next) => {
 			var editColor9Size4XL=0;
 			
 			var editColorTotal9=0;
-			var editSubCount9=0;
 			
 			var editColor10SizeS=0;
 			var editColor10SizeM=0;
@@ -1121,7 +1089,7 @@ router.post("/", (req, res, next) => {
 			'color9Total': editColorTotal9,
 
 			'color10SizeS':editColor10SizeS,
-			'color10SizeM':editColor10SizeS,
+			'color10SizeM':editColor10SizeM,
 			'color10SizeL':editColor10SizeL,
 			'color10SizeXL':editColor10SizeXL,
 			'color10Size2XL':editColor10Size2XL,

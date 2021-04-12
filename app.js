@@ -4,9 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 var logger = require('morgan');
 var helmet = require('helmet');
-//var validator = require('express-validator');
 
 //route vars
 var indexRouter = require('./routes/index');
@@ -61,6 +61,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+//app.use(expressValidator());
 app.use(session({secret: "YouCan(Not)Connect"}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));

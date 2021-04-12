@@ -3,8 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const multer = require('multer');
 const Product = require("../models/products");
-//const validator = require('express-validator');
-const {check, validationResult} = require('express-validator');
+const { check, validationResult } = require('express-validator');
 
 //specify how we store a file through multer
 //save to upload folder and keep original filename
@@ -20,7 +19,7 @@ const storage = multer.diskStorage({
 //limit file type for upload
 const fileFilter = (req, file, cb) => {
     // reject a file
-    if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    if (file.mimetype === 'image/jpeg') {
         cb(null, true);
     } else {
         cb(null, false);
@@ -37,16 +36,38 @@ const upload = multer({
 });
 
 //add product function
-router.post("/", upload.single('productImage'), [	
-		//check("total").isNumeric()
-	],
-	(req, res) => {
-	/*const errors = validationResult(req);
-    console.log(req.body);
-	if (!errors.isEmpty()) {
-		console.log(errors);
-		return res.status(422).jsonp(errors.array());
-	} */
+router.post("/", upload.single('productImage'), [
+	//perform validation
+	//couple with pre-regex func?
+
+	//check("x").not().isEmpty() for value presence
+	//chase strings with .trim().escape()
+	check("name").exists().not().isEmpty().trim().escape(),
+	check("category").exists().not().isEmpty().trim().escape(),
+	check("description").trim().escape(),
+	check("hasSizes").trim().escape(),
+	check("colorCode1").trim().escape(),
+	check("colorCode2").trim().escape(),
+	check("colorCode3").trim().escape(),
+	check("colorCode4").trim().escape(),
+	check("colorCode5").trim().escape(),
+	check("colorCode6").trim().escape(),
+	check("colorCode7").trim().escape(),
+	check("colorCode8").trim().escape(),
+	check("colorCode9").trim().escape(),
+	check("colorCode10").trim().escape(),
+	check("hasSizes").trim().escape(),
+	check("hasColors").trim().escape(),
+	check("multiPrice").trim().escape(),
+	check("singlePrice").trim().escape()
+], (req, res) => {
+	
+	const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        // If error occurs, handel it here    
+        res.send(errors)
+    }
 
 	//need multiple if's to decide on product details
 	if(req.body.hasSizes)

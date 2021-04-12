@@ -5,6 +5,7 @@ var Store = require('../models/store');
 
 //add store function
 /* ! CHANGE TO SETSTORE ! */
+/* ! ADD VALIDATOR ! */
 router.post("/", function(req, res, next){
     const store = new Store({
 		_id: new mongoose.Types.ObjectId(),
