@@ -1,8 +1,7 @@
 /*eslint-env jquery*/
 
+// remove/replace w/set storename method & rename
 //add store to system
-// REMOVE
-
 $(document).ready(
     function() 
     {

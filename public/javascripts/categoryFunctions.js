@@ -140,7 +140,7 @@ function controlForm()
 	{
 		document.getElementById("priceLabel").style.display =  "none";
 		document.getElementById("salePriceLabel").style.display =  "none";
-		
+
 		document.getElementById("inputPriceS").style.display =  "none";
 		document.getElementById("inputPriceM").style.display =  "none";
 		document.getElementById("inputPriceL").style.display =  "none";
@@ -217,8 +217,6 @@ function controlForm()
 			currStyle=i;
 
 			var showSizes = document.getElementById("showSizes").id + currStyle;
-			//var subStyle = document.getElementById("subStyle").id + currStyle;
-			//var addSubStyle = document.getElementById("addSubStyle").id + currStyle;
 				
 			if($('#hasSizes').prop('checked')==true)
 			{
@@ -254,7 +252,6 @@ function controlForm()
 		for(i=1; i<styleIndex+1; i++)
 		{
 			currStyle=i;
-				
 			showSub = document.getElementById("showSub").id + currStyle;
 			document.getElementById(showSub).style.display =  "block";
 		}
@@ -267,7 +264,6 @@ function controlForm()
 		for(i=1; i<styleIndex+1; i++)
 		{
 			currStyle=i;
-
 			var colorTotal = document.getElementById("colorTotal").id + currStyle;
 			document.getElementById(colorTotal).value=0;
 		}
@@ -295,7 +291,6 @@ function updateTotals()
 	var countSize2XL = 0;
 	var countSize3XL = 0;
 	var countSize4XL = 0;
-
 	var countTotal = 0;
 	var tempTotal = 0;
 
@@ -325,20 +320,14 @@ function updateTotals()
 			countSize4XL = parseInt(document.getElementById(size4XL).value);
 			sizeTotal = parseInt(countSizeS) + parseInt(countSizeM) + parseInt(countSizeL) + parseInt(countSizeXL) + parseInt(countSize2XL) + parseInt(countSize3XL) + parseInt(countSize4XL);
 			colorTotal = document.getElementById("colorTotal").id + currStyle;
-			
-			colorTotal = document.getElementById("colorTotal").id + currStyle;
+
 			document.getElementById(colorTotal).value = parseInt(sizeTotal);
 			document.getElementById("countTotal").value = parseInt(document.getElementById("countTotal").value) + parseInt(sizeTotal);
-			
-			//var colorTotal = (document.getElementById("colorTotal").id + currStyle); 
-			//console.log(colorTotal);
-			//document.getElementById(colorTotal).value = tempTotal;
 		}
 	}
 	
 	if($('#hasSizes').prop('checked')==false&&$('#hasColors').prop('checked')==true)
 	{
-		// needs fix
 		colorTotal = 0;
 		countTotal = 0;
 		tempTotal = 0;
@@ -346,21 +335,17 @@ function updateTotals()
 		for(i=1;i<styleIndex+1;i++)
 		{
 			currStyle = i;
-			
 			colorTotal = document.getElementById("colorTotal").id + currStyle;
-			console.log("colorTotal:"+document.getElementById(colorTotal).value);
 			countTotal = countTotal+parseInt(document.getElementById(colorTotal).value);
-			console.log("total:"+countTotal);
 		}
-		console.log("finaltotal:"+countTotal);
+
 		document.getElementById("countTotal").value = parseInt(countTotal);
-		console.log("should be updated!");
 	}
 		
 	if($('#hasSizes').prop('checked')==true&&$('#hasColors').prop('checked')==false)
 	{		
 		countTotal = 0;
-			
+
 		countSizeS = parseInt(document.getElementById("sizeS").value);
 		countSizeM = parseInt(document.getElementById("sizeM").value);
 		countSizeL = parseInt(document.getElementById("sizeL").value);
@@ -393,10 +378,6 @@ function addForm()
 		formControl += "<div class='col-sm-2'>"
 		formControl += "<p>Sub-Style Total:</p><input type='text' class='form-control input-lg required' required='required' name='colorTotal"+i+"' id='colorTotal"+i+"' placeholder='0' onchange='updateTotals()'>"
 		formControl += "</div>"
-		/*formControl += "<div class='col-sm-2' id='showSub"+i+"'>"
-		formControl += "<p>Totals</p>"
-		formControl += "<input type='text' class='form-control input-lg required' required='required' name='subCount"+i+"' id='subCount"+i+"' value='0' onchange='updateTotals()'>"
-		formControl += "</div>"*/
 		formControl += "</div>"
 		formControl += "</div>"
 		formControl += "</div><br>"
@@ -424,6 +405,5 @@ function addForm()
 	}
 	
 	document.getElementById("subStyleMenu").innerHTML = formControl;
-	
 	controlForm();
 }
