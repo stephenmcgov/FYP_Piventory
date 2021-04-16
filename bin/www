@@ -8,15 +8,16 @@ var app = require('../app');
 var debug = require('debug')('project:server');
 var http = require('http');
 //const hostname = '127.0.0.1';
-const hostname = 'localhost';
+//const hostname = 'localhost';
+const hostname = '192.168.0.173 ';
 
 /**
  * Get port from environment and store in Express.
  */
 
 //var port = normalizePort(process.env.PORT || '8638');
-//var port = normalizePort(process.env.PORT || '3000');
-var port = normalizePort(process.env.PORT || '8080');
+var port = normalizePort(process.env.PORT || '3000');
+//var port = normalizePort(process.env.PORT || '8080');
 //const port = 3000;
 app.set('port', port);
 

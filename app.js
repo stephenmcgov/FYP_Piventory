@@ -37,6 +37,21 @@ app.use(helmet.noSniff());
     },
   })
 );*/
+/* SSL Settings 
+// Sets "Expect-CT: maxAge=86400, enforce"
+app.use(
+  helmet.expectCT({
+	maxAge:86400,
+	enforce:true,
+  })
+);
+// Sets "Strict-Transport-Security: max-age=x", set to default
+app.use(
+  helmet.hsts({
+	maxAge:15552000,
+  })
+);
+// End of SSL Settings */
 // Sets "X-DNS-Prefetch-Control: off"
 app.use(
   helmet.dnsPrefetchControl({
@@ -49,6 +64,12 @@ app.use(helmet.ieNoOpen());
 app.use(
   helmet.frameguard({
     action: "sameorigin",
+  })
+);
+// Sets "X-Permitted-Cross-Domain-Policies: none"
+app.use(
+  helmet.permittedCrossDomainPolicies({
+	permittedPolicies: "none",
   })
 );
 // Removes the X-Powered-By header if it was set.

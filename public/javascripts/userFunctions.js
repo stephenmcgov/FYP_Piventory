@@ -2,6 +2,7 @@
 //show reports list on shopfront page
 //going to replace this with search reports function
 //CHECK BRACKETS HERE
+/*
 $(document).ready(
     //call API @routes/index.js
     function getUsers() 
@@ -29,7 +30,7 @@ $(document).ready(
         });
     },
 );
-
+*/
 $(document).ready(
     //call API @routes/index.js
     function getStore() 

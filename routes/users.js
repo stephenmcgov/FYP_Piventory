@@ -4,10 +4,11 @@ var User = require('../models/users');
 var jwt = require('jsonwebtoken');
 
 /* GET users listing */
+/*
 router.get('/', function(req, res, next) {
     res.send('user listing');
 });
-
+*/
 /*
  Creates a JWT
  */
