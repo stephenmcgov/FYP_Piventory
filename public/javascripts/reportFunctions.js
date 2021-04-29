@@ -12,7 +12,6 @@ var i = 0;
 
 /*
 ! ADD CODE TO READ-IN EXCEL AND DISPLAY INFO !
-! REMOVE STORE CONTROLS !
 */
 
 //show reports list on shopfront page
@@ -20,7 +19,6 @@ var i = 0;
 //CHECK BRACKETS HERE
 $(document).ready(
     //call API @routes/index.js
-	/* ! REQUIRES VALIDATION ! */
     function getreports() 
     {
 		$("#eodSearchForm").submit(function (event) 
@@ -36,7 +34,7 @@ $(document).ready(
 					var reports = "";
 					
 					//if all fields blank
-					if(event.target.storeReportName.value==""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value=="")
+					if(event.target.prevEODMonth.value=="Any"&&event.target.prevEODYear.value=="Any")
 					{
 						for (i = 0; i < data.length; i++) 
 						{
@@ -52,46 +50,6 @@ $(document).ready(
 							reports += uID+"</button>";
 							
 							reports += "<div class='panel'><br>";
-							reports += "<p>Store: " + data[i].storeName + "</p>";
-							reports += "<p>Date: " + thisDate + "</p>";
-							reports += "<p>Staff: " + data[i].staffName + "</p>";
-							reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-							reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-							reports += "<br>";
-							reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-							reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-							reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-							reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-							reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-							reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-							reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-							reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-							reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-							
-							reports += "</div><br>"
-						}
-					}
-					
-					//if only store
-					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value=="")
-					{
-						for (i = 0; i < data.length; i++) 
-						{
-							if(event.target.storeReportName.value==data[i].storeName)
-							{
-							uID = data[i].Curr_Date + " : " + data[i].storeName;
-							uID = uID.replace("T"," at ");
-							uID = uID.replace(".000Z"," ");
-							
-							thisDate = data[i].Curr_Date;
-							thisDate = thisDate.replace("T"," at ");
-							thisDate = thisDate.replace(".000Z"," ");
-							
-							reports += "<button class='btn-success'>";
-							reports += uID+"</button>";
-							
-							reports += "<div class='panel'><br>";
-							reports += "<p>Store: " + data[i].storeName + "</p>";
 							reports += "<p>Date: " + thisDate + "</p>";
 							reports += "<p>Staff: " + data[i].staffName + "</p>";
 							reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
@@ -112,7 +70,7 @@ $(document).ready(
 					}
 					
 					//if only month
-					if(event.target.storeReportName.value==""&&event.target.prevEODMonth.value!=""&&event.target.prevEODYear.value=="")
+					if(event.target.prevEODMonth.value!="Any"&&event.target.prevEODYear.value=="Any")
 					{
 						var parseMonth = "";
 						
@@ -157,7 +115,6 @@ $(document).ready(
 								reports += uID+"</button>";
 								
 								reports += "<div class='panel'><br>";
-								reports += "<p>Store: " + data[i].storeName + "</p>";
 								reports += "<p>Date: " + thisDate + "</p>";
 								reports += "<p>Staff: " + data[i].staffName + "</p>";
 								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
@@ -178,7 +135,7 @@ $(document).ready(
 					}
 					
 					//if only year
-					if(event.target.storeReportName.value==""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value!="")
+					if(event.target.prevEODMonth.value=="Any"&&event.target.prevEODYear.value!="Any")
 					{
 						for (i = 0; i < data.length; i++) 
 						{
@@ -196,112 +153,6 @@ $(document).ready(
 								reports += uID+"</button>";
 								
 								reports += "<div class='panel'><br>";
-								reports += "<p>Store: " + data[i].storeName + "</p>";
-								reports += "<p>Date: " + thisDate + "</p>";
-								reports += "<p>Staff: " + data[i].staffName + "</p>";
-								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-								reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-								reports += "<br>";
-								reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-								reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-								reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-								reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-								reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-								reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-								reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-								reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-								reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-								
-								reports += "</div><br>"
-							}
-						}
-					}
-					
-					//if store + month
-					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value!=""&&event.target.prevEODYear.value=="")
-					{	
-						if(event.target.prevEODMonth.value=="January")
-							parseMonth="01";
-						if(event.target.prevEODMonth.value=="February")
-							parseMonth="02";
-						if(event.target.prevEODMonth.value=="March")
-							parseMonth="03";
-						if(event.target.prevEODMonth.value=="April")
-							parseMonth="04";
-						if(event.target.prevEODMonth.value=="May")
-							parseMonth="05";
-						if(event.target.prevEODMonth.value=="June")
-							parseMonth="06";
-						if(event.target.prevEODMonth.value=="July")
-							parseMonth="07";
-						if(event.target.prevEODMonth.value=="August")
-							parseMonth="08";
-						if(event.target.prevEODMonth.value=="September")
-							parseMonth="09";
-						if(event.target.prevEODMonth.value=="October")
-							parseMonth="10";
-						if(event.target.prevEODMonth.value=="November")
-							parseMonth="11";
-						if(event.target.prevEODMonth.value=="December")
-							parseMonth="12";
-						
-						for (i = 0; i < data.length; i++) 
-						{
-							if(event.target.storeReportName.value==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7))
-							{
-								uID = data[i].Curr_Date + " : " + data[i].storeName;
-								uID = uID.replace("T"," at ");
-								uID = uID.replace(".000Z"," ");
-								
-								thisDate = data[i].Curr_Date;
-								thisDate = thisDate.replace("T"," at ");
-								thisDate = thisDate.replace(".000Z"," ");
-								
-								reports += "<button class='btn-success'>";
-								reports += uID+"</button>";
-								
-								reports += "<div class='panel'><br>";
-								reports += "<p>Store: " + data[i].storeName + "</p>";
-								reports += "<p>Date: " + thisDate + "</p>";
-								reports += "<p>Staff: " + data[i].staffName + "</p>";
-								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
-								reports += "<p>Shift End: " + data[i].shiftEnd + "</p>";
-								reports += "<br>";
-								reports += "<p>Start Float: " + data[i].BOD_Float + "</p>";
-								reports += "<p>Cash Sales: " + data[i].EOD_Cash + "</p>";
-								reports += "<p>Card Sales: " + data[i].EOD_Card + "</p>";
-								reports += "<p>Other: " + data[i].EOD_Other + "</p>";
-								reports += "<p>Expenses: " + data[i].Expenses + "</p>";
-								reports += "<p>Cash Total: " + data[i].EOD_CashTotal + "</p>";
-								reports += "<p>Full Total: " + data[i].EOD_Total + "</p>";
-								reports += "<p>End Float: " + data[i].EOD_Float + "</p>";
-								reports += "<p>Float Error: " + data[i].floatDiff + "</p>";
-								
-								reports += "</div><br>"
-							}
-						}
-					}
-					
-					//if store + year
-					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value==""&&event.target.prevEODYear.value!="")
-					{
-						for (i = 0; i < data.length; i++) 
-						{
-							if(event.target.storeReportName.value==data[i].storeName&&event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
-							{
-								uID = data[i].Curr_Date + " : " + data[i].storeName;
-								uID = uID.replace("T"," at ");
-								uID = uID.replace(".000Z"," ");
-								
-								thisDate = data[i].Curr_Date;
-								thisDate = thisDate.replace("T"," at ");
-								thisDate = thisDate.replace(".000Z"," ");
-								
-								reports += "<button class='btn-success'>";
-								reports += uID+"</button>";
-								
-								reports += "<div class='panel'><br>";
-								reports += "<p>Store: " + data[i].storeName + "</p>";
 								reports += "<p>Date: " + thisDate + "</p>";
 								reports += "<p>Staff: " + data[i].staffName + "</p>";
 								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
@@ -323,7 +174,7 @@ $(document).ready(
 					}
 					
 					//if month + year
-					if(event.target.storeReportName.value==""&&event.target.prevEODMonth.value!=""&&event.target.prevEODYear.value!=""){
+					if(event.target.prevEODMonth.value!="Any"&&event.target.prevEODYear.value!="Any"){
 						
 						if(event.target.prevEODMonth.value=="January")
 							parseMonth="01";
@@ -366,7 +217,6 @@ $(document).ready(
 								reports += uID+"</button>";
 								
 								reports += "<div class='panel'><br>";
-								reports += "<p>Store: " + data[i].storeName + "</p>";
 								reports += "<p>Date: " + thisDate + "</p>";
 								reports += "<p>Staff: " + data[i].staffName + "</p>";
 								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
@@ -388,7 +238,7 @@ $(document).ready(
 					}
 					
 					//if all fields filled
-					if(event.target.storeReportName.value!=""&&event.target.prevEODMonth.value!=""&&event.target.prevEODYear.value!="")
+					if(event.target.prevEODMonth.value!="Any"&&event.target.prevEODYear.value!="Any")
 					{
 						if(event.target.prevEODMonth.value=="January")
 							parseMonth="01";
@@ -417,7 +267,7 @@ $(document).ready(
 						
 						for (i = 0; i < data.length; i++) 
 						{
-							if(event.target.storeReportName.value==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7)&&event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
+							if(parseMonth==data[i].Curr_Date.substring(5,7)&&event.target.prevEODYear.value==data[i].Curr_Date.substring(0,4))
 							{
 								uID = data[i].Curr_Date + " : " + data[i].storeName;
 								uID = uID.replace("T"," at ");
@@ -431,7 +281,6 @@ $(document).ready(
 								reports += uID+"</button>";
 								
 								reports += "<div class='panel'><br>";
-								reports += "<p>Store: " + data[i].storeName + "</p>";
 								reports += "<p>Date: " + thisDate + "</p>";
 								reports += "<p>Staff: " + data[i].staffName + "</p>";
 								reports += "<p>Shift Start: " + data[i].shiftStart + "</p>";
@@ -451,18 +300,19 @@ $(document).ready(
 							}
 						}
 					}
+
+					if(reports=='')
+						reports += "No reports found for submitted dates!" + "<br><br><br>";
 					
 					$("#feedreports").html(reports);
 				}
-			}
+			});
 		});
-	});
-});
+	}
+);
 
 function showEOD_report()
-{
-	//need to set storename, leave as prefilled for now					
-	var storeName = document.getElementById("storeName").value;
+{			
 	var staffName = document.getElementById("inputStaffName").value;
 	var shiftStart = document.getElementById("inputShiftStart").value;
 	var shiftEnd = document.getElementById("inputShiftEnd").value;
@@ -486,7 +336,7 @@ function showEOD_report()
 	
 	var EODreport = "";
 	EODreport += "<br>";EODreport += "<br>";EODreport += "<br>";
-	EODreport += "<h2>EOD Report for: " + storeName + " on " + dateString + " at " + timeStamp + "</h2><br>";
+	EODreport += "<h2>EOD Report for: " + dateString + " at " + timeStamp + "</h2><br>";
 	EODreport += "<p>Staff: " + staffName + "</p>";
 	EODreport += "<p>Shift Start: " + shiftStart + "</p>";
 	EODreport += "<p>Shift End: " + shiftEnd + "</p>";
@@ -515,7 +365,6 @@ function showEOD_report()
 
 function genBatchSalesExcel() 
 {
-	var store = document.getElementById("storeReportName").value;
 	var month = document.getElementById("prevEODMonth").value
 	var year = document.getElementById("prevEODYear").value;	
 	var parseMonth = "";
@@ -560,7 +409,6 @@ function genBatchSalesExcel()
 			var row = "";
 	
 			row += '"' + "DATE" + '",';
-			row += '"' + "STORE" + '",';
 			row += '"' + "STAFF NAME" + '",';
 			row += '"' + "SHIFT START" + '",';
 			row += '"' + "SHIFT END" + '",';
@@ -577,14 +425,13 @@ function genBatchSalesExcel()
 			CSV += row + '\r\n';
 			
 			//if all fields blank
-			if(store==""&&month==""&&year=="")
+			if(month=="Any"&&year=="Any")
 			{
 				for (i = 0; i < data.length; i++)
 				{
 					row = "";
         
 					row += '"' + data[i].Curr_Date + '",';
-					row += '"' + data[i].storeName + '",';
 					row += '"' + data[i].staffName + '",';
 					row += '"' + data[i].shiftStart + '",';
 					row += '"' + data[i].shiftEnd + '",';
@@ -603,38 +450,8 @@ function genBatchSalesExcel()
 				}
 			}
 
-			//if only store
-			if(store!=""&&month==""&&year=="")
-			{
-				for (i = 0; i < data.length; i++)
-				{
-					if(store==data[i].storeName)
-					{
-						row = "";
-
-						row += '"' + data[i].Curr_Date + '",';
-						row += '"' + data[i].storeName + '",';
-						row += '"' + data[i].staffName + '",';
-						row += '"' + data[i].shiftStart + '",';
-						row += '"' + data[i].shiftEnd + '",';
-						row += '"' + data[i].BOD_Float + '",';
-						row += '"' + data[i].EOD_Cash + '",';
-						row += '"' + data[i].EOD_Other + '",';
-						row += '"' + data[i].EOD_Card + '",';
-						row += '"' + data[i].Expenses + '",';
-						row += '"' + data[i].EOD_CashTotal + '",';
-						row += '"' + data[i].EOD_Total + '",';
-						row += '"' + data[i].EOD_Float + '",';
-						row += '"' + data[i].floatDiff + '",';
-
-						//add a line break after each row
-						CSV += row + '\r\n';
-					}
-				}
-			}
-
 			//if only month
-			if(store==""&&month!=""&&year=="")
+			if(month!="Any"&&year=="Any")
 			{
 				for (i = 0; i < data.length; i++)
 				{
@@ -643,7 +460,6 @@ function genBatchSalesExcel()
 						row = "";
 
 						row += '"' + data[i].Curr_Date + '",';
-						row += '"' + data[i].storeName + '",';
 						row += '"' + data[i].staffName + '",';
 						row += '"' + data[i].shiftStart + '",';
 						row += '"' + data[i].shiftEnd + '",';
@@ -664,7 +480,7 @@ function genBatchSalesExcel()
 			}
 
 			//if only year
-			if(store==""&&month==""&&year!="")
+			if(month=="Any"&&year!="Any")
 			{
 				for (i = 0; i < data.length; i++)
 				{
@@ -673,67 +489,6 @@ function genBatchSalesExcel()
 						row = "";
 
 						row += '"' + data[i].Curr_Date + '",';
-						row += '"' + data[i].storeName + '",';
-						row += '"' + data[i].staffName + '",';
-						row += '"' + data[i].shiftStart + '",';
-						row += '"' + data[i].shiftEnd + '",';
-						row += '"' + data[i].BOD_Float + '",';
-						row += '"' + data[i].EOD_Cash + '",';
-						row += '"' + data[i].EOD_Other + '",';
-						row += '"' + data[i].EOD_Card + '",';
-						row += '"' + data[i].Expenses + '",';
-						row += '"' + data[i].EOD_CashTotal + '",';
-						row += '"' + data[i].EOD_Total + '",';
-						row += '"' + data[i].EOD_Float + '",';
-						row += '"' + data[i].floatDiff + '",';
-
-						//add a line break after each row
-						CSV += row + '\r\n';
-					}
-				}
-			}
-
-			//if store + month
-			if(store!=""&&month!=""&&year=="")
-			{
-				for (i = 0; i < data.length; i++)
-				{
-					if(store==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7))
-					{
-						row = "";
-
-						row += '"' + data[i].Curr_Date + '",';
-						row += '"' + data[i].storeName + '",';
-						row += '"' + data[i].staffName + '",';
-						row += '"' + data[i].shiftStart + '",';
-						row += '"' + data[i].shiftEnd + '",';
-						row += '"' + data[i].BOD_Float + '",';
-						row += '"' + data[i].EOD_Cash + '",';
-						row += '"' + data[i].EOD_Other + '",';
-						row += '"' + data[i].EOD_Card + '",';
-						row += '"' + data[i].Expenses + '",';
-						row += '"' + data[i].EOD_CashTotal + '",';
-						row += '"' + data[i].EOD_Total + '",';
-						row += '"' + data[i].EOD_Float + '",';
-						row += '"' + data[i].floatDiff + '",';
-
-						//add a line break after each row
-						CSV += row + '\r\n';
-					}
-				}
-			}
-
-			//if store + year
-			if(store!=""&&month==""&&year!="")
-			{
-				for (i = 0; i < data.length; i++)
-				{
-					if(store==data[i].storeName&&year==data[i].Curr_Date.substring(0,4))
-					{
-						row = "";
-
-						row += '"' + data[i].Curr_Date + '",';
-						row += '"' + data[i].storeName + '",';
 						row += '"' + data[i].staffName + '",';
 						row += '"' + data[i].shiftStart + '",';
 						row += '"' + data[i].shiftEnd + '",';
@@ -754,7 +509,7 @@ function genBatchSalesExcel()
 			}
 
 			//if month + year
-			if(store==""&&month!=""&&year!="")
+			if(month!="Any"&&year!="Any")
 			{
 				for (i = 0; i < data.length; i++)
 				{
@@ -763,7 +518,6 @@ function genBatchSalesExcel()
 						row = "";
 
 						row += '"' + data[i].Curr_Date + '",';
-						row += '"' + data[i].storeName + '",';
 						row += '"' + data[i].staffName + '",';
 						row += '"' + data[i].shiftStart + '",';
 						row += '"' + data[i].shiftEnd + '",';
@@ -782,36 +536,6 @@ function genBatchSalesExcel()
 					}
 				}
 			}
-
-			//if all fields filled
-			if(store!=""&&month!=""&&year!="")
-			{
-				for (i = 0; i < data.length; i++)
-				{
-					if(store==data[i].storeName&&parseMonth==data[i].Curr_Date.substring(5,7)&&year==data[i].Curr_Date.substring(0,4))
-					{
-						row = "";
-
-						row += '"' + data[i].Curr_Date + '",';
-						row += '"' + data[i].storeName + '",';
-						row += '"' + data[i].staffName + '",';
-						row += '"' + data[i].shiftStart + '",';
-						row += '"' + data[i].shiftEnd + '",';
-						row += '"' + data[i].BOD_Float + '",';
-						row += '"' + data[i].EOD_Cash + '",';
-						row += '"' + data[i].EOD_Other + '",';
-						row += '"' + data[i].EOD_Card + '",';
-						row += '"' + data[i].Expenses + '",';
-						row += '"' + data[i].EOD_CashTotal + '",';
-						row += '"' + data[i].EOD_Total + '",';
-						row += '"' + data[i].EOD_Float + '",';
-						row += '"' + data[i].floatDiff + '",';
-
-						//add a line break after each row
-						CSV += row + '\r\n';
-					}
-				}
-			}                    	
 
 			if (CSV == '') 
 			{        
@@ -1109,6 +833,8 @@ function popEODYear()
         url: '/getReports/',
         success: function (data) 
         {
+			yearList += "<option value='Any'>Any</option>";
+
 			for (i = 0; i < data.length; i++)
 			{			
 				date = data[i].Curr_Date;
@@ -1125,7 +851,7 @@ function popEODYear()
 				}
 			}
 					
-			$("#prevEODYearList").html(yearList);	
+			$("#prevEODYearList").html(yearList);
 		}		
 	});
 });

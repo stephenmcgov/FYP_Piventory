@@ -44,19 +44,11 @@ body{
 		<h2>Previous EOD Reports</h2><br>
 		<form class="form-horizontal" role="form" name="eodSearchForm" id="eodSearchForm" method="post">
 		<div class="row">
-			<div class="col-sm-3">
-				<label for="store" class="control-label">Store</label>	
-				<!--<select class="selectpicker" id="storeReportList" data-style="btn-info" name="selectpicker" onchange="fillStoreReportField()" onclick="fillStoreReportField()">
-					<optgroup label="Select Store">
-					
-					</optgroup>
-				</select> -->
-				<br><input type="text" class="form-control input-lg" name="storeReportName" id="storeReportName" value="Example">	
-			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<label for="month" class="control-label">Month</label>	
 				<select class="selectpicker" id="prevEODMonthList" data-style="btn-info" name="selectpicker" onchange="fillEODMonth()" onclick="fillEODMonth()">
 					<optgroup label="Select Month">
+						<option value="Any">Any</option>
 						<option value="January">January</option>
 						<option value="February">February</option>
 						<option value="March">March</option>
@@ -71,18 +63,18 @@ body{
 						<option value="December">December</option>
 					</optgroup>
 				</select> 
-				<br><input type="text" class="form-control input-lg" name="prevEODMonth" id="prevEODMonth" placeholder="Use List ^">	
+				<br><input type="text" class="form-control input-lg" name="prevEODMonth" id="prevEODMonth" value="Any">	
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<label for="year" class="control-label">Year</label>	
 				<select class="selectpicker" id="prevEODYearList" data-style="btn-info" name="selectpicker" onchange="fillEODYear()" onclick="fillEODYear()">
 					<optgroup label="Select Year">
-					
+						
 					</optgroup>
 				</select> 
-				<br><input type="text" class="form-control input-lg" name="prevEODYear" id="prevEODYear" placeholder="Use List ^">	
+				<br><input type="text" class="form-control input-lg" name="prevEODYear" id="prevEODYear" value="Any">	
 			</div>
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<br><br><input style="width:100%" type='submit' id='searchReportSubmit' value='Search'>
 			</div>	
 		</div>
