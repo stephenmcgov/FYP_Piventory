@@ -2,11 +2,12 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-//var session = require('express-session');
+var session = require('express-session');
 var bodyParser = require('body-parser');
-//var expressValidator = require('express-validator');
+var expressValidator = require('express-validator');
 var logger = require('morgan');
 var helmet = require('helmet');
+var mongoSanitize = require('express-mongo-sanitize');
 
 //route vars
 var indexRouter = require('./routes/index');
@@ -77,13 +78,23 @@ app.use(helmet.hidePoweredBy());
 // Sets "X-XSS-Protection: 0"
 app.use(helmet.xssFilter());
 
+//To remove data, use:
+app.use(mongoSanitize());
+
+//Or to replace prohibited characters with _, use:
+/*
+app.use(mongoSanitize({
+  replaceWith: '_'
+}));
+*/
+
 //setup background env
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.use(expressValidator());
-//app.use(session({secret: "YouCan(Not)Connect"}));
+app.use(session({secret: "YouCan(Not)Connect"}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
