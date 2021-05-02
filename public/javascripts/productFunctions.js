@@ -96,7 +96,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].priceM + "</p>";
+									products += "<p class='price'>M: €" + data[i].priceM + "</p>";
 							}
 							
 							if(data[i].priceL>0)
@@ -110,7 +110,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].priceL + "</p>";
+									products += "<p class='price'>L: €" + data[i].priceL + "</p>";
 							}
 							
 							if(data[i].priceXL>0)
@@ -124,7 +124,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].priceXL + "</p>";
+									products += "<p class='price'>XL: €" + data[i].priceXL + "</p>";
 							}
 							
 							if(data[i].price2XL>0)
@@ -138,7 +138,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].price2XL + "</p>";
+									products += "<p class='price'>2XL: €" + data[i].price2XL + "</p>";
 							}
 							
 							if(data[i].price3XL>0)
@@ -152,7 +152,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].price3XL + "</p>";
+									products += "<p class='price'>3XL: €" + data[i].price3XL + "</p>";
 							}
 							
 							if(data[i].price4XL>0)
@@ -166,7 +166,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].price4XL + "</p>";
+									products += "<p class='price'>4XL: €" + data[i].price4XL + "</p>";
 							}
 						}		
 						
@@ -245,7 +245,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].priceM + "</p>";
+									products += "<p class='price'>M: €" + data[i].priceM + "</p>";
 							}
 							
 							if(data[i].priceL>0)
@@ -259,7 +259,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].priceL + "</p>";
+									products += "<p class='price'>L: €" + data[i].priceL + "</p>";
 							}
 							
 							if(data[i].priceXL>0)
@@ -273,7 +273,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].priceXL + "</p>";
+									products += "<p class='price'>XL: €" + data[i].priceXL + "</p>";
 							}
 							
 							if(data[i].price2XL>0)
@@ -287,7 +287,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].price2XL + "</p>";
+									products += "<p class='price'>2XL: €" + data[i].price2XL + "</p>";
 							}
 							
 							if(data[i].price3XL>0)
@@ -301,7 +301,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].price3XL + "</p>";
+									products += "<p class='price'>3XL: €" + data[i].price3XL + "</p>";
 							}
 							
 							if(data[i].price4XL>0)
@@ -315,7 +315,7 @@ $(document).ready(
 								}
 								
 								else
-									products += "<p class='price'>S: €" + data[i].price4XL + "</p>";
+									products += "<p class='price'>4XL: €" + data[i].price4XL + "</p>";
 							}
 						}	
                        

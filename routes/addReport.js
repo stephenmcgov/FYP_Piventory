@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 var Report = require('../models/reports');
 const { check, validationResult } = require('express-validator');
 
-//add store function
+//add report function (posts but throws validation error)
 router.post("/", [
     check("storeName").exists().not().isEmpty().trim().escape(),
     check("staffName").exists().not().isEmpty().trim().escape(),
@@ -23,7 +23,7 @@ router.post("/", [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        // If error occurs, handel it here    
+        // If error occurs, handle it here    
         res.send(errors)
     }
 
