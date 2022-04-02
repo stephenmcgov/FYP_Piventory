@@ -34,6 +34,9 @@ install dependencies to project folder, uses nodemon and express packages, misc 
 ```cd FYP_Piventory```
 ```npm install```
 
+*IMPORTANT* update all packages to current versions, see https://docs.npmjs.com/cli/v7/commands/npm-update for more info
+```npm update```
+
 start app service
 ```npm start```
 
