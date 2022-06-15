@@ -1,6 +1,10 @@
 # FYP_Piventory
 FYP Stock System
 
+!IMPORTANT!
+Due to multiple unresolved vulnerabilites across several dependencies, this project should not be actively used in any setting where it could pose a potential risk to host systems: commercial, personal or otherwise. See ```npm audit``` after project installation for more details. This repository is not actively maintained.
+
+INSTALLATION GUIDE
 install nodejs:
 
 * For Windows:
